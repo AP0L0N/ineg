@@ -1,0 +1,260 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% set seoTitle = "Vrtne hiške, nadstreški in specialni projekti" %}
+{% set seoDescription = "Vrtne hiške, lope in nadstreški so nepogrešljivi del vsakega doma. V kombinaciji lesa in ostalih materialov, kot so pločevina, steklo, aluminij; so potrebni da lahko spravite vso vrtno opremo, opremo za taborenje, kolesa, motorje, avtomobilov, itd v varno zavetje. Moderen izgled, unikaten dizajn in prilagodljive dimenzije vam omogočajo svobodno izbiro in postavitev in tako boste imeli svoj vrt urejen; avtomobile pa pod vasrno zaščito pred vremenskimi ujmami." %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <!-- Naslovni modul -->
+        <section class="sct-color-2 custom-main-banner" style="background-image: url(/assets/images/vrtne_hiske/vrtne-hiske-banner.jpg)">
+            <div class="container slice-xl">
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <div class="animate-on-scroll fadeInUp heading-content">
+                            <h3 class="heading heading-lg strong-600">
+                                Vrtne hiške, nadstreški in specialni projekti
+                            </h3>
+                            <h3 class="heading heading-4 strong-300 border-0">
+                                Moderen dizajn ter kombinacija lesa, profilirane pločevine ter ostalih materialov pustijo brezčasni pečat vsakega doma. 
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <span class="clearfix"></span>
+            </div>
+        </section>
+
+
+        <!-- Različne vrste izgledov -->
+        <section class="slice-xl sct-color-1 mt-5 pb-5" id="scrollToSection">
+            <div class="container">
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <h3 class="heading-md strong-600 text-uppercase">
+                        <span>Različni primeri postavitve</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+
+                <span class="clearfix"></span>
+
+                <div class="row row-sm-padding cols-xs-space cols-sm-space cols-md-space">
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image">
+                                    <img src="/assets/images/vrtne_hiske/modul 2_1.jpg">
+                                </div>
+                            </div>
+                            <div class="max-content minimal-content">
+                                <p class="title">
+                                    Nadstrešek za avto z majhno lopo
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 27m<span class="square">2</span>
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> KWH smrekov les; macesen
+                                    </li>
+                                    <li>
+                                        <strong>Streha:</strong> izotek s posipom; obroba: siva pocinkana pločevina
+                                    </li>
+                                    <li>
+                                        <strong>Montaža:</strong> lesena konstrukcija (barvana); leseno stavbno pohištvo (okna in vrata); gladke deske 7 cm širine
+                                    </li>
+                                    <li class="price">
+                                        <strong>Cena:</strong> <span class="text-primary">9.750 EUR (z DDV)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image">
+                                    <img src="/assets/images/vrtne_hiske/modul 2_2.jpg">
+                                </div>
+                            </div>
+                            <div class="max-content minimal-content">
+                                <p class="title">
+                                    Vrtna hiška
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 15m<span class="square">2</span>
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> KWH smrekov les; macesen (oblika romboid)
+                                    </li>
+                                    <li>
+                                        <strong>Streha:</strong> izotek s posipom; obroba: antracit pocinkana pločevina
+                                    </li>
+                                    <li>
+                                        <strong>Montaža:</strong> lesena konstrukcija; leseno stavbno pohištvo (okna in vrata); gladke romboid deske 7 cm širine
+                                    </li>
+                                    <li class="price">
+                                        <strong>Cena:</strong> <span class="text-primary">8.850 EUR (z DDV)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image">
+                                    <img src="/assets/images/vrtne_hiske/modul 2_3.jpg">
+                                </div>
+                            </div>
+                            <div class="max-content minimal-content">
+                                <p class="title">
+                                    Vrtna pergola z brisoleji
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 24m<span class="square">2</span>
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> smrekov les
+                                    </li>
+                                    <li>
+                                        <strong>Streha:</strong> izotek s posipom; obroba: antracit pocinkana pločevina
+                                    </li>
+                                    <li>
+                                        <strong>Montaža:</strong> lesena konstrukcija; terasa: gladke deske 12 cm širine; brisole: smrekove letve 4x4; oljeno z barvnim pigmentom
+                                    </li>
+                                    <li class="price">
+                                        <strong>Cena:</strong> <span class="text-primary">6.500 EUR (z DDV)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- SPECIALNI PROJETKI PO NAROČILU -->
+        <section class="slice sct-color-1 pb-0" id="scrollToSection">
+
+            <div class="container">
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <h3 class="heading-md strong-600 text-uppercase">
+                        <span>SPECIALNI PROJETKI PO NAROČILU</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+            </div>
+
+            <section class="sct-color-2">
+                <div class="row row-no-padding align-items-center cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-6">
+                        <img src="/assets/images/vrtne_hiske/modul3_1.jpg" class="img-fluid img-center">
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Moderna pasja hiška
+                            </h3>
+                            <p class="lead mt-4">
+                                Za hišne ljubljenčke, je lahko prav tako poskrbljeno, da imajo možnost bivanja v modernih hiškah. Kombinacija lesa in črnega železa zagotovi lep dizajn in pa varnost ter udobje, ki sta ključna za srečno sobivanje.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sct-color-1">
+                <div class="row row-no-padding align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <img src="/assets/images/vrtne_hiske/modul3_2.jpg" class="img-fluid img-center">
+                    </div>
+
+                    <div class="col-lg-5 ml-lg-auto order-lg-1">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Interierna predelna stena
+                            </h3>
+                            <p class="lead mt-4">
+                                Moderna izbira naravnega in barvanega lesa, z ročno postavitvijo vsakega detaljla, daje prostoru brezčasen izgled. Kombinacija intimnosti in prepustnost svetlobe je bila ključna želja naročnika. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sct-color-2">
+                <div class="row row-no-padding align-items-center cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-6">
+                        <div class="slick-gallery">
+                            <img src="/assets/images/vrtne_hiske/modul3_3a-white.jpg" class="img-fluid img-center">
+                            <img src="/assets/images/vrtne_hiske/modul3_3b-white.jpg" class="img-fluid img-center">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Glamping hiška
+                            </h3>
+                            <p class="lead mt-4">
+                                Futuristična zasnova in uporaba lesenih elementov ter stekla zagotavlja izdelku popolno zlitje z naravo. S svojo unikatnostjo pritegne vsak pogled. Kljub temu pa je v notrajnosti postavtavitev elementov kombinirana z občutkom estetitke in prostornosti.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <!-- Instagram -->
+        <section class="blogs sct-color-2 slice-sm">
+            <div class="container-fluid pt-3">
+                <div class="row">
+                    <div class="col">
+                        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                        <div class="elfsight-app-b5af9eb8-ed43-4b8b-825f-32434906e375"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Kontakt -->
+        <section class="slice sct-color-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="section-title section-title--style-2 text-center mb-3">
+                                <h3 class="section-title-inner heading-2 strong-400">
+                                    <span>Si želiš tudi ti imeti lepo vrtno hiško, lopo ali uto?</span>
+                                </h3>
+                            </div>
+                            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300">
+                                <div class="btn-container">
+                                    <a href="/kontakt" class="link link-sm mt-3 link-with-circle btn btn-styled btn-base-1 btn-circle"><span class="text">Pošljite povpraševanje</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endif %}
+
+{% endblock %}

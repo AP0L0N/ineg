@@ -1,0 +1,71 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 07272e42-3e7d-4087-98a4-6eeb9adaf23b # Projects
+handle: projectInfo
+instructions: ''
+name: 'Project info'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 7417ad53-6e3c-42d5-993e-01a30a89c786 # Javen projekt (prikaži na strani)
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 1cc578ce-1bdc-4a2f-bedc-bddf160f0f71 # Naziv projekta
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - fae29ee3-847e-45f1-8210-7fc11d40ed31 # Opis
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 141b5a28-695a-47e8-9cee-2b03ee4cda42 # Naslov (lokacija)
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 22bdda27-7218-4b53-8731-2baa65201af4 # Cena projekta
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 06d51d8a-2795-492c-8e5a-e905f8b52c78 # Galerija slik
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 8130d6cf-8c9f-4b71-876a-cbbf06c47df8 # Datoteke (nikoli javne)
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_projectinfo}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

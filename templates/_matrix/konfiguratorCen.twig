@@ -1,0 +1,193 @@
+<div class="price-calculator {{ field is defined and field.customCssClasses ? field.customCssClasses }}" id="priceCalculator">
+	<div class="container">
+		<div class="inner-wrapper">
+
+			<div class="image-wrapper">
+				{% include "helpers/picture" with {desktop: {image: '/assets/images/logo_inverted.png', width: 150 } } %}
+			</div>
+
+			<div class="header">
+				<p class="title">{{ nastavitveKonfiguratorjaCen.ksNaslov }}</p>
+				<p class="description">{{ nastavitveKonfiguratorjaCen.ksOpis }}</p>
+			</div>
+
+			<div class="price-and-summary">
+				<div class="price-wrapper" v-if="services.length > 0">
+
+					<form>
+						<div class="select-wrapper">
+							<label for="selectedService">{{ "Izberite storitev" }}</label>
+							<select v-model="selectedService" id="selectedService">
+								<option :value="item" v-for="item in services">[[ item.nazivStoritve ]]</option>
+							</select>
+						</div>
+
+						<div class="service-items" v-if="selectedService">
+							<div class="select-wrapper" v-for="(item, index) in selectedService.postavke" :key="index" v-if="Object.keys(selectedItems).length > (index - 1)">
+								<label :for="'item-' + index">[[ item.nazivPostavke ]]</label>
+								<select v-model="selectedItems[item.nazivPostavke]">
+									<option :value="pos" v-for="pos in item.postavke">[[ pos.vrsta ]]</option>
+								</select>
+							</div>
+						</div>
+					</form>
+
+				</div>
+
+				<div class="summary" v-if="selectedService !== '' && Object.keys(selectedItems).length === selectedService.postavke.length">
+					<div class="summary-inner-wrapper">
+
+						<div class="form-wrapper">
+							<form @submit.prevent="storePriceCalculation">
+								<div class="input-wrapper">
+									<label for="firstAndLastName">{{ "Ime in priimek" | t }}</label>
+									<input type="text" id="firstAndLastName" class="form-control" name="firstAndLastName" v-model="user.name" required>
+								</div>
+
+								<div class="input-wrapper">
+									<label for="email">{{ "E-naslov" | t }}</label>
+									<input type="email" id="email" class="form-control" name="email" v-model="user.email" required>
+								</div>
+
+								<div class="input-wrapper">
+									<label for="notes">{{ "Dodatno (izbirno)" | t }}</label>
+									<textarea name="notes" id="notes" cols="30" rows="7" v-model="user.notes" class="form-control"></textarea>
+								</div>
+
+								<div class="actions">
+									<button class="btn btn-default btn-lg"><span>{{ "Pošlji povpraševanje" | t }}</span></button>
+								</div>
+
+								<p class="form-success" v-if="userSubmitted">
+									{{ nastavitveKonfiguratorjaCen.ksZahvalaZaOddanoPovprasevanje }}
+								</p>
+							</form>
+						</div>
+
+						<div class="estimated-price" v-if="userSubmitted">
+							<div class="items-summary" v-if="Object.keys(selectedItems).length > 0">
+								<ul>
+									<li v-for="[key, value] of Object.entries(selectedItems)">
+										<span>[[ key ]]:</span> <strong>+[[ value.cena ]]€<small>/</small>m<span class="measure-unit">2</span></strong>
+									</li>
+								</ul>
+							</div>
+	
+							<div class="price">
+								<p class="mb-2"><span>{{ "Okvirna cena" | t }}:</span> <strong>[[ price ]]€<small>/</small>m<span class="measure-unit">2</span></strong></p>
+								<p class="note mb-1">{{ "Cena vključuje: les, pritrdilni material in montažo" | t }}</p>
+								<p class="note mb-2">{{ "Obračunan je 9,5% DDV" | t }}</p>
+								<p class="note mb-0"><a href="javascript:" @click="reset" style="text-decoration: underline;font-size: 18px;color: black;font-weight: bold;margin-top: 10px;">{{ "Ponastavi konfigurator"}}</a></p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+<script>
+    new Vue({
+        el: '#priceCalculator',
+        data: {
+            selectedService: '',
+            selectedItems: {},
+	        services: [],
+	        price: 0,
+	        user: {
+                name: '',
+		        email: '',
+		        notes: ''
+	        },
+	        userSubmitted: false
+        },
+	    watch: {
+            selectedService: {
+                handler: function() {
+	                this.selectedItems = {};
+                    this.recalculatePrice();
+                },
+	            deep: true
+            },
+            selectedItems: {
+                handler: function() {
+                    this.recalculatePrice();
+                },
+                deep: true // Add deep watching
+            }
+	    },
+        delimiters: ['[[', ']]'],
+	    methods: {
+            recalculatePrice: function() {
+                this.price = 0;
+
+                for (const [key, value] of Object.entries(this.selectedItems)) {
+                    console.log(key + ' - Vrsta: ' + value.vrsta + ' :: Cena: ' + value.cena);
+                    this.price += parseFloat(value.cena);
+                }
+
+                this.price += parseFloat(this.selectedService.cenaDelo);
+            },
+		    formSubmitted: function() {
+                this.userSubmitted = true;
+                this.user = {
+					name: '',
+					email: '',
+					notes: ''
+				};
+			},
+			reset: function() {
+				this.selectedService = '';
+				this.selectedItems = {};
+				this.price = 0;
+				this.user = {
+					name: '',
+					email: '',
+					notes: ''
+				};
+				this.userSubmitted = false;
+
+				// scroll to configurator 
+				document.getElementById('priceCalculator').scrollIntoView({behavior: 'smooth'});
+			},
+            storePriceCalculation: function() {
+				fetch('/actions/custom-module/user/price-calculation', {
+                    method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						selectedService: this.selectedService,
+						selectedItems: this.selectedItems,
+						price: this.price,
+						user: this.user
+                    })
+                })
+					.then(response => response.json())
+					.then(data => {
+						console.log('Success:', data);
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+					});
+
+                setTimeout(() => {
+                    this.formSubmitted();
+                }, 250);
+            }
+	    },
+	    created: function() {
+            this.services = {{ nastavitveKonfiguratorjaCen.kcStoritev.all() | map(s => {
+                "storitev": s.povezanaStoritev.one(),
+	            "nazivStoritve": s.nazivStoritve,
+	            "cenaDelo": s.cenaDelo,
+	            "postavke": s.postavke.all()
+            }) | json_encode | raw }};
+
+			console.log('this.services[0].postavke[0] >>', this.services[0].postavke[0].postavke);
+	    }
+    })
+</script>

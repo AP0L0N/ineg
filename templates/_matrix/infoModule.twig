@@ -1,0 +1,40 @@
+
+{% for item in field.infoModule.all() %}
+<section class="slice-lg pt-0 list-blogs mt-0">
+
+    <div class="lightbulp-wrapper">
+        <div class="circle">
+            <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='' role="presentation">
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <div class="row-wrapper">
+            <div class="row cols-xs-space cols-sm-space cols-md-space">
+
+                {% for blog in item.blogs.all() %}
+                <div class="col-lg-4">
+                    <div class="feature feature--boxed-border">
+                        <div class="icon-block icon-block--style-1-v2">
+                            <div class="block-content text-left pl-0">
+                                <h3 class="heading heading-5">
+                                    {{ blog.blogInfo.naslov }}
+                                </h3>
+                                <p>
+                                    {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                        {{ blog.blogInfo.kratekPovzetek }}
+                                    {% else %}
+                                        {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                    {% endif %}
+                                </p>
+                                <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">{{ "Preberite več" | t }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}

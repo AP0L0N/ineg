@@ -1,0 +1,47 @@
+fieldLayouts:
+  04c22247-190a-4b63-b6a5-db104a4ea6c9:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 704b9b55-713a-482e-859b-e43a875e5c87 # Partner info
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: partners
+hasTitleField: false
+name: Partnerji
+section: 675d914f-c974-474e-8684-c5fadb70b6f4 # Partnerji
+sortOrder: 1
+titleFormat: '{{ partnerInfo.partner }}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

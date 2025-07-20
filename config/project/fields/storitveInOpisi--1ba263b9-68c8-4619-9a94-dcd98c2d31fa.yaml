@@ -1,0 +1,43 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e8bcd847-b23d-480f-b790-274c3b6afe91 # Global
+handle: storitveInOpisi
+instructions: ''
+name: 'Storitve in opisi'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 3a2a2156-215a-446e-9924-647776d9a890 # Povezana storitev
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - ea35875e-adac-45da-8bdd-c68f5099e6af # Prikazne slike
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 539ef7b3-fc80-4eff-a351-a9ceb63810a3 # Kratek opis
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_storitveinopisi}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

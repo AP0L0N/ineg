@@ -1,0 +1,166 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <section class="slice-xl sct-color-3">
+            <span class="mask mask-dark--style-2"></span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3 class="heading heading-2 strong-400 c-white">
+                            O inštitutut
+                        </h3>
+                        <p class="text-lg line-height-1_8 c-white mt-4">
+                            Inštitut nizkoenergijske gradnje je edini tovrstni inštitut v Sloveniji, ki poleg razvojnega oddelka izvaja tudi gradnjo vseh vrst nizkoenergijskih skeletnih hiš ter izdeluje in izvaja montažo lesenih konstrukcij: teras, ograj, fasadnih sistemov, vrtnih hišk, nadstreškov in izdelkov po želji strank.
+                            <br><br>
+                            Smo edino podjetje v Sloveniji, ki z ekipo strokovnjakov in izkušenih monterjev z dolgoletnimi izkušnjami pri izolacijo hiš in drugih objekotv uporabljamo in prodajamo certificirano vpihano slamo, ki je med najboljšimi naravnimi izolativnimi materiali.
+                            Smo inovativni, v koraku s časom, učinkoviti, spretni in zanesljivi.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="/assets/images/ineg-o-nas.jpg" class="img-fluid img-center mt-4 mt-md-0">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slice sct-color-1 pb-2" id="nextSection">
+            <div class="container">
+                <div class="row cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-4">
+                        <div class="block block--style-3">
+                            <div class="block-body">
+                                <div class="icon-block--style-1-v5 text-center">
+                                    <div class="block-content mt-1">
+                                        <h3 class="heading heading-6 strong-600">
+                                            <strong class="text-primary">Najugodnejša cena na trgu</strong>
+                                        </h3>
+                                        <p>
+                                            Zagotavljamo normalne cene naših storitev, lesa in ostalih materialov potrebnih za izgradnjo hiš, teras, fasad in ostalih naših izdelkov.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="block block--style-3">
+                            <div class="block-body">
+                                <div class="icon-block--style-1-v5 text-center">
+                                    <div class="block-content mt-1">
+                                        <h3 class="heading heading-6 strong-600">
+                                            <strong class="text-primary">Kakovost garantirana do 10 let</strong>
+                                        </h3>
+                                        <p>
+                                            Za vse naše storitve prejmete ustrezne certifikate in garancijsko izjavo. Nudimo različno dolžino garancije, vse do 10 let.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="block block--style-3">
+                            <div class="block-body">
+                                <div class="icon-block--style-1-v5 text-center">
+                                    <div class="block-content mt-1">
+                                        <h3 class="heading heading-6 strong-600">
+                                            <strong class="text-primary">Izvedba z originalnimi materiali</strong>
+                                        </h3>
+                                        <p>
+                                            Inštitut uporablja samo preverjene materiale z usterznimi certifikati, ki zadoščajo strogim mendarodnim kriterijem varovanaj narave in <br>zdravja ljudi.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 mb-md-5">
+                    <div class="col text-center ">
+                        <div class="d-block d-md-flex justify-content-center align-items-center badges">
+                            <div class="d-inline-block">
+                                <img src="/assets/images/badges/ineg-badge-01.png" alt="" role="presentation">
+                            </div>
+
+                            <div class="d-inline-block">
+                                <img src="/assets/images/badges/ineg-badge-02.jpg" alt="">
+                            </div>
+
+                            <div class="d-inline-block">
+                                <img src="/assets/images/badges/ineg-badge-03.png" alt="">
+                            </div>
+
+                            <div class="d-inline-block">
+                                <img src="/assets/images/badges/ineg-badge-04.png" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        {% set category = craft.categories().title('Novice').one() %}
+        {% set items = craft.entries.section('blogs').relatedTo(category).limit(3).all() %}
+
+        {% if items | length > 0 %}
+            <section class="blogs">
+                <div class="delimiter--style-1">
+                    <div class="delimiter-title-wrapper">
+                        <div class="delimiter-title">
+                            <h3 class="heading heading-xs mb-0 text-uppercase strong-600">Zadnje novice</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="slice">
+
+                    <div class="container">
+
+                        <div class="row cols-md-space cols-sm-space cols-xs-space">
+
+                            {% for item in items %}
+                                <div class="col-lg-4">
+                                    <div class="block block-image-holder image-animate-wrapper">
+                                        <div class="block-image image-animate--hover">
+                                            <a href="{{ item.url }}" style="background-image: url({{ item.blogInfo.slika.one().url }})"></a>
+                                        </div>
+
+                                        <div class="pt-4">
+                                            <span class="heading heading-xs text-uppercase strong-300">{{ item.postDate | date("M d, Y") }}</span>
+                                            <a href="{{ item.url }}" class="heading heading-4 d-block strong-500 mt-1">{{ item.blogInfo.naslov }}</a>
+                                            <p class="mt-3">
+                                                {{ item.blogInfo.kratekPovzetek }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                {% set navItem = craft.entries.section('seznamObjav').one() %}
+                                <a href="{{ navItem.url }}" class="link link--bb-1 mt-4">{{ "Vse objave" | t }}</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </section>
+        {% endif %}
+
+    {% endif %}
+
+{% endblock %}

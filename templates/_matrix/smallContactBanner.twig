@@ -1,0 +1,24 @@
+<section class="slice-sm bg-base-1">
+    <div class="container sct-inner">
+        <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space text-center text-lg-left">
+            <div class="col">
+                <div class="d-block d-md-flex justify-content-center align-items-center">
+                    <h1 class="heading heading-3 c-base-text-1 strong-500 mb-3 mb-md-0 mr-md-5 mb-0">
+                        {{ field.poziv }}
+                    </h1>
+
+                    {% if field.dodatenOpis is not empty %}
+                        <p class="lead">
+                            {{ field.dodatenOpis }}
+                        </p>
+                    {% endif %}
+
+                    {% set navItem = craft.entries.section('kontakt').one() %}
+                    <a href="{{ navItem.url }}" class="btn btn-styled btn-white btn-circle">
+                        {{  "Pišite nam" | t  }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

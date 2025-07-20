@@ -1,0 +1,19 @@
+fieldLayouts:
+  0e07310d-50ba-4f43-9922-008c407f7fc2:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1abde69a-e874-4aff-a9b1-582f7758b899 # Kontaktni podatki
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: contactInfo
+name: 'Kontaktni podatki'
+sortOrder: 1

@@ -1,0 +1,19 @@
+fieldLayouts:
+  8d2d55d1-e615-4395-a50f-8c7160214a83:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1ba263b9-68c8-4619-9a94-dcd98c2d31fa # Storitve in opisi
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: storitve
+name: Storitve
+sortOrder: 3

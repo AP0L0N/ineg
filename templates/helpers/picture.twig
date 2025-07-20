@@ -1,0 +1,164 @@
+{% set image_exists = desktop.image | file_exists %}
+
+{% if image_exists == 1 %}
+
+    {% set desktop_image = craft.imager.transformImage(desktop.image, { width: desktop.width }) %}
+
+    {# Ignore GIF images #}
+    {% if desktop_image.mimeType == "image/gif" %}
+        <img src="{{ desktop.image.url }}" alt="" role="presentation" class="img-fluid">
+
+    {% else %}
+
+        {% set desktop_webp_image = craft.imager.transformImage(desktop_image, { format: "webp" }) %}
+
+        {% set desktop_webp_srcset = 
+            craft.imager.transformImage(desktop_image, { width: desktop.width, format: "webp" }) ~ ', ' ~ 
+            craft.imager.transformImage(desktop_image, { width: desktop.width * 1.25, format: "webp" }) ~ ' 1.25x, ' ~ 
+            craft.imager.transformImage(desktop_image, { width: desktop.width * 2, format: "webp" }) ~ ' 2x'
+        %}
+
+        {% set desktop_srcset = desktop_image.url ~ ', ' ~ 
+            craft.imager.transformImage(desktop_image, { width: desktop.width * 1.25 }) ~ ' 1.25x, ' ~ 
+            craft.imager.transformImage(desktop_image, { width: desktop.width * 2 }) ~ ' 2x'
+        %}
+
+        {% set preload_image_desktop = craft.imager.transformImage(desktop_image, { width: desktop.width / 8, quality: 85, format: 'webp' }) %}
+        {% set image_width = desktop_image.width %}
+        {% set image_height = desktop_image.height %}
+
+        {% if mobile is defined %}
+            {% set mobile_image = craft.imager.transformImage(mobile.image is defined ? mobile.image : desktop.image, { width: mobile.width }) %}
+            {% set mobile_webp_image = craft.imager.transformImage(mobile_image, { format: "webp" }) %}
+
+            {% set mobile_webp_srcset = 
+                craft.imager.transformImage(mobile_image, { width: mobile.width, format: "webp" }) ~ ', ' ~ 
+                craft.imager.transformImage(mobile_image, { width: mobile.width * 1.25, format: "webp" }) ~ ' 1.25x, ' ~ 
+                craft.imager.transformImage(mobile_image, { width: mobile.width * 2, format: "webp" }) ~ ' 2x'
+            %}
+            {% set mobile_srcset = mobile_image.url ~ ', ' ~ 
+                craft.imager.transformImage(mobile_image, { width: mobile.width * 1.25 }) ~ ' 1.25x, ' ~ 
+                craft.imager.transformImage(mobile_image, { width: mobile.width * 2 }) ~ ' 2x'
+            %}
+            {% set preload_image_mobile = craft.imager.transformImage(mobile_image, { width: mobile.width / 8, quality: 85, format: 'webp' }) %}
+            {% set mobile_image_width = mobile_image.width %}
+            {% set mobile_image_height = mobile_image.height %}
+        {% endif %}
+
+        {% if disableLazyload is defined and disableLazyload %}
+
+            <picture>
+                
+                {# Mobile #}
+                {% if mobile is defined %}
+                    {% if disableOptimizations is not defined %}
+                        <source media="(max-width: 768px)" srcset="{{ mobile_webp_srcset }}" type="image/webp">
+                    {% endif %}
+                    
+                    <source media="(max-width: 768px)" srcset="{{ mobile_srcset }}" type="{{ mobile_image.mimeType }}">
+                {% endif %}
+
+                {# Desktop #}
+                {% if disableOptimizations is not defined %}
+                    <source srcset="{{ desktop_webp_srcset }}" type="image/webp">
+                {% endif %}
+
+                <source srcset="{{ desktop_srcset }}" type="{{ desktop_image.mimeType }}">
+
+                {# Image #}
+                <img src="{{ mobile is defined ? mobile_image.url : desktop_image.url }}" 
+                    width="{{ mobile is defined ? mobile_image.width : desktop_image.width }}" 
+                    height="{{ mobile is defined ? mobile_image.height : desktop_image.height }}"
+                    style="{{ backgroundColor is defined and backgroundColor is not empty ? 'background-color: ' ~ backgroundColor : '' }}"
+                    class="img-fluid {{ extraClasses is defined ? extraClasses }}" 
+                    alt="{{ alt is defined and alt is not empty ? alt : (desktop.image.title is defined ? desktop.image.title : '') }}" 
+                    {{ alt is not defined or alt is empty ? "role='presentation'" }} 
+                >
+            </picture>
+            
+        {% elseif mobile is defined %}
+
+             <span class="d-none d-md-block">
+                <picture>
+            
+                    {# Mobile #}
+                    {% if mobile is defined %}
+                        {% if disableOptimizations is not defined %}
+                            <source media="(max-width: 768px)" data-srcset="{{ mobile_webp_srcset }}" type="image/webp">
+                        {% endif %}
+                        <source media="(max-width: 768px)" data-srcset="{{ mobile_srcset }}" type="{{ mobile_image.mimeType }}">
+                    {% endif %}
+                    {# Desktop #}
+                    {% if disableOptimizations is not defined %}
+                        <source data-srcset="{{ desktop_webp_srcset }}" type="image/webp">
+                    {% endif %}
+                    <source data-srcset="{{ desktop_srcset }}" type="{{ desktop_image.mimeType }}">
+                    
+                    {# Image #}
+                    <img src="{{ preload_image_desktop.url }}" 
+                        width="{{ image_width }}" 
+                        height="{{ image_height }}"
+                        style="{{ backgroundColor is defined and backgroundColor is not empty ? 'background-color: ' ~ backgroundColor : '' }}"
+                        class="img-fluid lazyload {{ extraClasses is defined ? extraClasses }}" 
+                        alt="{{ alt is defined and alt is not empty ? alt : (desktop.image.title is defined ? desktop.image.title : '') }}" 
+                        {{ alt is not defined or alt is empty ? "role='presentation'" }} 
+                    >
+                
+                </picture>
+            </span>
+            <span class="d-block d-md-none">
+                <picture>
+            
+                    {# Mobile #}
+                    {% if mobile is defined %}
+                        {% if disableOptimizations is not defined %}
+                            <source media="(max-width: 768px)" data-srcset="{{ mobile_webp_srcset }}" type="image/webp">
+                        {% endif %}
+                        <source media="(max-width: 768px)" data-srcset="{{ mobile_srcset }}" type="{{ mobile_image.mimeType }}">
+                    {% endif %}
+                    {# Desktop #}
+                    {% if disableOptimizations is not defined %}
+                        <source data-srcset="{{ desktop_webp_srcset }}" type="image/webp">
+                    {% endif %}
+                    
+                    <source data-srcset="{{ desktop_srcset }}" type="{{ desktop_image.mimeType }}">
+                
+                    {# Image #}
+                    <img src="{{ preload_image_mobile.url }}" 
+                        width="{{ mobile_image_width }}" 
+                        height="{{ mobile_image_height }}"
+                        style="{{ backgroundColor is defined and backgroundColor is not empty ? 'background-color: ' ~ backgroundColor : '' }}"
+                        class="img-fluid lazyload {{ extraClasses is defined ? extraClasses }}" 
+                        alt="{{ alt is defined and alt is not empty ? alt : (desktop.image.title is defined ? desktop.image.title : '') }}" 
+                        {{ alt is not defined or alt is empty ? "role='presentation'" }} 
+                    >
+                
+                </picture>
+            </span>
+
+        {% else %}
+
+            <picture>
+                {# Desktop #}
+                {% if disableOptimizations is not defined %}
+                    <source data-srcset="{{ desktop_webp_srcset }}" type="image/webp">
+                {% endif %}
+
+                <source data-srcset="{{ desktop_srcset }}" type="{{ desktop_image.mimeType }}">
+                
+                {# Image #}
+                <img src="{{ preload_image_desktop.url }}" 
+                    width="{{ image_width }}" 
+                    height="{{ image_height }}" 
+                    style="{{ backgroundColor is defined and backgroundColor is not empty ? 'background-color: ' ~ backgroundColor : '' }}" 
+                    class="img-fluid lazyload {{ extraClasses is defined ? extraClasses }}" 
+                    alt="{{ alt is defined and alt is not empty ? alt : (desktop.image.title is defined ? desktop.image.title : '') }}" 
+                    {{ alt is not defined or alt is empty ? "role='presentation'" }} 
+                >
+            </picture>
+            
+        {% endif %}
+
+    {% endif %}
+
+{% endif %}

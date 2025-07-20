@@ -1,0 +1,149 @@
+<footer>
+    <div class="social-networks">
+        <div class="container">
+            <div class="inner-wrapper">
+                <p>{{ "Sledite nam na družbenih omrežjih:" | t }}</p>
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/slamnatahisa/" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/ineg_slovenia/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="links">
+        <div class="container">
+            <div class="inner-wrapper">
+                <div class="brand">
+                    <div class="brand-wrapper">
+                        {% include "helpers/picture" with {desktop: {image: '/assets/images/logo_inverted.png', width: 200 } } %}
+                        <p>{{ "INeG" | t }}</p>
+                    </div>
+                    <p>{{ contactInfo.contactInfo.misijaPodjetja  }}</p>
+                </div>
+                <div class="web-links">
+                    <div class="category">
+                        <p class="cat-title">{{ "Podjetje" | t }}</p>
+                        <ul>
+                            {% set navItem = craft.entries.section('oInstitutu').one() %}
+                            <li>
+                                <a href="{{ navItem.url }}">{{ navItem.title }}</a>
+                            </li>
+    
+                            {% set navItem = craft.entries.section('kontakt').one() %}
+                            <li>
+                                <a href="{{ navItem.url }}">{{ navItem.title }}</a>
+                            </li>
+    
+                            {% set navItem = craft.entries.section('seznamObjav').one() %}
+                            <li>
+                                <a href="{{ navItem.url }}">{{ navItem.title }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="category">
+                        <p class="cat-title">{{ "Storitve" | t }}</p>
+                        <ul>
+                            {% set services = storitve.storitveInOpisi.all() %}
+                            {% for item in services %}
+                                <li>
+                                    <a href="{{ item.povezanaStoritev.one().url }}">{{ item.povezanaStoritev.one().title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="category contact">
+                    <p class="cat-title">{{ "Kontakt" | t }}</p>
+                    <ul>
+                        <li>
+                            <i class="fa fa-house" style="top: 5px;"></i> <span>{{ contactInfo.contactInfo.naslov }}</span>
+                        </li>
+                        
+                        <li>
+                            <a href="mailto:{{ contactInfo.contactInfo.infoEmail }}">
+                                <i class="fa fa-envelope"></i> <span>{{ contactInfo.contactInfo.infoEmail }}</span>
+                            </a>
+                        </li>
+
+                        {% if contactInfo.contactInfo.telefon is not empty %}
+                        <li>
+                            <a href="tel:{{ contactInfo.contactInfo.telefon }}">
+                                <i class="fa fa-phone"></i> <span>{{ contactInfo.contactInfo.telefon }}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        {% if contactInfo.contactInfo.telefon2 is not empty %}
+                        <li>
+                            <a href="tel:{{ contactInfo.contactInfo.telefon2 }}">
+                                <i class="fa fa-phone"></i> <span>{{ contactInfo.contactInfo.telefon2 }}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copy">
+        <div class="container">
+            <div class="inner-wrapper">
+                <p>&copy; {{ now | date('Y') }} <span>{{ "INeG" | t }}</span></p>
+                <ul>
+                    <li>
+                        <a href="/politika-zasebnosti">{{ "Politika zasebnosti" | t }}</a>
+                    </li>
+                    <li>
+                        <a href="/pogoji-uporabe">{{ "Pogoji uporabe" | t }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    window.animatingGoogleReviewsMini = false;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var googleReviewsMini = document.querySelector('.google-reviews-mini');
+
+        if(googleReviewsMini) {
+            var innerWrapper = googleReviewsMini.querySelector('.inner-wrapper');
+
+            window.addEventListener('scroll', function() {
+                var footer = document.querySelector('footer');
+                
+                if (!window.animatingGoogleReviewsMini && footer.getBoundingClientRect().top < window.innerHeight) {
+                    window.animatingGoogleReviewsMini = true;
+
+                    innerWrapper.classList.remove('active');
+                    setTimeout(() => {
+                        googleReviewsMini.style.display = 'none';
+                        window.animatingGoogleReviewsMini = false;
+                    }, 450);
+
+                } else if(!window.animatingGoogleReviewsMini) {
+                    window.animatingGoogleReviewsMini = true;
+
+                    googleReviewsMini.style.display = 'block';
+                    setTimeout(() => {
+                        innerWrapper.classList.add('active');
+                        window.animatingGoogleReviewsMini = false;
+                    }, 150);
+                }
+            });
+        }
+    });
+</script>

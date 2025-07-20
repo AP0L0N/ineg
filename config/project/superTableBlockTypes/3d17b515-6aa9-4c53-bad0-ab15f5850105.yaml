@@ -1,0 +1,205 @@
+field: 1abde69a-e874-4aff-a9b1-582f7758b899 # Kontaktni podatki
+fieldLayouts:
+  642f5883-f49e-44a9-8969-2255e1f84442:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1c013cc4-0e3c-4a43-88aa-fb6507712c34 # Naziv podjetja
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 159c2118-fa5b-41ef-b094-27732b878561 # Misija podjetja
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8ebb77e6-b002-4074-b817-3eece1ff41bf # Naslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4b500858-3db6-4028-9023-be7119e57033 # Info e-naslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a676fb77-bdcb-4ab3-8567-f9ed7568b022 # Telefon
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: aa82d1df-3963-400c-bc11-0ab676172a33 # Telefon 2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5799a8a8-628b-41ff-9557-905ab578685c # Google maps embed
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1c013cc4-0e3c-4a43-88aa-fb6507712c34: # Naziv podjetja
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: nazivPodjetja
+    instructions: ''
+    name: 'Naziv podjetja'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  4b500858-3db6-4028-9023-be7119e57033: # Info e-naslov
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: infoEmail
+    instructions: ''
+    name: 'Info e-naslov'
+    searchable: true
+    settings:
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Email
+  8ebb77e6-b002-4074-b817-3eece1ff41bf: # Naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: naslov
+    instructions: ''
+    name: Naslov
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  159c2118-fa5b-41ef-b094-27732b878561: # Misija podjetja
+    columnSuffix: oivsnrem
+    contentColumnType: text
+    fieldGroup: null
+    handle: misijaPodjetja
+    instructions: ''
+    name: 'Misija podjetja'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  5799a8a8-628b-41ff-9557-905ab578685c: # Google maps embed
+    columnSuffix: vniqligg
+    contentColumnType: text
+    fieldGroup: null
+    handle: googleMapsEmbed
+    instructions: ''
+    name: 'Google maps embed'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a676fb77-bdcb-4ab3-8567-f9ed7568b022: # Telefon
+    columnSuffix: yjpoqyfm
+    contentColumnType: text
+    fieldGroup: null
+    handle: telefon
+    instructions: ''
+    name: Telefon
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  aa82d1df-3963-400c-bc11-0ab676172a33: # Telefon 2
+    columnSuffix: ulxznpah
+    contentColumnType: text
+    fieldGroup: null
+    handle: telefon2
+    instructions: ''
+    name: 'Telefon 2'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

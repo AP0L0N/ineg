@@ -1,0 +1,78 @@
+<header id="mainHeader" class="fixed-top">
+    <div class="header-wrapper">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <a class="navbar-brand" href="{{ url('') }}">
+                    {% include "helpers/picture" with {desktop: {image: '/assets/images/logo_2.png', width: 160} } %}
+                </a>
+
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07"
+                    aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fal fa-bars"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample07">
+                    <ul class="navbar-nav mr-auto">
+
+                        {% set navItem = craft.entries.section('naslovnaStran').one() %}
+                        <li class="nav-item {{ entry.section.handle == navItem.section.handle ? 'active' }}">
+                            <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
+                        </li>
+
+                        {% set navItem = craft.entries.section('oInstitutu').one() %}
+                        <li class="nav-item {{ entry.section.handle == navItem.section.handle ? 'active' }}">
+                            <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
+                        </li>
+
+                        {% set navItem = craft.entries.section('kontakt').one() %}
+                        <li class="nav-item {{ entry.section.handle == navItem.section.handle ? 'active' }}">
+                            <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown07"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Storitve</a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdown07">
+
+                                {% set services = storitve.storitveInOpisi.all() %}
+                                {% for item in services %}
+                                    <div class="service-item">
+                                        <div class="service-item-slider">
+                                            <div class="swiper">
+                                                <div class="swiper-wrapper">
+                                                    {% for image in item.prikazneSlike.all() %}
+                                                    <div class="swiper-slide">
+                                                        <div class="image-wrapper">
+                                                            {% include "helpers/picture" with {desktop: {image: image, width: 500} } %}
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                                <div class="swiper-scrollbar"></div>
+                                            </div>
+                                        </div>
+                                        <div class="link-wrapper">
+                                            <p class="title">{{ item.povezanaStoritev.one().title }}</p>
+                                            <p class="description">{{ item.kratekOpis }}</p>
+                                            <a href="{{ item.povezanaStoritev.one().url }}"></a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="question-button">
+                        {% set navItem = craft.entries.section('kontakt').one() %}
+                        <a href="{{ navItem.url }}">
+                            <span>{{ "Imate vprašanje" | t }}</span> <i class="fa fa-question-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+

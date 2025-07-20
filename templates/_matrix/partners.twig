@@ -1,0 +1,22 @@
+{% set partners = craft.entries().section("partners").all() %}
+{% if partners | length > 0 %}
+<section class="sct-color-1 partners-section mb-0">
+    <p class="title">{{ "Naši partnerji" | t }}</p>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            {% for item in partners %}
+                <div class="swiper-slide">
+                    {% if item.partnerInfo.partnerUrl is not empty %}
+                        <a href="{{ item.partnerInfo.partnerUrl }}" target="_blank">
+                            {% include "helpers/picture" with {desktop: {image: item.partnerInfo.logo.one(), width: 175 } } %}
+                        </a>
+                    {% else %}
+                        {% include "helpers/picture" with {desktop: {image: item.partnerInfo.logo.one(), width: 175 } } %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+{% endif %}

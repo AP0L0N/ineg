@@ -1,0 +1,124 @@
+@import "../variables";
+
+.hero-slider {
+    position: relative;
+    max-width: 2500px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    .background-image {
+        @include centered-image;
+        position: absolute;
+        z-index: 1;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, $primary-color, transparent);
+
+            @media(min-width: 991px) {
+                background: linear-gradient(to right, $primary-color, transparent);
+            }
+        }
+
+        img {
+            z-index: 1;
+
+            @media(min-width: 991px) {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .slides-list-wrapper {
+        position: relative;
+        z-index: 2;
+
+        .inner-wrapper {
+
+            .swiper-slide {
+
+                .slide-inner-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 60px;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    text-align: center;
+                    padding: 70px 0 100px;
+
+                    @media(min-width: 991px) {
+                        flex-wrap: nowrap;
+                        align-content: unset;
+                        gap: 100px;
+                        justify-content: space-between;
+                        text-align: left;
+                        height: 750px;
+                        padding: 0;
+                    }
+
+                    .content-wrapper {
+                        padding: 0 20px;
+                        
+                        @media(min-width: 991px) {
+                            max-width: 344px;
+                        }
+
+                        .title {
+                            @include responsive-font(35, 75);
+                            color: black;
+                            font-family: $font-family-albert;
+                            font-weight: 700;
+                            line-height: 0.9;
+                            margin-bottom: 20px;
+                        }
+
+                        .description {
+                            
+                            p {
+                                @include responsive-font(18, 21);
+                                font-family: $font-family-albert;
+                                color: black;
+                                font-weight: 500;
+                                line-height: 1.1;
+
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+
+                        .actions {
+                            margin-top: 35px;
+
+                            a {
+
+                            }
+                        }
+                    }
+
+                    .image-wrapper {
+                        @include centered-image;
+                        width: 100%;
+                        aspect-ratio: 125/100;
+                        flex-shrink: 0;
+                        box-shadow: 9px 10px 12px rgba(0, 0, 0, 0.25);
+                        border-radius: 15px;
+
+                        @media(min-width: 991px) {
+                            width: 60%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

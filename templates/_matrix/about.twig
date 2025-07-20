@@ -1,0 +1,9 @@
+{% for item in field.about.all() %}
+    <div class="about-banner">
+        <div class="container">
+            <div class="description">
+                {{ item.description | raw }}
+            </div>
+        </div>
+    </div>
+{% endfor %}

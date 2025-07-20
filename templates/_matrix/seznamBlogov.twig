@@ -1,0 +1,41 @@
+<section class="list-blog-posts {{ field.customCssClasses }} {{ field.steviloBlogovVVrstici.value == 2 ? "compact-mode" }}">
+	<div class="container">
+
+		{%  if field.naslov is not empty or field.opis is not empty %}
+		<div class="heading">
+			<div class="heading-contents">
+				{% if field.naslov is not empty %}
+					<p class="title">{{ field.naslov }}</p>
+				{% endif %}
+
+				{% if field.opis is not empty  %}
+					<div class="description">{{ field.opis | raw }}</div>
+				{% endif %}
+
+				{% if field.povezanaBlogVsebina.one() %}
+					<a href="{{ field.povezanaBlogVsebina.one().url }}" class="btn btn-primary mt-3">{{ "Več o tem" }}</a>
+				{% endif %}
+			</div>
+			<div class="heading-image">
+				{% include "helpers/picture" with {desktop: {image: "/assets/images/stripes.png", width: 150 } } %}
+			</div>
+		</div>
+		{% endif %}
+
+		<div class="blog-items">
+			{% for item in field.blogs.all() %}
+				<div class="blog-item">
+					<div class="image-wrapper">
+						{% include "helpers/picture" with {desktop: {image: item.blogInfo.slika.one(), width: 800 } } %}
+					</div>
+
+					<div class="content-wrapper">
+						<p>{{ item.blogInfo.kratekPovzetek }}</p>
+					</div>
+
+					<a href="{{ item.url }}" class="overlay-link"></a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

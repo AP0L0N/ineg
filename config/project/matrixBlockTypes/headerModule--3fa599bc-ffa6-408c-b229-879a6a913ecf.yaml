@@ -1,0 +1,108 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  5969ef16-c274-4fa8-bd16-d0ca56c61168:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 61984713-c8a6-4cf9-9aaa-a9c2e89ccd28 # Naslovni modul
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ddf0c061-99eb-455a-a33a-1adaf4325562 # Custom CSS Classes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  61984713-c8a6-4cf9-9aaa-a9c2e89ccd28: # Naslovni modul
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: headerModule
+    instructions: ''
+    name: 'Naslovni modul'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 38dc4368-5e88-477f-8c02-8c428103f4ea # Slika ozadja
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 92497a7c-87b9-40ab-ac14-a929ed1c6f05 # Slika ozadja - mobile
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 5aff0339-6a73-417e-bfbf-63656f413f30 # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - ad2755a5-2ae8-4a94-997e-565ff9440b78 # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 8522eb8d-f6f0-45f9-b575-59e8c9429968 # Blog
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_11_headermodule}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  ddf0c061-99eb-455a-a33a-1adaf4325562: # Custom CSS Classes
+    columnSuffix: aizzechv
+    contentColumnType: text
+    fieldGroup: null
+    handle: customCssClasses
+    instructions: ''
+    name: 'Custom CSS Classes'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: headerModule
+name: 'Naslovni modul'
+sortOrder: 1

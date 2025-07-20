@@ -1,0 +1,64 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e8bcd847-b23d-480f-b790-274c3b6afe91 # Global
+handle: contactInfo
+instructions: ''
+name: 'Kontaktni podatki'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 1c013cc4-0e3c-4a43-88aa-fb6507712c34 # Naziv podjetja
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 159c2118-fa5b-41ef-b094-27732b878561 # Misija podjetja
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 8ebb77e6-b002-4074-b817-3eece1ff41bf # Naslov
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 4b500858-3db6-4028-9023-be7119e57033 # Info e-naslov
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - a676fb77-bdcb-4ab3-8567-f9ed7568b022 # Telefon
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 5799a8a8-628b-41ff-9557-905ab578685c # Google maps embed
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_contactinfo}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

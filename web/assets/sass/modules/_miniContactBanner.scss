@@ -1,0 +1,24 @@
+@import "../variables";
+
+.mini-contact-banner {
+
+    .title {
+        @include responsive-font(24, 27);
+        max-width: 550px;
+        width: 100%;
+        margin: 0 auto 25px;
+        color: black;
+        font-family: $font-family-albert;
+        line-height: 1.1;
+        font-weight: 600;
+    }
+
+    .lead {
+
+    }
+
+    .actions {
+
+        
+    }
+}

@@ -1,0 +1,41 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  5c1ddffa-dd0e-47d4-965f-b006c4565f5b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 12f1bfe4-8eee-40f0-8c16-0d5813161b96 # Custom CSS Classes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  12f1bfe4-8eee-40f0-8c16-0d5813161b96: # Custom CSS Classes
+    columnSuffix: knwhpbim
+    contentColumnType: text
+    fieldGroup: null
+    handle: customCssClasses
+    instructions: ''
+    name: 'Custom CSS Classes'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: konfiguratorCen
+name: 'Konfigurator cen'
+sortOrder: 25

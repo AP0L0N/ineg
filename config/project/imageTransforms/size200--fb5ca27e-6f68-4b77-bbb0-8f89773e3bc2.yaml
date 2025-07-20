@@ -1,0 +1,9 @@
+format: jpg
+handle: size200
+height: null
+interlace: none
+mode: crop
+name: 'Size 200'
+position: center-center
+quality: 82
+width: 200

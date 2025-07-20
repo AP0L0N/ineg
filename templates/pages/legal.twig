@@ -1,0 +1,58 @@
+{% extends '_layouts/site-content' %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <section class=" sct-color-1">
+            <div class="container">
+                <div class="block legal">
+                    <div class="heading">
+                        <div class="back-pagination">
+                            <a href="javascript:" class="btn btn-default" id="backButton">
+                                {{ "Nazaj na vsebino" | t }}
+                            </a>
+
+                            <script>
+                                document.getElementById('backButton').addEventListener('click', function(event) {
+                                    event.preventDefault(); 
+                                    window.history.back();
+                                });
+                            </script>
+                        </div>
+                        <h1 class="heading heading-2 strong-400 text-normal">
+                            {{ entry.blogInfo.naslov }}
+                        </h1>
+                    </div>
+
+                    <div class="block-body block-post-body">
+                        {{ entry.blogInfo.besedilo | raw }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-primary mini-contact-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col justify-content-center align-items-center d-flex">
+                        <div class="text-center d-inline-block p-5">
+                            <p class="title">
+                                {{ "Vas zanima gradnja nizkoenergijskih hiš ali pa montaža lesenih konstrukcij?" | t }}
+                            </p>
+
+                            <div class="actions">
+                                {% set navItem = craft.entries.section('kontakt').one() %}
+                                <a href="{{ navItem.url }}" class="btn btn-default">
+                                    {{ "Pišite nam" | t }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endif %}
+
+{% endblock %}

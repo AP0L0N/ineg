@@ -1,0 +1,9 @@
+format: jpg
+handle: blogImage
+height: null
+interlace: none
+mode: crop
+name: 'Blog image'
+position: center-center
+quality: 100
+width: 730

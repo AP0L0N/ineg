@@ -1,0 +1,9 @@
+format: jpg
+handle: newsletterPoupImage
+height: 550
+interlace: none
+mode: crop
+name: 'Newsletter poup image'
+position: center-center
+quality: 82
+width: 1140

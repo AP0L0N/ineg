@@ -1,0 +1,9 @@
+format: png
+handle: size100
+height: null
+interlace: none
+mode: crop
+name: 'Size 100'
+position: center-center
+quality: 82
+width: 100

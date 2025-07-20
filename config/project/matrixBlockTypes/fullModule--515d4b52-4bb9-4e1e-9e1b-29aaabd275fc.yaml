@@ -1,0 +1,86 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  ffa03b13-53ac-4a10-a65b-8e27d03c05b0:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b1495fae-5e50-49fa-ad36-e2bb96615f51 # Slika čez ozadje
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  b1495fae-5e50-49fa-ad36-e2bb96615f51: # Slika čez ozadje
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: fullModule
+    instructions: ''
+    name: 'Slika čez ozadje'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - c69c3022-2352-4455-841b-a4b869ba9ce7 # Slika
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 6b6b1889-66c1-45d5-beeb-3d6c3c04bb38 # Slika za manjše zaslone
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - c415ca1c-7caf-4452-9dbd-60398b267f23 # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 2364a3c8-011c-4d97-8657-893515b82bfc # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 2fbe67f7-cd94-4c44-853d-504b24282c55 # Povezava
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 79d55292-b680-4307-9f2d-6a37e8439f22 # Naziv povezave
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_4_fullmodule}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: fullModule
+name: 'Slika čez ozadje'
+sortOrder: 6

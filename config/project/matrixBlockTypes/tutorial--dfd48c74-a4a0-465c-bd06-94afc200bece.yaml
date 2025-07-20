@@ -1,0 +1,126 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  4872ee4d-12bf-4bc6-a7bc-e63ec369a2f9:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f7d69062-7e86-4028-82f2-94a02748a6bc # Naslov
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f62f2fe5-7691-45c2-8106-b6d89bab3c08 # Postopek
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 66cac1e2-3d42-4285-b694-9a5df10dea51 # Objava
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  66cac1e2-3d42-4285-b694-9a5df10dea51: # Objava
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: blog
+    instructions: ''
+    name: Objava
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:ba381812-4441-4394-ad5d-73f71125bb77' # Blogs
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  f7d69062-7e86-4028-82f2-94a02748a6bc: # Naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Naslov
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f62f2fe5-7691-45c2-8106-b6d89bab3c08: # Postopek
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: tutorial
+    instructions: ''
+    name: Postopek
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 7419b106-72e9-429f-877b-e2191c874bd3 # Slika
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 8fd69b6d-5ca4-4568-be30-23b872c4d6c3 # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 4d365d23-0ba6-4c86-a4a7-e33932697a8a # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_16_tutorial}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: tutorial
+name: 'Postopek izdelave'
+sortOrder: 16

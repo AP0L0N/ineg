@@ -1,0 +1,128 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  12e42127-af75-487a-992e-f7da167cd52c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 323b5c8a-4880-4d8b-a460-eec55ff15f37 # Subvencija
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  323b5c8a-4880-4d8b-a460-eec55ff15f37: # Subvencija
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: subvention
+    instructions: ''
+    name: Subvencija
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 28a6d4ff-ed7a-4df1-a035-9a827df3323c # Logo
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - d9b7f8d3-461d-42fa-b0ea-ca6f7ce55f32 # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - f03324a5-f6d5-4283-a2aa-0d1d1a5ed6bd # 1. okvir - naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 21ed6e5a-2b60-42b6-8575-be199dac2a4f # 1. okvir - opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - f2857b6e-111d-4c1f-9589-b3a8b6687bcb # 2. okvir - naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 196b90be-99eb-4aa7-9787-f33f8581138b # 2. okvir - opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - c622c938-5095-404e-876d-c09f629d3850 # 3. okvir - naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 1582f504-8921-4193-b05e-98733bf29e34 # 3. okvir - opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 22b11eb5-55ca-4546-9668-e7598ff90e9b # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - a6442495-e342-490a-91b1-997c7d6f8aa0 # Povezava
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 2711558c-204f-44fd-a3f6-74508845c00f # Naziv povezave
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 9bf88209-bbbd-417c-8b44-02ed763c5dbf # Odpri povezavo v novem oknu?
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_3_subvention}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: subvention
+name: Subvencija
+sortOrder: 5

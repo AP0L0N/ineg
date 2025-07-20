@@ -1,0 +1,96 @@
+{% set request = craft.app.request %}
+{% set uriWithQueryString = request.fullUri ~ request.queryStringWithoutPath %}
+{% cache globally using key uriWithQueryString for 3 weeks if getenv('ENVIRONMENT') == "production" %}
+
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+
+    {# Document Settings #}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    {#  SEO #}
+    {% hook "seo" %}
+
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    {# Google Tag manager #}
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KJW3GX6');</script>
+
+    {# Core JS #}
+    <script type="text/javascript" src="/assets/js/lazysizes.min.js"></script>
+    <script type="text/javascript" src="{{ mix('js/core.js') }}"></script>
+
+    {# Main styles #}
+    <link href="{{ mix('css/theme.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ mix('css/custom.css') }}" rel="stylesheet" type="text/css" media="all" />
+
+    {# Google captcha #}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    
+</head>
+<body>
+
+{# Google Tag Manager (noscript) #}
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJW3GX6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+{# Main wrapper #}
+<div class="body-wrap">
+
+    <div id="st-container" class="st-container">
+
+        <div class="st-pusher">
+            <div class="st-content">
+                <div class="st-content-inner">
+
+                    {# Header #}
+                    {% include '_layouts/site-header' %}
+
+                    {# Content #}
+		    <main>
+                        {% block content %} {{ content is defined ? content }} {% endblock %}
+		    </main>
+
+                    {# Footer #}
+                    {% include '_layouts/site-footer' %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Modals #}
+{% include '_layouts/site-modals' %}
+
+{# Javascript #}
+<script type="text/javascript" src="{{ mix('js/plugins.js') }}"></script>
+<script type="text/javascript" src="{{ mix('js/swipers.js') }}" type="module" defer></script>
+<script type="text/javascript" src="{{ mix('js/custom.js') }}" defer></script>
+
+</body>
+</html>
+
+{% endcache %}

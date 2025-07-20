@@ -1,0 +1,79 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  ffba7d19-c440-4b7c-a30c-fe977d508da7:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3db312c3-694d-41d1-a656-a2b9034e870c # Zaupanja vredni
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  3db312c3-694d-41d1-a656-a2b9034e870c: # Zaupanja vredni
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: trust
+    instructions: ''
+    name: 'Zaupanja vredni'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - e584a4ff-3ed0-4a5b-8187-8526aaeea188 # Nadnaslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 71687157-ed1a-4c5f-a335-71b246751d3e # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - bd6a8058-9eee-4528-8283-6e52908d8ad3 # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - d82c6d21-3974-4223-bb24-027b65fca75e # Dodatna obvestila
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 7c2efbe1-3da9-4175-b746-6dc20108aaae # Slike potrdil
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_5_trust}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: trust
+name: 'Zupanja vredni'
+sortOrder: 7

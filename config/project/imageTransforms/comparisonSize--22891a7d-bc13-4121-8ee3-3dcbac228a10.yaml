@@ -1,0 +1,9 @@
+format: jpg
+handle: comparisonSize
+height: 350
+interlace: none
+mode: crop
+name: 'Comparison size'
+position: center-center
+quality: 82
+width: 370

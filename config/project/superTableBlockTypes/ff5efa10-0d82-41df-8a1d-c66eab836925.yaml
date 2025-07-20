@@ -1,0 +1,183 @@
+field: 69f71b79-4a92-4284-8c0d-3322e48f91f8 # Garancije
+fieldLayouts:
+  7ec5f5f1-7dd2-4169-85de-3ffe14618f34:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 8337375a-daf9-46cb-b511-edc7a3756043 # Naslov 1
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a0590213-7db8-43a6-90e2-9d4a1954062e # Opis 1
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 276a1f53-7bc3-45ab-a7e8-774baf3f33ff # Naslov 2
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 97e5b560-e8c3-4c6a-85cb-8c58af3948c3 # Opis 2
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d0d8d851-1d62-4c05-8198-6bc16b2f25b7 # Naslov 3
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1aa2f4ff-d729-48bb-bc4a-b0e8371cd600 # Opis 3
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1aa2f4ff-d729-48bb-bc4a-b0e8371cd600: # Opis 3
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: description_3
+    instructions: ''
+    name: 'Opis 3'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  97e5b560-e8c3-4c6a-85cb-8c58af3948c3: # Opis 2
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: description_2
+    instructions: ''
+    name: 'Opis 2'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  276a1f53-7bc3-45ab-a7e8-774baf3f33ff: # Naslov 2
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading_2
+    instructions: ''
+    name: 'Naslov 2'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8337375a-daf9-46cb-b511-edc7a3756043: # Naslov 1
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading_1
+    instructions: ''
+    name: 'Naslov 1'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a0590213-7db8-43a6-90e2-9d4a1954062e: # Opis 1
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: description_1
+    instructions: ''
+    name: 'Opis 1'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d0d8d851-1d62-4c05-8198-6bc16b2f25b7: # Naslov 3
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading_3
+    instructions: ''
+    name: 'Naslov 3'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

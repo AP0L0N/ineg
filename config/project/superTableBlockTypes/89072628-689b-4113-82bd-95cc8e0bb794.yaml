@@ -1,0 +1,33 @@
+field: e749d307-f528-48d5-8c6b-a3912b03c9f9 # Nastavitve
+fieldLayouts:
+  7dcde904-efde-4de4-a664-169d3adb560c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 720dcb9b-0cf8-4412-b75e-9a4263a72267 # Temno ozadje
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  720dcb9b-0cf8-4412-b75e-9a4263a72267: # Temno ozadje
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: darkBackground
+    instructions: ''
+    name: 'Temno ozadje'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch

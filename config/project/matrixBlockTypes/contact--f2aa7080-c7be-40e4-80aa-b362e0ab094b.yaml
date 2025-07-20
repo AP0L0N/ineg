@@ -1,0 +1,93 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  a27f8d61-7438-4d8d-a152-a4abb91551af:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d7e96fa9-afd3-4a3f-acca-354f9b154d51 # Kontakt
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  d7e96fa9-afd3-4a3f-acca-354f9b154d51: # Kontakt
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: contact
+    instructions: ''
+    name: Kontakt
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 541d6f1f-6c1d-4318-b2bf-6e0a1d021227 # Slika ozadja
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 749496c6-f872-4765-a6d0-f05ed420e88b # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 24dc210e-38c4-4001-95be-c55411153807 # Podnaslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 7e7d9b29-8e4f-46a9-9ab0-3dd77631f809 # Slika mape
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - c97c3d2e-90f0-4818-8eaa-97454e26d192 # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - c5672212-4033-4f25-8062-4e9d57f6ef79 # Povezava
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - f08fdb5b-8fe2-47af-883b-5ee2950d182d # Naziv povezave
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_6_contact}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: contact
+name: Kontakt
+sortOrder: 8

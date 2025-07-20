@@ -1,0 +1,143 @@
+@import "../variables";
+
+.google-reviews-mini {
+	position: fixed;
+	bottom: 10px;
+	right: 15px;
+	z-index: 100;
+	cursor: pointer;
+
+	@media(min-width: 767px) {
+		bottom: 25px;
+		right: 30px;
+	}
+
+	.inner-wrapper {
+		box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+		transform: translateX(150%);
+		transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+		transition-delay: 0.15s;
+		background-color: white;
+
+		&.expanded {
+			width: 310px;
+		}
+
+		&.active {
+			transform: translateX(0);
+		}
+
+		.header-wrapper {
+			padding: 10px 15px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			position: relative;
+
+			.contents-wrapper {
+
+				p {
+					margin-bottom: 0;
+				}
+
+				.ratings-wrapper {
+					display: flex;
+					align-items: center;
+					gap: 2px;
+
+					.google-rating {
+						margin-right: 5px;
+					}
+
+					svg {
+						width: 13px;
+						height: auto;
+
+						path {
+							fill: gold;
+						}
+					}
+				}
+			}
+
+			.close-button {
+				position: absolute;
+				top: 50%;
+				right: 15px;
+				transform: translateY(-50%);
+
+				button {
+					border: none;
+					background: none;
+					cursor: pointer;
+
+					&:active,
+					&:focus,
+					&:hover {
+						outline: none;
+					}
+				}
+			}
+		}
+
+		.user-reviews {
+			height: 400px;
+			max-height: 75vh;
+			overflow: auto;
+			background-color: rgba(17, 17, 17, 0.02);
+			padding: 0 12px;
+
+			.user-review {
+				padding: 15px;
+
+				.review-name {
+					font-weight: 700;
+					font-family: $font-family-albert;
+					margin-bottom: 3px;
+					display: flex;
+					align-items: center;
+					gap: 5px;
+					text-transform: capitalize;
+
+					svg {
+						width: 15px;
+						height: auto;
+					}
+				}
+
+				.rating-stars {
+					display: flex;
+					align-items: center;
+					gap: 2px;
+					position: relative;
+					left: -2px;
+					margin-bottom: 5px;
+
+					svg {
+						width: 15px;
+						height: auto;
+
+						path {
+							fill: gold;
+						}
+					}
+				}
+
+				.review-text {
+					line-height: normal;
+					margin-bottom: 0;
+				}
+
+				.time-ago {
+					@include responsive-font(14,15);
+					opacity: 0.5;
+					display: none;
+				}
+			}
+		}
+
+		.actions {
+			padding: 15px;
+		}
+	}
+}

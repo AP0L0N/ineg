@@ -1,0 +1,38 @@
+{% for item in field.contactMainBanner.all() %}
+    <div class="contact-banner {{ field.customCssClasses }}">
+        <div class="hero-banner">
+            <div class="background-image">
+                {% include "helpers/picture" with { desktop: {image: item.image.one(), width: 2500} } %}
+            </div>
+            <div class="container">
+                <div class="inner-wrapper">
+                    <p class="title">{{ item.naslov }}</p>
+                    <p class="description">{{ item.podnaslov }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-information">
+            <div class="container">
+                <div class="inner-wrapper">
+                    <div class="map-wrapper">
+                        {{ contactInfo.contactInfo.googleMapsEmbed | raw }}
+                    </div>
+                    <div class="contact-info">
+                        <div class="inner-contact">
+                            <p class="title">{{ contactInfo.contactInfo.nazivPodjetja }}</p>
+                            <p class="address">{{ contactInfo.contactInfo.naslov }}</p>
+                            <div class="contacts">
+                                <p class="email"><i class="fal fa-envelope"></i> <a href="mailto:{{ contactInfo.contactInfo.infoEmail }}">{{ contactInfo.contactInfo.infoEmail }}</a></p>
+                                <p class="phone"><i class="fal fa-phone"></i> <a href="tel:{{ contactInfo.contactInfo.telefon }}">{{ contactInfo.contactInfo.telefon }}</a></p>
+                                <p class="phone"><i class="fal fa-phone"></i> <a href="tel:{{ contactInfo.contactInfo.telefon2 }}">{{ contactInfo.contactInfo.telefon2 }}</a></p>
+                            </div>
+                            <p class="description">
+                                {{ item.opis }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

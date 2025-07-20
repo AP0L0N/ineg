@@ -1,0 +1,19 @@
+columnSuffix: ptpiunwv
+contentColumnType: text
+fieldGroup: 9865aeb4-5dfc-4359-a8e3-e876e61edf16 # Povpraševanja
+handle: uporabnikImeInPriimek
+instructions: ''
+name: 'Uporabnik - ime in priimek'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

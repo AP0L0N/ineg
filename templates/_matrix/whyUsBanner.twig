@@ -1,0 +1,57 @@
+<div class="why-us-banner">
+    
+    <div class="inner-wrapper">
+        <div class="container">
+
+            <div class="first-promo">
+                <div class="content-wrapper">
+                    <p class="title">
+                        {{ field.mainTitleOne }}
+                    </p>
+                    <div class="description">
+                        {{ field.descriptionOne|raw }}
+                    </div>
+                </div>
+                <div class="image-wrapper">
+                    {% include "helpers/picture" with {desktop: {image: field.imageOne.one(), width: 1200 } } %}
+                </div>
+            </div>
+    
+            <div class="quote">
+                <div class="image-wrapper">
+                    {% include "helpers/picture" with {desktop: {image: field.imageTwo.one(), width: 700 } } %}
+                </div>
+                <div class="content-wrapper">
+                    <div class="quote-icon"><i class="fa fa-quote-left"></i></div>
+                    <p class="quote-text">{{ field.quote }}</p>
+                    <p class="quote-author">- {{ field.quoteAuthor }}</p>
+                </div>
+                <div class="image-wrapper">
+                    {% include "helpers/picture" with {desktop: {image: field.imageThree.one(), width: 700 } } %}
+                </div>
+            </div>
+    
+            <div class="company-you-can-trust">
+                <div class="image-wrapper">
+                    {% include "helpers/picture" with {desktop: {image: field.imageFour.one(), width: 1200 } } %}
+                </div>
+                <div class="content-wrapper">
+                    <p class="title">
+                        {{ field.mainTitleTwo }}
+                    </p>
+                    <div class="description">
+                        {{ field.descriptionTwo|raw }}
+                    </div>
+                    <div class="actions">
+                        {% set navItem = craft.entries.section('kontakt').one() %}
+                        <a href="{{ navItem.url }}" class="btn btn-primary">
+                            Kontakt
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+    
+        </div>
+    </div>
+</div>

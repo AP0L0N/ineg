@@ -1,0 +1,168 @@
+@import "../variables";
+
+.google-reviews {
+    margin: 75px 0;
+
+    @media(min-width: 991px) {
+        margin: 135px 0;
+    }
+
+    .heading {
+        text-align: center;
+        margin: 0 0 40px;
+
+        p {
+            font-family: $font-family-albert;
+            color: black;
+            @include responsive-font(21,26);
+            font-weight: 700;
+            line-height: 1.1;    
+        }
+    }
+
+    .google-rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(17, 17, 17, 0.05);
+        border-radius: 8px;
+        padding: 18px 24px 24px;
+
+        .ratings-wrapper {
+
+            .google-logo {
+                display: flex;
+                gap: 8px;
+                align-items: flex-end;
+
+                svg {
+                    width: 150px;
+                    height: auto;
+                }
+
+                span {
+                    position: relative;
+                    top: -10px;
+                    @include responsive-font(16,23);
+                }
+            }
+            
+
+            .rating {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                .rating-value {
+                    @include responsive-font(24,30);
+                    font-weight: 700;
+                    font-family: $font-family-albert;
+                    line-height: 1;
+                }
+
+                .rating-stars {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    svg {
+                        width: 25px;
+                        height: auto;
+                        
+                        path {
+                            fill: gold;
+                        }
+                    }
+                }
+
+                .ratings-count {
+                    @include responsive-font(18,22);
+                    font-weight: 500;
+                    font-family: $font-family-albert;
+                    line-height: 1;
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+
+    .write-a-review {
+        justify-content: center;
+        margin-top: 40px;
+
+        @media(min-width: 991px) {
+            margin-top: 0;
+            display: block;
+        }
+
+        a {
+            
+            @media(min-width: 991px) {
+                position: relative;
+                top: 5px;
+            }
+        }
+    }
+
+    .user-reviews {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        @media(min-width: 991px) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .user-review {
+            background-color: rgba(17, 17, 17, 0.05);
+            border-radius: 8px;
+            padding: 15px;
+
+            .review-name {
+                font-weight: 700;
+                font-family: $font-family-albert;
+                margin-bottom: 3px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                text-transform: capitalize;
+
+                svg {
+                    width: 15px;
+                    height: auto;
+                }
+            }
+
+            .rating-stars {
+                display: flex;
+                align-items: center;
+                gap: 2px;
+                position: relative;
+                left: -2px;
+                margin-bottom: 15px;
+
+                svg {
+                    width: 15px;
+                    height: auto;
+
+                    path {
+                        fill: gold;
+                    }
+                }
+            }
+
+            .review-text {
+                line-height: normal;
+            }
+
+            .time-ago {
+                @include responsive-font(14,15);
+                opacity: 0.5;
+                display: none;
+            }
+        }
+    }
+}

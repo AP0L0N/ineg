@@ -1,0 +1,138 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <section class="slice-lg has-bg-cover bg-size-cover" style="background-image: url('/assets/images/contact.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-8 ml-lg-auto">
+                        <div class="px-5 py-5 bg-white z-depth-1-bottom">
+                            <h2 class="heading heading-2 strong-400 c-gray-dark">
+                                Kontaktirajte nas
+                            </h2>
+                            <div class="">
+                                <p class="c-light-gray mt-4">
+                                    Vzpostavite stik z nami osebno, po elektronski pošti ali pa kar preko telefona.
+                                </p>
+                                <hr>
+                                <p class="mb-0">
+                                    <strong class="text-primary">Inštitut nizkoenergijske gradnje</strong><br>
+                                    Ropretova ulica 18<br>
+                                    Mengeš, Slovenia<br>
+                                    <a href="mailto:splosno@ineg.si">splosno@ineg.si</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slice bg-base-1">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="fluid-paragraph paragraph-md">
+                            <h2 class="heading heading-2 strong-400 c-white">
+                                Priprava brezplačne ponudbe
+                            </h2>
+                            <p>
+                                Opišite željen produkt, velikost, material, način montaže in <br>po potrebi priložite skico, načrt ali sliko.
+                            </p>
+
+                            <div class="btn-container mt-4">
+                                <a href="mailto:prodaja@ineg.si" class="btn btn-styled btn-lg btn-base-5 m-0"><i class="fas fa-envelope mr-2"></i> prodaja@ineg.si</a>
+                                <p class="mt-2"><small>Odgovorimo v enem delovnem dnevu.</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact slice">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="section-title section-title--style-1 text-center mb-4">
+                            <h3 class="section-title-inner heading-4 strong-400">
+                                <span>Podrobne informacije o posameznih produktih</span>
+                            </h3>
+                            <span class="section-title-delimiter clearfix"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="eco_item text-center">
+                            <h4>
+                                <strong>
+                                    Gradnja hiš in večjih objektov <br>
+                                    (skeletna gradnja)
+                                </strong>
+                            </h4>
+                            <p class="description">
+                                Slamnata izolacija
+                            </p>
+                            <hr>
+                            <p class="description">
+                                <strong>Darko Strahinič</strong><br>
+                                <a href="mailto:gradnja-his@ineg.si">gradnja-his@ineg.si</a><br>
+                                +386 (0)31 290 097
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="eco_item text-center">
+                            <h4>
+                                <strong>
+                                Fasadni sistemi <br>
+                                (leseni in panelni)
+                                </strong>
+                            </h4>
+                            <p class="description">
+                                Terase in ograje
+                            </p>
+                            <hr>
+                            <p class="description">
+                                <strong>Robert Lambergar</strong><br>
+                                <a href="mailto:lesena-gradnja@ineg.si">lesena-gradnja@ineg.si</a><br>
+                                +386 (0)41 661 686
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="eco_item text-center">
+                            <h4>
+                                <strong>
+                                    Nadstreški, <br>
+                                    vrtne hiške in lope
+                                </strong>
+                            </h4>
+                            <p class="description">
+                                Specialni projekti po naročilu
+                            </p>
+                            <hr>
+                            <p class="description">
+                                <strong>Žiga Zupan</strong><br>
+                                <a href="mailto:ziga.zupan@ineg.si">ziga.zupan@ineg.si</a><br>
+                                +386 (0)40 567 518
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,57 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 9e23dd8e-79e5-40d4-9264-8106bed610cf # Blog
+handle: blogInfo
+instructions: ''
+name: 'Blog info'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - c5cc323c-2030-472a-a32c-2b35e8f56c84 # Slika
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 27a20311-ffa7-4a8d-8441-2099a93dbbd0 # Naslov
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - c6bf4087-21ef-4dbf-b249-7c2055651ed1 # Kratek povzetek
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 42225258-bbf0-400e-acdc-17ab1b80727e # Besedilo
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - cb95f6d8-9033-439e-b025-15a125218342 # Galerija
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_bloginfo}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

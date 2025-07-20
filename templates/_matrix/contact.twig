@@ -1,0 +1,47 @@
+
+{% for item in field.contact.all() %}
+    <section class="map-wrapper">
+        <div class="container">
+
+            <div class="heading">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-center">
+                            <p class="title">
+                                {{ item.heading }}
+                            </p>
+    
+                            <p class="description">
+                                {{ item.subTitle }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+
+            <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space">
+                <div class="col-lg-6 mb-3 mb-md-0">
+                    <div id="google-map">
+                        {% include "helpers/picture" with {desktop: {image: item.image.one(), width: 600 } } %}
+                    </div>
+                </div>
+
+                <div class="col-lg-5 ">
+                    
+                    <div class="description-text">
+                        {{ item.description | raw }}
+                    </div>
+
+                    <div class="text-center text-md-left mt-4">
+                        <a href="{{ item.buttonUrl }}" class="btn btn-styled btn-styled btn-circle btn-base-1">
+                            {{ item.buttonTitle }} <i class="far fa-angle-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+{% endfor %}

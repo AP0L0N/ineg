@@ -1,0 +1,70 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  3a3fc729-dd88-4e4b-b54e-7fb0dd73422a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: accc17b1-cdfb-46be-b25b-b646556dc73e # Main title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2657b2fb-46fa-4f3f-8fca-409df7df7a51 # Button title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2657b2fb-46fa-4f3f-8fca-409df7df7a51: # Button title
+    columnSuffix: qrmsjjwa
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonTitle
+    instructions: ''
+    name: 'Button title'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  accc17b1-cdfb-46be-b25b-b646556dc73e: # Main title
+    columnSuffix: pkwclzfu
+    contentColumnType: text
+    fieldGroup: null
+    handle: mainTitle
+    instructions: ''
+    name: 'Main title'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: googleReviews
+name: 'Google reviews'
+sortOrder: 22

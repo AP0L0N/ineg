@@ -1,0 +1,69 @@
+{% set categories = craft.categories().group('kategorija').all() %}
+
+<section class="blogs list-of-blogs {{ field.customCssClasses }}">
+    <div class="container">
+
+        {% if field.listAll == false %}
+            <div class="heading">
+                <p class="title">{{ field.mainTitle is empty ? ("Želite izvedeti več?" | t) : field.mainTitle }}</p>
+            </div>
+
+            <div class="categories">
+                <ul>
+                    {% for category in categories %}
+                        <li class="{{ loop.index == 1 ? 'active' }}" onclick="displayCategory(this, '{{ category.slug }}')">
+                            <a href="javascript:" class="btn btn-outline-primary">{{ category.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <div class="blog-items">
+            {% for category in categories %}
+
+                {% if field.listAll %}
+                    <p class="category-title">{{ category.title }}</p>
+                {% endif %}
+                
+                <div class="blog-category {{ category.slug }} {{ field.listAll ? 'list-all' }} {{ field.listAll or loop.index == 1 ? 'active' }}">
+                    {% set items = craft.entries.section('blogs').relatedTo(category).all() %}
+
+                    {% for item in items %}
+                        <div class="blog-item">
+                            <div class="image-wrapper">
+                                {% include "helpers/picture" with {desktop: {image: item.blogInfo.slika.one(), width: 800 } } %}
+                            </div>
+
+                            <div class="content-wrapper">
+                                <p class="title">{{ item.blogInfo.naslov }}</p>
+                                <p class="summary">{{ item.blogInfo.kratekPovzetek }}</p>
+                            </div>
+
+                            <a href="{{ item.url }}" class="overlay-link"></a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% if field.listAll == false %}
+<script>
+    function displayCategory(clickedElement, categorySlug) {
+        document.querySelectorAll('.categories li').forEach(li => {
+            li.classList.remove('active');
+        });
+
+        clickedElement.classList.add('active');
+
+        document.querySelectorAll('.blog-category').forEach(category => {
+            category.classList.remove('active');
+        });
+
+        document.querySelector(`.blog-category.${categorySlug}`).classList.add('active');
+    }
+</script>
+{% endif %}

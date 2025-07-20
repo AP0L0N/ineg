@@ -1,0 +1,46 @@
+fieldLayouts:
+  1066571b-d988-4739-a997-7a88c9f3560b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d32b0141-46e9-4bf6-85bd-851fe8bafcb4 # KS - Naslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3d1626d0-1760-4777-b5fe-b1a50d52a931 # KS - Opis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b9367740-d138-461c-83b5-67eef45edb34 # KS - Zahvala za oddano povpraševanje
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b6f01a38-71e5-4af3-ab2d-eca0eeb07896 # KC - Storitev
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: nastavitveKonfiguratorjaCen
+name: 'Nastavitve konfiguratorja cen'
+sortOrder: 5

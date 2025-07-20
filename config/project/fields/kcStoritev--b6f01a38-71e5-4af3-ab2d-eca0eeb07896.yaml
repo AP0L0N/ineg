@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e8bcd847-b23d-480f-b790-274c3b6afe91 # Global
+handle: kcStoritev
+instructions: ''
+name: 'KC - Storitev'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_kcstoritev}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,101 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  b7b4e873-f214-483f-b086-8d5ea7f5b9c3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 064693e4-f58c-4f41-b673-f41a79dce833 # Glavni kontaktni modul
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9a1a5004-42d2-436b-9862-ba9ca67222e8 # Custom CSS Classes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  9a1a5004-42d2-436b-9862-ba9ca67222e8: # Custom CSS Classes
+    columnSuffix: nqdhjxsu
+    contentColumnType: text
+    fieldGroup: null
+    handle: customCssClasses
+    instructions: ''
+    name: 'Custom CSS Classes'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  064693e4-f58c-4f41-b673-f41a79dce833: # Glavni kontaktni modul
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: contactMainBanner
+    instructions: ''
+    name: 'Glavni kontaktni modul'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 57809825-4653-4239-be30-9e821a62f3ed # Slika za ozadje
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - d07c7ef2-1c05-4b11-b553-c4302cd94800 # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 76dbf61c-a5fb-480a-bc7b-73bca243d861 # Podnaslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - e9bb8899-c790-46c7-86dd-4d6723433214 # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_22_contactmainbanner}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: contactMainBanner
+name: 'Glavni kontaktni modul'
+sortOrder: 21

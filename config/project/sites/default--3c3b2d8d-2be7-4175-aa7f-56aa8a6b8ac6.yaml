@@ -1,0 +1,9 @@
+baseUrl: '@web'
+enabled: true
+handle: default
+hasUrls: true
+language: en
+name: INeG
+primary: true
+siteGroup: 8699aac9-2dad-4804-af87-0bca64100e76 # INeG
+sortOrder: 1

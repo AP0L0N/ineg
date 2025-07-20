@@ -1,0 +1,20 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e8bcd847-b23d-480f-b790-274c3b6afe91 # Global
+handle: vsebina
+instructions: ''
+name: Vsebina
+searchable: false
+settings:
+  contentTable: '{{%stc_vsebina}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

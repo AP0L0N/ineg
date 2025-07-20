@@ -1,0 +1,72 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  d1e18756-6eb6-4598-85ac-72b4aae41d7c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: aecc5163-7f79-4985-b4c0-4897bfe78777 # Info modul (objave)
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  aecc5163-7f79-4985-b4c0-4897bfe78777: # Info modul (objave)
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: infoModule2
+    instructions: ''
+    name: 'Info modul (objave)'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 53113089-a4fa-475b-a2df-016042205506 # Slike
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 7c545f62-8086-40e6-9d40-3793e2321fb8 # Naziv
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 64455a9a-3fda-4905-b723-71b66c6edd72 # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - be10256f-b53d-4c67-9494-aca3685f6967 # Objave
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_15_infomodule2}}'
+      fieldLayout: matrix
+      maxRows: '3'
+      minRows: '3'
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: infoModule2
+name: 'Info modul (objave)'
+sortOrder: 15

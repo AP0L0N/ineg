@@ -1,0 +1,19 @@
+columnSuffix: rxblgfgi
+contentColumnType: text
+fieldGroup: e8bcd847-b23d-480f-b790-274c3b6afe91 # Global
+handle: ksZahvalaZaOddanoPovprasevanje
+instructions: ''
+name: 'KS - Zahvala za oddano povpraševanje'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '2'
+  multiline: '1'
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

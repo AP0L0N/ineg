@@ -1,0 +1,75 @@
+field: b6f01a38-71e5-4af3-ab2d-eca0eeb07896 # KC - Storitev
+fieldLayouts:
+  2b5fc9b5-adf4-4cda-a29d-cf1cdbb1f159:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 21e8671b-ef20-423d-98ac-5ec6ea8d07ca # Storitev
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b1d8a4ee-d44e-4da5-bb9a-82beeb3c0aad # Cena - delo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  21e8671b-ef20-423d-98ac-5ec6ea8d07ca: # Storitev
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: storitev
+    instructions: ''
+    name: Storitev
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: false
+      source: null
+      sources:
+        - 'single:929a2ea6-e079-4dcb-b4bd-9b86dadead42' # Gradnja hiš
+        - 'single:80e273cc-61c2-41ad-8667-179e39a593b6' # Lesene ograje
+        - 'single:211f3b39-876c-4719-9a7c-9e234ed24e52' # Lesene terase
+        - 'single:3bb053ed-8ba0-4cf5-8c74-22f01649d99a' # Leseni fasadni sistemi
+        - 'single:aa85015e-4518-4419-a2bc-ed2331c5af3f' # Zunanji leseni dodatki
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  b1d8a4ee-d44e-4da5-bb9a-82beeb3c0aad: # Cena - delo
+    columnSuffix: xvdfsprx
+    contentColumnType: integer(10)
+    fieldGroup: null
+    handle: cenaDelo
+    instructions: ''
+    name: 'Cena - delo'
+    searchable: false
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: null
+      min: 0
+      prefix: null
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number

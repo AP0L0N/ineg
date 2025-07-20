@@ -1,0 +1,41 @@
+defaultPlacement: end
+fieldLayouts:
+  5416d5fc-cdea-4f2d-8491-3db1d83b67ff:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: kategorija
+name: Kategorija
+siteSettings:
+  3c3b2d8d-2be7-4175-aa7f-56aa8a6b8ac6: # INeG
+    hasUrls: true
+    template: index
+    uriFormat: 'kategorija/{slug}'
+structure:
+  maxLevels: null
+  uid: 70346923-cb79-4f62-99fb-973409fbf00c

@@ -1,0 +1,51 @@
+
+@mixin unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin responsive-font($min-size, $max-size) {
+    --font-size: calc(#{$min-size} * 1px + (#{$max-size} - #{$min-size}) * (100cqw - 375 * 1px) / (1140 - 375));
+    font-size: clamp(#{$min-size} * 1px, var(--font-size), #{$max-size} * 1px) !important;
+}
+
+@mixin centered-image {
+    overflow: hidden;
+
+    > span {
+        width: 100%;
+    }
+
+    img {
+        /*position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: 100%;
+        max-width: none;*/
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@mixin overlay-link {
+    position: relative;
+
+    .overlay-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        z-index: 10;
+        cursor: pointer;
+    }
+}

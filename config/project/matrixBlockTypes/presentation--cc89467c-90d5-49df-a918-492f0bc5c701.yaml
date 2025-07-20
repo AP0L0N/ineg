@@ -1,0 +1,158 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  0881e2b6-46ff-4786-89ac-15e2d7e86cb0:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 11c7302d-c3e3-43d4-bd64-c1e6ee403496 # Naslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d3d89839-e1b1-46e2-997a-d071d26ef7c6 # Predstavitev
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 960f8fa7-a22c-4185-a158-76cf6dfa8f52 # Custom CSS Classes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  11c7302d-c3e3-43d4-bd64-c1e6ee403496: # Naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Naslov
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  960f8fa7-a22c-4185-a158-76cf6dfa8f52: # Custom CSS Classes
+    columnSuffix: vfiakwlc
+    contentColumnType: text
+    fieldGroup: null
+    handle: customCssClasses
+    instructions: ''
+    name: 'Custom CSS Classes'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d3d89839-e1b1-46e2-997a-d071d26ef7c6: # Predstavitev
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: presentation
+    instructions: ''
+    name: Predstavitev
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - bdace254-16d2-4a28-b2fe-a0811b72a7f5 # Temno ozadje?
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 000d4cfc-840a-42d5-a582-21aa5856edf3 # Video (embed)
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 465c1061-1709-422e-ba6d-fc802e232c25 # Slike
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 1f842282-ef8e-450a-8e38-0e3399240696 # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 96ffb975-c4c8-4643-9927-46057d40657f # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 552b703a-6e79-4b6a-8073-ecae909f42fa # Povezava
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - e1aa3d56-dc11-4290-b477-ac1e75bd5478 # Naziv povezave
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 1fbf991f-8e14-4fc5-bb78-a291ec44585a # Odpri povezavo v novem oknu
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_17_presentation}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: presentation
+name: 'Predstavitveni modul (slike)'
+sortOrder: 17

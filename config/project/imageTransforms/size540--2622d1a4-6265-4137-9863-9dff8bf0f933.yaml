@@ -1,0 +1,9 @@
+format: jpg
+handle: size540
+height: null
+interlace: none
+mode: crop
+name: 'Size 540'
+position: center-center
+quality: 82
+width: 540

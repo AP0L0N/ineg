@@ -1,0 +1,9 @@
+format: jpg
+handle: size250
+height: null
+interlace: none
+mode: crop
+name: 'Size 250'
+position: center-center
+quality: 82
+width: 250

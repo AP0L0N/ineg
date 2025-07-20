@@ -1,0 +1,9 @@
+format: jpg
+handle: size800
+height: null
+interlace: none
+mode: crop
+name: 'Size 800'
+position: center-center
+quality: 82
+width: 800

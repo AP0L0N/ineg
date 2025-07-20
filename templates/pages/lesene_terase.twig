@@ -1,0 +1,888 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% set seoTitle = "Lesene terase" %}
+{% set seoDescription = "Najboljše, kar lahko podarite zunanjemu izgledu vašega doma. Les postaja zopet modern, saj je v zadnjih letih napredovala tehnologija obdelave lesa, strokovnost in vizualizacija uporabe lesa tako znotraj vašega doma, kot tudi zunaj. Razumljivo je, da se zmeraj več lastnikov hiš, vikendov in pritličnih atrijskih stanovanj odloči za leseno teraso. Lesena terasa je poleg svoje fukcionalnsti privlačna predvsem zaradi svojega izgleda in možnosti kombiniranja z drugimi materiali, ki zunanjosti dajejo pridih elegantnosti in udobnosti tako okolice, kot tudi samega doma. S pravo izbiro lesa in načinom montaže lahko dosežemo skladnost in harmonijo bivanja ter dosežemo maksimalni učinek udobja in povezanosti z naravo." %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <!-- Naslovni modul -->
+        <section class="sct-color-1 custom-main-banner" style="background-image: url(/assets/images/lesene_terase/lesene-terase-naslovna3.jpg)">
+            <div class="container slice-xl">
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <div class="animate-on-scroll fadeInUp heading-content text-center">
+                            <h2 class="heading heading-lg strong-600">
+                                Lesene terase
+                            </h2>
+                            <p class="heading heading-4 strong-300 mb-4 text-white">
+                                Najboljše kar lahko podarite <br>
+                                zunanjemu izgledu vašega doma
+                            </p>
+                            {% set blog = craft.entries().section('blogs').id(125).one() %}
+                            <a href="{{ blog.url }}" class="d-flex justify-content-center align-items-center main-link mt-4">
+                                <span class="text">
+                                    {{ blog.blogInfo.naslov }}
+                                </span>
+                                <span class="button">
+                                    <i class="fal fa-angle-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <span class="clearfix"></span>
+            </div>
+        </section>
+
+
+
+        <!-- Različno postavitev teras -->
+        <section class="slice-xxl sct-color-2 mt-5 pb-5">
+            <div class="container">
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <h3 class="heading-md strong-600 text-uppercase">
+                        <span>Različna postavitev teras</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+
+                <span class="clearfix"></span>
+
+                <div class="row row-sm-padding cols-xs-space cols-sm-space cols-md-space">
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image" style="background-image: url(/assets/images/lesene_terase/2.jpg)"></div>
+                            </div>
+                            <div class="max-content">
+                                <p class="title">
+                                    Pritlična enodružinska hiša
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 12m<span class="square">2</span>
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> sibirski macesen; BC kategorije
+                                    </li>
+                                    <li>
+                                        <strong>Obstojnost:</strong> 15 let
+                                    </li>
+                                    <li>
+                                        <strong>Pod-konstrukcija:</strong> llesena in podložena; peščena podlaga
+                                    </li>
+                                    <li>
+                                        <strong>Način vijačenja:</strong> vidno vijačenje z inox vijaki
+                                    </li>
+                                    <li>
+                                        <strong>Montaža:</strong> glaske deske; razmak 0,5 cm; obdelana zaključna letev; kasneje oljeno z arganovim oljem
+                                    </li>
+                                </ul>
+
+                                <div class="price">
+                                    <ul>
+                                        <li class="price">
+                                            <strong>Cena terase:</strong> <span class="text-primary">825 EUR (z DDV)</span>
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">68,75 EUR (z DDV)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder">
+                                <div class="block-image" style="background-image: url(/assets/images/lesene_terase/3.jpg)"></div>
+                            </div>
+                            <div class="max-content">
+                                <p class="title">
+                                    Lesena obloga ob bazenu
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 17m<span class="square">2</span>
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> camaru champagne; I. kat.
+                                    </li>
+                                    <li>
+                                        <strong>Obstojnost:</strong> 25 let
+                                    </li>
+                                    <li>
+                                        <strong>Pod-konstrukcija:</strong> lesena in podložena; betonska podlaga
+                                    </li>
+                                    <li>
+                                        <strong>Način vijačenja:</strong> skrito vijačenje s sponkami z inox vijaki
+                                    </li>
+                                    <li>
+                                        <strong>Montaža:</strong> glaske deske; razmak 0,5 cm; kasneje oljeno z lanenim firnežom
+                                    </li>
+                                </ul>
+
+                                <div class="price">
+                                    <ul>
+                                        <li class="price">
+                                            <strong>Cena terase:</strong> <span class="text-primary">2.040 EUR (z DDV)</span>
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">120 EUR (z DDV)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image" style="background-image: url(/assets/images/lesene_terase/4_new.jpg)"></div>
+                            </div>
+                            <div class="max-content">
+                                <p class="title">
+                                    Lesena pot ob hiši
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 8m<span class="square">2</span>
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> sibirski macesen; BC kategorije
+                                    </li>
+                                    <li>
+                                        <strong>Obstojnost:</strong> 15 let
+                                    </li>
+                                    <li>
+                                        <strong>Pod-konstrukcija:</strong> lesena konstrukcija, betonska podlaga
+                                    </li>
+                                    <li>
+                                        <strong>Način vijačenja:</strong> vidno vijačenje z inox vijaki
+                                    </li>
+                                    <li>
+                                        <strong>Montaža:</strong> glaske deske; razmak 0,5 cm; obdelana zaključna letev; kasneje oljeno z arganovim oljem
+                                    </li>
+                                </ul>
+
+                                <div class="price">
+                                    <ul>
+                                        <li class="price">
+                                            <strong>Cena terase:</strong> <span class="text-primary">440 EUR (z DDV)</span>
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">55 EUR (z DDV)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Različne vrste izgledov -->
+        <section class="slice-xl pt-5 sct-color-3" id="scrollToSection">
+            <div class="container">
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <h3 class="heading-md strong-600 text-uppercase c-white">
+                        <span>Različne vrste izgledov</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+
+                <span class="clearfix"></span>
+
+                <div class="row row-sm-padding cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col">
+                        <div class="block-slider">
+                            <div class="example-block">
+                                <div class="block block-image-holder ">
+                                    <div class="block-image" style="background-image: url('/assets/images/lesene_terase/5.jpg');"></div>
+                                </div>
+                                <div class="max-content">
+                                    <p class="title">
+                                        Hiša dvojček
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Velikost:</strong> 22m<span class="square">2</span>
+                                        </li>
+                                        <li>
+                                            <strong>Vrsta lesa:</strong> itauba dark; I. kategorije
+                                        </li>
+                                        <li>
+                                            <strong>Obstojnost:</strong> 25 let
+                                        </li>
+                                        <li>
+                                            <strong>Pod-konstrukcija:</strong> lesena in podložena; betonska podlaga
+                                        </li>
+                                        <li>
+                                            <strong>Način vijačenja:</strong> skrito vijačenje s sponkami z inox vijaki
+                                        </li>
+                                        <li>
+                                            <strong>Montaža:</strong> glaske deske; razmak 0,5 cm; obdelana zaključna letev; kasneje oljeno z lanenim firnežom
+                                        </li>
+                                    </ul>
+                                    <div class="price">
+                                        <ul>
+                                            <li class="price">
+                                                <strong>Cena terase:</strong> <span class="text-primary">2.970 EUR (z DDV)</span>
+                                            </li>
+                                            <li class="price">
+                                                <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">135 EUR (z DDV)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="example-block">
+                                <div class="block block-image-holder ">
+                                    <div class="block-image" style="background-image: url(/assets/images/lesene_terase/6.jpg)"></div>
+                                </div>
+                                <div class="max-content">
+                                    <p class="title">
+                                        Družinska, dvonadstropna hiša
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Velikost:</strong> 38m<span class="square">2</span>
+                                        </li>
+                                        <li>
+                                            <strong>Vrsta lesa:</strong> iroko; I. kategorije
+                                        </li>
+                                        <li>
+                                            <strong>Obstojnost:</strong> 20 let
+                                        </li>
+                                        <li>
+                                            <strong>Pod-konstrukcija:</strong> lesena; peščena podlaga
+                                        </li>
+                                        <li>
+                                            <strong>Način vijačenja:</strong> skrito vijačenje s sponkami z inox vijaki
+                                        </li>
+                                        <li>
+                                            <strong>Montaža:</strong> glaske deske; razmak 0,5 cm; obdelana zaključna letev; kasneje oljeno z arganovim oljem
+                                        </li>
+                                    </ul>
+                                    <div class="price">
+                                        <ul>
+                                            <li class="price">
+                                                <strong>Cena terase:</strong> <span class="text-primary">3.534 EUR (z DDV)</span>
+                                            </li>
+                                            <li class="price">
+                                                <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">93 EUR (z DDV)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="example-block">
+                                <div class="block block-image-holder ">
+                                    <div class="block-image" style="background-image: url(/assets/images/lesene_terase/7.jpg)"></div>
+                                </div>
+                                <div class="max-content">
+                                    <p class="title">
+                                        Hotel, gostinsa terasa in klop
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Velikost:</strong> 35<span class="square">2</span>
+                                        </li>
+                                        <li>
+                                            <strong>Vrsta lesa:</strong> sibirski macesen; AB kat.
+                                        </li>
+                                        <li>
+                                            <strong>Obstojnost:</strong> 20 let
+                                        </li>
+                                        <li>
+                                            <strong>Pod-konstrukcija:</strong> dvojna lesena z buzoni; kamnita in zbita podlaga
+                                        </li>
+                                        <li>
+                                            <strong>Način vijačenja:</strong> vidno vijačenje z inox vijaki
+                                        </li>
+                                        <li>
+                                            <strong>Montaža:</strong> glaske deske; razmak 0,5 cm; obdelana zaključna letev; kasneje oljeno z arganovim oljem
+                                        </li>
+                                    </ul>
+                                    <div class="price">
+                                        <ul>
+                                            <li class="price">
+                                                <strong>Cena terase:</strong> <span class="text-primary">3.045 EUR (z DDV)</span>
+                                            </li>
+                                            <li class="price">
+                                                <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">87 EUR (z DDV)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="example-block">
+                                <div class="block block-image-holder ">
+                                    <div class="block-image" style="background-image: url(/assets/images/lesene_terase/8.jpg)"></div>
+                                </div>
+                                <div class="max-content">
+                                    <p class="title">
+                                        Terasa pod nadstreškom
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Velikost:</strong> 24m<span class="square">2</span>
+                                        </li>
+                                        <li>
+                                            <strong>Vrsta lesa:</strong> sibirski macesen; AB kat.
+                                        </li>
+                                        <li>
+                                            <strong>Obstojnost:</strong> 25 let
+                                        </li>
+                                        <li>
+                                            <strong>Pod-konstrukcija:</strong> enojna kovinska; podlaga - zemlja
+                                        </li>
+                                        <li>
+                                            <strong>Način vijačenja:</strong> vidno vijačenje z inox vijaki
+                                        </li>
+                                        <li>
+                                            <strong>Montaža:</strong> glaske deske; razmak 0,5 cm; predhodno barvano z barvanem tikurilo oljem
+                                        </li>
+                                    </ul>
+                                    <div class="price">
+                                        <ul>
+                                            <li class="price">
+                                                <strong>Cena terase:</strong> <span class="text-primary">1.800 EUR (z DDV)</span>
+                                            </li>
+                                            <li class="price">
+                                                <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">75 EUR (z DDV)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Blogs styled -->
+        <section class="slice-lg pt-0 list-blogs mt-0">
+
+            <div class="lightbulp-wrapper">
+                <div class="circle">
+                    <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                </div>
+            </div>
+
+            <div class="container text-center">
+
+                <div class="row-wrapper">
+                    <div class="row cols-xs-space cols-sm-space cols-md-space">
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(88).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(445).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(98).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Pasica -->
+        <section class="slice-sm bg-base-1">
+            <div class="container sct-inner">
+                <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space text-center text-lg-left">
+                    <div class="col">
+                        <div class="d-block d-md-flex justify-content-center align-items-center">
+                            <h1 class="heading heading-3 c-base-text-1 strong-500 mb-3 mb-md-0 mr-md-5 mb-0">
+                                Si želiš tudi ti imeti lepo teraso?
+                            </h1>
+                            <a href="/kontakt" target="_blank" class="btn btn-styled btn-white btn-circle">
+                                Pridobi ceno
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Info modul terase -->
+        <section class="slice sct-color-1">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12 col-md-4">
+
+                        <!-- Image on top -->
+                        <div class="card example-card mb-5 mb-md-0">
+                            <img class="card-img-top" src="/assets/images/lesene_terase/vijacenje.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">Vijačenje</h4>
+
+                                    <p class="divide-title">Način vijačenja (vidno ali skrito) vpliva na izgled terase. Odločitev o tem predvsem botruje izbiri lesa za vašo teraso.</p>
+
+                                    <ul>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(115).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span class="text">{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+
+                        <!-- Image on bottom -->
+                        <div class="card example-card mb-5 mb-md-0">
+                            <img class="card-img-top" src="/assets/images/lesene_terase/podkonstrukcija.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">Podkonstrukcija</h4>
+
+                                    <p class="divide-title">Vsaka terasa se privijači na podkonstrukcijo. Pravilna postavitev podkonstrukcije nam podaljša življensko dobo terase.</p>
+
+                                    <ul>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(435).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span class="text">{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(145).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span class="text">{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(135).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span class="text">{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+
+                        <!-- Image on top -->
+                        <div class="card example-card">
+
+                            <img class="card-img-top" src="/assets/images/lesene_terase/premaz.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">Zaščitni premaz</h4>
+
+                                    <p class="divide-title">Odločitev o zaščiti lesa je prepuščena posamezniku. Jasno je, da zaščiten les ima še enkrat daljšo življensko dobo.</p>
+
+                                    <ul>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(191).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span>{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(445).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span class="text">{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Izdelava lesene terase -->
+        <section class="slice-lg procedure-block sct-color-2">
+            <div class="container">
+
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <div class="icon-block icon-block--style-2-v1 text-center mb-3">
+                        <div class="block-icon circle bg-base-1">
+                            <i class="fal fa-hammer"></i>
+                        </div>
+                    </div>
+                    <h3 class="heading-md strong-600 text-uppercase">
+                        <span>Postopek izdelave lesene terase</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="col-wrapper--spaced text-left animate-on-scroll fadeInUp p-3 p-md-5" data-wow-delay="0.3s">
+                            <h3 class="heading heading-4 strong-600 text-normal">
+                                <span class="number">1.</span> Primerna podlaga
+                            </h3>
+                            <p>
+                                Podlaga mora biti narejena tako, da bodo tla ravna,<br>
+                                a z ustreznim naklonom za odtekanje vode. Podlaga je<br>
+                                lahko betonska, peščena ali pa zbita zemlja.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 order-lg-1 ml-lg-auto">
+                        <div class="blog block-image-holder animate-on-scroll fadeInUp">
+                            <div class="block-image">
+                                <img src="/assets/images/24_a.jpg" class="shadow-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="space-xs-only-3 space-sm-only-3"></span>
+
+                <div class="row align-items-center mt-0">
+                    <div class="col-lg-6">
+                        <div class="col-wrapper--spaced text-left text-md-right animate-on-scroll fadeInUp p-3 p-md-5" data-wow-delay="0.3s">
+                            <h3 class="heading heading-4 strong-600 text-normal">
+                                <span class="number">2.</span> Podkonstrukcija
+                            </h3>
+                            <p>
+                                Za podkonstrukcijo običajno uporabimo letve, <br>
+                                ki so izdelane iz enakega ali tršega lesa kot sama terasa.
+                            </p>
+                            <p>
+                                Poskrbeti moramo, da lesena podkonstrukcija ni <br>
+                                v stalnem stiku z vodo in terasi omogočimo hitrejše sušenje. <br>
+                                S tem podaljšate življenjsko dobo vaše lesene terase za vsaj 30%.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="blog block-image-holder animate-on-scroll fadeInUp" >
+                            <div class="block-image">
+                                <img src="/assets/images/24_b.jpg" class="shadow-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="space-xs-only-3 space-sm-only-3"></span>
+
+                <div class="row align-items-center mt-0">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="col-wrapper--spaced animate-on-scroll fadeInUp p-3 p-md-5" data-wow-delay="0.3s">
+                            <h3 class="heading heading-4 strong-600 text-normal">
+                                <span class="number">3.</span> Montaža terase
+                            </h3>
+                            <p>
+                                Leseno teraso lahko montiramo na dva načina; <br>
+                                z vidnim ali skriti vijačenjem.
+                            </p>
+                            <p>
+                                Če vas vidni vijaki na terasi motijo je bolje, <br>
+                                da se odločite za nevidni način vijačenja.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 order-lg-1 ml-lg-auto">
+                        <div class="blog block-image-holder animate-on-scroll fadeInUp">
+                            <div class="block-image">
+                                <img src="/assets/images/24_c.jpg" class="shadow-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="space-xs-only-3 space-sm-only-3"></span>
+
+                <div class="row align-items-center mt-0">
+                    <div class="col-lg-6">
+                        <div class="col-wrapper--spaced text-left text-md-right animate-on-scroll fadeInUp p-3 p-md-5" data-wow-delay="0.3s">
+                            <h3 class="heading heading-4 strong-600 text-normal">
+                                <span class="number">4.</span> Montaža terase
+                            </h3>
+                            <p>
+                                Les, ki je izpostavljen vsem vremenskim razmeram, <br>
+                                od zelo mrzle in vlažne zime, do suhega in vročega poletja, <br>
+                                se razmeram prilagaja na svoj način.<br>
+                                To prilagajanje vidimo v krčenju in raztezanju terasnih desk.
+                            </p>
+                            <p>
+                                S predvrtanjem se izognemo možnim takojšnjim <br>
+                                razklanjem desk ali kasneje pri delovanju lesa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="blog block-image-holder animate-on-scroll fadeInUp" >
+                            <div class="block-image">
+                                <img src="/assets/images/24_d.jpg" class="shadow-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="space-xs-only-3 space-sm-only-3"></span>
+
+                <div class="row align-items-center mt-0">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="col-wrapper--spaced animate-on-scroll fadeInUp p-3 p-md-5" data-wow-delay="0.3s">
+                            <h3 class="heading heading-4 strong-600 text-normal">
+                                <span class="number">5.</span> Zaščita lesa
+                            </h3>
+                            <p>
+                                Pod vplivom vlage in temperaturnih sprememb začne les sčasoma propadati. Sam se pred tem »zaščiti« s sivo plastjo.
+                            </p>
+                            <p>
+                                V kolikor se želimo izogniti sivi plasti, potem moramo les zaščititi. <br>
+                                Zaščitimo ga lahko z naravnimi (olje ali vosek) ali umetnimi sredstvi (barve ali laki).
+                                Lesa ni treba ščititi vsako leto, temveč le na par let.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 order-lg-1 ml-lg-auto">
+                        <div class="blog block-image-holder animate-on-scroll fadeInUp">
+                            <div class="block-image">
+                                <img src="/assets/images/24_e.jpg" class="shadow-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container container-sm d-flex align-items-center mt-5">
+                <div class="col">
+                    <div class="row py-3 text-center justify-content-center">
+                        <div class="col-12 col-md-10">
+                            {% set blog = craft.entries().section('blogs').id(78).one() %}
+                            <h2 class="heading-5 line-height-1_8 animated d-flex justify-content-center align-items-center" data-animation-in="fadeIn" data-animation-delay="400">
+                                <span class="mr-4">{{ blog.blogInfo.naslov }}</span>
+                                <a href="{{ blog.url }}" target="_blank" class="btn btn-styled btn-base-3 btn-circle btn-shadow px-4 py-2 c-white">Preberite si več</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Blogs styled -->
+        <section class="slice-lg pt-0 list-blogs mt-0">
+
+            <div class="lightbulp-wrapper">
+                <div class="circle">
+                    <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                </div>
+            </div>
+
+            <div class="container text-center">
+
+                <div class="row-wrapper">
+                    <div class="row cols-xs-space cols-sm-space cols-md-space">
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(41).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(58).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(68).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Pasica -->
+        <section class="slice sct-color-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="section-title section-title--style-2 text-center mb-3">
+                                <h3 class="section-title-inner heading-2 strong-400">
+                                    <span>Potrebujete novo leseno teraso?</span>
+                                </h3>
+                            </div>
+                            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300">
+                                <div class="btn-container">
+                                    <a href="/kontakt" class="link link-sm mt-3 link-with-circle btn btn-styled btn-base-1 btn-circle"><span class="text">Pošljite povpraševanje</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endif %}
+
+{% endblock %}

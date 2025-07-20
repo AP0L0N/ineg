@@ -1,0 +1,41 @@
+field: 322a86f0-629b-4606-92b3-89d0c27e3b6e # Info modul
+fieldLayouts:
+  0a5bd2c2-8a8d-449b-a8e8-42aafd9f7188:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 269798a3-ba08-42e9-8ade-b199ced358f4 # Objave
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  269798a3-ba08-42e9-8ade-b199ced358f4: # Objave
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: blogs
+    instructions: ''
+    name: Objave
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: '3'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:ba381812-4441-4394-ad5d-73f71125bb77' # Blogs
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries

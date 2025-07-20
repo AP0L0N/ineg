@@ -1,0 +1,139 @@
+field: 064693e4-f58c-4f41-b673-f41a79dce833 # Glavni kontaktni modul
+fieldLayouts:
+  c7df9987-e0e8-4e14-988e-7342486a0aa8:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 57809825-4653-4239-be30-9e821a62f3ed # Slika za ozadje
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d07c7ef2-1c05-4b11-b553-c4302cd94800 # Naslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 76dbf61c-a5fb-480a-bc7b-73bca243d861 # Podnaslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e9bb8899-c790-46c7-86dd-4d6723433214 # Opis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  76dbf61c-a5fb-480a-bc7b-73bca243d861: # Podnaslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: podnaslov
+    instructions: ''
+    name: Podnaslov
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  57809825-4653-4239-be30-9e821a62f3ed: # Slika za ozadje
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: 'Slika za ozadje'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  d07c7ef2-1c05-4b11-b553-c4302cd94800: # Naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: naslov
+    instructions: ''
+    name: Naslov
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e9bb8899-c790-46c7-86dd-4d6723433214: # Opis
+    columnSuffix: zeuqupxy
+    contentColumnType: text
+    fieldGroup: null
+    handle: opis
+    instructions: ''
+    name: Opis
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

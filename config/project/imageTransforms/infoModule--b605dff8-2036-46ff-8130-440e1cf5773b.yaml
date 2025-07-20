@@ -1,0 +1,9 @@
+format: jpg
+handle: infoModule
+height: 280
+interlace: none
+mode: crop
+name: 'Info module'
+position: center-center
+quality: 82
+width: 350

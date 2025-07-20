@@ -1,0 +1,22 @@
+@import "../variables";
+
+.instagram-feed {
+    max-width: 2500px;
+    margin: 75px auto;
+    background-color: $primary-color;
+
+    @media (min-width: 991px) {
+        margin: 135px auto;
+    }
+    
+    h3 {
+        color: black !important;
+        font-weight: 700;
+        line-height: 1.1 !important;
+        @include responsive-font(21,26);
+    }
+
+    &.inverted {
+        background-color: white;
+    }
+}

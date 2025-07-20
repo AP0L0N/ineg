@@ -1,0 +1,9 @@
+format: jpg
+handle: size255
+height: null
+interlace: none
+mode: crop
+name: 'Size 255'
+position: center-center
+quality: 82
+width: 255

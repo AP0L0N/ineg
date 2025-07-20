@@ -1,0 +1,216 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  a58daaa4-bea4-4c3d-bae8-fc746d8a33d4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b3c33b01-8cd7-4fff-8583-32ee7e9436c1 # Naslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6386dd2f-49d8-42fa-bb81-dd6ad4cbc835 # Opis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c6e134c7-4278-4590-81cd-166c5607dca8 # Povezana blog vsebina
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fe9b55bc-9c99-4fba-b3a0-80d19bcc3e93 # Blogs
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 93ee654e-3424-451f-b110-c11a9345fc46 # Število blogov v vrstici
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 22d9b45f-1e57-4600-a448-f04cdcdcd6cc # Custom CSS Classes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  22d9b45f-1e57-4600-a448-f04cdcdcd6cc: # Custom CSS Classes
+    columnSuffix: ozqprrqs
+    contentColumnType: text
+    fieldGroup: null
+    handle: customCssClasses
+    instructions: ''
+    name: 'Custom CSS Classes'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  93ee654e-3424-451f-b110-c11a9345fc46: # Število blogov v vrstici
+    columnSuffix: icmhsggr
+    contentColumnType: string
+    fieldGroup: null
+    handle: steviloBlogovVVrstici
+    instructions: ''
+    name: 'Število blogov v vrstici'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - '3'
+            -
+              - value
+              - '3'
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - '2'
+            -
+              - value
+              - '2'
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  6386dd2f-49d8-42fa-bb81-dd6ad4cbc835: # Opis
+    columnSuffix: ezeifgev
+    contentColumnType: text
+    fieldGroup: null
+    handle: opis
+    instructions: ''
+    name: Opis
+    searchable: false
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  b3c33b01-8cd7-4fff-8583-32ee7e9436c1: # Naslov
+    columnSuffix: vugbyuly
+    contentColumnType: text
+    fieldGroup: null
+    handle: naslov
+    instructions: ''
+    name: Naslov
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c6e134c7-4278-4590-81cd-166c5607dca8: # Povezana blog vsebina
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: povezanaBlogVsebina
+    instructions: ''
+    name: 'Povezana blog vsebina'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:ba381812-4441-4394-ad5d-73f71125bb77' # Blogs
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  fe9b55bc-9c99-4fba-b3a0-80d19bcc3e93: # Blogs
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: blogs
+    instructions: ''
+    name: Blogs
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:ba381812-4441-4394-ad5d-73f71125bb77' # Blogs
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: seznamBlogov
+name: 'Seznam blogov'
+sortOrder: 2

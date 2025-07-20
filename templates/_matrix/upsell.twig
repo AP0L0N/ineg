@@ -1,0 +1,20 @@
+{% for item in field.upsell.all() %}
+    <div class="list-of-values">
+        <div class="container">
+            <div class="inner-wrapper">
+                <div class="list-item">
+                    <p class="title">{{ item.heading_1 }}</p>
+                    <p class="description">{{ item.description_1 }}</p>
+                </div>
+                <div class="list-item">
+                    <p class="title">{{ item.heading_2 }}</p>
+                    <p class="description">{{ item.description_2 }}</p>
+                </div>
+                <div class="list-item">
+                    <p class="title">{{ item.heading_3 }}</p>
+                    <p class="description">{{ item.description_3 }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

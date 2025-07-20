@@ -1,0 +1,59 @@
+
+
+{% for item in field.subvention.all() %}
+
+    <section class="subvention-module">
+        <div class="container">
+            <div class="text-center">
+
+                <img src="{{ item.logo.one().getUrl("size300") }}" alt="" role="presentation" class="img-fluid mx-auto mb-3 mb-lg-5">
+
+                <div class="section-title section-title--style-1 text-center my-3">
+                    <p class="title mb-0">
+                        {{ item.heading | nl2br }}
+                    </p>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+
+                <div class="row my-5">
+                    <div class="col-12 col-md-4 mb-4 mb-md-0">
+                        <div class="eco_item m-0">
+                            <h5>{{ item.heading_1 }}</h5>
+                            <p>
+                               {{ item.description_1 | nl2br }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4 mb-md-0">
+                        <div class="eco_item m-0">
+                            <h5>{{ item.heading_2 }}</h5>
+                            <p>
+                                {{ item.description_2 | nl2br }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="eco_item m-0">
+                            <h5>{{ item.heading_3 }}</h5>
+                            <p>
+                                {{ item.description_3 | nl2br }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fluid-paragraph fluid-paragraph-sm">
+                    <p class="lead mb-4">
+                        {{ item.description | nl2br }}
+                    </p>
+
+                    <a href="{{ item.buttonUrl }}" class="btn btn-styled btn-base-1 btn-circle" target="{{ item.openInNewWindow ? "_blank" : "_self" }}">
+                        {{ item.buttonTitle }} <i class="far fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endfor %}

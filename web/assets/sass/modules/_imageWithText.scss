@@ -1,0 +1,119 @@
+@import "../variables";
+
+.image-with-text {
+    margin: 75px 0;
+
+    @media(min-width: 991px) {
+        margin: 180px 0;
+    }
+
+    &.dark-bg {
+        background-color: $primary-color;
+        margin: 100px 0;
+        padding: 0 0 40px;
+
+        @media(min-width: 991px) {
+            margin: 130px 0;
+            padding: 180px 0;
+        }
+
+        .inner-wrapper {
+
+            .content {
+                border-color: white;
+            }
+        }
+    }
+
+    .inner-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &.reverse-order {
+            flex-direction: row-reverse;
+        }
+
+        @media(min-width: 991px) {
+            flex-wrap: nowrap;
+        }
+
+        .images {
+            display: block;
+            max-width: 100%;
+            width: 520px;
+
+            @media(min-width: 991px) {
+                transform: scale(1.2);
+            }
+
+            .swiper {
+
+                .swiper-wrapper {
+
+                    .swiper-slide {
+
+                        .image-wrapper {
+                            border-radius: 15px;
+                            @include centered-image;
+                            width: 520px;
+                            max-width: 100%;
+                            aspect-ratio: 125 / 100;
+                        }
+                    }
+                }
+
+                .swiper-pagination {
+                    transform: scale(0.6);
+                    bottom: 35px;
+
+                    @media(min-width: 991px) {
+                        bottom: 10px;           
+                    }
+                }
+            }
+        }
+
+        .content {
+            background: white;
+            position: relative;
+            z-index: 5;
+            padding: 30px 41px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            box-shadow: none;
+            border: thin solid #dbdbdb;
+
+            .inner-content {
+
+                .title {
+                    @include responsive-font(21,26);
+                    color: black;
+                    font-weight: 700;
+                    font-family: $font-family-albert;
+                    line-height: 1.1;
+                    margin-bottom: 10px;
+                }
+    
+                .description {
+                    
+                    p {
+                        @include responsive-font(15,16);
+                        color: black;
+                        line-height: 1.2;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+    
+                .actions {
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+}

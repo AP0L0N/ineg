@@ -1,0 +1,54 @@
+<section class="compare-items {{ field.options.darkBackground ? "bg-dark slice-xl" }} ">
+    <div class="container-fluid">
+        <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+            <h3 class="heading-md strong-600 {{ field.options.darkBackground ? "text-white" : "" }} ">
+                <span>{{ field.heading | nl2br }}</span>
+            </h3>
+            <span class="section-title-delimiter clearfix d-none"></span>
+        </div>
+
+        <div class="row row-sm-padding cols-xs-space cols-sm-space cols-md-space">
+            <div class="col">
+                <div class="block-slider">
+                {% for item in field.comparison.all() %}
+                    <div class="example-block">
+                        <div class="block block-image-holder ">
+                            <div class="block-image">
+                                {% if item.images.all() | length > 1 %}
+                                    <div class="slick-gallery">
+                                        {% for image in item.images.all() %}
+                                            {% include "helpers/picture" with {desktop: {image: image, width: 800 } } %}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {% include "helpers/picture" with {desktop: {image: item.images.one(), width: 800 } } %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="max-content">
+                            <p class="title">
+                                {{ item.heading | nl2br }}
+                            </p>
+                            <div class="mb-3 match-height-by-row">
+                                {{ item.description | raw }}
+                            </div>
+                            <div class="price pt-2">
+                                <ul>
+                                    <li class="price">
+                                        <strong>Cena terase:</strong> <span class="text-primary">{{ item.price }} (z DDV)</span>
+                                    </li>
+                                    {% if item.pricem2 is not empty %}
+                                    <li class="price">
+                                        <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">{{ item.pricem2 }} (z DDV)</span>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

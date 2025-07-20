@@ -1,0 +1,147 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  785fc2db-800c-486b-92db-876d2da75fdd:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1e1e02a5-ce5e-40b2-a558-5318f7097dbc # Naziv
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a7e8c4ad-6c0e-44b8-8d7c-65576e4e0b6f # Primerjave
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e749d307-f528-48d5-8c6b-a3912b03c9f9 # Nastavitve
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1e1e02a5-ce5e-40b2-a558-5318f7097dbc: # Naziv
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Naziv
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a7e8c4ad-6c0e-44b8-8d7c-65576e4e0b6f: # Primerjave
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: comparison
+    instructions: ''
+    name: Primerjave
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 84d8e957-1e32-49b0-9f26-39a0aedace71 # Naziv
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - b5d272b2-e774-400f-a921-0968558b07fd # Slike
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 5cb71353-9803-4fee-a8ac-bb4b541ce4b2 # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 38eb48ed-8726-447b-8fbd-b2fdd146f7b2 # Polna cena
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 1c49ff36-5481-4e91-a869-1be92b7dcc69 # Cena na m2
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_12_comparison}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  e749d307-f528-48d5-8c6b-a3912b03c9f9: # Nastavitve
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: options
+    instructions: ''
+    name: Nastavitve
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 720dcb9b-0cf8-4412-b75e-9a4263a72267 # Temno ozadje
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_12_options}}'
+      fieldLayout: table
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: comparison
+name: 'Primerjalni modul'
+sortOrder: 13

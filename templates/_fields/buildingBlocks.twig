@@ -1,0 +1,7 @@
+{% set blocks = entry.buildingBlocks.all() %}
+{% if blocks|length %}
+    {% for field in blocks %}
+        <div data-bb="{{ field.type }}"></div>
+        {% include '_matrix/' ~ field.type %}
+    {% endfor %}
+{% endif %}

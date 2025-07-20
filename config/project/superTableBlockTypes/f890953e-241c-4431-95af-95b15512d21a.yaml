@@ -1,0 +1,362 @@
+field: 323b5c8a-4880-4d8b-a460-eec55ff15f37 # Subvencija
+fieldLayouts:
+  80bb6512-e272-463f-ab95-ec6cd7b0f682:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 28a6d4ff-ed7a-4df1-a035-9a827df3323c # Logo
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d9b7f8d3-461d-42fa-b0ea-ca6f7ce55f32 # Naslov
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f03324a5-f6d5-4283-a2aa-0d1d1a5ed6bd # 1. okvir - naslov
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 21ed6e5a-2b60-42b6-8575-be199dac2a4f # 1. okvir - opis
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f2857b6e-111d-4c1f-9589-b3a8b6687bcb # 2. okvir - naslov
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 196b90be-99eb-4aa7-9787-f33f8581138b # 2. okvir - opis
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c622c938-5095-404e-876d-c09f629d3850 # 3. okvir - naslov
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1582f504-8921-4193-b05e-98733bf29e34 # 3. okvir - opis
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 22b11eb5-55ca-4546-9668-e7598ff90e9b # Opis
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a6442495-e342-490a-91b1-997c7d6f8aa0 # Povezava
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2711558c-204f-44fd-a3f6-74508845c00f # Naziv povezave
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9bf88209-bbbd-417c-8b44-02ed763c5dbf # Odpri povezavo v novem oknu?
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  9bf88209-bbbd-417c-8b44-02ed763c5dbf: # Odpri povezavo v novem oknu?
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: openInNewWindow
+    instructions: ''
+    name: 'Odpri povezavo v novem oknu?'
+    searchable: true
+    settings:
+      default: true
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  21ed6e5a-2b60-42b6-8575-be199dac2a4f: # 1. okvir - opis
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: description_1
+    instructions: ''
+    name: '1. okvir - opis'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  22b11eb5-55ca-4546-9668-e7598ff90e9b: # Opis
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Opis
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  28a6d4ff-ed7a-4df1-a035-9a827df3323c: # Logo
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: logo
+    instructions: ''
+    name: Logo
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  196b90be-99eb-4aa7-9787-f33f8581138b: # 2. okvir - opis
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: description_2
+    instructions: ''
+    name: '2. okvir - opis'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  1582f504-8921-4193-b05e-98733bf29e34: # 3. okvir - opis
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: description_3
+    instructions: ''
+    name: '3. okvir - opis'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  2711558c-204f-44fd-a3f6-74508845c00f: # Naziv povezave
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonTitle
+    instructions: ''
+    name: 'Naziv povezave'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a6442495-e342-490a-91b1-997c7d6f8aa0: # Povezava
+    columnSuffix: null
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: buttonUrl
+    instructions: ''
+    name: Povezava
+    searchable: true
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  c622c938-5095-404e-876d-c09f629d3850: # 3. okvir - naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading_3
+    instructions: ''
+    name: '3. okvir - naslov'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d9b7f8d3-461d-42fa-b0ea-ca6f7ce55f32: # Naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Naslov
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f03324a5-f6d5-4283-a2aa-0d1d1a5ed6bd: # 1. okvir - naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading_1
+    instructions: ''
+    name: '1. okvir - naslov'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f2857b6e-111d-4c1f-9589-b3a8b6687bcb: # 2. okvir - naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading_2
+    instructions: ''
+    name: '2. okvir - naslov'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

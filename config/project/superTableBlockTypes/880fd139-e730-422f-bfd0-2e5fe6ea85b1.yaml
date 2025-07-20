@@ -1,0 +1,241 @@
+field: d3d89839-e1b1-46e2-997a-d071d26ef7c6 # Predstavitev
+fieldLayouts:
+  fb1c5a5c-ebdb-4bf9-a971-b6a302043cda:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: bdace254-16d2-4a28-b2fe-a0811b72a7f5 # Temno ozadje?
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 000d4cfc-840a-42d5-a582-21aa5856edf3 # Video (embed)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 465c1061-1709-422e-ba6d-fc802e232c25 # Slike
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1f842282-ef8e-450a-8e38-0e3399240696 # Naslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 96ffb975-c4c8-4643-9927-46057d40657f # Opis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 552b703a-6e79-4b6a-8073-ecae909f42fa # Povezava
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e1aa3d56-dc11-4290-b477-ac1e75bd5478 # Naziv povezave
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1fbf991f-8e14-4fc5-bb78-a291ec44585a # Odpri povezavo v novem oknu
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  000d4cfc-840a-42d5-a582-21aa5856edf3: # Video (embed)
+    columnSuffix: rcgmtwlr
+    contentColumnType: text
+    fieldGroup: null
+    handle: videoEmbed
+    instructions: ''
+    name: 'Video (embed)'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  1f842282-ef8e-450a-8e38-0e3399240696: # Naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Naslov
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  1fbf991f-8e14-4fc5-bb78-a291ec44585a: # Odpri povezavo v novem oknu
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: openLinkInNewWindow
+    instructions: ''
+    name: 'Odpri povezavo v novem oknu'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  96ffb975-c4c8-4643-9927-46057d40657f: # Opis
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Opis
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  465c1061-1709-422e-ba6d-fc802e232c25: # Slike
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: ''
+    name: Slike
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  552b703a-6e79-4b6a-8073-ecae909f42fa: # Povezava
+    columnSuffix: null
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: buttonUrl
+    instructions: ''
+    name: Povezava
+    searchable: true
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  bdace254-16d2-4a28-b2fe-a0811b72a7f5: # Temno ozadje?
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: darkBackground
+    instructions: ''
+    name: 'Temno ozadje?'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  e1aa3d56-dc11-4290-b477-ac1e75bd5478: # Naziv povezave
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonTitle
+    instructions: ''
+    name: 'Naziv povezave'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

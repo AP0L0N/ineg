@@ -1,0 +1,52 @@
+{% for item in field.trust.all() %}
+<section class="slice trust-module">
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+
+                <div class="d-block d-md-flex justify-content-center align-items-center">
+
+                    <div class="px-3 newsletter-module">
+        
+                        <h3 class="heading heading-2 mb-4">
+                            {{ item.heading | raw | nl2br }}
+                        </h3>
+        
+                        <div class="description mb-4">
+                            {{ item.description | raw }}
+                        </div>
+        
+                        <div class="bg-primary p-2 mb-4">
+                            <iframe width="100%" height="300" src="https://my.sendinblue.com/users/subscribe/js_id/2uqud/id/1" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;overflow: hidden;"></iframe>
+                        </div>
+                        
+                        {% if item.extraNotes is not empty %}
+                            <p>
+                                {{ item.extraNotes | nl2br }}
+                            </p>
+                        {% endif %}
+                    </div>
+        
+                    <div class="px-3">
+                        {% if item.badges.all() | length > 0 %}
+                            <div class="badges text-center text-md-left">
+                                {% for image in item.badges.all() %}
+                                    <div class="m-3 d-inline-block d-md-block">
+                                        {% include "helpers/picture" with {desktop: {image: image, width: 220} } %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+        </div>
+        
+    </div>
+</section>
+{% endfor %}

@@ -1,0 +1,154 @@
+field: b6f01a38-71e5-4af3-ab2d-eca0eeb07896 # KC - Storitev
+fieldLayouts:
+  ca952485-ee44-4078-bfa9-c53ae0d87566:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1d976231-8448-46ae-9aaf-bc5bb5f185b1 # Povezana storitev
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 16858311-ecea-4bd9-9e4a-379a06225a07 # Naziv storitve
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dd381054-a6c0-41f5-af5b-6fdffa6f365e # Cena - delo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9bdd9fab-54b3-4320-ad2d-544d8e08d741 # Postavke
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1d976231-8448-46ae-9aaf-bc5bb5f185b1: # Povezana storitev
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: povezanaStoritev
+    instructions: ''
+    name: 'Povezana storitev'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'single:929a2ea6-e079-4dcb-b4bd-9b86dadead42' # Gradnja hiš
+        - 'single:80e273cc-61c2-41ad-8667-179e39a593b6' # Lesene ograje
+        - 'single:211f3b39-876c-4719-9a7c-9e234ed24e52' # Lesene terase
+        - 'single:3bb053ed-8ba0-4cf5-8c74-22f01649d99a' # Leseni fasadni sistemi
+        - 'single:8f854904-9811-4d3b-91c2-425844259b52' # Vrtne hiške in nadstreški
+        - 'single:aa85015e-4518-4419-a2bc-ed2331c5af3f' # Zunanji leseni dodatki
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  9bdd9fab-54b3-4320-ad2d-544d8e08d741: # Postavke
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: postavke
+    instructions: ''
+    name: Postavke
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - e138a15b-af69-4f36-97dc-724ff03ffff5 # Naziv postavke
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 42928c50-bb92-4924-a37f-25a93a578fe3 # Postavke
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_28_postavke}}'
+      fieldLayout: table
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  16858311-ecea-4bd9-9e4a-379a06225a07: # Naziv storitve
+    columnSuffix: sbsmlkcg
+    contentColumnType: text
+    fieldGroup: null
+    handle: nazivStoritve
+    instructions: ''
+    name: 'Naziv storitve'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  dd381054-a6c0-41f5-af5b-6fdffa6f365e: # Cena - delo
+    columnSuffix: disjsouy
+    contentColumnType: integer(10)
+    fieldGroup: null
+    handle: cenaDelo
+    instructions: ''
+    name: 'Cena - delo'
+    searchable: false
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: null
+      min: 0
+      prefix: null
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+handle: storitev
+name: Storitev
+sortOrder: 1

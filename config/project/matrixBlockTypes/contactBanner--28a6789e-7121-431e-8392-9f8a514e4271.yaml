@@ -1,0 +1,99 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  15a97278-9e14-4b57-9a98-03a0aed886b7:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 77e25f76-224a-4544-a2af-42c02cfc3889 # Poziv
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2e7571c8-1a40-49f8-b8a4-1006a88dbaf9 # Dodaten opis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e58eeb3e-2801-4cf6-b7b6-0a20b9350d82 # Custom CSS Classes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2e7571c8-1a40-49f8-b8a4-1006a88dbaf9: # Dodaten opis
+    columnSuffix: chkvfzhv
+    contentColumnType: text
+    fieldGroup: null
+    handle: dodatenOpis
+    instructions: ''
+    name: 'Dodaten opis'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  77e25f76-224a-4544-a2af-42c02cfc3889: # Poziv
+    columnSuffix: kjlruqzv
+    contentColumnType: text
+    fieldGroup: null
+    handle: poziv
+    instructions: ''
+    name: Poziv
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e58eeb3e-2801-4cf6-b7b6-0a20b9350d82: # Custom CSS Classes
+    columnSuffix: cablichc
+    contentColumnType: text
+    fieldGroup: null
+    handle: customCssClasses
+    instructions: ''
+    name: 'Custom CSS Classes'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: contactBanner
+name: 'Poziv k kontaktu'
+sortOrder: 12

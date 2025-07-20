@@ -1,0 +1,71 @@
+<!-- Slider -->
+<section class="main-slider-section">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col">
+                {% if field.slider.all() | length > 1 %}
+                    <div class="main-slider">
+                        {% for item in field.slider.all() %}
+                            <div class="main-slide-item d-flex align-items-center slick-slide slick-current slick-active" style="background-image: url({{ item.image.one().getUrl('sliderImage') }});">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="animated main-heading py-5 px-4" data-animation-in="fadeInUp" style="background: rgba(0,0,0,0.3);">
+                                                <h1 class="heading heading-md c-white text-uppercase">
+                                                    {{ item.heading }}
+                                                </h1>
+                                                
+                                                {% if item.smallHeading is not empty %}
+                                                    <h3 class="heading heading-md c-white mb-0">
+                                                        <small>{{ item.smallHeading }}</small>
+                                                    </h3>
+                                                {% endif %}
+                    
+                                                {% if item.description is not empty %}
+                                                    {{ item.description | raw }}
+                                                {% endif %}
+                                                
+                                                {% if item.buttonUrl is not empty %}
+                                                    <a href="{{ item.buttonUrl }}" target="{{ item.buttonTarget ? "_blank" : "_self" }}" class="btn btn-styled btn-base-1 btn-circle mt-4">{{ item.buttonTitle }}</a>
+                                                {% endif %}     
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {% set item = field.slider.one() %}
+                    <div class="main-slide-item d-flex align-items-center slick-slide slick-current slick-active" style="background-image: url({{ item.image.one().getUrl('sliderImage') }});">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="animated main-heading py-5 px-4" data-animation-in="fadeInUp" style="background: rgba(0,0,0,0.3);">
+                                        <h2 class="heading heading-md c-white text-uppercase">
+                                            {{ item.heading }}
+                                        </h2>
+                                        
+                                        {% if item.smallHeading is not empty %}
+                                            <h3 class="heading heading-md c-white mb-0">
+                                                <small>{{ item.smallHeading }}</small>
+                                            </h3>
+                                        {% endif %}
+            
+                                        {% if item.description is not empty %}
+                                            {{ item.description | raw }}
+                                        {% endif %}
+                                        
+                                        {% if item.buttonUrl is not empty %}
+                                            <a href="{{ item.buttonUrl }}" target="{{ item.buttonTarget ? "_blank" : "_self" }}" class="btn btn-styled btn-base-1 btn-circle mt-4">{{ item.buttonTitle }}</a>
+                                        {% endif %}     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

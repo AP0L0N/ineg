@@ -1,0 +1,65 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  37c7c6ac-0a71-46bb-8b40-07cb1ca781cf:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a0640ab6-84be-4825-aa1a-35d89b8a7b90 # O inštitutu
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  a0640ab6-84be-4825-aa1a-35d89b8a7b90: # O inštitutu
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: about
+    instructions: ''
+    name: 'O inštitutu'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 3c6720d1-9c17-42d6-ba12-903f7f6b271e # Slika
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - a4ba54c1-5627-44ad-8666-758e7d70ee69 # Naslov
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 93fe217f-1f2e-4522-b185-c04a8f706102 # Opis
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_18_about}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: about
+name: 'O inštitutu'
+sortOrder: 18

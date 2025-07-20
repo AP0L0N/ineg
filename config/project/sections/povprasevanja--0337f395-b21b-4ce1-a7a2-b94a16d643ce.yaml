@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: povprasevanja
+name: Povpraševanja
+propagationMethod: all
+siteSettings:
+  3c3b2d8d-2be7-4175-aa7f-56aa8a6b8ac6: # INeG
+    enabledByDefault: true
+    hasUrls: true
+    template: povprasevanja/_entry
+    uriFormat: 'povprasevanja/{slug}'
+type: channel

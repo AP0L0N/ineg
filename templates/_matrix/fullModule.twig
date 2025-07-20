@@ -1,0 +1,30 @@
+
+{% for item in field.fullModule.all() %}
+<section class="full-width-banner">
+    <div class="slice-lg has-bg-cover bg-size-cover">
+        <div class="background-image d-none d-lg-block">
+            {% include "helpers/picture" with {desktop: {image: item.image.one(), width: 2500 } } %}
+        </div>
+        <div class="container">
+            <div class="inner-wrapper">
+                <p class="title">
+                    {{ item.heading | nl2br }}
+                </p>
+
+                <div class="d-block d-lg-none">
+                    {% include "helpers/picture" with {desktop: {image: item.imageMobile.one(), width: 600 } } %}
+                </div>
+
+                <p class="description">
+                    {{ item.description | nl2br }}
+                </p>
+
+                <a href="{{ item.buttonUrl }}" class="btn btn-primary">
+                    {{ item.buttonTitle }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endfor %}

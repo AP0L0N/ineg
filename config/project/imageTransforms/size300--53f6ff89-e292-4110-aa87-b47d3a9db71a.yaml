@@ -1,0 +1,9 @@
+format: png
+handle: size300
+height: null
+interlace: none
+mode: crop
+name: '300'
+position: center-center
+quality: 82
+width: 300

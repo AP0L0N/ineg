@@ -1,0 +1,55 @@
+<section class="info-module">
+    <div class="container">
+        <div class="row">
+            {% for item in field.infoModule2.all() %}
+                <div class="col-12 col-md-4">
+                    <div class="card example-card {{ loop.index != field.infoModule2.all() | length ? "mb-5" : "" }} mb-md-0">
+                        {% if item.images.all() | length > 1 %}
+                            <div class="slick-gallery">
+                                {% for image in item.images.all() %}
+                                    {% include "helpers/picture" with {desktop: {image: image, width: 500} } %}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {% include "helpers/picture" with {desktop: {image: item.images.one(), width: 500} } %}
+                        {% endif %}
+
+                        <div class="list-blogs small-divide mt-0">
+                            <div class="lightbulp-wrapper">
+                                <div class="circle">
+                                    {% include "helpers/picture" with {desktop: {image: '/assets/images/zarnica_bela.png', width: 60} } %}
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">
+                                    {{ item.heading | nl2br }}
+                                </h4>
+
+                                <p class="divide-title">
+                                    {{ item.description | nl2br }}
+                                </p>
+
+                                {% if item.blogs.all() | length > 0%}
+                                    <ul>
+                                        {% for blog in item.blogs.all() %}
+                                        <li>
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span class="text">{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <div class="match-height-by-row"></div>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+                        
+        </div>
+    </div>
+</section>

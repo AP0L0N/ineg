@@ -1,0 +1,19 @@
+fieldLayouts:
+  cb2e94b8-f92e-44e6-bd08-1efe62a5db7c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 7bb6a28b-84a8-46b3-8eb2-351a62720628 # Vsebina
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: newsletterPopup
+name: 'Newsletter popup'
+sortOrder: 2

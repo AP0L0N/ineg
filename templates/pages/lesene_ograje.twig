@@ -1,0 +1,496 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% set seoTitle = "Lesene ograje" %}
+{% set seoDescription = "Estetska kombinacija funkcionalnosti uporabljenih materialov, ter odličen občutek zasebnosti vašega doma. Les kot material se je v zadnjh letih pričel veliko kombinirati z drugimi materiali, ki se tudi uporabljajo za zunanje ograje. V najpogostejši kominaciji je s kaljenim steklom, perforirano pločevino, gabioni ter žičnato in panelno ograjo. Lesena zunanja ograja je tako postala osnovna kombinacija za odlično ujemanje, tako z naravnimi, kot tudi kovinskimi in plastičnimi materiali, ki jih najdemo v posameznih elementih v okolici hiše. Dandanes je prava kombinacija lesene fasade, lesene ograje in lesene ograje postala sinonim za odlično zlitje hiše in okolice v naravno sobivanje človeka z naravo. Preprosto povedano: Les je bil in bo vedno moderen. Uporabljajo se zgolj različne tehnike obdelave in postavitve, ter kombiniranje tradicionalnih in modernih vrednot in okusov." %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <!-- Naslovni modul -->
+        <section class="sct-color-2 custom-main-banner" style="background-image: url(/assets/images/lesene_ograje/lesene-ograje-banner.jpg)">
+            <div class="container slice-xl">
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <div class="animate-on-scroll fadeInUp heading-content">
+                            <h3 class="heading heading-lg strong-600">
+                                Lesene ograje
+                            </h3>
+                            <h3 class="heading heading-4 strong-300">
+                                Estetska kombinacija funkcionalnosti uporabljenih materialov, ter odličen občutek zasebnosti vašega doma
+                            </h3>
+                            {% set blog = craft.entries().section('blogs').id(497).one() %}
+                            <a href="{{ blog.url }}" class="d-flex justify-content-center align-items-center main-link mt-4">
+                                <span class="text">
+                                    {{ blog.blogInfo.naslov }}
+                                </span>
+                                <span class="button">
+                                    <i class="fal fa-angle-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <span class="clearfix"></span>
+            </div>
+        </section>
+
+        <!-- Različne vrste izgledov -->
+        <section class="slice-xl sct-color-1 mt-5" id="scrollToSection">
+            <div class="container">
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <h3 class="heading-md strong-600 text-uppercase">
+                        <span>Različni primeri postavitve</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+
+                <span class="clearfix"></span>
+
+                <div class="row row-sm-padding cols-xs-space cols-sm-space cols-md-space">
+
+                    <div class="col">
+                        <div class="block-slider">
+                            <div class="example-block">
+                                <div class="block block-image-holder ">
+                                    <div class="block-image">
+                                        <img src="/assets/images/lesene_ograje/2.jpg">
+                                    </div>
+                                </div>
+                                <div class="max-content">
+                                    <p class="title">
+                                        Apartma na podeželju
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Velikost:</strong> 17m<span class="square">2</span>
+                                        </li>
+                                        <li>
+                                            <strong>Vrsta lesa:</strong> sibirski macesen; AB kat.
+                                        </li>
+                                        <li>
+                                            <strong>Obstojnost:</strong> 25 let
+                                        </li>
+                                        <li>
+                                            <strong>Konstrukcija:</strong> lesena; pritrjena na cinkana držala
+                                        </li>
+                                        <li>
+                                            <strong>Postavitev:</strong> napična in masivna
+                                        </li>
+                                        <li>
+                                            <strong>Montaža:</strong> obdelani leseni stebrički; razmak 5 cm; kasneje oljeno z arganovim oljem
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena ograje:</strong> <span class="text-primary">935 EUR (z DDV)</span>
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">55 EUR (z DDV)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="example-block">
+                                <div class="block block-image-holder ">
+                                    <div class="block-image">
+                                        <img src="/assets/images/lesene_ograje/3.jpg">
+                                    </div>
+                                </div>
+                                <div class="max-content">
+                                    <p class="title">
+                                        Ločilna ograja med dvema hišama
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Velikost:</strong> 10m<span class="square">2</span>
+                                        </li>
+                                        <li>
+                                            <strong>Vrsta lesa:</strong> sibirski macesen; BC kat.
+                                        </li>
+                                        <li>
+                                            <strong>Obstojnost:</strong> 15 let
+                                        </li>
+                                        <li>
+                                            <strong>Konstrukcija:</strong> kovinski stebri; vidno vijačenje
+                                        </li>
+                                        <li>
+                                            <strong>Postavitev:</strong> vodoravna
+                                        </li>
+                                        <li>
+                                            <strong>Montaža:</strong> ojačano z vertikalno letvijo; razmak 1 cm; kasneje oljeno
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena ograje:</strong> <span class="text-primary">550 EUR (z DDV)</span>
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">55 EUR (z DDV)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="example-block">
+                                <div class="block block-image-holder ">
+                                    <div class="block-image">
+                                        <img src="/assets/images/lesene_ograje/4.jpg">
+                                    </div>
+                                </div>
+                                <div class="max-content">
+                                    <p class="title">
+                                        Apartmajska hiša
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Velikost:</strong> 70m<span class="square">2</span>
+                                        </li>
+                                        <li>
+                                            <strong>Vrsta lesa:</strong> sibirski macesen; BC kat.
+                                        </li>
+                                        <li>
+                                            <strong>Obstojnost:</strong> 20 let
+                                        </li>
+                                        <li>
+                                            <strong>Konstrukcija:</strong> kovinska in lesena; vidno vijačenje
+                                        </li>
+                                        <li>
+                                            <strong>Postavitev:</strong> navpična z izrezanimi vzorci
+                                        </li>
+                                        <li>
+                                            <strong>Montaža:</strong> ravna in poševna postavitev; razmak 1 cm; kasneje oljeno z arganovim oljem
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena ograje:</strong> <span class="text-primary">4.550 EUR (z DDV)</span>
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">60 EUR (z DDV)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="example-block">
+                                <div class="block block-image-holder ">
+                                    <div class="block-image">
+                                        <img src="/assets/images/lesene_ograje/5.jpg">
+                                    </div>
+                                </div>
+                                <div class="max-content">
+                                    <p class="title">
+                                        Hiša dvojček
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Velikost:</strong> 7m<span class="square">2</span>
+                                        </li>
+                                        <li>
+                                            <strong>Vrsta lesa:</strong> modificiran (termično obdelan); I. kat.
+                                        </li>
+                                        <li>
+                                            <strong>Obstojnost:</strong> 25 let
+                                        </li>
+                                        <li>
+                                            <strong>Konstrukcija:</strong> kovinski stebri + kovinska vrata, prašano barvana; vidno vijačenje
+                                        </li>
+                                        <li>
+                                            <strong>Postavitev:</strong> vodorovna z vodili za romboidne letve
+                                        </li>
+                                        <li>
+                                            <strong>Montaža:</strong> nad ograjo dodana aluminjasta pločevina; razmak 0,5 cm; naravni izgled
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena ograje:</strong> <span class="text-primary">595 EUR (z DDV)</span>
+                                        </li>
+                                        <li class="price">
+                                            <strong>Cena na m<span class="square">2</span>:</strong> <span class="text-primary">85 EUR (z DDV)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info modul ograje -->
+        <section class="slice sct-color-2">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12 col-md-4">
+                        <div class="card example-card mb-5 mb-md-0">
+                            <img class="card-img-top" src="/assets/images/lesene_ograje/lesene-ograje-modul2.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">Vrste postavitve</h4>
+
+                                    <p class="divide-title">
+                                        Lesene deske se lahko postavi vodoravno ali navpično. Vsaka opcija ima svoje prednosti. Vsekakor je pa zlitje ograje z okolico hiše tista najpomembnejša.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card example-card mb-5 mb-md-0">
+                            <img class="card-img-top" src="/assets/images/lesene_ograje/lesene-ograje-modul22.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">Zaščita lesa</h4>
+
+                                    <p class="divide-title">
+                                        Ob postavitvi ograje je smiselno tudi zaščiti les. S tem preprečimo gnitje in razpadanje lesa, ter podaljšamo življensko dobo ograje.
+                                    </p>
+
+                                    <ul>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(191).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span class="text">{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(507).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span class="text">{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card example-card">
+
+                            <img class="card-img-top" src="/assets/images/lesene_ograje/lesene-ograje-modul23.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">Različne vrste izdelav</h4>
+
+                                    <p class="divide-title">
+                                        Postavitev lesene ograje ponuja veliko različnih opcij. Ali vključimo tudi kovinske stebričke ali ne, je pa ve veliki meri odvisno od terena in tudi budgeta, ki ga imamo.
+                                    </p>
+
+                                    <ul>
+                                        <li>
+                                            {% set blog = craft.entries().section('blogs').id(487).one() %}
+                                            <a href="{{ blog.url }}" class="link-with-circle">
+                                                <span>{{ blog.blogInfo.naslov }}</span> <span class="circle"><i class="fal fa-angle-right"></i></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Različno vrsta lesa -->
+        <section class="slice sct-color-1 pb-0" id="scrollToSection">
+
+            <div class="container">
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <h3 class="heading-md strong-600 text-uppercase">
+                        <span>Različne kombinacije lesa in ostalih materialov</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+            </div>
+
+            <section class="sct-color-1">
+                <div class="row row-no-padding align-items-center cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-6">
+                        <img src="/assets/images/lesene_ograje/material_1.jpg" class="img-fluid img-center">
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Kombinacija lesa in kaljenega stekla
+                            </h3>
+                            <p class="lead mt-4">
+                                Najsodobnejša kombinacija, ki se sklada z minimalistično in arhitekturno dovršeno okolico in z samo zasnovo hiše.
+                                Na voljo so tudi kombinacije rahlo ali polno zatemnjenega stekla in efekt razbitega stekla.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sct-color-2">
+                <div class="row row-no-padding align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <img src="/assets/images/lesene_ograje/material_2.jpg" class="img-fluid img-center">
+                    </div>
+
+                    <div class="col-lg-5 ml-lg-auto order-lg-1">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Kombinacija lesa in perforirane pločevine
+                            </h3>
+                            <p class="lead mt-4">
+                                Cenovno najugodnejša in hkrati estetsko dovršena opcija. Odraža drugačnost pristopa k ureditvi okolice in vrta.
+                                Odraža jo izjemna trpežnost in dolga življenska doba, ter paleta različnih odtenkov barv in kombinacij postavitev (vodoravna ali navpična) lesene ograje.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sct-color-1">
+                <div class="row row-no-padding align-items-center cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-6">
+                        <img src="/assets/images/lesene_ograje/material_3.jpg" class="img-fluid img-center">
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Kombinacija lesa in gabionov
+                            </h3>
+                            <p class="lead mt-4">
+                                Odlično razmerje kombinacije obeh materialov, ki se odraža v dobri zvočni izolaciji in je zato primerna za postavitve ob prometnih cestah ali pa v želji po večji intimi med hrupnimi sosedi. Paleta barvnih odtenkov in različna velikost kamnov nam omogoča različno kombinatoriko postavitve.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Blogs styled -->
+        <section class="slice-lg pt-0 list-blogs mt-0">
+
+            <div class="lightbulp-wrapper">
+                <div class="circle">
+                    <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                </div>
+            </div>
+
+            <div class="container text-center">
+
+                <div class="row-wrapper">
+                    <div class="row cols-xs-space cols-sm-space cols-md-space">
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(539).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(58).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="feature feature--boxed-border">
+                                <div class="icon-block icon-block--style-1-v2">
+                                    <div class="block-content text-left pl-0">
+                                        {% set blog = craft.entries().section('blogs').id(477).one() %}
+                                        <h3 class="heading heading-5 strong-600">
+                                            {{ blog.blogInfo.naslov }}
+                                        </h3>
+                                        <p>
+                                            {% if blog.blogInfo.kratekPovzetek is not empty %}
+                                                {{ blog.blogInfo.kratekPovzetek }}
+                                            {% else %}
+                                                {{ blog.blogInfo.besedilo | striptags | slice(0,150) ~ "..." }}
+                                            {% endif %}
+                                        </p>
+                                        <a href="{{ blog.url }}" class="link link-sm mt-3 link-with-circle"><span class="text">Preberite več</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Kontakt -->
+        <section class="slice sct-color-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="section-title section-title--style-2 text-center mb-3">
+                                <h3 class="section-title-inner heading-2 strong-400">
+                                    <span>Potrebujete novo leseno ograjo?</span>
+                                </h3>
+                            </div>
+                            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300">
+                                <div class="btn-container">
+                                    <a href="/kontakt" class="link link-sm mt-3 link-with-circle btn btn-styled btn-base-1 btn-circle"><span class="text">Pošljite povpraševanje</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+
+{% for item in field.module1.all() %}
+    <div class="image-with-text {{ item.darkColor ? 'dark-bg' }}">
+        <div class="container">
+            <div class="inner-wrapper {{ item.imagePositionLeft == false ? 'reverse-order' }}">
+
+                <div class="images">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            {% for image in item.images.all() %}
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        {% include "helpers/picture" with {desktop: {image: image, width: 1500 } } %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    <div class="inner-content">
+                        <p class="title">{{ item.heading }}</p>
+                        <div class="description">
+                            {{ item.description | raw }}
+                        </div>
+    
+                        {% if item.buttonUrl is not empty and item.buttonTitle is not empty %}
+                            <div class="actions">
+                                <a href="{{ item.buttonUrl }}" class="btn btn-primary">
+                                    {{ item.buttonTitle }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

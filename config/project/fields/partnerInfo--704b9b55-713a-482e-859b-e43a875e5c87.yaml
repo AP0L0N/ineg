@@ -1,0 +1,43 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: d6ccaee0-40ea-4489-84c1-754c604b5d60 # Partners
+handle: partnerInfo
+instructions: ''
+name: 'Partner info'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - fa0e9fa4-35ef-4bb9-8c0e-1bfcaddfee94 # Naziv
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - f6e98df4-97a9-4313-a02f-96585e070333 # Logo
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 42da0539-3ed7-4990-9c49-b6d80dc764ea # Povezava
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_partnerinfo}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

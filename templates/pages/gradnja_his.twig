@@ -1,0 +1,107 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% set seoTitle = "Gradnja hiš" %}
+{% set seoDescription = "" %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <!-- Naslovni modul -->
+        <section class="bg-black">
+            <div class="container p-0">
+                <div class="row">
+                    <div class="col">
+                        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                        <div class="elfsight-app-9ecb4462-0eab-4838-9b35-5af63b647f61"></div>
+                    </div>
+                </div>
+                <span class="clearfix"></span>
+            </div>
+        </section>
+
+
+        <!-- Instagram -->
+        <section class="blogs sct-color-2 slice-sm">
+            <div class="container-fluid pt-3">
+                <div class="row">
+                    <div class="col">
+                        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                        <div class="elfsight-app-b5af9eb8-ed43-4b8b-825f-32434906e375"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        {% set category = craft.categories().title('Novice').one() %}
+        {% set items = craft.entries.section('blogs').relatedTo(category).limit(3).all() %}
+
+        {% if items | length > 0 %}
+            <section class="blogs">
+                <section class="slice">
+
+                    <div class="container">
+
+                        <div class="row cols-md-space cols-sm-space cols-xs-space">
+
+                            {% for item in items %}
+                                <div class="col-lg-4">
+                                    <div class="block block-image-holder image-animate-wrapper">
+                                        <div class="block-image image-animate--hover">
+                                            <a href="{{ item.url }}" style="background-image: url({{ item.blogInfo.slika.one().url }})"></a>
+                                        </div>
+
+                                        <div class="pt-4">
+                                            <span class="heading heading-xs text-uppercase strong-300">{{ item.postDate | date("M d, Y") }}</span>
+                                            <a href="{{ item.url }}" class="heading heading-4 d-block strong-500 mt-1">{{ item.blogInfo.naslov }}</a>
+                                            <p class="mt-3">
+                                                {{ item.blogInfo.kratekPovzetek }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                {% set navItem = craft.entries.section('seznamObjav').one() %}
+                                <a href="{{ navItem.url }}" class="link link--bb-1 mt-4">{{ "Vse objave" | t }}</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </section>
+        {% endif %}
+
+         <!-- Pasica -->
+         <section class="slice sct-color-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="section-title section-title--style-2 text-center mb-3">
+                                <h3 class="section-title-inner heading-2 strong-400">
+                                    <span>Želite zgraditi novo hišo?</span>
+                                </h3>
+                            </div>
+                            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300">
+                                <div class="btn-container">
+                                    <a href="/kontakt" class="link link-sm mt-3 link-with-circle btn btn-styled btn-base-1 btn-circle"><span class="text">Pošljite povpraševanje</span> <span class="circle"><i class="fal fa-angle-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endif %}
+
+{% endblock %}

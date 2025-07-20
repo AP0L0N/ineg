@@ -1,0 +1,235 @@
+field: 7bb6a28b-84a8-46b3-8eb2-351a62720628 # Vsebina
+fieldLayouts:
+  4faee618-8be0-44b1-98f4-1179ed70157b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e3c8a9e8-8052-48a0-8859-7cbf4826a739 # Slika
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: aff69d6b-f238-46c5-8b88-53675dc7be21 # Naslov
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 494f7ec7-416e-47c0-b2ae-7aa9c460facf # Podnaslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b0d8c75f-f153-4a42-ae2e-1586b6798baf # Besedilo
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 129a9d37-459c-4e35-87bb-6a534eef4dbe # Napis na gumbu
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d70dd2fb-fab1-4026-a705-f33e71a7bb95 # Zahvalno sporočilo
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4724753b-d0ef-44c1-9dc5-07966620338c # Sendinblue list ID
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  129a9d37-459c-4e35-87bb-6a534eef4dbe: # Napis na gumbu
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: napisNaGumbu
+    instructions: ''
+    name: 'Napis na gumbu'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  494f7ec7-416e-47c0-b2ae-7aa9c460facf: # Podnaslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: podnaslov
+    instructions: ''
+    name: Podnaslov
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  4724753b-d0ef-44c1-9dc5-07966620338c: # Sendinblue list ID
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: sendinblueListId
+    instructions: ''
+    name: 'Sendinblue list ID'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  aff69d6b-f238-46c5-8b88-53675dc7be21: # Naslov
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: naslov
+    instructions: ''
+    name: Naslov
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b0d8c75f-f153-4a42-ae2e-1586b6798baf: # Besedilo
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: besedilo
+    instructions: ''
+    name: Besedilo
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  d70dd2fb-fab1-4026-a705-f33e71a7bb95: # Zahvalno sporočilo
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: zahvalnoSporocilo
+    instructions: ''
+    name: 'Zahvalno sporočilo'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e3c8a9e8-8052-48a0-8859-7cbf4826a739: # Slika
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: slika
+    instructions: ''
+    name: Slika
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets

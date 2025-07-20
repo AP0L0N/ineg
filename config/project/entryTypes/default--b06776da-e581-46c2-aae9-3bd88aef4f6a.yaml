@@ -1,0 +1,92 @@
+fieldLayouts:
+  25a17584-126c-43f9-b35c-116fcf4b27de:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: fde45bec-84f6-4093-a82f-98265df2ada4 # Uporabnik - ime in priimek
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 35caae57-8230-495a-b639-395122cfb9c0 # Uporabnik - email
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0aab90dd-1706-460e-ba41-ea99bd889984 # Izbrana storitev
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cac08aff-adeb-4622-8b76-f7d5760fae22 # Postavke
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 26aef659-a8b5-4093-97ac-4c90ae46f2d8 # Prikazana okvirna cena
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 94c97c88-3a0b-4214-87aa-45fd91194d6d # Uporabnik - opombe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: default
+hasTitleField: false
+name: Default
+section: 0337f395-b21b-4ce1-a7a2-b94a16d643ce # Povpraševanja
+sortOrder: 1
+titleFormat: '{ uporabnikImeInPriimek ~ '' - '' ~ uporabnikEmail }'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

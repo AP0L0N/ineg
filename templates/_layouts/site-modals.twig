@@ -1,0 +1,192 @@
+
+{# Newsletter banner #}
+<div class="newsletter-wrapper">
+    <div class="content-wrapper">
+
+        <div class="image-wrapper">
+            <img src="{{ newsletterPopup.vsebina.slika.one().getUrl('newsletterPoupImage') }}" alt="Newsletter banner" class="img-fluid">
+        </div>
+
+        <div class="content">            
+
+            <div class="close-icon">
+                <button class="close-button">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.00011 17L9.00031 9.00006M9.00031 9.00006L17 1.00063M9.00031 9.00006L16.9999 16.9994M9.00031 9.00006L1 1" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="incentive">
+                <p class="title">{{ newsletterPopup.vsebina.naslov }}</p>
+                <p class="sub-title">{{ newsletterPopup.vsebina.podnaslov }}</p>
+                <div class="description">{{ newsletterPopup.vsebina.besedilo | raw }}</div>
+
+                <div class="form-wrapper">
+                    <form id="newsletterForm" action="/actions/custom-module/newsletter/subscription" method="POST" onsubmit="onNewsletterFormSubmit(event)">                        
+                        <input type="hidden" name="list_id" value="{{ newsletterPopup.vsebina.sendinblueListId }}">
+        
+                        <div class="input-wrapper">
+                            <input type="email" name="email" class="form-control" placeholder="tvoj@email.si" required>
+                            <p class="error">Prosimo vpišite vaš e-naslov.</p>
+                            <button type="submit">
+                                {{ newsletterPopup.vsebina.napisNaGumbu }}
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="thankYou" class="d-none">
+                        <p class="thank-you">{{ newsletterPopup.vsebina.zahvalnoSporocilo }}</p>
+                        <button class="close-button">Nadaljuj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{# Cookies banner #}
+<div class="cookies-banner">
+    <div class="container">
+        <div class="inner-wrapper">
+            <div class="banner-box">
+                <button class="close" onclick="closeCookiesBanner()"><i class="fal fa-times"></i></button>
+
+                <p class="title">{{ cookiesBanner.naslov }}</p>
+                <p class="text">{{ cookiesBanner.opis }}</p>
+                <div class="actions">
+                    <button class="btn btn-outline-primary" onclick="declineAllCookies()">{{ "Zavrni vse" | t }}</button>
+                    <button class="btn btn-outline-primary" onclick="acceptAllCookies()">{{ "Sprejmi vse" | t }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ <script>
+
+    function saveNewsletterCookies() {
+        let date = new Date();
+        date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + date.toUTCString();
+        document.cookie = "ineg_pp=1; " + expires + "; path=/";
+        localStorage.setItem('ineg_pp', 1);
+    }
+
+    function closeNewsletterPopup() {
+        saveNewsletterCookies();
+
+        let wrapper = document.querySelector('.newsletter-wrapper');
+        wrapper.classList.remove('active');
+        document.body.classList.remove('newsletter-active');
+    }
+
+    function onNewsletterFormSubmit(event) {
+        event.preventDefault();
+
+        let wrapper = document.querySelector('.newsletter-wrapper');
+        let form = wrapper.querySelector('#newsletterForm');
+        let email = wrapper.querySelector('input[name="email"]').value;
+        let listId = wrapper.querySelector('input[name="list_id"]').value;
+        let thankYou = wrapper.querySelector('#thankYou');
+        let title = wrapper.querySelector('.title');
+        let error = wrapper.querySelector('.error');
+        let sub_title = wrapper.querySelector('.sub-title');
+        let description = wrapper.querySelector('.description');
+
+        if(email && listId) {
+            jQuery.ajax({
+                url: '/actions/custom-module/newsletter/subscription',
+                type: 'POST',
+                data: {
+                    email: email,
+                    list_id: listId
+                },
+                complete: function () {
+                    form.classList.add("d-none");
+                    title.classList.add("d-none");
+                    sub_title.classList.add("d-none");
+                    description.classList.add("d-none");
+                    thankYou.classList.remove("d-none");
+
+                    saveNewsletterCookies();
+                }
+            });
+
+        } else {
+            error.classList.add('active');
+        }
+    }
+
+    function handleNewsletterPopup() {
+        try {
+            let wrapper = document.querySelector('.newsletter-wrapper');
+
+            if (wrapper && localStorage.getItem("ineg_pp") === null && document.cookie.indexOf('ineg_pp') === -1) {
+                let closeButtons = wrapper.querySelectorAll('.close-button');
+
+                Array.prototype.forEach.call(closeButtons, function (el) {
+                    el.addEventListener('click', function () {
+                        closeNewsletterPopup();
+                    });
+                });
+
+                setTimeout(() => {
+                    wrapper.classList.add('active');
+                    document.body.classList.add('newsletter-active');
+                }, 7000);
+            }
+        } catch(e) {
+            console.log('handleNewsletterPopup :>> ', e);
+        }
+    }
+
+    function checkCookie(name) {
+        let pattern = "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)";
+        let match = document.cookie.match(pattern);
+        return match ? match[2] : null;
+    }
+
+    function handleCookiesBanner() {
+        if (sessionStorage.getItem('bannerClosed') === 'true' || checkCookie('cookiesEnabled') === 'true') {
+            console.log('Cookies enabled');
+
+        } else {
+            document.querySelector('.cookies-banner').classList.add('active');
+        }
+    }
+
+    function acceptAllCookies() {
+        document.cookie = "cookiesEnabled=true; path=/; max-age=86400";
+        closeCookiesBanner();
+    }
+
+    function declineAllCookies() {
+        document.cookie = "cookiesEnabled=false; path=/; max-age=86400";
+        closeCookiesBanner();
+    }
+
+    function closeCookiesBanner() {
+        document.querySelector('.cookies-banner').classList.remove('active');
+        sessionStorage.setItem('bannerClosed', 'true');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // handleNewsletterPopup
+        try {
+            // handleNewsletterPopup();
+        } catch(e) {
+            console.log('handleNewsletterPopup :>> ', e);
+        }
+
+        // handleCookiesBanner
+        try {
+            // handleCookiesBanner();
+        } catch(e) {
+            console.log('handleCookiesBanner :>> ', e);
+        }
+    });
+ </script>

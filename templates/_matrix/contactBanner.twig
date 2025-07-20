@@ -1,0 +1,26 @@
+ <section class="bg-primary mini-contact-banner {{ field.customCssClasses }}">
+    <div class="container">
+        <div class="row">
+            <div class="col justify-content-center align-items-center d-flex">
+                <div class="text-center d-inline-block p-5">
+                    <p class="title">
+                        {{ field.poziv }}
+                    </p>
+
+                    {% if field.dodatenOpis is not empty %}
+                        <p class="lead">
+                            {{ field.dodatenOpis }}
+                        </p>
+                    {% endif %}
+
+                    <div class="actions">
+                        {% set navItem = craft.entries.section('kontakt').one() %}
+                        <a href="{{ navItem.url }}" class="btn btn-default">
+                            {{ "Pišite nam" | t }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

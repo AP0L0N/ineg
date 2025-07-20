@@ -1,0 +1,73 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <!-- Heading -->
+        <section class="slice sct-color-2 border-bottom">
+            <div class="container">
+                <div class="section-title section-title--style-1 text-center mt-5 mb-3">
+                    <h3 class="section-title-inner heading-1 strong-300 text-normal">
+                        Novice
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+            </div>
+        </section>
+
+        {% set category = craft.categories().title('Novice').one() %}
+        {% set items = craft.entries.section('blogs').relatedTo(category).limit(3).all() %}
+
+        {% if items | length > 0 %}
+
+            <!-- Blogs -->
+            <section class="slice sct-color-1">
+                <div class="container">
+
+                    {% for item in items %}
+
+                        <div class="row row-no-padding">
+                            <div class="col-lg-6">
+                                <div class="block block-image-holder">
+                                    <div class="block-image has-solid-shadow-right">
+                                        <a href="{{ item.url }}">
+                                            <img src="{{ item.blogInfo.slika.one().url }}" class="img-fluid img-center">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 ml-auto align-self-lg-end">
+                                <div class="col-wrapper--spaced">
+                                    <ul class="inline-links inline-links--style-2">
+                                        <li>
+                                            {{ item.postDate | date("M d, Y") }}
+                                        </li>
+                                    </ul>
+                                    <h3 class="heading heading-3 text-normal strong-600 mt-4">
+                                        <a href="{{ item.url }}">{{ item.blogInfo.naslov }}</a>
+                                    </h3>
+                                    <p class="mt-4">
+                                        {{ item.blogInfo.kratekPovzetek }}
+                                    </p>
+                                    <a href="{{ item.url }}" class="btn btn-styled btn-base-1 btn-circle mt-2">Preberite več ...</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="space-xs-xl"></span>
+
+                    {% endfor %}
+
+                </div>
+            </section>
+
+        {% endif %}
+
+    {% endif %}
+
+{% endblock %}

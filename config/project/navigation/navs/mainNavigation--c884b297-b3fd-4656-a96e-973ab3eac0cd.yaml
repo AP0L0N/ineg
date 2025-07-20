@@ -1,0 +1,9 @@
+handle: mainNavigation
+instructions: ''
+maxNodes: ''
+name: Navigacija
+propagateNodes: false
+sortOrder: 1
+structure:
+  maxLevels: '1'
+  uid: af6d1bcc-04e3-4f1f-8032-4030540a39f6

@@ -1,0 +1,17 @@
+
+{% for item in field.headerModule.all() %}
+    <div class="main-header-module {{ field.customCssClasses }}">
+        <div class="background-image">
+            {% include "helpers/picture" with {desktop: {image: item.image.one(), width: 2500}, mobile: {image: item.slikaOzadjaMobile.one() ? item.slikaOzadjaMobile.one() : item.image.one(), width: 991} } %}
+        </div>
+
+        <div class="inner-wrapper">
+            <div class="container">
+                <div class="header-box">
+                    <h1>{{ item.heading }}</h1>
+                    <h2>{{ item.description }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

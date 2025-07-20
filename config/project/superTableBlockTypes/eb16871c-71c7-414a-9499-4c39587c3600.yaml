@@ -1,0 +1,234 @@
+field: 8b693f15-2c19-4ee8-aee2-63760a7a71cb # Project info
+fieldLayouts:
+  124f3b09-cd21-4b34-8864-518f6b77da87:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 7417ad53-6e3c-42d5-993e-01a30a89c786 # Javen projekt (prikaži na strani)
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1cc578ce-1bdc-4a2f-bedc-bddf160f0f71 # Naziv projekta
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fae29ee3-847e-45f1-8210-7fc11d40ed31 # Opis
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 141b5a28-695a-47e8-9cee-2b03ee4cda42 # Naslov (lokacija)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 22bdda27-7218-4b53-8731-2baa65201af4 # Cena projekta
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 06d51d8a-2795-492c-8e5a-e905f8b52c78 # Galerija slik
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8130d6cf-8c9f-4b71-876a-cbbf06c47df8 # Datoteke (nikoli javne)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1cc578ce-1bdc-4a2f-bedc-bddf160f0f71: # Naziv projekta
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: nazivProjekta
+    instructions: ''
+    name: 'Naziv projekta'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  06d51d8a-2795-492c-8e5a-e905f8b52c78: # Galerija slik
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: galerijaSlik
+    instructions: ''
+    name: 'Galerija slik'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  22bdda27-7218-4b53-8731-2baa65201af4: # Cena projekta
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: cena
+    instructions: ''
+    name: 'Cena projekta'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  141b5a28-695a-47e8-9cee-2b03ee4cda42: # Naslov (lokacija)
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: naslov
+    instructions: ''
+    name: 'Naslov (lokacija)'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  7417ad53-6e3c-42d5-993e-01a30a89c786: # Javen projekt (prikaži na strani)
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: publicDisplay
+    instructions: ''
+    name: 'Javen projekt (prikaži na strani)'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  8130d6cf-8c9f-4b71-876a-cbbf06c47df8: # Datoteke (nikoli javne)
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: datoteke
+    instructions: ''
+    name: 'Datoteke (nikoli javne)'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  fae29ee3-847e-45f1-8210-7fc11d40ed31: # Opis
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: kratekOpis
+    instructions: ''
+    name: Opis
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

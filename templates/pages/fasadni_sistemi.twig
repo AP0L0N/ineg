@@ -1,0 +1,694 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        <!-- Naslovni modul -->
+        <section class="sct-color-2 custom-main-banner" style="background-image: url(/assets/images/fasadni_sistemi/fasadni-sistemi-banner.jpg)">
+            <div class="container slice-xl">
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <div class="animate-on-scroll fadeInUp heading-content">
+                            <h3 class="heading heading-lg strong-600">
+                                Lesene fasade in okrasni paneli
+                            </h3>
+                            <h3 class="heading heading-4 strong-300">
+                                Na zidanih ali lesenih skeletnih hišah
+                            </h3>
+                            <a href="#" class="d-flex justify-content-center align-items-center main-link mt-4">
+                                <span class="text">
+                                    Primerjava med leseno in panelno fasado? <br>
+                                    Kombinacja lesene ali panelne fasade s klasično ometano fasado?
+                                </span>
+                                <span class="button">
+                                    <i class="fal fa-angle-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <span class="clearfix"></span>
+            </div>
+        </section>
+
+        <!-- Različni izgled -->
+        <section class="slice-xl sct-color-1 mt-5 pb-5">
+            <div class="container">
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <h3 class="heading-md strong-600 text-uppercase">
+                        <span>Različni izgledi</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+
+                <span class="clearfix"></span>
+
+                <div class="row row-sm-padding cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image">
+                                    <div class="slick-gallery">
+                                        <img src="/assets/images/fasadni_sistemi/2-1.jpg">
+                                        <img src="/assets/images/fasadni_sistemi/2-2.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="max-content">
+                                <p class="title">
+                                    Lesena pot ob hiši v Mengšu
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 17m2
+                                    </li>
+                                    <li>
+                                        <strong>Obstojnost:</strong> 25 let
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> sibirski macesen, II. kategorije
+                                    </li>
+                                    <li>
+                                        <strong>Pod-konstrukcija:</strong> lesene deske, vidno vijačenje, 1cm razmak med deskami, kasneje oljen z arganovim oljem<br>
+                                    </li>
+                                    <li class="price">
+                                        <strong>Cena:</strong> <span class="text-primary">55 EUR /m2</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image">
+                                    <img src="/assets/images/fasadni_sistemi/3.jpg">
+                                </div>
+                            </div>
+                            <div class="max-content">
+                                <p class="title">
+                                    Lesena pot ob hiši v Mengšu
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 17m2
+                                    </li>
+                                    <li>
+                                        <strong>Obstojnost:</strong> 25 let
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> sibirski macesen, II. kategorije
+                                    </li>
+                                    <li>
+                                        <strong>Pod-konstrukcija:</strong> lesene deske, vidno vijačenje, 1cm razmak med deskami, kasneje oljen z arganovim oljem<br>
+                                    </li>
+                                    <li class="price">
+                                        <strong>Cena:</strong> <span class="text-primary">55 EUR /m2</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image">
+                                    <div class="slick-gallery">
+                                        <img src="/assets/images/fasadni_sistemi/4-1.jpg">
+                                        <img src="/assets/images/fasadni_sistemi/4-2.jpg">
+                                        <img src="/assets/images/fasadni_sistemi/4-3.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="max-content">
+                                <p class="title">
+                                    Lesena pot ob hiši v Mengšu
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 17m2
+                                    </li>
+                                    <li>
+                                        <strong>Obstojnost:</strong> 25 let
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> sibirski macesen, II. kategorije
+                                    </li>
+                                    <li>
+                                        <strong>Pod-konstrukcija:</strong> lesene deske, vidno vijačenje, 1cm razmak med deskami, kasneje oljen z arganovim oljem<br>
+                                    </li>
+                                    <li class="price">
+                                        <strong>Cena:</strong> <span class="text-primary">55 EUR /m2</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="example-block">
+                            <div class="block block-image-holder ">
+                                <div class="block-image">
+                                    <div class="slick-gallery">
+                                        <img src="/assets/images/fasadni_sistemi/5-1.jpg">
+                                        <img src="/assets/images/fasadni_sistemi/5-2.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="max-content">
+                                <p class="title">
+                                    Lesena pot ob hiši v Mengšu
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Velikost:</strong> 17m2
+                                    </li>
+                                    <li>
+                                        <strong>Obstojnost:</strong> 25 let
+                                    </li>
+                                    <li>
+                                        <strong>Vrsta lesa:</strong> sibirski macesen, II. kategorije
+                                    </li>
+                                    <li>
+                                        <strong>Pod-konstrukcija:</strong> lesene deske, vidno vijačenje, 1cm razmak med deskami, kasneje oljen z arganovim oljem<br>
+                                    </li>
+                                    <li class="price">
+                                        <strong>Cena:</strong> <span class="text-primary">55 EUR /m2</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Različne vrste izolacije -->
+        <section class="slice sct-color-1 pb-0" id="scrollToSection">
+
+            <div class="container">
+                <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                    <h3 class="heading-md strong-600 text-uppercase">
+                        <span>Različne vrste izgledov</span>
+                    </h3>
+                    <span class="section-title-delimiter clearfix d-none"></span>
+                </div>
+            </div>
+
+            <section class="sct-color-2">
+                <div class="row row-no-padding align-items-center cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-6">
+                        <img src="/assets/images/fasadni_sistemi/6.jpg" class="img-fluid img-center">
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Industrijsko predelana
+                            </h3>
+                            <p class="lead mt-4">
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore magna aliqua quisque congue augue rutrum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sct-color-1">
+                <div class="row row-no-padding align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <img src="/assets/images/fasadni_sistemi/7.jpg" class="img-fluid img-center">
+                    </div>
+
+                    <div class="col-lg-5 ml-lg-auto order-lg-1">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Celuloza
+                            </h3>
+                            <p class="lead mt-4">
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore magna aliqua quisque congue augue rutrum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sct-color-2">
+                <div class="row row-no-padding align-items-center cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-6">
+                        <div class="slick-gallery">
+                            <img src="/assets/images/fasadni_sistemi/8-1.jpg" class="img-fluid img-center">
+                            <img src="/assets/images/fasadni_sistemi/8-2.jpg" class="img-fluid img-center">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="col-wrapper--text text-center text-lg-left">
+                            <h3 class="heading heading-2 strong-500 text-normal">
+                                Slama
+                            </h3>
+                            <p class="lead mt-4">
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore magna aliqua quisque congue augue rutrum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Pasica -->
+        <section class="slice-sm sct-color-2 border-bottom bg-default d-none" id="scrollToSection">
+            <div class="container">
+                <div class="text-center">
+                    <span class="heading heading-3 strong-400 c-white">Si želiš tudi ti imeti lepo fasado?</span>
+                    <span><a href="/kontakt" class="btn btn-styled btn-base-1 btn-circle ml-4">Pridobi ceno</a></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info modul fasadni sistemi -->
+        <section class="slice sct-color-2 d-none">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                            <h3 class="heading-md strong-600 text-uppercase">
+                                <span>Izgled</span>
+                            </h3>
+                            <span class="section-title-delimiter clearfix d-none"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="col-12 col-md-6">
+
+                        <!-- Image on top -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">Fasadni sistem</h4>
+                            </div>
+                            <img class="card-img-top" src="/assets/images/terase_vijacenje.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <p class="divide-title">Preberite si</p>
+
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span>Lesene in panelne fasade</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+
+                        <!-- Image on bottom -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">Postavitev (vodoravna ali navpična)</h4>
+                            </div>
+                            <img class="card-img-bottom" src="/assets/images/terase_podkonstrukcija.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <p class="divide-title">Preberite si</p>
+
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span>Različne postavitve lesenih fasad (vodoravna ali navpična)!</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="col-12 col-md-6">
+
+                        <!-- Image on top -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">Vijačenje</h4>
+                            </div>
+                            <img class="card-img-top" src="/assets/images/terase_premaz.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <p class="divide-title">Preberite si</p>
+
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span>Razlika med vidnim in nevidnim vijačenjem?</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>Kakšna je razlika med zaščito lesa, ki jo opravijo mojstri ali sami?</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+
+                        <!-- Image on bottom -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">Zaščitni premaz</h4>
+                            </div>
+                            <img class="card-img-bottom" src="/assets/images/terase_podkonstrukcija.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <p class="divide-title">Preberite si</p>
+
+                                <ul>
+                                    <li>
+                                        {% set blog = craft.entries().section('blogs').id(191).one() %}
+                                        <a href="{{ blog.url }}">
+                                            <span>{{ blog.blogInfo.naslov }}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>Kakšna je razlika med zaščito lesa, ki jo opravijo mojstri ali sami?</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="slice sct-color-1 d-none">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                            <h3 class="heading-md strong-600 text-uppercase">
+                                <span>Izolacija</span>
+                            </h3>
+                            <span class="section-title-delimiter clearfix d-none"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="col-12 col-md-6">
+
+                        <!-- Image on top -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">Industrijsko predelana izolacija</h4>
+                                <p>Stripor oz. stirodur, steklena ali kamena volna</p>
+                            </div>
+                            <img class="card-img-top" src="/assets/images/terase_vijacenje.jpg" alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+
+                        <!-- Image on bottom -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Naravna izolacija</h4>
+                                <ul class="mb-0">
+                                    <li>
+                                        lesno-vlaknene plošča
+                                    </li>
+                                    <li>
+                                        celuloza
+                                    </li>
+                                    <li>
+                                        lesni kosmiči
+                                    </li>
+                                    <li>
+                                        <strong class="text-primary">slama</strong>
+                                    </li>
+                                </ul>
+                            </div>
+                            <img class="card-img-bottom" src="/assets/images/terase_podkonstrukcija.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <p class="divide-title">Preberite si</p>
+
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span>Kaj je najbolj pomembno pri izolaciji? <br>Sta to toplotna prehodnost sten in časovni zamik? Da!</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>Različne vrste izolacij: ali uporabiti industrijsko predelano <br>ali naravno izolacijo?</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>Naravna izolacija - katere se največ uporabljajo <br>in vpliv na bivanje?</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>Slama kot izolacija! Zakaj je v tujini najbolj cenjena?</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>Vpihana slama kot del fasade tako pri skeletnih hišah kot klasičnih zidanih! Učinkovitost 10+!</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slice sct-color-2 d-none">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section-title section-title-inverse section-title--style-1 text-center mb-5">
+                            <h3 class="heading-md strong-600 text-uppercase">
+                                <span>Material</span>
+                            </h3>
+                            <span class="section-title-delimiter clearfix d-none"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6">
+
+                        <!-- Image on top -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Lesena fasada</h4>
+                                <ul class="mb-0">
+                                    <li>Vrsta lesa: (macesec, smreka, bor, eksotični les)</li>
+                                    <li>
+                                        Oblika lesa : Perojin utor, ravna ali romb
+                                    </li>
+                                </ul>
+                            </div>
+                            <img class="card-img-top" src="/assets/images/terase_vijacenje.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <p class="divide-title">Preberite si</p>
+
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span>Razlika med termično obdelanim <br>in neobdelanim lesom za izolacijo?</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>Kakšna je razlika med zaščito lesa, ki jo opravijo mojstri ali sami?</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>Oblika lesa? Je to zgolj vizualna percepcija?</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+
+                        <!-- Image on bottom -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Panelna fasada</h4>
+                                <ul class="mb-0">
+                                    <li>
+                                        Lesno (vlakneno) cementne plošče
+                                    </li>
+                                    <li>
+                                        kovinske fasadne plošče (aluminjaste, vroče cinkane)
+                                    </li>
+                                </ul>
+                            </div>
+                            <img class="card-img-bottom" src="/assets/images/terase_podkonstrukcija.jpg" alt="Card image cap">
+                            <div class="list-blogs small-divide mt-0">
+                                <div class="lightbulp-wrapper">
+                                    <div class="circle">
+                                        <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                                    </div>
+                                </div>
+
+                                <p class="divide-title">Preberite si</p>
+
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span>Modern pristop k bivanju. Primeri uporabe panelne fasade (vlakneno cementnih in kovinskih plošč)!</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gradnja fasade -->
+        <section class="slice-lg sct-color-1 holder-item holder-item-dark d-none">
+            <div class="container container-sm d-flex align-items-center">
+                <div class="col">
+                    <div class="row py-3 text-center justify-content-center">
+                        <div class="col-12 col-md-10">
+                            <div class="icon-block icon-block--style-2-v1 text-center">
+                                <div class="block-icon circle bg-base-1 mb-2">
+                                    <i class="fal fa-hammer"></i>
+                                </div>
+                            </div>
+                            <h2 class="heading heading-2 line-height-1_8 strong-600 mt-3 animated" data-animation-in="fadeIn" data-animation-delay="400">
+                                Vas zanima postopek gradnje fasade?
+                            </h2>
+                            <a href="#" target="_blank" class="btn btn-styled btn-base-1 btn-circle btn-shadow px-4 mt-4">Preberite si tukaj</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blogs styled -->
+        <section class="list-blogs d-none">
+
+            <div class="lightbulp-wrapper">
+                <div class="circle">
+                    <img src='/assets/images/zarnica_bela.png' class='img-fluid' alt='Slika žarnice'>
+                </div>
+            </div>
+
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <h3 class="heading heading-5 strong-600">
+                            <strong>
+                                Postopek gradnje fasade. <br>Kako to delajo strokovnjaki?
+                            </strong>
+                        </h3>
+                        <a href="#" class="btn btn-styled btn-base-1 btn-circle mt-3">Preberite si tukaj</a>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <h3 class="heading heading-5 strong-600">
+                            <strong>
+                                Fasado ki jo delamo sami je dražja kakor če plačamo pravemu izvajalcu da jo naredi. Zakaj?
+                            </strong>
+                        </h3>
+                        <a href="#" class="btn btn-styled btn-base-1 btn-circle mt-3">Preberite si tukaj</a>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <h3 class="heading heading-5 strong-600">
+                            <strong>
+                                Zakaj je pri izvedbi fasade prezračevanje tako pomembno?
+                            </strong>
+                        </h3>
+                        <a href="#" class="btn btn-styled btn-base-1 btn-circle mt-3">Preberite si tukaj</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pasica -->
+        <section class="slice sct-color-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="section-title section-title--style-2 text-center mb-4">
+                                <h3 class="section-title-inner heading-2 strong-400">
+                                    <span>Potrebujete novo fasado?</span>
+                                </h3>
+                            </div>
+                            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 mt-4">
+                                <div class="btn-container mt-5">
+                                    <a href="/kontakt" class="btn btn-styled btn-base-1 btn-circle">Pošljite povpraševanje</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endif %}
+
+{% endblock %}

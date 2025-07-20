@@ -1,0 +1,119 @@
+field: 1ba263b9-68c8-4619-9a94-dcd98c2d31fa # Storitve in opisi
+fieldLayouts:
+  e0017326-a774-4447-aa32-5b8e22153a93:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3a2a2156-215a-446e-9924-647776d9a890 # Povezana storitev
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ea35875e-adac-45da-8bdd-c68f5099e6af # Prikazne slike
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 539ef7b3-fc80-4eff-a351-a9ceb63810a3 # Kratek opis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  3a2a2156-215a-446e-9924-647776d9a890: # Povezana storitev
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: povezanaStoritev
+    instructions: ''
+    name: 'Povezana storitev'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'single:929a2ea6-e079-4dcb-b4bd-9b86dadead42' # Gradnja hiš
+        - 'single:80e273cc-61c2-41ad-8667-179e39a593b6' # Lesene ograje
+        - 'single:211f3b39-876c-4719-9a7c-9e234ed24e52' # Lesene terase
+        - 'single:3bb053ed-8ba0-4cf5-8c74-22f01649d99a' # Leseni fasadni sistemi
+        - 'single:8f854904-9811-4d3b-91c2-425844259b52' # Vrtne hiške in nadstreški
+        - 'single:aa85015e-4518-4419-a2bc-ed2331c5af3f' # Zunanji leseni dodatki
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  539ef7b3-fc80-4eff-a351-a9ceb63810a3: # Kratek opis
+    columnSuffix: vinmayak
+    contentColumnType: text
+    fieldGroup: null
+    handle: kratekOpis
+    instructions: ''
+    name: 'Kratek opis'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ea35875e-adac-45da-8bdd-c68f5099e6af: # Prikazne slike
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: prikazneSlike
+    instructions: ''
+    name: 'Prikazne slike'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets

@@ -1,0 +1,106 @@
+field: 704b9b55-713a-482e-859b-e43a875e5c87 # Partner info
+fieldLayouts:
+  f7a17002-760e-4c02-a98b-b65d365c759a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: fa0e9fa4-35ef-4bb9-8c0e-1bfcaddfee94 # Naziv
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f6e98df4-97a9-4313-a02f-96585e070333 # Logo
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 42da0539-3ed7-4990-9c49-b6d80dc764ea # Povezava
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  42da0539-3ed7-4990-9c49-b6d80dc764ea: # Povezava
+    columnSuffix: null
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: partnerUrl
+    instructions: ''
+    name: Povezava
+    searchable: true
+    settings:
+      maxLength: '255'
+      placeholder: ''
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  f6e98df4-97a9-4313-a02f-96585e070333: # Logo
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: logo
+    instructions: ''
+    name: Logo
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  fa0e9fa4-35ef-4bb9-8c0e-1bfcaddfee94: # Naziv
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: partner
+    instructions: ''
+    name: Naziv
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

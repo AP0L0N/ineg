@@ -1,0 +1,106 @@
+field: 9bdd9fab-54b3-4320-ad2d-544d8e08d741 # Postavke
+fieldLayouts:
+  ded3198d-b994-4df8-ae43-92b465fffc51:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e138a15b-af69-4f36-97dc-724ff03ffff5 # Naziv postavke
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 42928c50-bb92-4924-a37f-25a93a578fe3 # Postavke
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  42928c50-bb92-4924-a37f-25a93a578fe3: # Postavke
+    columnSuffix: avkzrxpw
+    contentColumnType: text
+    fieldGroup: null
+    handle: postavke
+    instructions: ''
+    name: Postavke
+    searchable: false
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Vrsta
+                -
+                  - handle
+                  - vrsta
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Cena
+                -
+                  - handle
+                  - cena
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - number
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  e138a15b-af69-4f36-97dc-724ff03ffff5: # Naziv postavke
+    columnSuffix: wufisgbx
+    contentColumnType: text
+    fieldGroup: null
+    handle: nazivPostavke
+    instructions: ''
+    name: 'Naziv postavke'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

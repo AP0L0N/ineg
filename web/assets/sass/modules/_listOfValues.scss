@@ -1,0 +1,60 @@
+@import "../variables";
+
+.list-of-values {
+    background-color: $primary-color;
+    margin: 75px 0;
+
+    @media(min-width: 991px) {
+        margin: 135px 0;
+    }
+
+    .inner-wrapper {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+        @media(min-width: 991px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .list-item {
+            padding: 50px 35px;
+
+            @media(min-width: 991px) {
+                padding: 50px 30px;
+            }
+
+            &:nth-child(2) {
+                background-color: #222222;
+
+                .title {
+                    color: white;
+                }
+
+                .description {
+                    color: white;
+                }
+            }
+
+            .title {
+                @include responsive-font(21, 26);
+                color: black;
+                font-family: $font-family-albert;
+                line-height: 1.3;
+                margin-bottom: 15px;
+                font-weight: 600;
+                
+                @media(min-width: 991px) {
+                    margin-bottom: 25px;
+                    min-height: 73px;
+                }
+            }
+
+            .description {
+                color: black;
+                @include responsive-font(15, 16);
+                line-height: 1.2;
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+@import "../variables";
+
+.subvention-module {
+    margin: 70px 0;
+
+    @media(min-width: 991px) {
+        margin: 135px 0;
+    }
+
+    img {
+        width: 150px;
+        max-width: 100%;
+
+        @media(min-width: 991px) {
+            width: 250px;
+        }
+    }
+
+    .title {
+        background: none;
+        color: black;
+        font-weight: 700;
+        @include responsive-font(35, 42);
+        line-height: 1.1;
+        font-family: $font-family-albert;
+    }
+
+    .eco_item {
+        border: 4px solid $primary-color;
+
+        h5 {
+            color: black;
+        }
+
+        p {
+            @include responsive-font(18, 24);
+            line-height: 1.2;
+        }
+    }
+
+    .lead {
+        @include responsive-font(24, 32);
+        color: black;
+        font-family: $font-family-albert;
+        line-height: 1.2;
+        font-weight: 400;
+    }
+}

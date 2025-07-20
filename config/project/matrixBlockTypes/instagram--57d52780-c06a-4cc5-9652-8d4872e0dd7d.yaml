@@ -1,0 +1,65 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  b4a41fda-3a8a-498d-ac84-ed774f0fe65c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c7451bb2-dd9d-463a-84c1-1acb538acb3e # Instagram objave
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 81a7061f-7bd5-45a9-89f2-85db549091a1 # Custom CSS Classes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  81a7061f-7bd5-45a9-89f2-85db549091a1: # Custom CSS Classes
+    columnSuffix: iivtykqg
+    contentColumnType: text
+    fieldGroup: null
+    handle: customCssClasses
+    instructions: ''
+    name: 'Custom CSS Classes'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c7451bb2-dd9d-463a-84c1-1acb538acb3e: # Instagram objave
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: instagram
+    instructions: ''
+    name: 'Instagram objave'
+    searchable: false
+    settings:
+      default: true
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: instagram
+name: 'Instagram objave'
+sortOrder: 10

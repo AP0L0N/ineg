@@ -1,0 +1,9 @@
+format: jpg
+handle: croppedFullModule
+height: null
+interlace: none
+mode: crop
+name: 'Cropped full module'
+position: center-center
+quality: 82
+width: 350

@@ -1,0 +1,63 @@
+<section class="image-with-text-banner {{ field.customCssClasses }}" id="scrollToSection">
+
+    {% if field.heading is not empty %}
+    <div class="container">
+        <div class="section-title section-title-inverse section-title--style-1 text-center mb-3 mb-lg-5 px-3 px-md-0">
+            <h3 class="heading heading-2 text-dark">
+                {{ field.heading | nl2br }}
+            </h3>
+            <span class="section-title-delimiter clearfix d-none"></span>
+        </div>
+    </div>
+    {% endif %}
+
+    {% for item in field.presentation.all() %}
+        <section class="sct-color-1 {{ item.darkBackground ? "bg-dark" : "bg-primary" }}">
+            <div class="row row-no-padding align-items-center cols-xs-space cols-sm-space cols-md-space inner-wrapper">
+                
+                <div class="col-lg-6 {{ loop.index % 2 ? "order-2 order-md-1" : "order-1 order-md-2" }} mb-0">
+
+                    {% if item.videoEmbed is not empty %}
+                        <div class="video-wrapper">
+                            {{ item.videoEmbed | raw }}
+                        </div>
+                    {% else %}
+
+                        {% if item.images.all() | length > 1 %}
+                            <div class="slick-gallery">
+                                {% for image in item.images.all() %}
+                                    <div class="image-wrapper">
+                                        {% include "helpers/picture" with {desktop: {image: image, width: 1600} } %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="image-wrapper">
+                                {% include "helpers/picture" with {desktop: {image: item.images.one(), width: 1600} } %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                <div class="col-lg-6 {{ loop.index % 2 ? "order-2" : "order-1" }} content-wrapper">
+                    <div class="col-wrapper--text text-center text-lg-left py-0">
+                        <h3 class="heading heading-2 strong-500 text-normal {{ item.darkBackground ? "text-white" : "" }}">
+                            {{ item.heading }}
+                        </h3>
+                        <p class="lead mt-4 {{ item.darkBackground ? "text-white" : "" }}">
+                            {{ item.description | raw }}
+                        </p>
+                        {% if item.buttonUrl is not empty %}
+                            <div class="actions mt-4 pt-2">
+                                <a href="{{ item.buttonUrl }}" target="{{ item.openLinkInNewWindow ? "_blank" : "_self" }}" class="btn {{ item.darkBackground ? 'btn-primary' : 'btn-primary-inverted' }}">
+                                    {{ item.buttonTitle }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+    
+</section>

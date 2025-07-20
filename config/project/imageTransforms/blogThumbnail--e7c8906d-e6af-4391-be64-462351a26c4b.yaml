@@ -1,0 +1,9 @@
+format: jpg
+handle: blogThumbnail
+height: 72
+interlace: none
+mode: crop
+name: 'Blog thumbnail'
+position: center-center
+quality: 60
+width: 72

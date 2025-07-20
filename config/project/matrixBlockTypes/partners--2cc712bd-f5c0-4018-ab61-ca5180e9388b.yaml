@@ -1,0 +1,36 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  b9cc4b67-0abc-4258-9c81-2be6d48d5614:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: fe2d67e1-17f2-4738-96c4-991be53eb224 # Naši partnerji
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  fe2d67e1-17f2-4738-96c4-991be53eb224: # Naši partnerji
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: partners
+    instructions: ''
+    name: 'Naši partnerji'
+    searchable: false
+    settings:
+      default: true
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: partners
+name: 'Naši partnerji'
+sortOrder: 20

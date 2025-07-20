@@ -1,0 +1,86 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  1d5e41df-2e4f-4b02-aa03-7fcc15e5889b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 69f71b79-4a92-4284-8c0d-3322e48f91f8 # Garancije
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  69f71b79-4a92-4284-8c0d-3322e48f91f8: # Garancije
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: upsell
+    instructions: ''
+    name: Garancije
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 8337375a-daf9-46cb-b511-edc7a3756043 # Naslov 1
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - a0590213-7db8-43a6-90e2-9d4a1954062e # Opis 1
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 276a1f53-7bc3-45ab-a7e8-774baf3f33ff # Naslov 2
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 97e5b560-e8c3-4c6a-85cb-8c58af3948c3 # Opis 2
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - d0d8d851-1d62-4c05-8198-6bc16b2f25b7 # Naslov 3
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 1aa2f4ff-d729-48bb-bc4a-b0e8371cd600 # Opis 3
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_19_upsell}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: upsell
+name: Garancije
+sortOrder: 19

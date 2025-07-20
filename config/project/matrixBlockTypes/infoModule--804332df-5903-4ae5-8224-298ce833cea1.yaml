@@ -1,0 +1,51 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  9e65f081-1f42-4571-a21a-fcab3d63e645:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 322a86f0-629b-4606-92b3-89d0c27e3b6e # Info modul
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  322a86f0-629b-4606-92b3-89d0c27e3b6e: # Info modul
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: infoModule
+    instructions: ''
+    name: 'Info modul'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 269798a3-ba08-42e9-8ade-b199ced358f4 # Objave
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_13_infomodule}}'
+      fieldLayout: table
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: infoModule
+name: 'Info modul'
+sortOrder: 14

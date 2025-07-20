@@ -1,0 +1,69 @@
+fieldLayouts:
+  1733c33e-40bd-49d7-b6dd-30727141bb4e:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8b693f15-2c19-4ee8-aee2-63760a7a71cb # Project info
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9647b4e4-45a4-450d-bdeb-5dc9c42484c9 # Kategorija
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 9f759111-b98e-458e-ae32-997bdd29c8d5 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 2
+handle: projekti
+hasTitleField: false
+name: Projekti
+section: 5772ffb1-79d4-4e6f-ab79-593e6c532409 # Projekti
+sortOrder: 1
+titleFormat: '{{ projectInfo.nazivProjekta }}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

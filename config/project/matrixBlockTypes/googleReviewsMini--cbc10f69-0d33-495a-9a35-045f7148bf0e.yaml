@@ -1,0 +1,41 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  5b44c5b6-cb04-48f2-85aa-b6043bd67f4e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1a6e9172-6e4b-4ee8-b992-c5311c42f2dd # Custom CSS Classes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1a6e9172-6e4b-4ee8-b992-c5311c42f2dd: # Custom CSS Classes
+    columnSuffix: qtkxqfbm
+    contentColumnType: text
+    fieldGroup: null
+    handle: customCssClasses
+    instructions: ''
+    name: 'Custom CSS Classes'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: googleReviewsMini
+name: 'Google reviews - mini'
+sortOrder: 23

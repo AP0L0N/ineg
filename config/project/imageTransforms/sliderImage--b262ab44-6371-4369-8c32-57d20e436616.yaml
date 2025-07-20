@@ -1,0 +1,9 @@
+format: jpg
+handle: sliderImage
+height: 650
+interlace: none
+mode: crop
+name: 'Slider image'
+position: center-center
+quality: 100
+width: 2200

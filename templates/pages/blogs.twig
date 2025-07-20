@@ -1,0 +1,75 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        {% paginate craft.entries()
+            .section('blogs')
+            .orderBy("postDate desc")
+            .limit(9) as pageInfo, items %}
+
+        <section class="blogs">
+            <div class="delimiter--style-1">
+                <div class="delimiter-title-wrapper">
+                    <div class="delimiter-title">
+                        <h3 class="heading heading-xs mb-0 text-uppercase strong-600">Vse novice</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="slice">
+                <div class="container">
+
+                    <div class="row cols-md-space cols-sm-space cols-xs-space">
+                        {% for item in items %}
+                            <div class="col-lg-4 mb-5">
+                                <div class="block block-image-holder image-animate-wrapper">
+                                    <div class="block-image image-animate--hover">
+                                        <a href="{{ item.url }}" style="background-image: url({{ item.blogInfo.slika.one().getUrl('croppedFullModule') }})"></a>
+                                    </div>
+
+                                    <div class="pt-4">
+                                        <span class="heading heading-xs text-uppercase strong-300">{{ item.postDate | date("M d, Y") }}</span>
+                                        <a href="{{ item.url }}" class="heading heading-4 d-block strong-500 mt-1">{{ item.blogInfo.naslov }}</a>
+                                        <p class="mt-3">
+                                            {{ item.blogInfo.kratekPovzetek }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </section>
+
+            {# Pagination #}
+            <div class="pagination">
+                <div class="container">
+                    <div class="py-5 my-4 text-center d-flex justify-content-center align-items-center">
+                        {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}" class="prev mx-3 mx-md-4"><span>{{ "Nazaj" | t }}</span></a>{% endif %}
+
+                        {% for page, url in pageInfo.getPrevUrls(3) %}
+                            <a class="page d-inline-block mx-3 mx-md-4" href="{{ url }}">{{ page }}</a>
+                        {% endfor %}
+
+                        <span class="page current d-inline-block mx-3 mx-md-4">{{ pageInfo.currentPage }}</span>
+
+                        {% for page, url in pageInfo.getNextUrls(3) %}
+                            <a class="page d-inline-block mx-3 mx-md-4" href="{{ url }}">{{ page }}</a>
+                        {% endfor %}
+
+                        {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="next mx-3 mx-md-4"><span>{{ "Naprej" | t }}</span></a>{% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    {% endif %}
+
+{% endblock %}
