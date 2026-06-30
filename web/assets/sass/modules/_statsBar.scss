@@ -1,0 +1,55 @@
+@import "../variables";
+
+.stats-bar {
+    background-color: $dark-color;
+    padding: 45px 0;
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 15px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .stat-item {
+        text-align: center;
+        color: white;
+        position: relative;
+
+        @media (min-width: 768px) {
+            &:not(:last-child):after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -8px;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 50px;
+                background: rgba(255, 255, 255, 0.18);
+            }
+        }
+
+        .stat-value {
+            font-family: $font-family-albert;
+            @include responsive-font(34, 48);
+            font-weight: 700;
+            line-height: 1;
+            color: $primary-color;
+            margin-bottom: 8px;
+
+            .suffix {
+                color: white;
+            }
+        }
+
+        .stat-label {
+            @include responsive-font(13, 15);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+}

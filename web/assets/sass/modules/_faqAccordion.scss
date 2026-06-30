@@ -1,0 +1,128 @@
+@import "../variables";
+
+.faq-accordion {
+    padding: 80px 0;
+
+    @media (min-width: 991px) {
+        padding: 110px 0;
+    }
+
+    .faq-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+
+        @media (min-width: 991px) {
+            grid-template-columns: 360px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+    }
+
+    .faq-intro {
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: $primary-color;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            @include responsive-font(26, 38);
+            font-weight: 700;
+            margin-bottom: 15px;
+
+            span {
+                color: $primary-color;
+            }
+        }
+
+        p {
+            @include responsive-font(15, 17);
+            color: $default-color;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+    }
+
+    .faq-list {
+        .faq-item {
+            border: 1px solid #ececec;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: white;
+
+            &.is-open {
+                border-color: $primary-color;
+
+                .faq-question .toggle i {
+                    transform: rotate(45deg);
+                }
+            }
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            cursor: pointer;
+            font-family: $font-family-albert;
+            @include responsive-font(16, 18);
+            font-weight: 600;
+            color: black;
+            line-height: 1.3;
+
+            &:focus-visible {
+                outline: 2px solid $primary-color;
+                outline-offset: -2px;
+            }
+
+            .toggle {
+                flex-shrink: 0;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: rgba(248, 155, 83, 0.15);
+                color: $primary-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                i {
+                    transition: transform 0.25s ease;
+                }
+            }
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+
+            .answer-inner {
+                padding: 0 22px 22px;
+                font-size: 15px;
+                line-height: 1.55;
+                color: $default-color;
+
+                p {
+                    margin: 0 0 10px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{#
+    Poziv k akciji (CTA) banner
+    data.background, data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.button ({ url, label })
+    data.phone ({ number, label, href })
+#}
+{% set data = data is defined ? data : {} %}
+
+<section class="cta-banner"{% if data.background is defined %} style="background-image: url({{ data.background }})"{% endif %}>
+    <div class="container">
+        <div class="cta-content">
+            {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+
+            <div class="cta-actions">
+                {% if data.button is defined %}
+                    <a href="{{ data.button.url }}" class="btn btn-primary">{{ data.button.label }}</a>
+                {% endif %}
+                {% if data.phone is defined %}
+                    <a href="tel:{{ data.phone.href }}" class="phone-link">
+                        <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                        <span class="text">
+                            <span class="label">{{ data.phone.label }}</span>
+                            <span class="number">{{ data.phone.number }}</span>
+                        </span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

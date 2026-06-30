@@ -1,0 +1,57 @@
+{#
+    Primeri cen / projektov
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.examples (array) -> { image, title, specs: [ { label, value } ], total, perUnit }
+    data.note, data.button ({ url, label })
+#}
+{% set data = data is defined ? data : {} %}
+{% set examples = data.examples is defined ? data.examples : [] %}
+
+<section class="price-examples">
+    <div class="container">
+        <div class="section-head">
+            {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+        </div>
+
+        <div class="examples-grid">
+            {% for example in examples %}
+                <article class="price-card">
+                    <div class="card-image">
+                        <img src="{{ example.image }}" alt="{{ example.title }} — primer lesene terase" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>{{ example.title }}</h3>
+                        <ul class="specs">
+                            {% for spec in example.specs %}
+                                <li><strong>{{ spec.label }}:</strong> {{ spec.value }}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="price-box">
+                            {% if example.perUnit is defined %}
+                                <div class="price-row">
+                                    <span>Cena na m²</span>
+                                    <span class="value">{{ example.perUnit }}</span>
+                                </div>
+                            {% endif %}
+                            <div class="price-row is-total">
+                                <span>Cena terase</span>
+                                <span class="value">{{ example.total }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+
+        {% if data.note is defined or data.button is defined %}
+            <div class="examples-footer">
+                {% if data.note is defined %}<p>{{ data.note }}</p>{% endif %}
+                {% if data.button is defined %}
+                    <a href="{{ data.button.url }}" class="btn btn-primary">{{ data.button.label }}</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>

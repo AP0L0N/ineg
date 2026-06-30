@@ -52,8 +52,8 @@ fieldLayouts:
         sortOrder: 2
 handle: naslovnaStran
 hasTitleField: true
-name: 'Inštitut nizkoenergijske gradnje'
-section: 02a2a962-8bc2-48be-b70d-443fd6c56ef8 # Inštitut nizkoenergijske gradnje
+name: 'Naslovna stran'
+section: 02a2a962-8bc2-48be-b70d-443fd6c56ef8 # Naslovna stran
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

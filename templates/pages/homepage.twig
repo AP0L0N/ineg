@@ -1,0 +1,209 @@
+{% extends '_layouts/site-content' %}
+
+{#
+    PREDOGLED — prenovljena naslovna stran (2026)
+    Dostopno na /pages/homepage
+    Vsi moduli so vključeni s primeri vsebine (brez CMS-a).
+    Vsak modul sprejme spremenljivko `data` in je pripravljen za kasnejšo povezavo z Matrix polji.
+#}
+
+{% set seoTitle = "Lesene terase po meri | INeG – izdelava lesenih teras iz eksotičnega lesa" %}
+{% set seoDescription = "Specializirani za izdelavo lesenih teras iz eksotičnega lesa in sibirskega macesna. Več kot 500 izvedenih teras brez reklamacij, 5,0 ocena na Googlu. Pridobite informativno ceno." %}
+
+{% block content %}
+
+    {# ───────────────────── HERO ───────────────────── #}
+    {% include '_matrix/heroDecking' with { data: {
+        eyebrow: 'Inštitut nizkoenergijske gradnje',
+        slides: [
+            {
+                image: '/assets/images/terase_1.jpg',
+                heading: 'Lesene terase, ki',
+                headingHighlight: 'preživijo generacije',
+                lead: 'Izdelujemo vrhunske lesene terase iz eksotičnega lesa in sibirskega macesna. Naravni material, brezčasna estetika in obstojnost, na katero se lahko zanesete.'
+            },
+            {
+                image: '/assets/images/lesene-terase-new-1.jpg',
+                heading: 'Vaš zunanji prostor,',
+                headingHighlight: 'podaljšek doma',
+                lead: 'Od prvega posveta do zadnjega vijaka – terasa po meri, izdelana s strokovnostjo, ki jo gradimo že več kot desetletje.'
+            }
+        ],
+        primaryButton: { url: '#kalkulator', label: 'Informativna cena' },
+        secondaryButton: { url: '/pages/lesene-terase-nova', label: 'Lesene terase' },
+        trust: [
+            { value: '500+', label: 'izvedenih teras', stars: false },
+            { value: '5,0', label: 'Google ocena', stars: true },
+            { value: '10+ let', label: 'izkušenj', stars: false }
+        ]
+    } } %}
+
+    {# ───────────────────── STATISTIKE ───────────────────── #}
+    {% include '_matrix/statsBar' with { data: {
+        stats: [
+            { value: 10, suffix: '+', label: 'let izkušenj' },
+            { value: 500, suffix: '+', label: 'izdelanih teras' },
+            { value: 0, suffix: '', label: 'reklamacij' },
+            { value: 5, suffix: ',0', label: 'ocena na Googlu' }
+        ]
+    } } %}
+
+    {# ───────────────────── STORITVE ───────────────────── #}
+    {% include '_matrix/servicesGrid' with { data: {
+        eyebrow: 'Naše storitve',
+        heading: 'Celovite rešitve lesenih gradenj –',
+        headingHighlight: 's poudarkom na terasah',
+        description: 'Naša osrednja dejavnost so lesene terase, poleg tega pa nudimo še fasade, ograje in druge lesene elemente za vaš dom.',
+        services: [
+            {
+                title: 'Lesene terase',
+                description: 'Eksotični les in sibirski macesen. Izdelava po meri od ideje do montaže.',
+                image: '/assets/images/terase_3.jpg',
+                url: '/pages/lesene-terase-nova',
+                featured: true,
+                badge: 'Naša specialnost'
+            },
+            { title: 'Leseni fasadni sistemi', description: 'Tople in trajnostne lesene fasade.', image: '/assets/images/fasadni_sistemi.jpg', url: '/leseni-fasadni-sistemi' },
+            { title: 'Lesene ograje', description: 'Macesen in tropski les za vsak stil.', image: '/assets/images/terase_4.jpg', url: '/lesene-ograje' },
+            { title: 'Vrtne hiške in nadstreški', description: 'Funkcionalni leseni objekti po meri.', image: '/assets/images/terase_6.jpg', url: '/vrtne-hiske-in-nadstreski' },
+            { title: 'Zunanji leseni dodatki', description: 'Klopi, predelne stene in detajli.', image: '/assets/images/terase_7.jpg', url: '/zunanji-leseni-dodatki' }
+        ]
+    } } %}
+
+    {# ───────────────────── PREDNOSTI ───────────────────── #}
+    {% include '_matrix/valueProps' with { data: {
+        eyebrow: 'Zakaj lesena terasa',
+        heading: 'Naravni material z',
+        headingHighlight: 'neprimerljivimi prednostmi',
+        description: 'Lesena terasa ni le estetska odločitev – je naložba v udobje, vrednost vašega doma in povezanost z naravo.',
+        props: [
+            { icon: 'fal fa-leaf', title: 'Naravna toplina', description: 'Les se prijetno zlije z vsakim okoljem in ustvarja toplo, vabljivo vzdušje.' },
+            { icon: 'fal fa-shield-check', title: 'Dolga obstojnost', description: 'Pravilno izbran in vgrajen eksotični les zdrži tudi 25 let in več.' },
+            { icon: 'fal fa-home-heart', title: 'Višja vrednost doma', description: 'Kakovostna terasa poveča uporabno površino in tržno vrednost nepremičnine.' },
+            { icon: 'fal fa-hand-holding-seedling', title: 'Trajnostna izbira', description: 'Les je obnovljiv material z nizkim ogljičnim odtisom in dolgo življenjsko dobo.' }
+        ]
+    } } %}
+
+    {# ───────────────────── VRSTE LESA ───────────────────── #}
+    {% include '_matrix/woodSpecies' with { data: {
+        eyebrow: 'Izbira lesa',
+        heading: 'Vrhunske vrste lesa za',
+        headingHighlight: 'vašo teraso',
+        description: 'Vsaka vrsta lesa ima svoj značaj. Svetujemo vam pri izbiri glede na videz, obstojnost in proračun.',
+        species: [
+            { name: 'Cumaru', origin: 'Južna Amerika', image: '/assets/images/lesene_terase/2.jpg', description: 'Izjemno trden in trpežen les zlato-rjavih odtenkov.', specs: [ { label: 'Trdota', value: 'Zelo visoka' }, { label: 'Obstojnost', value: '25+ let' }, { label: 'Cenovni razred', value: '€€€' } ] },
+            { name: 'IPE Lapacho', origin: 'Južna Amerika', image: '/assets/images/lesene_terase/3.jpg', description: 'Najbolj prestižen les – eleganca in trdota brez primere.', specs: [ { label: 'Trdota', value: 'Najvišja' }, { label: 'Obstojnost', value: '30+ let' }, { label: 'Cenovni razred', value: '€€€€' } ] },
+            { name: 'Sibirski macesen', origin: 'Sibirija', image: '/assets/images/lesene_terase/4.jpg', description: 'Odlično razmerje med ceno in kakovostjo, naravno odporen.', specs: [ { label: 'Trdota', value: 'Srednja' }, { label: 'Obstojnost', value: '15+ let' }, { label: 'Cenovni razred', value: '€€' } ] },
+            { name: 'Garapa', origin: 'Brazilija', image: '/assets/images/lesene_terase/5.jpg', description: 'Svetel, vsestranski eksotični les medeno-rumenih tonov.', specs: [ { label: 'Trdota', value: 'Visoka' }, { label: 'Obstojnost', value: '20+ let' }, { label: 'Cenovni razred', value: '€€€' } ] },
+            { name: 'Accoya', origin: 'Modificiran les', image: '/assets/images/lesene_terase/6.jpg', description: 'Tehnološko obdelan les z izjemno dimenzijsko stabilnostjo.', specs: [ { label: 'Trdota', value: 'Srednja' }, { label: 'Obstojnost', value: '25+ let' }, { label: 'Cenovni razred', value: '€€€€' } ] }
+        ]
+    } } %}
+
+    {# ───────────────────── POSTOPEK ───────────────────── #}
+    {% include '_matrix/processSteps' with { data: {
+        eyebrow: 'Kako poteka sodelovanje',
+        heading: 'Od ideje do',
+        headingHighlight: 'sanjske terase',
+        description: 'Pregleden proces v petih korakih – brez skritih presenečenj.',
+        steps: [
+            { title: 'Posvet', description: 'Prisluhnemo vašim željam in svetujemo glede možnosti.' },
+            { title: 'Meritve in načrt', description: 'Izmerimo teren in pripravimo natančen načrt z izborom lesa.' },
+            { title: 'Ponudba', description: 'Pripravimo transparentno ponudbo s fiksno ceno.' },
+            { title: 'Montaža', description: 'Strokovna ekipa izvede podkonstrukcijo in polaganje.' },
+            { title: 'Predaja', description: 'Pregled, čiščenje in nasveti za vzdrževanje terase.' }
+        ]
+    } } %}
+
+    {# ───────────────────── GALERIJA PROJEKTOV ───────────────────── #}
+    {% include '_matrix/projectsGallery' with { data: {
+        eyebrow: 'Naše reference',
+        heading: 'Projekti, na katere smo',
+        headingHighlight: 'ponosni',
+        description: 'Vsaka terasa je zgodba zase. Oglejte si izbor naših izvedenih projektov.',
+        button: { url: '/projekti', label: 'Vsi projekti' },
+        projects: [
+            { image: '/assets/images/terase_1.jpg', category: 'Eksotični les', title: 'Terasa ob bazenu', size: 'wide', url: '#' },
+            { image: '/assets/images/terase_2.jpg', category: 'Sibirski macesen', title: 'Družinska hiša', size: 'tall', url: '#' },
+            { image: '/assets/images/terase_4.jpg', category: 'IPE Lapacho', title: 'Strešna terasa', url: '#' },
+            { image: '/assets/images/terase_6.jpg', category: 'Cumaru', title: 'Atrijska terasa', url: '#' },
+            { image: '/assets/images/terase_7.jpg', category: 'Garapa', title: 'Apartmaji', url: '#' }
+        ]
+    } } %}
+
+    {# ───────────────────── PRIMERI CEN ───────────────────── #}
+    <span id="kalkulator"></span>
+    {% include '_matrix/priceExamples' with { data: {
+        eyebrow: 'Informativne cene',
+        heading: 'Primeri izvedenih',
+        headingHighlight: 'teras s cenami',
+        description: 'Spodaj so okvirni primeri. Cena vključuje les, pritrdilni material in montažo. Za točno ponudbo nas kontaktirajte.',
+        examples: [
+            { image: '/assets/images/lesene_terase/2.jpg', title: 'Pritlična enodružinska hiša', specs: [ { label: 'Velikost', value: '12 m²' }, { label: 'Les', value: 'Sibirski macesen' }, { label: 'Obstojnost', value: '15 let' } ], perUnit: '68,75 €/m²', total: '825 € (z DDV)' },
+            { image: '/assets/images/lesene_terase/3.jpg', title: 'Lesena obloga ob bazenu', specs: [ { label: 'Velikost', value: '17 m²' }, { label: 'Les', value: 'Cumaru Champagne' }, { label: 'Obstojnost', value: '25 let' } ], perUnit: '112,00 €/m²', total: '1.904 € (z DDV)' },
+            { image: '/assets/images/lesene_terase/4.jpg', title: 'Strešna terasa', specs: [ { label: 'Velikost', value: '24 m²' }, { label: 'Les', value: 'IPE Lapacho' }, { label: 'Obstojnost', value: '30 let' } ], perUnit: '145,00 €/m²', total: '3.480 € (z DDV)' }
+        ],
+        note: 'Cene so zgolj informativne narave, saj se cene lesa tedensko spreminjajo.',
+        button: { url: '/kontakt', label: 'Pridobite ponudbo' }
+    } } %}
+
+    {# ───────────────────── MNENJA ───────────────────── #}
+    {% include '_matrix/testimonialsSlider' with { data: {
+        rating: '5,0',
+        ratingSource: 'na podlagi Google ocen',
+        heading: 'Kaj pravijo',
+        headingHighlight: 'naše stranke',
+        reviews: [
+            { text: 'Vrhunska izvedba terase, izjemno zadovoljni. Strokovna ekipa, ki drži besedo.', name: 'Tina Taurer', date: 'Google ocena' },
+            { text: 'The best wood construction company. Profesionalen pristop od začetka do konca.', name: 'Dušan Štrukelj', date: 'Google ocena' },
+            { text: 'Odlična storitev. Pravi strokovnjaki na svojem področju.', name: 'Avto Spa', date: 'Google ocena' },
+            { text: 'Vrhunska izdelava in kakovosten les. Priporočam vsem.', name: 'Rok Kladnik', date: 'Google ocena' }
+        ]
+    } } %}
+
+    {# ───────────────────── CTA ───────────────────── #}
+    {% include '_matrix/ctaBanner' with { data: {
+        background: '/assets/images/lesene-terase-desktop2.jpg',
+        eyebrow: 'Začnimo skupaj',
+        heading: 'Pripravljeni na',
+        headingHighlight: 'novo teraso?',
+        description: 'Kontaktirajte nas za brezplačen posvet in informativno ponudbo. Z veseljem vam svetujemo pri izbiri lesa in zasnovi.',
+        button: { url: '/kontakt', label: 'Pišite nam' },
+        phone: { number: '+386 (0)41 000 000', label: 'Pokličite nas', href: '+38641000000' }
+    } } %}
+
+    {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "INeG – Inštitut nizkoenergijske gradnje",
+        "image": "https://ineg.si/assets/images/terase_1.jpg",
+        "description": "Izdelava lesenih teras po meri iz eksotičnega lesa in sibirskega macesna. Lesene fasade, ograje in druge lesene gradnje.",
+        "@id": "https://ineg.si",
+        "url": "https://ineg.si",
+        "telephone": "+38641661686",
+        "priceRange": "€€€",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Ropretova cesta 18",
+            "addressLocality": "Mengeš",
+            "postalCode": "1234",
+            "addressCountry": "SI"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "30"
+        },
+        "areaServed": "Slovenija",
+        "makesOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": "Izdelava lesenih teras"
+            }
+        }
+    }
+    </script>
+
+{% endblock %}

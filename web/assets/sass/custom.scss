@@ -22,7 +22,7 @@ body {
 }
 
 main {
-	padding-top: 99px;
+	padding-top: var(--header-height, 135px);
 }
 
 .heading,

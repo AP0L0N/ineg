@@ -1,0 +1,51 @@
+{#
+    Primerjalna tabela (npr. les vs ploščice vs beton)
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.columns (array) -> { label, highlight(bool) }   (prvi stolpec = lastnost)
+    data.rows (array) -> { label, values: [ string|'yes'|'no' ] }
+#}
+{% set data = data is defined ? data : {} %}
+{% set columns = data.columns is defined ? data.columns : [] %}
+{% set rows = data.rows is defined ? data.rows : [] %}
+
+<section class="comparison-table">
+    <div class="container">
+        <div class="section-head">
+            {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Lastnost</th>
+                        {% for col in columns %}
+                            <th scope="col" class="{{ col.highlight is defined and col.highlight ? 'is-highlight' : '' }}">{{ col.label }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            <td>{{ row.label }}</td>
+                            {% for value in row.values %}
+                                {% set highlight = columns[loop.index0].highlight is defined and columns[loop.index0].highlight %}
+                                <td class="{{ highlight ? 'is-highlight' : '' }}">
+                                    {% if value == 'yes' %}
+                                        <i class="fas fa-check yes" aria-label="Da"></i>
+                                    {% elseif value == 'no' %}
+                                        <i class="fas fa-times no" aria-label="Ne"></i>
+                                    {% else %}
+                                        {{ value }}
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

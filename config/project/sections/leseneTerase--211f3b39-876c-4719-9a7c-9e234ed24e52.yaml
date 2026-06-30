@@ -7,6 +7,6 @@ siteSettings:
   3c3b2d8d-2be7-4175-aa7f-56aa8a6b8ac6: # INeG
     enabledByDefault: true
     hasUrls: true
-    template: index
+    template: pages/lesene-terase-nova.twig
     uriFormat: lesene-terase
 type: single

@@ -1,0 +1,108 @@
+@import "../variables";
+
+.comparison-table {
+    padding: 80px 0;
+    background: #fff6ee;
+
+    @media (min-width: 991px) {
+        padding: 110px 0;
+    }
+
+    .section-head {
+        max-width: 720px;
+        margin: 0 auto 50px;
+        text-align: center;
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: $primary-color;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            @include responsive-font(26, 40);
+            font-weight: 700;
+            margin-bottom: 15px;
+
+            span {
+                color: $primary-color;
+            }
+        }
+
+        p {
+            @include responsive-font(15, 18);
+            color: $default-color;
+            line-height: 1.5;
+        }
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 640px;
+
+        thead th {
+            padding: 22px 20px;
+            text-align: center;
+            font-family: $font-family-albert;
+            font-weight: 700;
+            @include responsive-font(15, 18);
+            border-bottom: 2px solid #f2f2f2;
+
+            &:first-child {
+                text-align: left;
+            }
+
+            &.is-highlight {
+                background: $primary-color;
+                color: black;
+                border-radius: 8px 8px 0 0;
+            }
+        }
+
+        tbody td {
+            padding: 16px 20px;
+            text-align: center;
+            font-size: 14px;
+            color: $default-color;
+            border-bottom: 1px solid #f4f4f4;
+
+            &:first-child {
+                text-align: left;
+                font-weight: 600;
+                color: black;
+            }
+
+            &.is-highlight {
+                background: rgba(248, 155, 83, 0.08);
+                font-weight: 600;
+                color: black;
+            }
+
+            .yes {
+                color: #2e9e5b;
+                font-size: 16px;
+            }
+
+            .no {
+                color: #c0392b;
+                font-size: 16px;
+            }
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+    }
+}

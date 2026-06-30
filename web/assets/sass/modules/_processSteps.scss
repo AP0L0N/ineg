@@ -1,0 +1,108 @@
+@import "../variables";
+
+.process-steps {
+    padding: 80px 0;
+    background: $dark-color;
+    color: white;
+
+    @media (min-width: 991px) {
+        padding: 110px 0;
+    }
+
+    .section-head {
+        max-width: 720px;
+        margin: 0 auto 55px;
+        text-align: center;
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: $primary-color;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            color: white;
+            @include responsive-font(26, 40);
+            font-weight: 700;
+            margin-bottom: 15px;
+
+            span {
+                color: $primary-color;
+            }
+        }
+
+        p {
+            @include responsive-font(15, 18);
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+    }
+
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+
+        @media (min-width: 576px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 991px) {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+    }
+
+    .step-item {
+        position: relative;
+        text-align: center;
+        padding: 0 10px;
+
+        @media (min-width: 991px) {
+            &:not(:last-child):before {
+                content: "";
+                position: absolute;
+                top: 28px;
+                left: 60%;
+                width: 80%;
+                height: 2px;
+                background: repeating-linear-gradient(90deg, rgba(248, 155, 83, 0.6) 0 8px, transparent 8px 16px);
+            }
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: $primary-color;
+            color: black;
+            font-family: $font-family-albert;
+            font-weight: 700;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h3 {
+            color: white;
+            @include responsive-font(16, 19);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+        }
+    }
+}

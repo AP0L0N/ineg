@@ -1,0 +1,41 @@
+{#
+    Mnenja strank (Google ocene) — carousel
+    data.rating, data.ratingSource, data.heading, data.headingHighlight
+    data.reviews (array) -> { text, name, date }
+#}
+{% set data = data is defined ? data : {} %}
+{% set reviews = data.reviews is defined ? data.reviews : [] %}
+
+<section class="testimonials-slider">
+    <div class="container">
+        <div class="section-head">
+            <div class="rating-summary">
+                <span class="stars">★★★★★</span>
+                {% if data.rating is defined %}<span class="score">{{ data.rating }}</span>{% endif %}
+                {% if data.ratingSource is defined %}<span class="source">{{ data.ratingSource }}</span>{% endif %}
+            </div>
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+        </div>
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                {% for review in reviews %}
+                    <div class="swiper-slide">
+                        <article class="review-card">
+                            <div class="stars" aria-label="Ocena 5 od 5">★★★★★</div>
+                            <p class="review-text">{{ review.text }}</p>
+                            <div class="review-author">
+                                <div class="avatar" aria-hidden="true">{{ review.name | slice(0, 1) }}</div>
+                                <div class="meta">
+                                    <div class="name">{{ review.name }}</div>
+                                    {% if review.date is defined %}<div class="date">{{ review.date }}</div>{% endif %}
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>

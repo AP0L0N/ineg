@@ -1,0 +1,35 @@
+{#
+    Galerija projektov / referenc
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.button ({ url, label })
+    data.projects (array) -> { image, category, title, size('wide'|'tall'|null) }
+#}
+{% set data = data is defined ? data : {} %}
+{% set projects = data.projects is defined ? data.projects : [] %}
+
+<section class="projects-gallery">
+    <div class="container">
+        <div class="section-head">
+            <div class="head-text">
+                {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+                <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+                {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+            </div>
+            {% if data.button is defined %}
+                <a href="{{ data.button.url }}" class="btn btn-primary">{{ data.button.label }}</a>
+            {% endif %}
+        </div>
+
+        <div class="gallery-grid">
+            {% for project in projects %}
+                <a href="{{ project.url is defined ? project.url : '#' }}" class="gallery-item{{ project.size is defined and project.size == 'wide' ? ' is-wide' : '' }}{{ project.size is defined and project.size == 'tall' ? ' is-tall' : '' }}">
+                    <img src="{{ project.image }}" alt="{{ project.title }} — lesena terasa INeG" loading="lazy">
+                    <div class="item-info">
+                        {% if project.category is defined %}<span class="category">{{ project.category }}</span>{% endif %}
+                        <span class="title">{{ project.title }}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>

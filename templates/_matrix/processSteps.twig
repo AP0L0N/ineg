@@ -1,0 +1,27 @@
+{#
+    Postopek dela — koraki
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.steps (array) -> { title, description }
+#}
+{% set data = data is defined ? data : {} %}
+{% set steps = data.steps is defined ? data.steps : [] %}
+
+<section class="process-steps">
+    <div class="container">
+        <div class="section-head">
+            {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+        </div>
+
+        <div class="steps-grid">
+            {% for step in steps %}
+                <div class="step-item">
+                    <div class="step-number">{{ loop.index }}</div>
+                    <h3>{{ step.title }}</h3>
+                    <p>{{ step.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

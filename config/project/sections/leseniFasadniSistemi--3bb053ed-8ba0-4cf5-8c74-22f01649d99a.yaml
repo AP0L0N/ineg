@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
 handle: leseniFasadniSistemi
-name: 'Leseni fasadni sistemi'
+name: 'Lesene fasade'
 propagationMethod: all
 siteSettings:
   3c3b2d8d-2be7-4175-aa7f-56aa8a6b8ac6: # INeG

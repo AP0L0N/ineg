@@ -1,4 +1,74 @@
+{% set allSites = craft.app.sites.allSites %}
+{% set currentSite = craft.app.sites.currentSite %}
+
 <header id="mainHeader" class="fixed-top">
+
+    {# ───────────────────── Zgornja informacijska vrstica ───────────────────── #}
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-inner">
+
+                <ul class="contact-list">
+                    <li>
+                        <a href="tel:+38641661686">
+                            <i class="fal fa-phone-alt"></i>
+                            <span>+386 (0)41 661 686</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:info@ineg.si">
+                            <i class="fal fa-envelope"></i>
+                            <span>info@ineg.si</span>
+                        </a>
+                    </li>
+                    <li class="top-bar-address">
+                        <i class="fal fa-map-marker-alt"></i>
+                        <span>Ropretova cesta 18, Mengeš</span>
+                    </li>
+                </ul>
+
+                <div class="top-bar-right">
+                    <ul class="social-list">
+                        <li>
+                            <a href="https://www.facebook.com/slamnatahisa/" target="_blank" rel="noopener" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/ineg_slovenia/" target="_blank" rel="noopener" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    {# Izbirnik jezika / strani — samodejno prebere Craft strani; če obstaja le ena, prikaže demo SL/EN #}
+                    <div class="lang-selector">
+                        <button type="button" class="lang-toggle" aria-haspopup="true" aria-expanded="false">
+                            <i class="fal fa-globe"></i>
+                            <span class="current">{{ currentSite.language|split('-')|first|upper }}</span>
+                            <i class="fal fa-angle-down caret" aria-hidden="true"></i>
+                        </button>
+                        <ul class="lang-menu">
+                            {% if allSites|length > 1 %}
+                                {% for site in allSites %}
+                                    <li>
+                                        <a href="{{ site.baseUrl }}" class="{{ site.handle == currentSite.handle ? 'is-active' }}">
+                                            {{ site.language|split('-')|first|upper }} — {{ site.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li><a href="{{ currentSite.baseUrl }}" class="is-active">SL — Slovenščina</a></li>
+                                <li><a href="/en">EN — English</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# ───────────────────── Glavna navigacija ───────────────────── #}
     <div class="header-wrapper">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -7,72 +77,104 @@
                     {% include "helpers/picture" with {desktop: {image: '/assets/images/logo_2.png', width: 160} } %}
                 </a>
 
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07"
-                    aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="fal fa-bars"></span>
-                </button>
+                <div class="mobile-actions d-flex d-lg-none">
+                    <button class="search-toggle" type="button" aria-label="{{ 'Iskanje' | t }}" aria-controls="searchOverlay" aria-expanded="false">
+                        <i class="fal fa-search"></i>
+                    </button>
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07"
+                        aria-controls="navbarsExample07" aria-expanded="false" aria-label="{{ 'Meni' | t }}">
+                        <span class="fal fa-bars"></span>
+                    </button>
+                </div>
 
                 <div class="collapse navbar-collapse" id="navbarsExample07">
                     <ul class="navbar-nav mr-auto">
 
                         {% set navItem = craft.entries.section('naslovnaStran').one() %}
-                        <li class="nav-item {{ entry.section.handle == navItem.section.handle ? 'active' }}">
-                            <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
-                        </li>
-
-                        {% set navItem = craft.entries.section('oInstitutu').one() %}
-                        <li class="nav-item {{ entry.section.handle == navItem.section.handle ? 'active' }}">
-                            <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
-                        </li>
-
-                        {% set navItem = craft.entries.section('kontakt').one() %}
-                        <li class="nav-item {{ entry.section.handle == navItem.section.handle ? 'active' }}">
-                            <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
-                        </li>
+                        {% if navItem %}
+                            <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
+                                <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
+                            </li>
+                        {% endif %}
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown07"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Storitve</a>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ 'Storitve' | t }}</a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdown07">
-
-                                {% set services = storitve.storitveInOpisi.all() %}
-                                {% for item in services %}
-                                    <div class="service-item">
-                                        <div class="service-item-slider">
-                                            <div class="swiper">
-                                                <div class="swiper-wrapper">
-                                                    {% for image in item.prikazneSlike.all() %}
-                                                    <div class="swiper-slide">
-                                                        <div class="image-wrapper">
-                                                            {% include "helpers/picture" with {desktop: {image: image, width: 500} } %}
+                                {% if storitve is defined %}
+                                    {% set services = storitve.storitveInOpisi.all() %}
+                                    {% for item in services %}
+                                        <div class="service-item">
+                                            <div class="service-item-slider">
+                                                <div class="swiper">
+                                                    <div class="swiper-wrapper">
+                                                        {% for image in item.prikazneSlike.all() %}
+                                                        <div class="swiper-slide">
+                                                            <div class="image-wrapper">
+                                                                {% include "helpers/picture" with {desktop: {image: image, width: 500} } %}
+                                                            </div>
                                                         </div>
+                                                        {% endfor %}
                                                     </div>
-                                                    {% endfor %}
+                                                    <div class="swiper-scrollbar"></div>
                                                 </div>
-                                                <div class="swiper-scrollbar"></div>
+                                            </div>
+                                            <div class="link-wrapper">
+                                                <p class="title">{{ item.povezanaStoritev.one().title }}</p>
+                                                <p class="description">{{ item.kratekOpis }}</p>
+                                                <a href="{{ item.povezanaStoritev.one().url }}"></a>
                                             </div>
                                         </div>
-                                        <div class="link-wrapper">
-                                            <p class="title">{{ item.povezanaStoritev.one().title }}</p>
-                                            <p class="description">{{ item.kratekOpis }}</p>
-                                            <a href="{{ item.povezanaStoritev.one().url }}"></a>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                         </li>
-                    </ul>
-                    <div class="question-button">
+
+                        {% set navItem = craft.entries.section('oInstitutu').one() %}
+                        {% if navItem %}
+                            <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
+                                <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
+                            </li>
+                        {% endif %}
+
                         {% set navItem = craft.entries.section('kontakt').one() %}
-                        <a href="{{ navItem.url }}">
-                            <span>{{ "Imate vprašanje" | t }}</span> <i class="fa fa-question-circle"></i>
-                        </a>
+                        {% if navItem %}
+                            <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
+                                <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+
+                    <div class="header-actions">
+                        <button class="search-toggle d-none d-lg-inline-flex" type="button" aria-label="{{ 'Iskanje' | t }}" aria-controls="searchOverlay" aria-expanded="false">
+                            <i class="fal fa-search"></i>
+                        </button>
+
+                        {% set navItem = craft.entries.section('kontakt').one() %}
+                        <div class="question-button">
+                            <a href="{{ navItem ? navItem.url : '/kontakt' }}" class="btn btn-primary">
+                                <span>{{ "Imate vprašanje" | t }}</span> <i class="fa fa-question-circle"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </nav>
+    </div>
+
+    {# ───────────────────── Iskalna plast ───────────────────── #}
+    <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+        <div class="container">
+            <form action="/iskanje" method="get" class="search-form" role="search">
+                <i class="fal fa-search search-icon" aria-hidden="true"></i>
+                <input type="search" name="q" class="search-input" placeholder="{{ 'Poiščite teraso, les, blog …' | t }}" aria-label="{{ 'Iskanje po vsebini' | t }}" autocomplete="off">
+                <button type="submit" class="search-submit">{{ 'Išči' | t }}</button>
+                <button type="button" class="search-close" aria-label="{{ 'Zapri iskanje' | t }}">
+                    <i class="fal fa-times"></i>
+                </button>
+            </form>
+        </div>
     </div>
 </header>
 

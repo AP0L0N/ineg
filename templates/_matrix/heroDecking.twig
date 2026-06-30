@@ -1,0 +1,62 @@
+{#
+    Hero / naslovni slider modul — lesene terase
+    Pričakovani podatki (data):
+      data.eyebrow            (string)
+      data.slides             (array)  -> { image, heading, headingHighlight, lead }
+      data.primaryButton      ({ url, label })
+      data.secondaryButton    ({ url, label })
+      data.trust              (array)  -> { value, label, stars(bool) }
+#}
+{% set data = data is defined ? data : {} %}
+{% set slides = data.slides is defined ? data.slides : [] %}
+
+<section class="hero-decking">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            {% for slide in slides %}
+                <div class="swiper-slide">
+                    <div class="hero-slide" style="background-image: url({{ slide.image }})">
+                        <div class="container">
+                            <div class="hero-content">
+                                {% if data.eyebrow is defined %}
+                                    <span class="eyebrow"><i class="fas fa-leaf"></i> {{ data.eyebrow }}</span>
+                                {% endif %}
+                                <h1>
+                                    {{ slide.heading }}
+                                    {% if slide.headingHighlight is defined %}<span>{{ slide.headingHighlight }}</span>{% endif %}
+                                </h1>
+                                {% if slide.lead is defined %}
+                                    <p class="lead">{{ slide.lead }}</p>
+                                {% endif %}
+
+                                <div class="hero-actions">
+                                    {% if data.primaryButton is defined %}
+                                        <a href="{{ data.primaryButton.url }}" class="btn btn-primary">{{ data.primaryButton.label }}</a>
+                                    {% endif %}
+                                    {% if data.secondaryButton is defined %}
+                                        <a href="{{ data.secondaryButton.url }}" class="btn-ghost">{{ data.secondaryButton.label }}</a>
+                                    {% endif %}
+                                </div>
+
+                                {% if data.trust is defined %}
+                                    <div class="hero-trust">
+                                        {% for item in data.trust %}
+                                            <div class="trust-item">
+                                                {% if item.stars is defined and item.stars %}
+                                                    <span class="stars">★★★★★</span>
+                                                {% endif %}
+                                                <span><strong>{{ item.value }}</strong> {{ item.label }}</span>
+                                            </div>
+                                            {% if not loop.last %}<span class="divider" aria-hidden="true"></span>{% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination {{ slides | length == 1 ? 'd-none' : '' }}"></div>
+    </div>
+</section>

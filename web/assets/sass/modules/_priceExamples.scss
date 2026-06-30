@@ -1,0 +1,132 @@
+@import "../variables";
+
+.price-examples {
+    padding: 80px 0;
+
+    @media (min-width: 991px) {
+        padding: 110px 0;
+    }
+
+    .section-head {
+        max-width: 720px;
+        margin: 0 auto 50px;
+        text-align: center;
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: $primary-color;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            @include responsive-font(26, 40);
+            font-weight: 700;
+            margin-bottom: 15px;
+
+            span {
+                color: $primary-color;
+            }
+        }
+
+        p {
+            @include responsive-font(15, 18);
+            color: $default-color;
+            line-height: 1.5;
+        }
+    }
+
+    .examples-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 25px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .price-card {
+        background: white;
+        border: 1px solid #ececec;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .card-image {
+            @include centered-image;
+            aspect-ratio: 4/3;
+        }
+
+        .card-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            h3 {
+                @include responsive-font(18, 21);
+                font-weight: 700;
+                margin-bottom: 15px;
+                padding-bottom: 12px;
+                border-bottom: 1px solid #f2f2f2;
+            }
+
+            .specs {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 18px;
+                font-size: 14px;
+
+                li {
+                    margin-bottom: 8px;
+                    line-height: 1.35;
+                    color: $default-color;
+
+                    strong {
+                        color: black;
+                    }
+                }
+            }
+
+            .price-box {
+                margin-top: auto;
+                padding-top: 18px;
+                border-top: 1px solid #f2f2f2;
+
+                .price-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    margin-bottom: 6px;
+                    font-size: 14px;
+
+                    &.is-total {
+                        @include responsive-font(15, 17);
+                        font-weight: 700;
+                    }
+
+                    .value {
+                        color: $primary-color;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    .examples-footer {
+        margin-top: 45px;
+        text-align: center;
+
+        p {
+            font-size: 14px;
+            color: $default-color;
+            margin-bottom: 20px;
+        }
+    }
+}

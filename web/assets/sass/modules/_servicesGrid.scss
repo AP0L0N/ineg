@@ -1,0 +1,154 @@
+@import "../variables";
+
+.services-grid {
+    padding: 80px 0;
+
+    @media (min-width: 991px) {
+        padding: 110px 0;
+    }
+
+    .section-head {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: $primary-color;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            @include responsive-font(26, 40);
+            font-weight: 700;
+            margin-bottom: 15px;
+
+            span {
+                color: $primary-color;
+            }
+        }
+
+        p {
+            @include responsive-font(15, 18);
+            color: $default-color;
+            line-height: 1.5;
+        }
+    }
+
+    .services-layout {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 991px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .service-card {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border-radius: 8px;
+        min-height: 280px;
+        color: white;
+        text-decoration: none;
+
+        .card-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center center;
+            transition: transform 0.5s ease;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .card-body {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+
+            .badge-primary {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background: $primary-color;
+                color: black;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding: 5px 12px;
+                border-radius: 20px;
+            }
+
+            h3 {
+                color: white;
+                @include responsive-font(19, 24);
+                font-weight: 700;
+                margin-bottom: 6px;
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 1.3;
+                color: rgba(255, 255, 255, 0.85);
+                margin: 0;
+            }
+
+            .arrow {
+                margin-top: 15px;
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: $primary-color;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+        }
+
+        &:hover {
+            color: white;
+            text-decoration: none;
+
+            .card-bg {
+                transform: scale(1.06);
+            }
+        }
+
+        &.is-featured {
+            min-height: 360px;
+
+            @media (min-width: 991px) {
+                grid-column: span 2;
+                grid-row: span 2;
+                min-height: 100%;
+            }
+
+            h3 {
+                @include responsive-font(24, 34);
+            }
+        }
+    }
+}

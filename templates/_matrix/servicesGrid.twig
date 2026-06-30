@@ -1,0 +1,31 @@
+{#
+    Mreža storitev — lesene terase izpostavljene
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.services (array) -> { title, description, image, url, featured(bool), badge(string) }
+#}
+{% set data = data is defined ? data : {} %}
+{% set services = data.services is defined ? data.services : [] %}
+
+<section class="services-grid">
+    <div class="container">
+        <div class="section-head">
+            {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+        </div>
+
+        <div class="services-layout">
+            {% for service in services %}
+                <a href="{{ service.url }}" class="service-card{{ service.featured is defined and service.featured ? ' is-featured' : '' }}">
+                    <div class="card-bg" style="background-image: url({{ service.image }})"></div>
+                    <div class="card-body">
+                        {% if service.badge is defined %}<span class="badge-primary">{{ service.badge }}</span>{% endif %}
+                        <h3>{{ service.title }}</h3>
+                        {% if service.description is defined %}<p>{{ service.description }}</p>{% endif %}
+                        <span class="arrow">Več o storitvi <i class="fal fa-angle-right"></i></span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,117 @@
+{% extends '_layouts/site-content' %}
+
+{#
+    PREDOGLED — primer podstrani projekta / reference (2026)
+    Dostopno na /pages/projekt-primer
+#}
+
+{% set seoTitle = "Terasa ob bazenu iz lesa Cumaru, Bled | Projekt INeG" %}
+{% set seoDescription = "Predstavitev izvedenega projekta lesene terase ob bazenu iz eksotičnega lesa Cumaru na Bledu – 42 m², skrito vijačenje, 25-letna obstojnost." %}
+
+{% block content %}
+    <div class="project-detail">
+
+        {# Drobtinice #}
+        <div class="breadcrumb-bar">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li><a href="/">Domov</a></li>
+                    <li class="sep">/</li>
+                    <li><a href="/projekti">Projekti</a></li>
+                    <li class="sep">/</li>
+                    <li class="current">Terasa ob bazenu, Bled</li>
+                </ul>
+            </div>
+        </div>
+
+        {# Hero #}
+        <div class="project-hero" style="background-image: url(/assets/images/terase_1.jpg)">
+            <div class="container">
+                <div class="hero-inner">
+                    <span class="category">Terasa ob bazenu</span>
+                    <h1>Eksotična terasa ob bazenu na Bledu</h1>
+                    <span class="location"><i class="fal fa-map-marker-alt"></i> Bled, Slovenija</span>
+                </div>
+            </div>
+        </div>
+
+        {# Vsebina + stranska vrstica #}
+        <div class="project-body">
+            <div class="container">
+                <div class="project-layout">
+
+                    <div class="project-content">
+                        <p class="lead">Za zahtevno okolico bazena smo izdelali teraso iz eksotičnega lesa Cumaru, ki kljubuje vlagi, soncu in vsakodnevni uporabi – ob tem pa ohranja toplino in eleganco naravnega lesa.</p>
+
+                        <p>Pri projektu ob bazenu je ključnega pomena izbira lesa, ki prenese stalno vlago in nihanje temperatur. Cumaru je zaradi svoje izjemne gostote in naravne odpornosti idealna izbira, saj ne razpoka in ohranja obliko tudi v najzahtevnejših pogojih.</p>
+
+                        <h2>Izziv projekta</h2>
+                        <p>Investitor je želel brezšivni prehod med notranjostjo hiše in zunanjim bazenskim prostorom. Uporabili smo skrito vijačenje, da smo dosegli čisto, neprekinjeno površino brez vidnih vijakov, ter natančno odvodnjavanje pod podkonstrukcijo.</p>
+
+                        <h2>Izvedba</h2>
+                        <p>Teraso smo položili na nastavljive podstavke (buzone), kar omogoča idealen naklon za odvodnjavanje in dolgoročno stabilnost. Les smo zaključili z naravnim oljem, ki poudari globino barve in dodatno zaščiti površino.</p>
+                    </div>
+
+                    <aside class="project-sidebar">
+                        <h3>Podatki o projektu</h3>
+                        <ul class="spec-list">
+                            <li><span class="label">Lokacija</span> <span class="value">Bled</span></li>
+                            <li><span class="label">Površina</span> <span class="value">42 m²</span></li>
+                            <li><span class="label">Vrsta lesa</span> <span class="value">Cumaru</span></li>
+                            <li><span class="label">Vijačenje</span> <span class="value">Skrito</span></li>
+                            <li><span class="label">Podkonstrukcija</span> <span class="value">Buzoni</span></li>
+                            <li><span class="label">Obstojnost</span> <span class="value">25+ let</span></li>
+                            <li><span class="label">Leto izvedbe</span> <span class="value">2025</span></li>
+                            <li><span class="label">Trajanje</span> <span class="value">6 dni</span></li>
+                        </ul>
+                        <div class="sidebar-cta">
+                            <p>Želite podobno teraso?</p>
+                            <a href="/kontakt" class="btn btn-primary">Pridobite ponudbo</a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+        {# Galerija #}
+        <div class="project-gallery">
+            <div class="container">
+                <div class="gallery-grid">
+                    <figure class="gallery-figure"><img src="/assets/images/terase_2.jpg" alt="Terasa ob bazenu Bled – pogled 1" loading="lazy"></figure>
+                    <figure class="gallery-figure"><img src="/assets/images/terase_4.jpg" alt="Terasa ob bazenu Bled – pogled 2" loading="lazy"></figure>
+                    <figure class="gallery-figure"><img src="/assets/images/terase_6.jpg" alt="Terasa ob bazenu Bled – pogled 3" loading="lazy"></figure>
+                    <figure class="gallery-figure"><img src="/assets/images/terase_7.jpg" alt="Terasa ob bazenu Bled – detajl lesa" loading="lazy"></figure>
+                    <figure class="gallery-figure"><img src="/assets/images/lesene_terase/3.jpg" alt="Terasa ob bazenu Bled – skrito vijačenje" loading="lazy"></figure>
+                    <figure class="gallery-figure"><img src="/assets/images/lesene_terase/5.jpg" alt="Terasa ob bazenu Bled – zaključni detajl" loading="lazy"></figure>
+                </div>
+            </div>
+        </div>
+
+        {# CTA #}
+        {% include '_matrix/ctaBanner' with { data: {
+            background: '/assets/images/lesene-terase-banner-2.jpg',
+            eyebrow: 'Začnimo vaš projekt',
+            heading: 'Imate v mislih',
+            headingHighlight: 'podoben projekt?',
+            description: 'Pošljite nam povpraševanje in pripravili vam bomo idejno zasnovo ter informativno ponudbo.',
+            button: { url: '/kontakt', label: 'Pišite nam' },
+            phone: { number: '+386 (0)41 661 686', label: 'Pokličite Robija', href: '+38641661686' }
+        } } %}
+
+        {# Strukturirani podatki #}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Eksotična terasa ob bazenu na Bledu",
+            "about": "Lesena terasa iz eksotičnega lesa Cumaru",
+            "creator": {
+                "@type": "LocalBusiness",
+                "name": "INeG – Inštitut nizkoenergijske gradnje"
+            },
+            "locationCreated": { "@type": "Place", "name": "Bled, Slovenija" },
+            "image": "https://ineg.si/assets/images/terase_1.jpg"
+        }
+        </script>
+    </div>
+{% endblock %}

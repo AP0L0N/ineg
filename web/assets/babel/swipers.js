@@ -83,5 +83,74 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
+
+    // 2026 redesign — hero slider
+    let heroDeckingSwipers = document.querySelectorAll('.hero-decking .swiper');
+    Array.prototype.forEach.call(heroDeckingSwipers, function (swiper) {
+        new Swiper(swiper, {
+            modules: [Pagination, EffectFade, Autoplay],
+            slidesPerView: 1,
+            loop: true,
+            effect: 'fade',
+            speed: 800,
+            autoplay: {
+                delay: 6000
+            },
+            fadeEffect: {
+                crossFade: true
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            }
+        });
+    });
+
+    // 2026 redesign — wood species cards
+    let woodSpeciesSwipers = document.querySelectorAll('.wood-species .swiper');
+    Array.prototype.forEach.call(woodSpeciesSwipers, function (swiper) {
+        new Swiper(swiper, {
+            modules: [Pagination, Autoplay],
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false
+            },
+            breakpoints: {
+                576: { slidesPerView: 2 },
+                991: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 }
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            }
+        });
+    });
+
+    // 2026 redesign — testimonials
+    let testimonialsSwipers = document.querySelectorAll('.testimonials-slider .swiper');
+    Array.prototype.forEach.call(testimonialsSwipers, function (swiper) {
+        new Swiper(swiper, {
+            modules: [Pagination, Autoplay],
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                991: { slidesPerView: 3 }
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            }
+        });
+    });
+
 });

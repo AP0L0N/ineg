@@ -1,0 +1,119 @@
+@import "../variables";
+
+.testimonials-slider {
+    padding: 80px 0;
+    background: #fff6ee;
+
+    @media (min-width: 991px) {
+        padding: 110px 0;
+    }
+
+    .section-head {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 50px;
+
+        .rating-summary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+
+            .stars {
+                color: $primary-color;
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+
+            .score {
+                font-weight: 700;
+                font-size: 18px;
+                color: black;
+            }
+
+            .source {
+                font-size: 14px;
+                color: $default-color;
+            }
+        }
+
+        h2 {
+            @include responsive-font(26, 40);
+            font-weight: 700;
+            margin-bottom: 15px;
+
+            span {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .swiper {
+        padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+
+    .review-card {
+        height: 100%;
+        background: white;
+        border-radius: 8px;
+        padding: 30px 28px;
+        border: 1px solid #f1e4d6;
+        display: flex;
+        flex-direction: column;
+
+        .stars {
+            color: $primary-color;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: $default-color;
+            margin-bottom: 22px;
+            flex: 1;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .avatar {
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                background: $primary-color;
+                color: white;
+                font-weight: 700;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .meta {
+                .name {
+                    font-weight: 700;
+                    color: black;
+                    line-height: 1.2;
+                }
+
+                .date {
+                    font-size: 13px;
+                    color: $default-color;
+                }
+            }
+        }
+    }
+
+    .swiper-pagination {
+        bottom: 10px;
+    }
+}

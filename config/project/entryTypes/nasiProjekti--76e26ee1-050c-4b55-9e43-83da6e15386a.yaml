@@ -1,6 +1,5 @@
-defaultPlacement: end
 fieldLayouts:
-  efcc4b94-8e4c-4568-a45d-cc5113a145f4:
+  6de9da1a-2b32-467d-9527-cbd91592148a:
     tabs:
       -
         elements:
@@ -24,18 +23,16 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
+            type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
         name: Content
         sortOrder: 1
-handle: kategorija
-name: Kategorija
-siteSettings:
-  3c3b2d8d-2be7-4175-aa7f-56aa8a6b8ac6: # INeG
-    hasUrls: true
-    template: index
-    uriFormat: 'kategorija/{slug}'
-structure:
-  maxLevels: null
-  uid: 70346923-cb79-4f62-99fb-973409fbf00c
+handle: nasiProjekti
+hasTitleField: false
+name: 'Naši projekti'
+section: d5838682-4e6d-4c02-bd6b-8ce70c9a3a0e # Naši projekti
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

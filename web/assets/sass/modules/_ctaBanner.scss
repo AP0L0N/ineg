@@ -1,0 +1,109 @@
+@import "../variables";
+
+.cta-banner {
+    position: relative;
+    padding: 90px 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    @media (min-width: 991px) {
+        padding: 120px 0;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.6) 100%);
+        z-index: 1;
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        max-width: 640px;
+        color: white;
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: $primary-color;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: white;
+            @include responsive-font(28, 44);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 18px;
+
+            span {
+                color: $primary-color;
+            }
+        }
+
+        p {
+            @include responsive-font(16, 19);
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+        }
+    }
+
+    .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px;
+
+        .phone-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+
+            .icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.12);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $primary-color;
+                font-size: 18px;
+            }
+
+            .text {
+                .label {
+                    display: block;
+                    font-size: 13px;
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                .number {
+                    @include responsive-font(17, 20);
+                    font-weight: 700;
+                }
+            }
+
+            &:hover {
+                color: white;
+                text-decoration: none;
+
+                .icon {
+                    background: $primary-color;
+                    color: black;
+                }
+            }
+        }
+    }
+}

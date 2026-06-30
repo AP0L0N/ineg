@@ -1,0 +1,27 @@
+{#
+    Prednosti / value proposition
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.props (array) -> { icon(faclass), title, description }
+#}
+{% set data = data is defined ? data : {} %}
+{% set props = data.props is defined ? data.props : [] %}
+
+<section class="value-props">
+    <div class="container">
+        <div class="section-head">
+            {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+        </div>
+
+        <div class="props-grid">
+            {% for prop in props %}
+                <div class="prop-card">
+                    <div class="icon"><i class="{{ prop.icon }}"></i></div>
+                    <h3>{{ prop.title }}</h3>
+                    <p>{{ prop.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -52,8 +52,8 @@ fieldLayouts:
         sortOrder: 2
 handle: leseniFasadniSistemi
 hasTitleField: false
-name: 'Leseni fasadni sistemi'
-section: 3bb053ed-8ba0-4cf5-8c74-22f01649d99a # Leseni fasadni sistemi
+name: 'Lesene fasade'
+section: 3bb053ed-8ba0-4cf5-8c74-22f01649d99a # Lesene fasade
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

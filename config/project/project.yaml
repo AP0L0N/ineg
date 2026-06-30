@@ -1,4 +1,4 @@
-dateModified: 1713371084
+dateModified: 1782835120
 email:
   fromEmail: poje.tilen@gmail.com
   fromName: INeG
@@ -18,13 +18,14 @@ meta:
     1e1e02a5-ce5e-40b2-a558-5318f7097dbc: Naziv # Naziv
     1f842282-ef8e-450a-8e38-0e3399240696: Naslov # Naslov
     1fbf991f-8e14-4fc5-bb78-a291ec44585a: 'Odpri povezavo v novem oknu' # Odpri povezavo v novem oknu
-    02a2a962-8bc2-48be-b70d-443fd6c56ef8: 'Inštitut nizkoenergijske gradnje' # Inštitut nizkoenergijske gradnje
+    02a2a962-8bc2-48be-b70d-443fd6c56ef8: 'Naslovna stran' # Naslovna stran
+    2a871ad8-2165-4bc3-9cfc-f288b4691187: Active # Active
     2cc712bd-f5c0-4018-ab61-ca5180e9388b: 'Naši partnerji' # Naši partnerji
     2e85f5b5-6f12-42c4-8c85-018b11ecae15: Ponudba # Ponudba
     2e7571c8-1a40-49f8-b8a4-1006a88dbaf9: 'Dodaten opis' # Dodaten opis
     2fbe67f7-cd94-4c44-853d-504b24282c55: Povezava # Povezava
     3a2a2156-215a-446e-9924-647776d9a890: 'Povezana storitev' # Povezana storitev
-    3bb053ed-8ba0-4cf5-8c74-22f01649d99a: 'Leseni fasadni sistemi' # Leseni fasadni sistemi
+    3bb053ed-8ba0-4cf5-8c74-22f01649d99a: 'Lesene fasade' # Lesene fasade
     3bebd5e1-4ccf-4d2d-8419-be6d3281ac3c: 'Image two' # Image two
     3c3b2d8d-2be7-4175-aa7f-56aa8a6b8ac6: INeG # INeG
     3c6720d1-9c17-42d6-ba12-903f7f6b271e: Slika # Slika
@@ -48,7 +49,7 @@ meta:
     5ea0d0d9-5d26-4839-8994-50eb3994dbd2: 'Newsletter popup' # Newsletter popup
     5ee4a90c-8648-4a14-aaaf-70116ffc2787: 'O inštitutu' # O inštitutu
     6b6b1889-66c1-45d5-beeb-3d6c3c04bb38: 'Slika za manjše zaslone' # Slika za manjše zaslone
-    6b47bc30-d3b8-47ef-98ba-c7a0aa1db7ba: 'Inštitut nizkoenergijske gradnje' # Inštitut nizkoenergijske gradnje
+    6b47bc30-d3b8-47ef-98ba-c7a0aa1db7ba: 'Naslovna stran' # Naslovna stran
     6c683955-e59e-4714-8f07-ddb8f168f51d: Video # Video
     06d51d8a-2795-492c-8e5a-e905f8b52c78: 'Galerija slik' # Galerija slik
     7a839f40-721f-4c05-a168-2b115857e29b: Naslov # Naslov
@@ -111,6 +112,7 @@ meta:
     73bc48ff-1c47-4e17-a337-c12dda4a3deb: 'Cookies banner' # Cookies banner
     73c84352-d11b-4516-91a8-54939a4c8c9f: Kategorija # Kategorija
     76dbf61c-a5fb-480a-bc7b-73bca243d861: Podnaslov # Podnaslov
+    76e26ee1-050c-4b55-9e43-83da6e15386a: 'Naši projekti' # Naši projekti
     77e25f76-224a-4544-a2af-42c02cfc3889: Poziv # Poziv
     79d55292-b680-4307-9f2d-6a37e8439f22: 'Naziv povezave' # Naziv povezave
     80e273cc-61c2-41ad-8667-179e39a593b6: 'Lesene ograje' # Lesene ograje
@@ -148,7 +150,7 @@ meta:
     539ef7b3-fc80-4eff-a351-a9ceb63810a3: 'Kratek opis' # Kratek opis
     541d6f1f-6c1d-4318-b2bf-6e0a1d021227: 'Slika ozadja' # Slika ozadja
     543ed75f-f18f-4a15-b38a-c9a85f16d91e: 'Size 1200' # Size 1200
-    544e1507-9d75-451f-bd8d-cdf9e8589de3: 'Leseni fasadni sistemi' # Leseni fasadni sistemi
+    544e1507-9d75-451f-bd8d-cdf9e8589de3: 'Lesene fasade' # Lesene fasade
     552b703a-6e79-4b6a-8073-ecae909f42fa: Povezava # Povezava
     00574de9-2fb1-405d-874d-ba41d8f3f166: 'Seznam objav' # Seznam objav
     594b11fb-5b7a-486d-8274-8eeff6bfeaf2: 'Manjši naslov' # Manjši naslov
@@ -283,6 +285,7 @@ meta:
     d70dd2fb-fab1-4026-a705-f33e71a7bb95: 'Zahvalno sporočilo' # Zahvalno sporočilo
     d79b08f9-342f-4885-a06c-80631b84bc94: Opis # Opis
     d82c6d21-3974-4223-bb24-027b65fca75e: 'Dodatna obvestila' # Dodatna obvestila
+    d5838682-4e6d-4c02-bd6b-8ce70c9a3a0e: 'Naši projekti' # Naši projekti
     d8562904-3684-45fc-80d3-35cea848c34c: 'Pogoji uporabe' # Pogoji uporabe
     dd381054-a6c0-41f5-af5b-6fdffa6f365e: 'Cena - delo' # Cena - delo
     ddf0c061-99eb-455a-a33a-1adaf4325562: 'Custom CSS Classes' # Custom CSS Classes

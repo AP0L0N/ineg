@@ -5,6 +5,15 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: 2a871ad8-2165-4bc3-9cfc-f288b4691187 # Active
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 3a2a2156-215a-446e-9924-647776d9a890 # Povezana storitev
             instructions: null
             label: null
@@ -34,6 +43,21 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
+  2a871ad8-2165-4bc3-9cfc-f288b4691187: # Active
+    columnSuffix: yqwhlblg
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: active
+    instructions: ''
+    name: Active
+    searchable: false
+    settings:
+      default: true
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
   3a2a2156-215a-446e-9924-647776d9a890: # Povezana storitev
     columnSuffix: null
     contentColumnType: string
@@ -53,7 +77,7 @@ fields:
         - 'single:929a2ea6-e079-4dcb-b4bd-9b86dadead42' # Gradnja hiš
         - 'single:80e273cc-61c2-41ad-8667-179e39a593b6' # Lesene ograje
         - 'single:211f3b39-876c-4719-9a7c-9e234ed24e52' # Lesene terase
-        - 'single:3bb053ed-8ba0-4cf5-8c74-22f01649d99a' # Leseni fasadni sistemi
+        - 'single:3bb053ed-8ba0-4cf5-8c74-22f01649d99a' # Lesene fasade
         - 'single:8f854904-9811-4d3b-91c2-425844259b52' # Vrtne hiške in nadstreški
         - 'single:aa85015e-4518-4419-a2bc-ed2331c5af3f' # Zunanji leseni dodatki
       targetSiteId: null

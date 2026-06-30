@@ -1,0 +1,44 @@
+{#
+    Vrste lesa — predstavitev (carousel)
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.species (array) -> { name, origin, image, description, specs: [ { label, value } ] }
+#}
+{% set data = data is defined ? data : {} %}
+{% set species = data.species is defined ? data.species : [] %}
+
+<section class="wood-species">
+    <div class="container">
+        <div class="section-head">
+            {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+        </div>
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                {% for wood in species %}
+                    <div class="swiper-slide">
+                        <article class="species-card">
+                            <div class="species-image">
+                                {% if wood.origin is defined %}<span class="origin">{{ wood.origin }}</span>{% endif %}
+                                <img src="{{ wood.image }}" alt="Lesena terasa iz lesa {{ wood.name }}" loading="lazy">
+                            </div>
+                            <div class="species-body">
+                                <h3>{{ wood.name }}</h3>
+                                {% if wood.description is defined %}<p>{{ wood.description }}</p>{% endif %}
+                                {% if wood.specs is defined %}
+                                    <ul class="species-specs">
+                                        {% for spec in wood.specs %}
+                                            <li><span>{{ spec.label }}</span> <strong>{{ spec.value }}</strong></li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,55 @@
+{% extends '_layouts/site-content' %}
+
+{#
+    Rezultati iskanja (/iskanje?q=...)
+    Uporablja vgrajeno Craft iskanje po vnosih (entries).
+#}
+
+{% set q = craft.app.request.getParam('q') | trim %}
+{% set results = q ? craft.entries().search(q).orderBy('score').limit(50).all() : [] %}
+
+{% set seoTitle = q ? ('Iskanje: ' ~ q ~ ' | INeG') : 'Iskanje | INeG' %}
+
+{% block content %}
+    <section class="search-results-page">
+        <div class="container">
+
+            <div class="search-results-head">
+                <h1>{{ 'Iskanje po vsebini' | t }}</h1>
+
+                <form action="/iskanje" method="get" class="search-results-form" role="search">
+                    <i class="fal fa-search" aria-hidden="true"></i>
+                    <input type="search" name="q" value="{{ q }}" placeholder="{{ 'Poiščite teraso, les, blog …' | t }}" aria-label="{{ 'Iskanje po vsebini' | t }}" autocomplete="off">
+                    <button type="submit">{{ 'Išči' | t }}</button>
+                </form>
+            </div>
+
+            {% if q %}
+                <p class="results-count">
+                    {{ results | length }} {{ 'zadetkov za' | t }} <strong>„{{ q }}“</strong>
+                </p>
+
+                <div class="results-list">
+                    {% for result in results %}
+                        <a href="{{ result.url }}" class="result-item">
+                            <div class="result-body">
+                                <span class="result-section">{{ result.section.name }}</span>
+                                <h2 class="result-title">{{ result.title }}</h2>
+                                {% if result.url %}<span class="result-url">{{ result.url }}</span>{% endif %}
+                            </div>
+                            <span class="result-arrow"><i class="fal fa-angle-right"></i></span>
+                        </a>
+                    {% else %}
+                        <div class="no-results">
+                            <i class="fal fa-search"></i>
+                            <p>{{ 'Za vaše iskanje ni zadetkov. Poskusite z drugimi ključnimi besedami.' | t }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="results-hint">{{ 'Vnesite ključno besedo za iskanje po naših straneh in blogih.' | t }}</p>
+            {% endif %}
+
+        </div>
+    </section>
+{% endblock %}

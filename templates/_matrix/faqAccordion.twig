@@ -1,0 +1,58 @@
+{#
+    Pogosta vprašanja (FAQ) — z JSON-LD FAQPage shemo (dobro za SEO/AI)
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.button ({ url, label })
+    data.faqs (array) -> { question, answer (HTML) }
+#}
+{% set data = data is defined ? data : {} %}
+{% set faqs = data.faqs is defined ? data.faqs : [] %}
+
+<section class="faq-accordion">
+    <div class="container">
+        <div class="faq-layout">
+            <div class="faq-intro">
+                {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+                <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+                {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+                {% if data.button is defined %}
+                    <a href="{{ data.button.url }}" class="btn btn-primary">{{ data.button.label }}</a>
+                {% endif %}
+            </div>
+
+            <div class="faq-list">
+                {% for faq in faqs %}
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-{{ loop.index }}">
+                            <span>{{ faq.question }}</span>
+                            <span class="toggle" aria-hidden="true"><i class="fal fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-{{ loop.index }}" role="region">
+                            <div class="answer-inner">{{ faq.answer | raw }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% if faqs | length %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {% for faq in faqs %}
+                {
+                    "@type": "Question",
+                    "name": {{ faq.question | json_encode | raw }},
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": {{ faq.answer | striptags | json_encode | raw }}
+                    }
+                }{{ not loop.last ? ',' }}
+                {% endfor %}
+            ]
+        }
+        </script>
+    {% endif %}
+</section>
