@@ -6,3 +6,5 @@
 /design
 /web/assets/uploads
 .DS_Store
+.gitnexus
+*.py
