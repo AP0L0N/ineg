@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .wood-species {
     padding: 80px 0;
@@ -17,24 +18,24 @@
             letter-spacing: 2px;
             font-size: 13px;
             font-weight: 600;
-            color: $primary-color;
+            color: variables.$primary-color;
             display: block;
             margin-bottom: 12px;
         }
 
         h2 {
-            @include responsive-font(26, 40);
+            @include misc.responsive-font(26, 40);
             font-weight: 700;
             margin-bottom: 15px;
 
             span {
-                color: $primary-color;
+                color: variables.$primary-color;
             }
         }
 
         p {
-            @include responsive-font(15, 18);
-            color: $default-color;
+            @include misc.responsive-font(15, 18);
+            color: variables.$default-color;
             line-height: 1.5;
         }
     }
@@ -57,7 +58,7 @@
         flex-direction: column;
 
         .species-image {
-            @include centered-image;
+            @include misc.centered-image;
             aspect-ratio: 4/3;
             position: relative;
 
@@ -83,7 +84,7 @@
             flex: 1;
 
             h3 {
-                @include responsive-font(18, 22);
+                @include misc.responsive-font(18, 22);
                 font-weight: 700;
                 margin-bottom: 8px;
             }
@@ -91,7 +92,7 @@
             p {
                 font-size: 14px;
                 line-height: 1.45;
-                color: $default-color;
+                color: variables.$default-color;
                 margin-bottom: 18px;
             }
 
@@ -110,7 +111,7 @@
                     border-bottom: 1px solid #f7f7f7;
 
                     span {
-                        color: $default-color;
+                        color: variables.$default-color;
                     }
 
                     strong {

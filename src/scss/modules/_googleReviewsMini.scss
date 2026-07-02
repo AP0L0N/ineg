@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .google-reviews-mini {
 	position: fixed;
@@ -92,7 +93,7 @@
 
 				.review-name {
 					font-weight: 700;
-					font-family: $font-family-albert;
+					font-family: variables.$font-family-albert;
 					margin-bottom: 3px;
 					display: flex;
 					align-items: center;
@@ -129,7 +130,7 @@
 				}
 
 				.time-ago {
-					@include responsive-font(14,15);
+					@include misc.responsive-font(14,15);
 					opacity: 0.5;
 					display: none;
 				}

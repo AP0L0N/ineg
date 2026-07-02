@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .comparison-table {
     padding: 80px 0;
@@ -18,24 +19,24 @@
             letter-spacing: 2px;
             font-size: 13px;
             font-weight: 600;
-            color: $primary-color;
+            color: variables.$primary-color;
             display: block;
             margin-bottom: 12px;
         }
 
         h2 {
-            @include responsive-font(26, 40);
+            @include misc.responsive-font(26, 40);
             font-weight: 700;
             margin-bottom: 15px;
 
             span {
-                color: $primary-color;
+                color: variables.$primary-color;
             }
         }
 
         p {
-            @include responsive-font(15, 18);
-            color: $default-color;
+            @include misc.responsive-font(15, 18);
+            color: variables.$default-color;
             line-height: 1.5;
         }
     }
@@ -55,9 +56,9 @@
         thead th {
             padding: 22px 20px;
             text-align: center;
-            font-family: $font-family-albert;
+            font-family: variables.$font-family-albert;
             font-weight: 700;
-            @include responsive-font(15, 18);
+            @include misc.responsive-font(15, 18);
             border-bottom: 2px solid #f2f2f2;
 
             &:first-child {
@@ -65,7 +66,7 @@
             }
 
             &.is-highlight {
-                background: $primary-color;
+                background: variables.$primary-color;
                 color: black;
                 border-radius: 8px 8px 0 0;
             }
@@ -75,7 +76,7 @@
             padding: 16px 20px;
             text-align: center;
             font-size: 14px;
-            color: $default-color;
+            color: variables.$default-color;
             border-bottom: 1px solid #f4f4f4;
 
             &:first-child {

@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .image-with-text-banner {
     max-width: 1440px;
@@ -9,7 +10,7 @@
     }
 
     .heading-2 {
-        @include responsive-font(21,26);
+        @include misc.responsive-font(21,26);
         line-height: 1.1;
         color: black;
     }
@@ -61,7 +62,7 @@
                 max-height: 550px;
             }
 
-            @include centered-image;
+            @include misc.centered-image;
         }
 
         .content-wrapper {
@@ -70,7 +71,7 @@
             padding: 40px 0;
 
             .heading {
-                @include responsive-font(21,26);
+                @include misc.responsive-font(21,26);
                 line-height: 1.1 !important;
                 max-width: 250px;
                 margin-left: auto;
@@ -84,7 +85,7 @@
             }
 
             .lead {
-                @include responsive-font(15, 16);
+                @include misc.responsive-font(15, 16);
                 color: black;
                 line-height: 1.2;
                 margin-bottom: 0;

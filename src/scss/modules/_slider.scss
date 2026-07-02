@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .hero-slider {
     position: relative;
@@ -7,7 +8,7 @@
     margin-right: auto;
     
     .background-image {
-        @include centered-image;
+        @include misc.centered-image;
         position: absolute;
         z-index: 1;
         opacity: 0.5;
@@ -20,10 +21,10 @@
             z-index: 2;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, $primary-color, transparent);
+            background: linear-gradient(to bottom, variables.$primary-color, transparent);
 
             @media(min-width: 991px) {
-                background: linear-gradient(to right, $primary-color, transparent);
+                background: linear-gradient(to right, variables.$primary-color, transparent);
             }
         }
 
@@ -73,9 +74,9 @@
                         }
 
                         .title {
-                            @include responsive-font(35, 75);
+                            @include misc.responsive-font(35, 75);
                             color: black;
-                            font-family: $font-family-albert;
+                            font-family: variables.$font-family-albert;
                             font-weight: 700;
                             line-height: 0.9;
                             margin-bottom: 20px;
@@ -84,8 +85,8 @@
                         .description {
                             
                             p {
-                                @include responsive-font(18, 21);
-                                font-family: $font-family-albert;
+                                @include misc.responsive-font(18, 21);
+                                font-family: variables.$font-family-albert;
                                 color: black;
                                 font-weight: 500;
                                 line-height: 1.1;
@@ -106,7 +107,7 @@
                     }
 
                     .image-wrapper {
-                        @include centered-image;
+                        @include misc.centered-image;
                         width: 100%;
                         aspect-ratio: 125/100;
                         flex-shrink: 0;

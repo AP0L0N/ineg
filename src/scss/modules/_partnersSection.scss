@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .partners-section {
     max-width: 2500px;
@@ -9,9 +10,9 @@
     }
 
     .title {
-        @include responsive-font(21,26);
+        @include misc.responsive-font(21,26);
         color: black;
-        font-family: $font-family-albert;
+        font-family: variables.$font-family-albert;
         line-height: 1.1;
         font-weight: 700;
         text-align: center;

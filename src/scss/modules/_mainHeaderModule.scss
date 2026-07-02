@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .main-header-module {
     aspect-ratio: 991/667;
@@ -33,7 +34,7 @@
     }
 
     .background-image {
-        @include centered-image;
+        @include misc.centered-image;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -79,7 +80,7 @@
 
                 h1 {
                     letter-spacing: 10px;
-                    @include responsive-font(27,37);
+                    @include misc.responsive-font(27,37);
                     font-weight: 600;
                     color: black;
                 }
@@ -124,15 +125,15 @@
             }
 
             h1 {
-                @include responsive-font(21,26);
+                @include misc.responsive-font(21,26);
                 color: black;
-                font-family: $font-family-albert;
+                font-family: variables.$font-family-albert;
                 font-weight: 700;
                 line-height: 1.1;
             }
 
             h2 {
-                @include responsive-font(15,16);
+                @include misc.responsive-font(15,16);
                 color: black;
                 line-height: 1.1;
                 font-weight: 400;

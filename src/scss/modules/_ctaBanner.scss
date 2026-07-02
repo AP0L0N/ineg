@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .cta-banner {
     position: relative;
@@ -31,25 +32,25 @@
             letter-spacing: 2px;
             font-size: 13px;
             font-weight: 600;
-            color: $primary-color;
+            color: variables.$primary-color;
             display: block;
             margin-bottom: 15px;
         }
 
         h2 {
             color: white;
-            @include responsive-font(28, 44);
+            @include misc.responsive-font(28, 44);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 18px;
 
             span {
-                color: $primary-color;
+                color: variables.$primary-color;
             }
         }
 
         p {
-            @include responsive-font(16, 19);
+            @include misc.responsive-font(16, 19);
             line-height: 1.5;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 32px;
@@ -78,7 +79,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: $primary-color;
+                color: variables.$primary-color;
                 font-size: 18px;
             }
 
@@ -90,7 +91,7 @@
                 }
 
                 .number {
-                    @include responsive-font(17, 20);
+                    @include misc.responsive-font(17, 20);
                     font-weight: 700;
                 }
             }
@@ -100,7 +101,7 @@
                 text-decoration: none;
 
                 .icon {
-                    background: $primary-color;
+                    background: variables.$primary-color;
                     color: black;
                 }
             }

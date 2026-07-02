@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .projects-gallery {
     padding: 80px 0;
@@ -23,24 +24,24 @@
                 letter-spacing: 2px;
                 font-size: 13px;
                 font-weight: 600;
-                color: $primary-color;
+                color: variables.$primary-color;
                 display: block;
                 margin-bottom: 12px;
             }
 
             h2 {
-                @include responsive-font(26, 40);
+                @include misc.responsive-font(26, 40);
                 font-weight: 700;
                 margin-bottom: 15px;
 
                 span {
-                    color: $primary-color;
+                    color: variables.$primary-color;
                 }
             }
 
             p {
-                @include responsive-font(15, 18);
-                color: $default-color;
+                @include misc.responsive-font(15, 18);
+                color: variables.$default-color;
                 line-height: 1.5;
                 margin: 0;
             }
@@ -94,13 +95,13 @@
                 font-size: 11px;
                 text-transform: uppercase;
                 letter-spacing: 1px;
-                color: $primary-color;
+                color: variables.$primary-color;
                 display: block;
                 margin-bottom: 4px;
             }
 
             .title {
-                @include responsive-font(15, 18);
+                @include misc.responsive-font(15, 18);
                 font-weight: 700;
                 line-height: 1.2;
             }

@@ -1,8 +1,9 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .process-steps {
     padding: 80px 0;
-    background: $dark-color;
+    background: variables.$dark-color;
     color: white;
 
     @media (min-width: 991px) {
@@ -19,24 +20,24 @@
             letter-spacing: 2px;
             font-size: 13px;
             font-weight: 600;
-            color: $primary-color;
+            color: variables.$primary-color;
             display: block;
             margin-bottom: 12px;
         }
 
         h2 {
             color: white;
-            @include responsive-font(26, 40);
+            @include misc.responsive-font(26, 40);
             font-weight: 700;
             margin-bottom: 15px;
 
             span {
-                color: $primary-color;
+                color: variables.$primary-color;
             }
         }
 
         p {
-            @include responsive-font(15, 18);
+            @include misc.responsive-font(15, 18);
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.5;
         }
@@ -79,9 +80,9 @@
             height: 56px;
             margin: 0 auto 20px;
             border-radius: 50%;
-            background: $primary-color;
+            background: variables.$primary-color;
             color: black;
-            font-family: $font-family-albert;
+            font-family: variables.$font-family-albert;
             font-weight: 700;
             font-size: 22px;
             display: flex;
@@ -93,7 +94,7 @@
 
         h3 {
             color: white;
-            @include responsive-font(16, 19);
+            @include misc.responsive-font(16, 19);
             font-weight: 700;
             margin-bottom: 10px;
         }

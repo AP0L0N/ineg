@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .faq-accordion {
     padding: 80px 0;
@@ -25,24 +26,24 @@
             letter-spacing: 2px;
             font-size: 13px;
             font-weight: 600;
-            color: $primary-color;
+            color: variables.$primary-color;
             display: block;
             margin-bottom: 12px;
         }
 
         h2 {
-            @include responsive-font(26, 38);
+            @include misc.responsive-font(26, 38);
             font-weight: 700;
             margin-bottom: 15px;
 
             span {
-                color: $primary-color;
+                color: variables.$primary-color;
             }
         }
 
         p {
-            @include responsive-font(15, 17);
-            color: $default-color;
+            @include misc.responsive-font(15, 17);
+            color: variables.$default-color;
             line-height: 1.5;
             margin-bottom: 25px;
         }
@@ -57,7 +58,7 @@
             background: white;
 
             &.is-open {
-                border-color: $primary-color;
+                border-color: variables.$primary-color;
 
                 .faq-question .toggle i {
                     transform: rotate(45deg);
@@ -76,14 +77,14 @@
             justify-content: space-between;
             gap: 15px;
             cursor: pointer;
-            font-family: $font-family-albert;
-            @include responsive-font(16, 18);
+            font-family: variables.$font-family-albert;
+            @include misc.responsive-font(16, 18);
             font-weight: 600;
             color: black;
             line-height: 1.3;
 
             &:focus-visible {
-                outline: 2px solid $primary-color;
+                outline: 2px solid variables.$primary-color;
                 outline-offset: -2px;
             }
 
@@ -93,7 +94,7 @@
                 height: 30px;
                 border-radius: 50%;
                 background: rgba(248, 155, 83, 0.15);
-                color: $primary-color;
+                color: variables.$primary-color;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -113,7 +114,7 @@
                 padding: 0 22px 22px;
                 font-size: 15px;
                 line-height: 1.55;
-                color: $default-color;
+                color: variables.$default-color;
 
                 p {
                     margin: 0 0 10px;

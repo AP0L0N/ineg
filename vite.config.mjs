@@ -4,6 +4,13 @@ import ViteRestart from 'vite-plugin-restart';
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
     base: command === 'serve' ? '' : '/dist/',
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern-compiler'
+            }
+        }
+    },
     build: {
         outDir: 'web/dist',
         emptyOutDir: true,
@@ -23,11 +30,17 @@ export default defineConfig(({ command }) => ({
     ],
     server: {
         host: '0.0.0.0',
-        port: 3000,
+        port: 5174,
         strictPort: true,
-        origin: `${process.env.DDEV_PRIMARY_URL}:3000`,
+        origin: `${process.env.DDEV_PRIMARY_URL_WITHOUT_PORT}:5174`,
         cors: {
-            origin: /https?:\/\/([A-Za-z0-9\-.]+)?(\.ddev\.site)(?::\d+)?$/,
+            origin: /https?:\/\/([A-Za-z0-9\-\.]+)?(\.ddev\.site)(?::\d+)?$/
         },
+        hmr: {
+            overlay: true
+        },
+        watch: {
+            usePolling: true
+        }
     },
 }));

@@ -1,8 +1,9 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .hero-decking {
     position: relative;
-    background-color: $dark-color;
+    background-color: variables.$dark-color;
 
     .swiper {
         width: 100%;
@@ -45,7 +46,7 @@
             letter-spacing: 2px;
             font-size: 13px;
             font-weight: 600;
-            color: $primary-color;
+            color: variables.$primary-color;
             margin-bottom: 18px;
 
             i {
@@ -55,18 +56,18 @@
 
         h1 {
             color: white;
-            @include responsive-font(30, 56);
+            @include misc.responsive-font(30, 56);
             font-weight: 700;
             line-height: 1.05;
             margin-bottom: 18px;
 
             span {
-                color: $primary-color;
+                color: variables.$primary-color;
             }
         }
 
         .lead {
-            @include responsive-font(16, 20);
+            @include misc.responsive-font(16, 20);
             line-height: 1.5;
             color: rgba(255, 255, 255, 0.92);
             margin-bottom: 30px;
@@ -119,7 +120,7 @@
             color: rgba(255, 255, 255, 0.9);
 
             .stars {
-                color: $primary-color;
+                color: variables.$primary-color;
                 letter-spacing: 1px;
             }
 

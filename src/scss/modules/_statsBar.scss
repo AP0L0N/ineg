@@ -1,7 +1,8 @@
-@import "../variables";
+@use "../variables";
+@use "../misc";
 
 .stats-bar {
-    background-color: $dark-color;
+    background-color: variables.$dark-color;
     padding: 45px 0;
 
     .stats-grid {
@@ -33,11 +34,11 @@
         }
 
         .stat-value {
-            font-family: $font-family-albert;
-            @include responsive-font(34, 48);
+            font-family: variables.$font-family-albert;
+            @include misc.responsive-font(34, 48);
             font-weight: 700;
             line-height: 1;
-            color: $primary-color;
+            color: variables.$primary-color;
             margin-bottom: 8px;
 
             .suffix {
@@ -46,7 +47,7 @@
         }
 
         .stat-label {
-            @include responsive-font(13, 15);
+            @include misc.responsive-font(13, 15);
             text-transform: uppercase;
             letter-spacing: 1px;
             color: rgba(255, 255, 255, 0.8);
