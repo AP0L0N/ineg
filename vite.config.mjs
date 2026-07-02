@@ -30,17 +30,11 @@ export default defineConfig(({ command }) => ({
     ],
     server: {
         host: '0.0.0.0',
-        port: 5174,
+        port: 3000,
         strictPort: true,
-        origin: `${process.env.DDEV_PRIMARY_URL_WITHOUT_PORT}:5174`,
+        origin: `${process.env.DDEV_PRIMARY_URL}:3000`,
         cors: {
-            origin: /https?:\/\/([A-Za-z0-9\-\.]+)?(\.ddev\.site)(?::\d+)?$/
-        },
-        hmr: {
-            overlay: true
-        },
-        watch: {
-            usePolling: true
+            origin: /https?:\/\/([A-Za-z0-9\-.]+)?(\.ddev\.site)(?::\d+)?$/,
         }
     },
 }));
