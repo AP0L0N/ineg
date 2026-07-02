@@ -1,10 +1,10 @@
 {
   "require": {
-    "craftcms/cms": "^3.7.27.2",
+    "craftcms/cms": "^3.9.15",
     "craftcms/redactor": "^2.9.1",
-    "enupal/translate": "^2.0.0",
+    "enupal/translate": "^2.3.3",
     "ether/seo": "^3.7.7",
-    "misterbk/mix": "^1.5.2",
+    "nystudio107/craft-vite": "^1.0",
     "sendinblue/api-v3-sdk": "^7.4.0",
     "spacecatninja/imager-x": "^3.6",
     "verbb/expanded-singles": "^1.2.0",
@@ -30,6 +30,11 @@
     "allow-plugins": {
       "yiisoft/yii2-composer": true,
       "craftcms/plugin-installer": true
+    },
+    "policy": {
+        "advisories": {
+            "block": false
+        }
     }
   },
   "scripts": {

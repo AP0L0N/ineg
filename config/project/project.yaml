@@ -1,4 +1,4 @@
-dateModified: 1782835120
+dateModified: 1783024444
 email:
   fromEmail: poje.tilen@gmail.com
   fromName: INeG
@@ -416,6 +416,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.2.1
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true

@@ -5,8 +5,10 @@
 @import "footer";
 @import "modules";
 
-// swiper 
-@import "node_modules/swiper/swiper";
+// swiper
+// Swiper 11 no longer exposes its .scss source via package "exports", so
+// reference it with an explicit relative path (bypasses exports resolution).
+@import "../../node_modules/swiper/swiper";
 
 body {
 	font-family: Jost, sans-serif;

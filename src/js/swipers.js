@@ -1,6 +1,16 @@
 import Swiper from 'swiper';
 import { Autoplay, Pagination, Navigation, Scrollbar, EffectFade } from "swiper/modules";
 
+// Swiper 11 no longer exposes swiper.scss via package "exports" (only compiled CSS).
+// Import the precompiled CSS here (per used module) instead of via Sass in custom.scss —
+// this keeps Swiper's large stylesheet out of the Sass rebuild graph so editing .scss files
+// stays fast, since it's bundled with this JS entry instead.
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
+import 'swiper/css/effect-fade';
+
 document.addEventListener('DOMContentLoaded', () => {
 
     Swiper.prototype.toggleControls = function() {

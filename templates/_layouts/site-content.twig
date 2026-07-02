@@ -36,11 +36,11 @@
 
     {# Core JS #}
     <script type="text/javascript" src="/assets/js/lazysizes.min.js"></script>
-    <script type="text/javascript" src="{{ mix('js/core.js') }}"></script>
+    <script type="text/javascript" src="/assets/js/core.js"></script>
 
     {# Main styles #}
-    <link href="{{ mix('css/theme.css') }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ mix('css/custom.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="/assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ craft.vite.asset('src/scss/custom.scss') }}" rel="stylesheet" type="text/css" media="all" />
 
     {# Google captcha #}
     <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -82,9 +82,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% include '_layouts/site-modals' %}
 
 {# Javascript #}
-<script type="text/javascript" src="{{ mix('js/plugins.js') }}"></script>
-<script type="text/javascript" src="{{ mix('js/swipers.js') }}" type="module" defer></script>
-<script type="text/javascript" src="{{ mix('js/custom.js') }}" defer></script>
+<script type="text/javascript" src="/assets/js/plugins.js"></script>
+{{ craft.vite.script('src/js/swipers.js') }}
+{{ craft.vite.script('src/js/custom.js') }}
 
 </body>
 </html>
