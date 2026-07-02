@@ -1,0 +1,148 @@
+{% extends '_layouts/site-content' %}
+
+{#
+    Podstran bloga / članka — dejanski podatki vnosa (section: blogs).
+#}
+
+{% set authorName = "INeG ekipa" %}
+{% set authorRole = "INeG – Inštitut nizkoenergijske gradnje" %}
+{% set defaultReadingTime = "5 min branja" %}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        {% set blogsListEntry = craft.entries().section('seznamObjav').one() %}
+        {% set category = entry.kategorija.one() %}
+        {% set categoryUrl = (category and blogsListEntry) ? url(blogsListEntry.url, { kategorija: category.slug }) : null %}
+        {% set image = entry.blogInfo.slika.one() %}
+        {% set readingTime = entry.blogInfo.casBranja ?: defaultReadingTime %}
+
+        {% set relatedItems = craft.entries.section('blogs')
+            .relatedTo(entry.kategorija)
+            .id(['not', entry.id])
+            .orderBy('postDate desc')
+            .limit(3)
+            .all() %}
+
+        <div class="blog-post">
+
+            {# Drobtinice #}
+            <div class="breadcrumb-bar">
+                <div class="container">
+                    <ul class="breadcrumb-list">
+                        <li><a href="/">Domov</a></li>
+                        <li class="sep">/</li>
+                        <li><a href="{{ blogsListEntry.url }}">Blog</a></li>
+                        <li class="sep">/</li>
+                        <li class="current">{{ entry.blogInfo.naslov }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container">
+
+                {# Naslov in meta #}
+                <header class="post-hero">
+                    {% if category %}
+                        <a href="{{ categoryUrl }}" class="post-category">{{ category.title }}</a>
+                    {% endif %}
+                    <h1>{{ entry.blogInfo.naslov }}</h1>
+                    <div class="post-meta">
+                        <span class="meta-item"><i class="fal fa-calendar"></i> {{ entry.postDate | date("d. m. Y") }}</span>
+                        <span class="meta-item"><i class="fal fa-user"></i> {{ authorName }}</span>
+                        <span class="meta-item"><i class="fal fa-clock"></i> {{ readingTime }}</span>
+                    </div>
+                </header>
+            </div>
+
+            {# Naslovna slika #}
+            {% if image %}
+                <div class="container">
+                    <div class="post-feature-image">
+                        <img src="{{ image.getUrl('blogImage') }}" alt="{{ entry.blogInfo.naslov }}" loading="lazy">
+                    </div>
+                </div>
+            {% endif %}
+
+            {# Vsebina #}
+            <div class="container">
+                <article class="post-content">
+                    {{ entry.blogInfo.besedilo | raw }}
+
+                    {# Oznake #}
+                    {% if category %}
+                        <div class="post-tags">
+                            <a href="{{ categoryUrl }}" class="tag">{{ category.title }}</a>
+                        </div>
+                    {% endif %}
+
+                    {# Deljenje #}
+                    <div class="post-share">
+                        <span class="share-label">Delite članek:</span>
+                        <div class="share-links">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ entry.url | url_encode }}" target="_blank" rel="noopener" aria-label="Deli na Facebooku"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ entry.url | url_encode }}" target="_blank" rel="noopener" aria-label="Deli na LinkedInu"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/?url={{ entry.url | url_encode }}" target="_blank" rel="noopener" aria-label="Deli na Instagramu"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:?subject={{ entry.blogInfo.naslov | url_encode }}&body={{ entry.url | url_encode }}" aria-label="Deli prek e-pošte"><i class="fal fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            {# Avtor #}
+            <div class="container">
+                <div class="author-box">
+                    <div class="author-avatar">{{ authorName | slice(0, 1) }}</div>
+                    <div class="author-info">
+                        <div class="author-name">{{ authorName }}</div>
+                        <div class="author-role">{{ authorRole }}</div>
+                    </div>
+                </div>
+            </div>
+
+            {# Sorodni članki #}
+            {% if relatedItems | length %}
+                <div class="related-posts">
+                    <div class="container">
+                        <div class="section-head">
+                            <h2>Sorodni <span>članki</span></h2>
+                        </div>
+                        <div class="related-grid">
+                            {% for item in relatedItems %}
+                                {% set itemCategory = item.kategorija.one() %}
+                                <a href="{{ item.url }}" class="related-card">
+                                    <div class="related-image"><img src="{{ item.blogInfo.slika.one().getUrl('croppedFullModule') }}" alt="{{ item.blogInfo.naslov }}" loading="lazy"></div>
+                                    <div class="related-body">
+                                        {% if itemCategory %}<span class="related-category">{{ itemCategory.title }}</span>{% endif %}
+                                        <div class="related-title">{{ item.blogInfo.naslov }}</div>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {# Strukturirani podatki #}
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": {{ entry.blogInfo.naslov | json_encode | raw }},
+                "description": {{ entry.blogInfo.kratekPovzetek | json_encode | raw }},
+                "image": {{ (image ? image.getUrl('blogImage') : null) | json_encode | raw }},
+                "datePublished": {{ entry.postDate | date("c") | json_encode | raw }},
+                "author": { "@type": "Organization", "name": {{ authorName | json_encode | raw }} },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "INeG – Inštitut nizkoenergijske gradnje",
+                    "logo": { "@type": "ImageObject", "url": "https://ineg.si/assets/images/logo.png" }
+                }
+            }
+            </script>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

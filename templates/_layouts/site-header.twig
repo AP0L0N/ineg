@@ -104,29 +104,47 @@
                             <div class="dropdown-menu" aria-labelledby="dropdown07">
                                 {% if storitve is defined %}
                                     {% set services = storitve.storitveInOpisi.all() %}
-                                    {% for item in services %}
-                                        <div class="service-item">
-                                            <div class="service-item-slider">
-                                                <div class="swiper">
-                                                    <div class="swiper-wrapper">
-                                                        {% for image in item.prikazneSlike.all() %}
-                                                        <div class="swiper-slide">
-                                                            <div class="image-wrapper">
-                                                                {% include "helpers/picture" with {desktop: {image: image, width: 500} } %}
-                                                            </div>
-                                                        </div>
-                                                        {% endfor %}
+                                    {# "Lesene terase" je naša vodilna storitev, zato v mega meniju izstopa z veliko kartico #}
+                                    {% set featuredService = services|filter(item => item.povezanaStoritev.one() is not null and item.povezanaStoritev.one().section.handle == 'leseneTerase')|first %}
+                                    {% set otherServices = services|filter(item => item.povezanaStoritev.one() is not null and item.povezanaStoritev.one().section.handle != 'leseneTerase') %}
+
+                                    <div class="mega-menu">
+                                        {% if featuredService %}
+                                            {% set featuredEntry = featuredService.povezanaStoritev.one() %}
+                                            <a href="{{ featuredEntry.url }}" class="mega-menu-featured">
+                                                {% set featuredImage = featuredService.prikazneSlike.one() %}
+                                                {% if featuredImage %}
+                                                    <div class="card-bg">
+                                                        {% include "helpers/picture" with {desktop: {image: featuredImage, width: 700} } %}
                                                     </div>
-                                                    <div class="swiper-scrollbar"></div>
+                                                {% endif %}
+                                                <div class="card-body">
+                                                    <span class="badge-primary">{{ 'Naša vodilna storitev' | t }}</span>
+                                                    <p class="title">{{ featuredEntry.title }}</p>
+                                                    <p class="description">{{ featuredService.kratekOpis }}</p>
+                                                    <span class="arrow">{{ 'Odkrijte več' | t }} <i class="fal fa-angle-right"></i></span>
                                                 </div>
+                                            </a>
+                                        {% endif %}
+
+                                        {% if otherServices|length %}
+                                            <div class="mega-menu-list">
+                                                {% for item in otherServices %}
+                                                    {% set entry = item.povezanaStoritev.one() %}
+                                                    <div class="mega-menu-list-item">
+                                                        {% set image = item.prikazneSlike.one() %}
+                                                        {% if image %}
+                                                            <div class="thumb">
+                                                                {% include "helpers/picture" with {desktop: {image: image, width: 160} } %}
+                                                            </div>
+                                                        {% endif %}
+                                                        <p class="title">{{ entry.title }}</p>
+                                                        <a href="{{ entry.url }}"></a>
+                                                    </div>
+                                                {% endfor %}
                                             </div>
-                                            <div class="link-wrapper">
-                                                <p class="title">{{ item.povezanaStoritev.one().title }}</p>
-                                                <p class="description">{{ item.kratekOpis }}</p>
-                                                <a href="{{ item.povezanaStoritev.one().url }}"></a>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
+                                        {% endif %}
+                                    </div>
                                 {% endif %}
                             </div>
                         </li>
@@ -134,27 +152,23 @@
                         {% set navItem = craft.entries.section('oInstitutu').one() %}
                         {% if navItem %}
                             <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
-                                <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
+                                <a class="nav-link" href="{{ navItem.url }}">{{ "O nas" | t }}</a>
                             </li>
                         {% endif %}
 
-                        {% set navItem = craft.entries.section('kontakt').one() %}
-                        {% if navItem %}
-                            <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
-                                <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
-                            </li>
-                        {% endif %}
+                        <li class="nav-item d-flex align-items-center justify-content-center">
+                            <button class="search-toggle d-none d-lg-inline-flex" type="button" aria-label="{{ 'Iskanje' | t }}" aria-controls="searchOverlay" aria-expanded="false">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </li>
                     </ul>
 
                     <div class="header-actions">
-                        <button class="search-toggle d-none d-lg-inline-flex" type="button" aria-label="{{ 'Iskanje' | t }}" aria-controls="searchOverlay" aria-expanded="false">
-                            <i class="fal fa-search"></i>
-                        </button>
 
                         {% set navItem = craft.entries.section('kontakt').one() %}
                         <div class="question-button">
                             <a href="{{ navItem ? navItem.url : '/kontakt' }}" class="btn btn-primary">
-                                <span>{{ "Imate vprašanje" | t }}</span> <i class="fa fa-question-circle"></i>
+                                <span>{{ "Kontaktirajte nas" | t }}</span>
                             </a>
                         </div>
                     </div>

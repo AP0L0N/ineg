@@ -4630,8 +4630,7 @@ input[type="button"].btn-block {
 }
 
 .pagination {
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;

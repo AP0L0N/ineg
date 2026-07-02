@@ -49,3 +49,21 @@
         cursor: pointer;
     }
 }
+
+// Two-tone background sweep used for modern button hovers.
+// Paints $from/$to side by side on a 200%-wide background and slides it into
+// view on hover/focus, instead of an instant color swap.
+@mixin btn-sweep($from, $to) {
+    position: relative;
+    z-index: 0;
+    background-image: linear-gradient(to right, $from 50%, $to 50%);
+    background-size: 201% 100%;
+    background-position: left bottom;
+    transition: background-position 0.35s ease, color 0.3s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+        background-position: right bottom;
+    }
+}

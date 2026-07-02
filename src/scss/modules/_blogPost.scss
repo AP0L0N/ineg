@@ -173,6 +173,7 @@
                     justify-content: center;
                     color: variables.$default-color;
                     transition: all 0.15s ease;
+                    text-decoration: none;
 
                     &:hover {
                         background: variables.$primary-color;

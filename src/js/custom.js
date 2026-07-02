@@ -142,6 +142,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
+	// 2026 redesign — filtri na strani z blogi (samodejna oddaja ob spremembi kategorije/razvrščanja)
+	let blogFilters = document.querySelector('.blog-filters');
+	if (blogFilters) {
+		let autoSubmitSelects = blogFilters.querySelectorAll('#blogFilterKategorija, #blogFilterSort');
+		Array.prototype.forEach.call(autoSubmitSelects, function (select) {
+			select.addEventListener('change', function () {
+				blogFilters.submit();
+			});
+		});
+	}
+
 	// 2026 redesign — header (search overlay, jezikovni izbirnik, višina glave, senca ob drsenju)
 	let header = document.getElementById('mainHeader');
 	if (header) {

@@ -1,73 +1,140 @@
 {% extends '_layouts/site-content' %}
 
-{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
-{% set excludes = ['metadataAndSeo'] %}
+{#
+    Blog — seznam vseh objav z možnostjo filtriranja po kategoriji,
+    iskanjem po ključni besedi in razvrščanjem (GET parametri: kategorija, q, sort).
+#}
 
 {% block content %}
 
     {% if entry is defined %}
 
-        {% paginate craft.entries()
-            .section('blogs')
-            .orderBy("postDate desc")
-            .limit(9) as pageInfo, items %}
+        {% set kategorijaSlug = craft.app.request.getQueryParam('kategorija') ?: '' %}
+        {% set q = (craft.app.request.getQueryParam('q') ?: '') | trim %}
+        {% set sort = craft.app.request.getQueryParam('sort') ?: '' %}
 
-        <section class="blogs">
-            <div class="delimiter--style-1">
-                <div class="delimiter-title-wrapper">
-                    <div class="delimiter-title">
-                        <h3 class="heading heading-xs mb-0 text-uppercase strong-600">Vse novice</h3>
-                    </div>
+        {% set categories = craft.categories().group('kategorija').all() %}
+        {% set activeCategory = kategorijaSlug ? craft.categories().group('kategorija').slug(kategorijaSlug).one() : null %}
+
+        {# Build the filtered/sorted entries query #}
+        {% set query = craft.entries().section('blogs') %}
+
+        {% if activeCategory %}
+            {% set query = query.relatedTo(activeCategory) %}
+        {% endif %}
+
+        {% if q %}
+            {% set query = query.search(q) %}
+        {% endif %}
+
+        {% if sort == 'oldest' %}
+            {% set query = query.orderBy('postDate asc') %}
+        {% elseif sort == 'az' %}
+            {% set query = query.orderBy('title asc') %}
+        {% elseif sort == 'newest' %}
+            {% set query = query.orderBy('postDate desc') %}
+        {% else %}
+            {% set query = query.orderBy(q ? 'score' : 'postDate desc') %}
+        {% endif %}
+
+        {# Preserve active filters across pagination links #}
+        {% set filterParams = {} %}
+        {% if kategorijaSlug %}{% set filterParams = filterParams | merge({ kategorija: kategorijaSlug }) %}{% endif %}
+        {% if q %}{% set filterParams = filterParams | merge({ q: q }) %}{% endif %}
+        {% if sort %}{% set filterParams = filterParams | merge({ sort: sort }) %}{% endif %}
+
+        {% paginate query.limit(9) as pageInfo, items %}
+
+        <section class="blogs-page">
+            <div class="container">
+
+                <div class="blogs-page-head">
+                    <h1>Blog</h1>
+                    <p>Nasveti, novice in izvedeni projekti s področja lesenih teras, ograj in fasad.</p>
                 </div>
-            </div>
-            
-            <section class="slice">
-                <div class="container">
 
-                    <div class="row cols-md-space cols-sm-space cols-xs-space">
+                <form action="{{ entry.url }}" method="get" class="blog-filters">
+                    <div class="filter-field filter-search">
+                        <i class="fal fa-search" aria-hidden="true"></i>
+                        <input type="search" name="q" value="{{ q }}" placeholder="{{ 'Poišči po naslovu ali vsebini …' | t }}" aria-label="{{ 'Iskanje po blogu' | t }}" autocomplete="off">
+                    </div>
+
+                    <div class="filter-field">
+                        <label for="blogFilterKategorija" class="sr-only">{{ 'Kategorija' | t }}</label>
+                        <select name="kategorija" id="blogFilterKategorija">
+                            <option value="">{{ 'Vse kategorije' | t }}</option>
+                            {% for category in categories %}
+                                <option value="{{ category.slug }}" {{ kategorijaSlug == category.slug ? 'selected' }}>{{ category.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="filter-field">
+                        <label for="blogFilterSort" class="sr-only">{{ 'Razvrsti' | t }}</label>
+                        <select name="sort" id="blogFilterSort">
+                            <option value="" {{ sort == '' ? 'selected' }}>{{ q ? ('Najbolj ustrezno' | t) : ('Najnovejše' | t) }}</option>
+                            <option value="newest" {{ sort == 'newest' ? 'selected' }}>{{ 'Najprej najnovejše' | t }}</option>
+                            <option value="oldest" {{ sort == 'oldest' ? 'selected' }}>{{ 'Najprej najstarejše' | t }}</option>
+                            <option value="az" {{ sort == 'az' ? 'selected' }}>{{ 'Naslov A–Ž' | t }}</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">{{ 'Filtriraj' | t }}</button>
+
+                    {% if kategorijaSlug or q or sort %}
+                        <a href="{{ entry.url }}" class="filter-clear">{{ 'Počisti filtre' | t }}</a>
+                    {% endif %}
+                </form>
+
+                {% if items | length %}
+                    <div class="blog-grid">
                         {% for item in items %}
-                            <div class="col-lg-4 mb-5">
-                                <div class="block block-image-holder image-animate-wrapper">
-                                    <div class="block-image image-animate--hover">
-                                        <a href="{{ item.url }}" style="background-image: url({{ item.blogInfo.slika.one().getUrl('croppedFullModule') }})"></a>
-                                    </div>
-
-                                    <div class="pt-4">
-                                        <span class="heading heading-xs text-uppercase strong-300">{{ item.postDate | date("M d, Y") }}</span>
-                                        <a href="{{ item.url }}" class="heading heading-4 d-block strong-500 mt-1">{{ item.blogInfo.naslov }}</a>
-                                        <p class="mt-3">
-                                            {{ item.blogInfo.kratekPovzetek }}
-                                        </p>
-                                    </div>
+                            {% set itemCategory = item.kategorija.one() %}
+                            <a href="{{ item.url }}" class="blog-card">
+                                <div class="blog-card-image">
+                                    <img src="{{ item.blogInfo.slika.one().getUrl('croppedFullModule') }}" alt="{{ item.blogInfo.naslov }}" loading="lazy">
                                 </div>
-                            </div>
+
+                                <div class="blog-card-body">
+                                    {% if itemCategory %}
+                                        <span class="blog-card-category">{{ itemCategory.title }}</span>
+                                    {% endif %}
+                                    <span class="blog-card-date">{{ item.postDate | date("d. m. Y") }}</span>
+                                    <h2 class="blog-card-title">{{ item.blogInfo.naslov }}</h2>
+                                    <p class="blog-card-excerpt">{{ item.blogInfo.kratekPovzetek }}</p>
+                                </div>
+                            </a>
                         {% endfor %}
                     </div>
-
-                </div>
-            </section>
-
-            {# Pagination #}
-            <div class="pagination">
-                <div class="container">
-                    <div class="py-5 my-4 text-center d-flex justify-content-center align-items-center">
-                        {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}" class="prev mx-3 mx-md-4"><span>{{ "Nazaj" | t }}</span></a>{% endif %}
-
-                        {% for page, url in pageInfo.getPrevUrls(3) %}
-                            <a class="page d-inline-block mx-3 mx-md-4" href="{{ url }}">{{ page }}</a>
-                        {% endfor %}
-
-                        <span class="page current d-inline-block mx-3 mx-md-4">{{ pageInfo.currentPage }}</span>
-
-                        {% for page, url in pageInfo.getNextUrls(3) %}
-                            <a class="page d-inline-block mx-3 mx-md-4" href="{{ url }}">{{ page }}</a>
-                        {% endfor %}
-
-                        {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="next mx-3 mx-md-4"><span>{{ "Naprej" | t }}</span></a>{% endif %}
+                {% else %}
+                    <div class="blog-no-results">
+                        <i class="fal fa-search" aria-hidden="true"></i>
+                        <p>{{ 'Za izbrane filtre ni najdenih objav. Poskusite z drugimi ključnimi besedami ali izberite drugo kategorijo.' | t }}</p>
                     </div>
-                </div>
+                {% endif %}
+
+                {# Pagination #}
+                {% if pageInfo.totalPages > 1 %}
+                    <div class="pagination">
+                        <div class="py-5 my-4 text-center d-flex justify-content-center align-items-center">
+                            {% if pageInfo.prevUrl %}<a href="{{ url(pageInfo.prevUrl, filterParams) }}" class="prev mx-3 mx-md-4"><span>{{ "Nazaj" | t }}</span></a>{% endif %}
+
+                            {% for page, pageUrl in pageInfo.getPrevUrls(3) %}
+                                <a class="page d-inline-block mx-3 mx-md-4" href="{{ url(pageUrl, filterParams) }}">{{ page }}</a>
+                            {% endfor %}
+
+                            <span class="page current d-inline-block mx-3 mx-md-4">{{ pageInfo.currentPage }}</span>
+
+                            {% for page, pageUrl in pageInfo.getNextUrls(3) %}
+                                <a class="page d-inline-block mx-3 mx-md-4" href="{{ url(pageUrl, filterParams) }}">{{ page }}</a>
+                            {% endfor %}
+
+                            {% if pageInfo.nextUrl %}<a href="{{ url(pageInfo.nextUrl, filterParams) }}" class="next mx-3 mx-md-4"><span>{{ "Naprej" | t }}</span></a>{% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+
             </div>
-
         </section>
 
     {% endif %}

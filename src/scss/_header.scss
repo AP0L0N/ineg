@@ -15,6 +15,7 @@ header {
         color: rgba(255, 255, 255, 0.85);
         font-size: 13px;
 
+
         @media (max-width: 767px) {
             display: none;
         }
@@ -92,6 +93,7 @@ header {
         // ── Izbirnik jezika ──
         .lang-selector {
             position: relative;
+            z-index: 30000;
 
             .lang-toggle {
                 background: none;
@@ -197,6 +199,7 @@ header {
         justify-content: center;
         color: variables.$default-color;
         font-size: 18px;
+        font-weight: 600;
         cursor: pointer;
         transition: all 0.15s ease;
 
@@ -206,7 +209,7 @@ header {
         }
 
         &:focus-visible {
-            outline: 2px solid variables.$primary-color;
+            outline: 3px solid #444446;
             outline-offset: 2px;
         }
     }
@@ -346,7 +349,7 @@ header {
                         position: relative;
                         color: #444446;
                         font-family: variables.$font-family-albert;
-                        font-weight: 500;
+                        font-weight: 600;
                         font-size: 18px;
                         margin-top: 0;
                         margin-bottom: 0;
@@ -385,14 +388,12 @@ header {
                             width: 1140px;
                             max-width: 92vw;
                             box-shadow: none;
-                            grid-template-columns: repeat(1, 1fr);
                             overflow: scroll;
                             height: 40vh;
                             top: 0;
                             position: relative;
 
                             @media(min-width: 991px) {
-                                grid-template-columns: repeat(2, 1fr);
                                 max-width: 80vw;
                                 border: 2px solid variables.$primary-color;
                                 overflow: hidden;
@@ -404,28 +405,151 @@ header {
                             }
 
                             &.show {
-                                display: grid;
+                                display: block;
                             }
 
                             &:before {
                                 display: none;
                             }
 
-                            .service-item {
+                            .mega-menu {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 20px;
+                                padding: 20px;
+                                width: 550px;
+                                max-width: 90vw;
+
+                                @media(min-width: 991px) {
+                                    flex-direction: row;
+                                    align-items: stretch;
+                                    gap: 30px;
+                                    padding: 25px;
+                                    width: auto;
+                                    max-width: 76vw;
+                                }
+                            }
+
+                            // ── Izpostavljena storitev: "Lesene terase" ──
+                            .mega-menu-featured {
+                                position: relative;
+                                display: block;
+                                overflow: hidden;
+                                border-radius: 10px;
+                                min-height: 220px;
+                                color: white;
+                                text-decoration: none;
+                                flex-shrink: 0;
+
+                                @media(min-width: 991px) {
+                                    width: 360px;
+                                    min-height: 320px;
+                                }
+
+                                .card-bg {
+                                    @include misc.centered-image;
+                                    position: absolute;
+                                    inset: 0;
+
+                                    img {
+                                        transition: transform 0.5s ease;
+                                    }
+                                }
+
+                                &:before {
+                                    content: "";
+                                    position: absolute;
+                                    inset: 0;
+                                    z-index: 1;
+                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.85) 100%);
+                                }
+
+                                .card-body {
+                                    position: relative;
+                                    z-index: 2;
+                                    height: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: flex-end;
+                                    padding: 20px;
+
+                                    .badge-primary {
+                                        align-self: flex-start;
+                                        background: variables.$primary-color;
+                                        color: black;
+                                        font-size: 11px;
+                                        font-weight: 700;
+                                        text-transform: uppercase;
+                                        letter-spacing: 1px;
+                                        padding: 5px 12px;
+                                        border-radius: 20px;
+                                        margin-bottom: auto;
+                                    }
+
+                                    .title {
+                                        font-family: variables.$font-family-jost;
+                                        color: white;
+                                        font-weight: 700;
+                                        font-size: 22px;
+                                        margin: 15px 0 6px;
+                                    }
+
+                                    .description {
+                                        font-family: variables.$font-family-albert;
+                                        font-size: 14px;
+                                        line-height: 1.4;
+                                        font-weight: 300;
+                                        color: rgba(255, 255, 255, 0.85);
+                                        margin-bottom: 15px;
+                                    }
+
+                                    .arrow {
+                                        font-size: 13px;
+                                        font-weight: 600;
+                                        text-transform: uppercase;
+                                        letter-spacing: 1px;
+                                        color: variables.$primary-color;
+                                        display: inline-flex;
+                                        align-items: center;
+                                        gap: 8px;
+                                        transition: gap 0.2s ease;
+                                    }
+                                }
+
+                                &:hover {
+                                    color: white;
+
+                                    .card-bg img {
+                                        transform: scale(1.06);
+                                    }
+
+                                    .card-body .arrow {
+                                        gap: 12px;
+                                    }
+                                }
+                            }
+
+                            // ── Ostale storitve: kompakten seznam ──
+                            .mega-menu-list {
+                                display: flex;
+                                flex-direction: column;
+                                flex: 1;
+                                justify-content: center;
+                                gap: 5px;
+                                min-width: 0;
+
+                                @media(min-width: 991px) {
+                                    min-width: 280px;
+                                }
+                            }
+
+                            .mega-menu-list-item {
                                 display: flex;
                                 align-items: center;
                                 gap: 15px;
-                                padding: 10px 5px;
+                                padding: 12px 5px;
                                 border-bottom: 1px solid #e0e0e0;
-                                width: 550px;
-                                max-width: 90vw;
                                 position: relative;
-
-                                @media(min-width: 991px) {
-                                    max-width: 40vw;
-                                    gap: 25px;
-                                    padding: 10px;
-                                }
 
                                 &:last-child {
                                     border-bottom: none;
@@ -433,83 +557,43 @@ header {
 
                                 &:hover {
 
-                                    .link-wrapper {
-                                        
-                                        .title {
-                                            color: variables.$primary-color;
-                                        }
-                                    }
-                                }
-    
-                                .service-item-slider {
-                                    width: 90px;
-                                    flex-shrink: 0;
-
-                                    @media(min-width: 991px) {
-                                        width: 200px;
-                                    }
-
-                                    .image-wrapper {
-                                        @include misc.centered-image;
-                                        width: 125x;
-                                        aspect-ratio: 1/1;
-
-                                        @media(min-width: 991px) {
-                                            aspect-ratio: 140/100;
-                                        }
-
-                                        img {
-                                            width: 100%;
-                                            height: 100%;
-                                            object-fit: cover;
-                                        }
-                                    }
-
-                                    .swiper-scrollbar {
-                                        height: 2px;
-
-                                        .swiper-scrollbar-drag {
-                                            background: variables.$primary-color;
-                                        }
-                                    }
-                                }
-    
-                                .link-wrapper {
-                                    width: max-content;
-                                    
                                     .title {
-                                        font-family: variables.$font-family-jost;
-                                        color: black;
-                                        margin-bottom: 0;
-                                        font-weight: 500;
-                                        font-size: 16px;
-
-                                        @media(min-width: 991px) {
-                                            font-size: 21px;
-                                            margin-bottom: 5px;
-                                        }
+                                        color: variables.$primary-color;
                                     }
 
-                                    .description {
-                                        font-family: variables.$font-family-albert;
-                                        margin-bottom: 10px;
-                                        line-height: normal;
-                                        font-weight: 300;
-                                        font-size: 11px;
-
-                                        @media(min-width: 991px) {
-                                            font-size: 16px;
-                                        }
+                                    .thumb img {
+                                        transform: scale(1.08);
                                     }
+                                }
 
-                                    a {
-                                        position: absolute;
-                                        z-index: 5;
-                                        top: 0;
-                                        left: 0;
-                                        right: 0;
-                                        bottom: 0;
+                                .thumb {
+                                    @include misc.centered-image;
+                                    width: 60px;
+                                    height: 60px;
+                                    flex-shrink: 0;
+                                    border-radius: 8px;
+
+                                    img {
+                                        transition: transform 0.4s ease;
                                     }
+                                }
+
+                                .title {
+                                    font-family: variables.$font-family-jost;
+                                    color: black;
+                                    margin: 0;
+                                    font-weight: 500;
+                                    font-size: 16px;
+                                    transition: color 0.2s ease;
+                                }
+
+                                a {
+                                    position: absolute;
+                                    z-index: 5;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
                                 }
                             }
                         }

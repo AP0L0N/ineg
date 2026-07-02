@@ -32,6 +32,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: c3aaed1e-7af3-4f1b-b63b-ede520e8ec1e # Čas branja
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 42225258-bbf0-400e-acdc-17ab1b80727e # Besedilo
             instructions: null
             label: null
@@ -100,6 +109,26 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
+  c3aaed1e-7af3-4f1b-b63b-ede520e8ec1e: # Čas branja
+    columnSuffix: cwqhjgcj
+    contentColumnType: text
+    fieldGroup: null
+    handle: casBranja
+    instructions: ''
+    name: 'Čas branja'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   c5cc323c-2030-472a-a32c-2b35e8f56c84: # Slika
     columnSuffix: null
     contentColumnType: string
