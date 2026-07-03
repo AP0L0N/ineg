@@ -1,4 +1,4 @@
-dateModified: 1783031399
+dateModified: 1783036782
 email:
   fromEmail: poje.tilen@gmail.com
   fromName: INeG
@@ -201,6 +201,7 @@ meta:
     804332df-5903-4ae5-8224-298ce833cea1: 'Info modul' # Info modul
     2711558c-204f-44fd-a3f6-74508845c00f: 'Naziv povezave' # Naziv povezave
     3063691a-eada-4f61-9598-e9168098c161: 'Temna barva ozadja?' # Temna barva ozadja?
+    03275503-e4f2-4ecf-8213-a4c7721768ad: 'Meta podatki' # Meta podatki
     4724753b-d0ef-44c1-9dc5-07966620338c: 'Sendinblue list ID' # Sendinblue list ID
     8337375a-daf9-46cb-b511-edc7a3756043: 'Naslov 1' # Naslov 1
     16858311-ecea-4bd9-9e4a-379a06225a07: 'Naziv storitve' # Naziv storitve
@@ -257,6 +258,7 @@ meta:
     c6e134c7-4278-4590-81cd-166c5607dca8: 'Povezana blog vsebina' # Povezana blog vsebina
     c7e519f2-f1a4-4d54-a24d-efca0ec334b7: 'Naziv povezave' # Naziv povezave
     c17aa936-6a99-454b-937a-7b983dcf6b13: Kontakt # Kontakt
+    c45a6bf5-2ad8-462a-b1cb-b95293cafb33: 'Cena na m2' # Cena na m2
     c69c3022-2352-4455-841b-a4b869ba9ce7: Slika # Slika
     c97c3d2e-90f0-4818-8eaa-97454e26d192: Opis # Opis
     c415ca1c-7caf-4452-9dbd-60398b267f23: Naslov # Naslov
@@ -315,6 +317,7 @@ meta:
     f0d8060b-6d84-4fa0-a671-3eef3de3bb7d: 'Odpri povezavo v novem oknu?' # Odpri povezavo v novem oknu?
     f03324a5-f6d5-4283-a2aa-0d1d1a5ed6bd: '1. okvir - naslov' # 1. okvir - naslov
     f08fdb5b-8fe2-47af-883b-5ee2950d182d: 'Naziv povezave' # Naziv povezave
+    f0999844-d54a-4204-91b3-a5a266377210: Besedilo # Besedilo
     f2aa7080-c7be-40e4-80aa-b362e0ab094b: Kontakt # Kontakt
     f6e98df4-97a9-4313-a02f-96585e070333: Logo # Logo
     f7d69062-7e86-4028-82f2-94a02748a6bc: Naslov # Naslov

@@ -30,12 +30,7 @@
             }
         ],
         primaryButton: { url: '#kalkulator', label: 'Informativna cena' },
-        secondaryButton: { url: '/pages/lesene-terase-nova', label: 'Lesene terase' },
-        trust: [
-            { value: '500+', label: 'izvedenih teras', stars: false },
-            { value: '5,0', label: 'Google ocena', stars: true },
-            { value: '10+ let', label: 'izkušenj', stars: false }
-        ]
+        secondaryButton: { url: '/pages/lesene-terase-nova', label: 'Lesene terase' }
     } } %}
 
     {# ───────────────────── STATISTIKE ───────────────────── #}
@@ -115,20 +110,31 @@
     } } %}
 
     {# ───────────────────── GALERIJA PROJEKTOV ───────────────────── #}
-    {% include '_matrix/projectsGallery' with { data: {
-        eyebrow: 'Naše reference',
-        heading: 'Projekti, na katere smo',
-        headingHighlight: 'ponosni',
-        description: 'Vsaka terasa je zgodba zase. Oglejte si izbor naših izvedenih projektov.',
-        button: { url: '/projekti', label: 'Vsi projekti' },
-        projects: [
-            { image: '/assets/images/terase_1.jpg', category: 'Eksotični les', title: 'Terasa ob bazenu', size: 'wide', url: '#' },
-            { image: '/assets/images/terase_2.jpg', category: 'Sibirski macesen', title: 'Družinska hiša', size: 'tall', url: '#' },
-            { image: '/assets/images/terase_4.jpg', category: 'IPE Lapacho', title: 'Strešna terasa', url: '#' },
-            { image: '/assets/images/terase_6.jpg', category: 'Cumaru', title: 'Atrijska terasa', url: '#' },
-            { image: '/assets/images/terase_7.jpg', category: 'Garapa', title: 'Apartmaji', url: '#' }
-        ]
-    } } %}
+    {% set featuredProjects = craft.entries().section('projekti').orderBy('postDate desc').limit(5).all() %}
+    {% set projectItems = [] %}
+    {% for p in featuredProjects %}
+        {% set pImage = p.projectInfo.galerijaSlik.one() %}
+        {% set pCategory = p.kategorija.one() %}
+        {% set projectItems = projectItems | merge([{
+            image: pImage ? pImage.getUrl('croppedFullModule') : '',
+            category: pCategory ? pCategory.title : null,
+            title: p.title,
+            url: p.url,
+            size: loop.index == 1 ? 'wide' : (loop.index == 2 ? 'tall' : null)
+        }]) %}
+    {% endfor %}
+
+    {% if projectItems | length %}
+        {% set projectsListEntry = craft.entries().section('nasiProjekti').one() %}
+        {% include '_matrix/projectsGallery' with { data: {
+            eyebrow: 'Naše reference',
+            heading: 'Projekti, na katere smo',
+            headingHighlight: 'ponosni',
+            description: 'Vsaka terasa je zgodba zase. Oglejte si izbor naših izvedenih projektov.',
+            button: { url: projectsListEntry ? projectsListEntry.url : '/kontakt', label: 'Vsi projekti' },
+            projects: projectItems
+        } } %}
+    {% endif %}
 
     {# ───────────────────── PRIMERI CEN ───────────────────── #}
     <span id="kalkulator"></span>

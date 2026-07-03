@@ -215,6 +215,39 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 		}
 
+		// Meni "Storitve" — odpiranje ob "hoverju" na namiznih napravah (klik ostane za dotik/tipkovnico)
+		let dropdownItems = header.querySelectorAll('.navbar-nav > .nav-item.dropdown');
+		let hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+		if (dropdownItems.length && hoverCapable) {
+			Array.prototype.forEach.call(dropdownItems, function (item) {
+				let toggle = item.querySelector(':scope > .dropdown-toggle');
+				let menu = item.querySelector(':scope > .dropdown-menu');
+				let closeTimer = null;
+
+				let openDropdown = function () {
+					if (window.innerWidth < 992) return;
+					clearTimeout(closeTimer);
+					item.classList.add('show');
+					if (menu) menu.classList.add('show');
+					if (toggle) toggle.setAttribute('aria-expanded', 'true');
+				};
+
+				let closeDropdown = function () {
+					item.classList.remove('show');
+					if (menu) menu.classList.remove('show');
+					if (toggle) toggle.setAttribute('aria-expanded', 'false');
+				};
+
+				let scheduleClose = function () {
+					clearTimeout(closeTimer);
+					closeTimer = setTimeout(closeDropdown, 200);
+				};
+
+				item.addEventListener('mouseenter', openDropdown);
+				item.addEventListener('mouseleave', scheduleClose);
+			});
+		}
+
 		// Zapiranje ob kliku zunaj / tipki Esc
 		document.addEventListener('click', function (e) {
 			if (langSelector && !langSelector.contains(e.target)) {
@@ -229,6 +262,13 @@ document.addEventListener('DOMContentLoaded', function () {
 					langSelector.classList.remove('is-open');
 					if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
 				}
+				Array.prototype.forEach.call(dropdownItems || [], function (item) {
+					item.classList.remove('show');
+					let menu = item.querySelector(':scope > .dropdown-menu');
+					let toggle = item.querySelector(':scope > .dropdown-toggle');
+					if (menu) menu.classList.remove('show');
+					if (toggle) toggle.setAttribute('aria-expanded', 'false');
+				});
 			}
 		});
 	}

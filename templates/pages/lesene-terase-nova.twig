@@ -97,6 +97,33 @@
         ]
     } } %}
 
+    {# ───────────────────── GALERIJA PROJEKTOV ───────────────────── #}
+    {% set featuredProjects = craft.entries().section('projekti').orderBy('postDate desc').limit(5).all() %}
+    {% set projectItems = [] %}
+    {% for p in featuredProjects %}
+        {% set pImage = p.projectInfo.galerijaSlik.one() %}
+        {% set pCategory = p.kategorija.one() %}
+        {% set projectItems = projectItems | merge([{
+            image: pImage ? pImage.getUrl('croppedFullModule') : '',
+            category: pCategory ? pCategory.title : null,
+            title: p.title,
+            url: p.url,
+            size: loop.index == 1 ? 'wide' : (loop.index == 2 ? 'tall' : null)
+        }]) %}
+    {% endfor %}
+
+    {% if projectItems | length %}
+        {% set projectsListEntry = craft.entries().section('nasiProjekti').one() %}
+        {% include '_matrix/projectsGallery' with { data: {
+            eyebrow: 'Naše reference',
+            heading: 'Izvedene lesene',
+            headingHighlight: 'terase',
+            description: 'Oglejte si izbor naših izvedenih projektov lesenih teras.',
+            button: { url: projectsListEntry ? projectsListEntry.url : '/kontakt', label: 'Vsi projekti' },
+            projects: projectItems
+        } } %}
+    {% endif %}
+
     {# ───────────────────── PRIMERI CEN ───────────────────── #}
     <span id="kalkulator"></span>
     {% include '_matrix/priceExamples' with { data: {

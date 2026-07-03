@@ -10,7 +10,7 @@
 
     .section-head {
         text-align: center;
-        max-width: 700px;
+        max-width: 660px;
         margin: 0 auto 50px;
 
         .eyebrow {
@@ -59,7 +59,7 @@
         display: block;
         overflow: hidden;
         border-radius: 8px;
-        min-height: 280px;
+        min-height: 400px;
         color: white;
         text-decoration: none;
 
@@ -67,7 +67,7 @@
             position: absolute;
             inset: 0;
             background-size: cover;
-            background-position: center center;
+            background-position: bottom center;
             transition: transform 0.5s ease;
         }
 
@@ -76,7 +76,7 @@
             position: absolute;
             inset: 0;
             z-index: 1;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.8) 100%);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.9) 100%);
         }
 
         .card-body {
@@ -135,6 +135,13 @@
 
             .card-bg {
                 transform: scale(1.06);
+            }
+        }
+
+        &:nth-of-type(4) {
+
+            @media (min-width: 991px) {
+                grid-column: span 2;
             }
         }
 

@@ -9,13 +9,6 @@ settings:
   columns:
     __assoc__:
       -
-        - 7417ad53-6e3c-42d5-993e-01a30a89c786 # Javen projekt (prikaži na strani)
-        -
-          __assoc__:
-            -
-              - width
-              - ''
-      -
         - 1cc578ce-1bdc-4a2f-bedc-bddf160f0f71 # Naziv projekta
         -
           __assoc__:
@@ -37,6 +30,13 @@ settings:
               - width
               - ''
       -
+        - 03275503-e4f2-4ecf-8213-a4c7721768ad # Meta podatki
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
         - 22bdda27-7218-4b53-8731-2baa65201af4 # Cena projekta
         -
           __assoc__:
@@ -51,7 +51,7 @@ settings:
               - width
               - ''
       -
-        - 8130d6cf-8c9f-4b71-876a-cbbf06c47df8 # Datoteke (nikoli javne)
+        - f0999844-d54a-4204-91b3-a5a266377210 # Besedilo
         -
           __assoc__:
             -

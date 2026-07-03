@@ -1,15 +1,27 @@
 {% extends '_layouts/site-content' %}
 
 {#
-    PREDOGLED — primer podstrani projekta / reference (2026)
-    Dostopno na /pages/projekt-primer
+    Projekti — seznam vseh referenc (section: nasiProjekti) z možnostjo filtriranja
+    po kategoriji (GET parameter: kategorija).
 #}
 
-{% set seoTitle = "Terasa ob bazenu iz lesa Cumaru, Bled | Projekt INeG" %}
-{% set seoDescription = "Predstavitev izvedenega projekta lesene terase ob bazenu iz eksotičnega lesa Cumaru na Bledu – 42 m², skrito vijačenje, 25-letna obstojnost." %}
-
 {% block content %}
-    <div class="project-detail">
+
+    {% if entry is defined %}
+
+        {% set kategorijaSlug = craft.app.request.getQueryParam('kategorija') ?: '' %}
+        {% set activeCategory = kategorijaSlug ? craft.categories().group('kategorija').slug(kategorijaSlug).one() : null %}
+        {% set categories = craft.categories().group('kategorija').all() %}
+
+        {% set query = craft.entries().section('projekti').orderBy('postDate desc') %}
+        {% if activeCategory %}
+            {% set query = query.relatedTo(activeCategory) %}
+        {% endif %}
+
+        {% set filterParams = {} %}
+        {% if kategorijaSlug %}{% set filterParams = filterParams | merge({ kategorija: kategorijaSlug }) %}{% endif %}
+
+        {% paginate query.limit(12) as pageInfo, items %}
 
         {# Drobtinice #}
         <div class="breadcrumb-bar">
@@ -17,101 +29,91 @@
                 <ul class="breadcrumb-list">
                     <li><a href="/">Domov</a></li>
                     <li class="sep">/</li>
-                    <li><a href="/projekti">Projekti</a></li>
-                    <li class="sep">/</li>
-                    <li class="current">Terasa ob bazenu, Bled</li>
+                    <li class="current">Projekti</li>
                 </ul>
             </div>
         </div>
 
-        {# Hero #}
-        <div class="project-hero" style="background-image: url(/assets/images/terase_1.jpg)">
+        <section class="projects-page">
             <div class="container">
-                <div class="hero-inner">
-                    <span class="category">Terasa ob bazenu</span>
-                    <h1>Eksotična terasa ob bazenu na Bledu</h1>
-                    <span class="location"><i class="fal fa-map-marker-alt"></i> Bled, Slovenija</span>
+
+                <div class="projects-page-head">
+                    <h1>Projekti</h1>
+                    <p>Oglejte si izbor izvedenih lesenih teras in drugih projektov iz naše delavnice.</p>
                 </div>
-            </div>
-        </div>
 
-        {# Vsebina + stranska vrstica #}
-        <div class="project-body">
-            <div class="container">
-                <div class="project-layout">
-
-                    <div class="project-content">
-                        <p class="lead">Za zahtevno okolico bazena smo izdelali teraso iz eksotičnega lesa Cumaru, ki kljubuje vlagi, soncu in vsakodnevni uporabi – ob tem pa ohranja toplino in eleganco naravnega lesa.</p>
-
-                        <p>Pri projektu ob bazenu je ključnega pomena izbira lesa, ki prenese stalno vlago in nihanje temperatur. Cumaru je zaradi svoje izjemne gostote in naravne odpornosti idealna izbira, saj ne razpoka in ohranja obliko tudi v najzahtevnejših pogojih.</p>
-
-                        <h2>Izziv projekta</h2>
-                        <p>Investitor je želel brezšivni prehod med notranjostjo hiše in zunanjim bazenskim prostorom. Uporabili smo skrito vijačenje, da smo dosegli čisto, neprekinjeno površino brez vidnih vijakov, ter natančno odvodnjavanje pod podkonstrukcijo.</p>
-
-                        <h2>Izvedba</h2>
-                        <p>Teraso smo položili na nastavljive podstavke (buzone), kar omogoča idealen naklon za odvodnjavanje in dolgoročno stabilnost. Les smo zaključili z naravnim oljem, ki poudari globino barve in dodatno zaščiti površino.</p>
+                <form action="{{ entry.url }}" method="get" class="project-filters">
+                    <div class="filter-field">
+                        <label for="projectFilterKategorija" class="sr-only">{{ 'Kategorija' | t }}</label>
+                        <select name="kategorija" id="projectFilterKategorija" onchange="this.form.submit()">
+                            <option value="">{{ 'Vse kategorije' | t }}</option>
+                            {% for category in categories %}
+                                <option value="{{ category.slug }}" {{ kategorijaSlug == category.slug ? 'selected' }}>{{ category.title }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
 
-                    <aside class="project-sidebar">
-                        <h3>Podatki o projektu</h3>
-                        <ul class="spec-list">
-                            <li><span class="label">Lokacija</span> <span class="value">Bled</span></li>
-                            <li><span class="label">Površina</span> <span class="value">42 m²</span></li>
-                            <li><span class="label">Vrsta lesa</span> <span class="value">Cumaru</span></li>
-                            <li><span class="label">Vijačenje</span> <span class="value">Skrito</span></li>
-                            <li><span class="label">Podkonstrukcija</span> <span class="value">Buzoni</span></li>
-                            <li><span class="label">Obstojnost</span> <span class="value">25+ let</span></li>
-                            <li><span class="label">Leto izvedbe</span> <span class="value">2025</span></li>
-                            <li><span class="label">Trajanje</span> <span class="value">6 dni</span></li>
-                        </ul>
-                        <div class="sidebar-cta">
-                            <p>Želite podobno teraso?</p>
-                            <a href="/kontakt" class="btn btn-primary">Pridobite ponudbo</a>
+                    <button type="submit" class="btn btn-default">{{ 'Filtriraj' | t }}</button>
+
+                    {% if kategorijaSlug %}
+                        <a href="{{ entry.url }}" class="filter-clear">{{ 'Počisti filter' | t }}</a>
+                    {% endif %}
+                </form>
+
+                {% if items | length %}
+                    <div class="project-grid">
+                        {% for item in items %}
+                            {% set itemImage = item.projectInfo.galerijaSlik.one() %}
+                            {% set itemCategory = item.kategorija.one() %}
+                            <a href="{{ item.url }}" class="project-card">
+                                {% if itemImage %}
+                                    <div class="project-card-image">
+                                        <img src="{{ itemImage.getUrl('croppedFullModule') }}" alt="{{ item.title }}" loading="lazy">
+                                    </div>
+                                {% endif %}
+                                <div class="project-card-body">
+                                    {% if itemCategory %}
+                                        <span class="project-card-category">{{ itemCategory.title }}</span>
+                                    {% endif %}
+                                    <h2 class="project-card-title">{{ item.title }}</h2>
+                                    {% if item.projectInfo.naslov is not empty %}
+                                        <span class="project-card-location"><i class="fal fa-map-marker-alt"></i> {{ item.projectInfo.naslov }}</span>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="project-no-results">
+                        <i class="fal fa-search" aria-hidden="true"></i>
+                        <p>{{ 'Za izbrano kategorijo trenutno ni najdenih projektov.' | t }}</p>
+                    </div>
+                {% endif %}
+
+                {# Pagination #}
+                {% if pageInfo.totalPages > 1 %}
+                    <div class="pagination">
+                        <div class="py-5 my-4 text-center d-flex justify-content-center align-items-center">
+                            {% if pageInfo.prevUrl %}<a href="{{ url(pageInfo.prevUrl, filterParams) }}" class="prev mx-3 mx-md-4"><span>{{ "Nazaj" | t }}</span></a>{% endif %}
+
+                            {% for page, pageUrl in pageInfo.getPrevUrls(3) %}
+                                <a class="page d-inline-block mx-3 mx-md-4" href="{{ url(pageUrl, filterParams) }}">{{ page }}</a>
+                            {% endfor %}
+
+                            <span class="page current d-inline-block mx-3 mx-md-4">{{ pageInfo.currentPage }}</span>
+
+                            {% for page, pageUrl in pageInfo.getNextUrls(3) %}
+                                <a class="page d-inline-block mx-3 mx-md-4" href="{{ url(pageUrl, filterParams) }}">{{ page }}</a>
+                            {% endfor %}
+
+                            {% if pageInfo.nextUrl %}<a href="{{ url(pageInfo.nextUrl, filterParams) }}" class="next mx-3 mx-md-4"><span>{{ "Naprej" | t }}</span></a>{% endif %}
                         </div>
-                    </aside>
-                </div>
+                    </div>
+                {% endif %}
+
             </div>
-        </div>
+        </section>
 
-        {# Galerija #}
-        <div class="project-gallery">
-            <div class="container">
-                <div class="gallery-grid">
-                    <figure class="gallery-figure"><img src="/assets/images/terase_2.jpg" alt="Terasa ob bazenu Bled – pogled 1" loading="lazy"></figure>
-                    <figure class="gallery-figure"><img src="/assets/images/terase_4.jpg" alt="Terasa ob bazenu Bled – pogled 2" loading="lazy"></figure>
-                    <figure class="gallery-figure"><img src="/assets/images/terase_6.jpg" alt="Terasa ob bazenu Bled – pogled 3" loading="lazy"></figure>
-                    <figure class="gallery-figure"><img src="/assets/images/terase_7.jpg" alt="Terasa ob bazenu Bled – detajl lesa" loading="lazy"></figure>
-                    <figure class="gallery-figure"><img src="/assets/images/lesene_terase/3.jpg" alt="Terasa ob bazenu Bled – skrito vijačenje" loading="lazy"></figure>
-                    <figure class="gallery-figure"><img src="/assets/images/lesene_terase/5.jpg" alt="Terasa ob bazenu Bled – zaključni detajl" loading="lazy"></figure>
-                </div>
-            </div>
-        </div>
+    {% endif %}
 
-        {# CTA #}
-        {% include '_matrix/ctaBanner' with { data: {
-            background: '/assets/images/lesene-terase-banner-2.jpg',
-            eyebrow: 'Začnimo vaš projekt',
-            heading: 'Imate v mislih',
-            headingHighlight: 'podoben projekt?',
-            description: 'Pošljite nam povpraševanje in pripravili vam bomo idejno zasnovo ter informativno ponudbo.',
-            button: { url: '/kontakt', label: 'Kontaktirajte nas' },
-            phone: { number: '+386 (0)40 567 518', label: 'Pokličite', href: 'tel:+38640567518' }
-        } } %}
-
-        {# Strukturirani podatki #}
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "CreativeWork",
-            "name": "Eksotična terasa ob bazenu na Bledu",
-            "about": "Lesena terasa iz eksotičnega lesa Cumaru",
-            "creator": {
-                "@type": "LocalBusiness",
-                "name": "INeG – Inštitut nizkoenergijske gradnje"
-            },
-            "locationCreated": { "@type": "Place", "name": "Bled, Slovenija" },
-            "image": "https://ineg.si/assets/images/terase_1.jpg"
-        }
-        </script>
-    </div>
 {% endblock %}

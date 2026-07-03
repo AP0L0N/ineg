@@ -1,0 +1,134 @@
+{% extends '_layouts/site-content' %}
+
+{#
+    Podstran projekta / reference (section: projekti) — dejanski podatki vnosa.
+#}
+
+{% block content %}
+
+    {% if entry is defined %}
+
+        {% set projectsListEntry = craft.entries().section('nasiProjekti').one() %}
+        {% set categories = entry.kategorija.all() %}
+        {% set images = entry.projectInfo.galerijaSlik.all() %}
+        {% set heroImage = images | first %}
+        {% set galleryImages = images | slice(1) %}
+
+        <div class="project-detail">
+
+            {# Drobtinice #}
+            <div class="breadcrumb-bar">
+                <div class="container">
+                    <ul class="breadcrumb-list">
+                        <li><a href="/">Domov</a></li>
+                        <li class="sep">/</li>
+                        {% if projectsListEntry %}<li><a href="{{ projectsListEntry.url }}">Projekti</a></li>
+                        <li class="sep">/</li>{% endif %}
+                        <li class="current">{{ entry.title }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            {# Hero #}
+            <div class="project-hero"{% if heroImage %} style="background-image: url({{ heroImage.getUrl('full') }})"{% endif %}>
+                <div class="container">
+                    <div class="hero-inner">
+                        {% if categories | length %}
+                            <div class="category-list">
+                                {% for category in categories %}
+                                    <span class="category">{{ category.title }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <h1>{{ entry.title }}</h1>
+                        {% if entry.projectInfo.naslov is not empty %}
+                            <span class="location"><i class="fal fa-map-marker-alt"></i> {{ entry.projectInfo.naslov }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {# Vsebina + stranska vrstica #}
+            <div class="project-body">
+                <div class="container">
+                    <div class="project-layout">
+
+                        <div class="project-content">
+                            {% if entry.projectInfo.kratekOpis is not empty %}
+                                <p class="lead">{{ entry.projectInfo.kratekOpis }}</p>
+                            {% endif %}
+
+                            {{ entry.projectInfo.besedilo | raw }}
+                        </div>
+
+                        <aside class="project-sidebar">
+                            <h3>Podatki o projektu</h3>
+                            <ul class="spec-list">
+                                {% if entry.projectInfo.naslov is not empty %}
+                                    <li><span class="label">Lokacija</span> <span class="value">{{ entry.projectInfo.naslov }}</span></li>
+                                {% endif %}
+                                {% for row in entry.projectInfo.metaPodatki %}
+                                    {% if row.metaTitle is not empty or row.metaValue is not empty %}
+                                        <li><span class="label">{{ row.metaTitle }}</span> <span class="value">{{ row.metaValue }}</span></li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if entry.projectInfo.cena is not empty %}
+                                    <li><span class="label">Cena</span> <span class="value">{{ entry.projectInfo.cena }}</span></li>
+                                {% endif %}
+                                {% if entry.projectInfo.cenaNaM2 is not empty %}
+                                    <li><span class="label">Cena na m²</span> <span class="value">{{ entry.projectInfo.cenaNaM2 }}</span></li>
+                                {% endif %}
+                            </ul>
+                            <div class="sidebar-cta">
+                                <p>Želite podobno teraso?</p>
+                                <a href="/kontakt" class="btn btn-primary">Pridobite ponudbo</a>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+
+            {# Galerija #}
+            {% if galleryImages | length %}
+                <div class="project-gallery">
+                    <div class="container">
+                        <div class="gallery-grid">
+                            {% for image in galleryImages %}
+                                <figure class="gallery-figure"><img src="{{ image.getUrl('full') }}" alt="{{ entry.title }} – slika {{ loop.index }}" loading="lazy"></figure>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {# CTA #}
+            {% include '_matrix/ctaBanner' with { data: {
+                background: '/assets/images/lesene-terase-banner-2.jpg',
+                eyebrow: 'Začnimo vaš projekt',
+                heading: 'Imate v mislih',
+                headingHighlight: 'podoben projekt?',
+                description: 'Pošljite nam povpraševanje in pripravili vam bomo idejno zasnovo ter informativno ponudbo.',
+                button: { url: '/kontakt', label: 'Kontaktirajte nas' },
+                phone: { number: '+386 (0)40 567 518', label: 'Pokličite', href: 'tel:+38640567518' }
+            } } %}
+
+            {# Strukturirani podatki #}
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "CreativeWork",
+                "name": {{ entry.title | json_encode | raw }},
+                "about": {{ entry.projectInfo.kratekOpis | json_encode | raw }},
+                "creator": {
+                    "@type": "LocalBusiness",
+                    "name": "INeG – Inštitut nizkoenergijske gradnje"
+                },
+                "locationCreated": { "@type": "Place", "name": {{ entry.projectInfo.naslov | json_encode | raw }} },
+                "image": {{ (heroImage ? heroImage.getUrl('full') : null) | json_encode | raw }}
+            }
+            </script>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

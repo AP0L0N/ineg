@@ -149,6 +149,13 @@
                             </div>
                         </li>
 
+                        {% set navItem = craft.entries.section('seznamObjav').one() %}
+                        {% if navItem %}
+                            <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
+                                <a class="nav-link" href="{{ navItem.url }}">{{ "Objave" | t }}</a>
+                            </li>
+                        {% endif %}
+
                         {% set navItem = craft.entries.section('oInstitutu').one() %}
                         {% if navItem %}
                             <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
@@ -178,9 +185,10 @@
     </div>
 
     {# ───────────────────── Iskalna plast ───────────────────── #}
+    {% set blogsEntry = craft.entries.section('seznamObjav').one() %}
     <div class="search-overlay" id="searchOverlay" aria-hidden="true">
         <div class="container">
-            <form action="/iskanje" method="get" class="search-form" role="search">
+            <form action="{{ blogsEntry ? blogsEntry.url : '/vse-objave' }}" method="get" class="search-form" role="search">
                 <i class="fal fa-search search-icon" aria-hidden="true"></i>
                 <input type="search" name="q" class="search-input" placeholder="{{ 'Poiščite teraso, les, blog …' | t }}" aria-label="{{ 'Iskanje po vsebini' | t }}" autocomplete="off">
                 <button type="submit" class="search-submit">{{ 'Išči' | t }}</button>
