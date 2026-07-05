@@ -16,6 +16,7 @@
         "vue": "^2.6.11"
     },
     "dependencies": {
+        "photoswipe": "^5.4.4",
         "swiper": "^11.0.7"
     }
 }

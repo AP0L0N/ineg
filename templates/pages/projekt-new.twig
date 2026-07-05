@@ -92,9 +92,13 @@
             {% if galleryImages | length %}
                 <div class="project-gallery">
                     <div class="container">
-                        <div class="gallery-grid">
+                        <div class="gallery-grid pswp-gallery">
                             {% for image in galleryImages %}
-                                <figure class="gallery-figure"><img src="{{ image.getUrl('full') }}" alt="{{ entry.title }} – slika {{ loop.index }}" loading="lazy"></figure>
+                                <figure class="gallery-figure">
+                                    <a href="{{ image.getUrl('full') }}" data-pswp-width="{{ image.getWidth('full') }}" data-pswp-height="{{ image.getHeight('full') }}" target="_blank" rel="noreferrer">
+                                        <img src="{{ image.getUrl('size800') }}" alt="{{ entry.title }} – slika {{ loop.index }}" loading="lazy">
+                                    </a>
+                                </figure>
                             {% endfor %}
                         </div>
                     </div>

@@ -1,0 +1,411 @@
+@use "../variables";
+@use "../misc";
+
+.contact-page {
+
+    // ───────────────────── HERO ─────────────────────
+    .contact-hero {
+        position: relative;
+        background-color: variables.$dark-color;
+
+        .background-image {
+            @include misc.centered-image;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.55) 50%, rgba(0, 0, 0, 0.35) 100%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-content {
+            max-width: 640px;
+            padding: 70px 0 140px;
+            color: white;
+
+            @media (min-width: 991px) {
+                padding: 100px 0 170px;
+            }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: variables.$primary-color;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            color: white;
+            @include misc.responsive-font(30, 48);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .lead {
+            @include misc.responsive-font(15, 18);
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 28px;
+            max-width: 540px;
+        }
+
+        .hero-trust {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+
+            .trust-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.9);
+
+                .stars {
+                    color: variables.$primary-color;
+                    letter-spacing: 1px;
+                }
+
+                strong {
+                    color: white;
+                    font-size: 18px;
+                }
+            }
+
+            .divider {
+                width: 1px;
+                height: 26px;
+                background: rgba(255, 255, 255, 0.25);
+
+                @media (max-width: 575px) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // ───────────────────── HITER STIK ─────────────────────
+    .quick-contact {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(75%);
+        z-index: 5;
+
+        @media (min-width: 991px) {
+            transform: translateY(50%);
+        }
+    }
+
+    .quick-contact-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+        padding: 25px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 22px;
+
+        @media (min-width: 576px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 991px) {
+            grid-template-columns: repeat(4, 1fr);
+            padding: 30px;
+        }
+    }
+
+    .quick-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: variables.$default-color;
+        text-decoration: none;
+
+        .icon {
+            flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(248, 155, 83, 0.15);
+            color: variables.$primary-color;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+
+            .label {
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 11px;
+                color: #9a9a9a;
+                margin-bottom: 3px;
+            }
+
+            .value {
+                @include misc.responsive-font(14, 15);
+                font-weight: 700;
+                color: black;
+                line-height: 1.25;
+                overflow-wrap: anywhere;
+            }
+        }
+
+        &[href]:hover {
+            .icon {
+                background: variables.$primary-color;
+                color: white;
+            }
+
+            .value {
+                color: variables.$primary-color-dark;
+            }
+        }
+    }
+
+    // ───────────────────── OBRAZEC + PODATKI O PODJETJU ─────────────────────
+    .contact-main {
+        background: #fff6ee;
+        padding: 300px 0 80px;
+
+        @media (min-width: 991px) {
+            padding: 160px 0 120px;
+        }
+    }
+
+    .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 35px;
+        align-items: start;
+
+        @media (min-width: 991px) {
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 45px;
+        }
+    }
+
+    .contact-form-card {
+        background: white;
+        border: 1px solid #f1e4d6;
+        border-radius: 8px;
+        padding: 32px 26px;
+
+        @media (min-width: 991px) {
+            padding: 48px 42px;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: variables.$primary-color;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            @include misc.responsive-font(22, 30);
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.15;
+
+            span {
+                color: variables.$primary-color;
+            }
+        }
+
+        > p {
+            @include misc.responsive-font(14, 16);
+            color: variables.$default-color;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+    }
+
+    .contact-form {
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0 20px;
+
+            @media (min-width: 576px) {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+
+            label {
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 12px;
+                font-weight: 600;
+                color: black;
+                margin-bottom: 8px;
+            }
+
+            input,
+            select,
+            textarea {
+                width: 100%;
+                border: 1px solid #e2d7c8;
+                border-radius: 8px;
+                padding: 13px 16px;
+                font-family: variables.$font-family-jost;
+                font-size: 15px;
+                color: black;
+                background: white;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: variables.$primary-color;
+                    box-shadow: 0 0 0 3px rgba(248, 155, 83, 0.15);
+                }
+
+                &::placeholder {
+                    color: #b3b3b3;
+                }
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 130px;
+            }
+        }
+
+        .btn-primary {
+            width: 100%;
+
+            @media (min-width: 576px) {
+                width: auto;
+            }
+        }
+
+        .form-note {
+            font-size: 13px;
+            color: #9a9a9a;
+            margin: 14px 0 0;
+        }
+    }
+
+    .office-card {
+        background: variables.$dark-color;
+        color: white;
+        border-radius: 8px;
+        padding: 32px 28px;
+
+        h3 {
+            color: white;
+            @include misc.responsive-font(19, 22);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .office-description {
+            font-size: 14px;
+            line-height: 1.55;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 25px;
+        }
+
+        .office-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.9);
+                margin-bottom: 16px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                i {
+                    flex-shrink: 0;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.08);
+                    color: variables.$primary-color;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 14px;
+                }
+
+                a {
+                    color: white;
+
+                    &:hover {
+                        color: variables.$primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    // ───────────────────── ZEMLJEVID ─────────────────────
+    .contact-map {
+        padding: 80px 0 0;
+
+        @media (min-width: 991px) {
+            padding: 110px 0 0;
+        }
+
+        .map-frame {
+            border-radius: 8px;
+            overflow: hidden;
+            line-height: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+            iframe {
+                width: 100%;
+                display: block;
+                border: 0;
+                min-height: 380px;
+
+                @media (min-width: 991px) {
+                    min-height: 450px;
+                }
+            }
+        }
+    }
+}

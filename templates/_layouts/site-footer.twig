@@ -61,36 +61,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="category contact">
-                    <p class="cat-title">{{ "Kontakt" | t }}</p>
-                    <ul>
-                        <li>
-                            <i class="fa fa-house" style="top: 5px;"></i> <span>{{ contactInfo.contactInfo.naslov }}</span>
-                        </li>
-                        
-                        <li>
-                            <a href="mailto:{{ contactInfo.contactInfo.infoEmail }}">
-                                <i class="fa fa-envelope"></i> <span>{{ contactInfo.contactInfo.infoEmail }}</span>
-                            </a>
-                        </li>
-
-                        {% if contactInfo.contactInfo.telefon is not empty %}
-                        <li>
-                            <a href="tel:{{ contactInfo.contactInfo.telefon }}">
-                                <i class="fa fa-phone"></i> <span>{{ contactInfo.contactInfo.telefon }}</span>
-                            </a>
-                        </li>
-                        {% endif %}
-
-                        {% if contactInfo.contactInfo.telefon2 is not empty %}
-                        <li>
-                            <a href="tel:{{ contactInfo.contactInfo.telefon2 }}">
-                                <i class="fa fa-phone"></i> <span>{{ contactInfo.contactInfo.telefon2 }}</span>
-                            </a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

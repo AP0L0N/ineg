@@ -1,38 +1,191 @@
+{#
+    Glavni kontaktni modul — kontaktna stran v celoti (2026 redesign)
+    Polja bloka (item): image, naslov, podnaslov, opis, customCssClasses
+    Globalni set: contactInfo.contactInfo.* (nazivPodjetja, naslov, infoEmail, telefon, telefon2, googleMapsEmbed)
+
+    Opomba: nekatere vsebine (delovni čas, polja obrazca, pogosta vprašanja) še nimajo
+    ustreznih CMS polj, zato so v tej predlogi primeroma vpisane statično.
+#}
 {% for item in field.contactMainBanner.all() %}
-    <div class="contact-banner {{ field.customCssClasses }}">
-        <div class="hero-banner">
-            <div class="background-image">
-                {% include "helpers/picture" with { desktop: {image: item.image.one(), width: 2500} } %}
-            </div>
-            <div class="container">
-                <div class="inner-wrapper">
-                    <p class="title">{{ item.naslov }}</p>
-                    <p class="description">{{ item.podnaslov }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="contact-information">
-            <div class="container">
-                <div class="inner-wrapper">
-                    <div class="map-wrapper">
-                        {{ contactInfo.contactInfo.googleMapsEmbed | raw }}
-                    </div>
-                    <div class="contact-info">
-                        <div class="inner-contact">
-                            <p class="title">{{ contactInfo.contactInfo.nazivPodjetja }}</p>
-                            <p class="address">{{ contactInfo.contactInfo.naslov }}</p>
-                            <div class="contacts">
-                                <p class="email"><i class="fal fa-envelope"></i> <a href="mailto:{{ contactInfo.contactInfo.infoEmail }}">{{ contactInfo.contactInfo.infoEmail }}</a></p>
-                                <p class="phone"><i class="fal fa-phone"></i> <a href="tel:{{ contactInfo.contactInfo.telefon }}">{{ contactInfo.contactInfo.telefon }}</a></p>
-                                <p class="phone"><i class="fal fa-phone"></i> <a href="tel:{{ contactInfo.contactInfo.telefon2 }}">{{ contactInfo.contactInfo.telefon2 }}</a></p>
-                            </div>
-                            <p class="description">
-                                {{ item.opis }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="contact-page {{ field.customCssClasses }}">
+
+    {# ───────────────────── DROBTINICE ───────────────────── #}
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li><a href="/">Domov</a></li>
+                <li class="sep">/</li>
+                <li class="current">Kontakt</li>
+            </ul>
         </div>
     </div>
+
+    {# ───────────────────── HERO ───────────────────── #}
+    <section class="contact-hero">
+        {% if item.image is defined and item.image.one() %}
+            <div class="background-image">
+                {% include "helpers/picture" with { desktop: { image: item.image.one(), width: 2000 } } %}
+            </div>
+        {% endif %}
+        <div class="container">
+            <div class="hero-content">
+                <span class="eyebrow"><i class="fas fa-comments"></i> Kontaktirajte nas</span>
+                <h1>{{ item.naslov }}</h1>
+                {% if item.podnaslov %}<p class="lead">{{ item.podnaslov }}</p>{% endif %}
+
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <span class="stars">★★★★★</span>
+                        <span><strong>5,0</strong> Google ocena</span>
+                    </div>
+                    <span class="divider" aria-hidden="true"></span>
+                    <div class="trust-item"><span><strong>10+</strong> let izkušenj</span></div>
+                    <span class="divider" aria-hidden="true"></span>
+                    <div class="trust-item"><span><strong>500+</strong> izdelanih teras</span></div>
+                </div>
+            </div>
+        </div>
+
+            
+        {# ───────────────────── HITER STIK ───────────────────── #}
+        <section class="quick-contact">
+            <div class="container">
+                <div class="quick-contact-card">
+                    {% if contactInfo.contactInfo.telefon %}
+                        <a href="tel:{{ contactInfo.contactInfo.telefon }}" class="quick-item">
+                            <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                            <span class="text">
+                                <span class="label">Pokličite nas</span>
+                                <span class="value">{{ contactInfo.contactInfo.telefon }}</span>
+                            </span>
+                        </a>
+                    {% endif %}
+                    {% if contactInfo.contactInfo.infoEmail %}
+                        <a href="mailto:{{ contactInfo.contactInfo.infoEmail }}" class="quick-item">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <span class="text">
+                                <span class="label">Pišite nam</span>
+                                <span class="value">{{ contactInfo.contactInfo.infoEmail }}</span>
+                            </span>
+                        </a>
+                    {% endif %}
+                    {% if contactInfo.contactInfo.naslov %}
+                        <a href="https://maps.app.goo.gl/ynR4SBpQZDncNSRQ8" class="quick-item" target="_blank" rel="noopener">
+                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="text">
+                                <span class="label">Obiščite nas</span>
+                                <span class="value">{{ contactInfo.contactInfo.naslov }}</span>
+                            </span>
+                        </a>
+                    {% endif %}
+                    <div class="quick-item">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span class="text">
+                            <span class="label">Delovni čas</span>
+                            <span class="value">Pon–Pet: <br>8:00–16:00</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    {# ───────────────────── OBRAZEC + PODATKI O PODJETJU ───────────────────── #}
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-layout">
+
+                <div class="contact-form-card">
+                    <span class="eyebrow">Povpraševanje</span>
+                    <h2>Pripravimo vam <span>informativno ponudbo</span></h2>
+                    <p>Izpolnite spodnji obrazec in odgovorili vam bomo v najkrajšem možnem času.</p>
+
+                    <form class="contact-form" onsubmit="return false;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Ime in priimek</label>
+                                <input type="text" id="contactName" name="name" placeholder="Janez Novak">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Telefon</label>
+                                <input type="tel" id="contactPhone" name="phone" placeholder="+386 40 000 000">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactEmail">E-naslov</label>
+                                <input type="email" id="contactEmail" name="email" placeholder="ime@primer.si">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactType">Vrsta povpraševanja</label>
+                                <select id="contactType" name="type">
+                                    <option>Lesena terasa</option>
+                                    <option>Leseni fasadni sistemi</option>
+                                    <option>Lesene ograje</option>
+                                    <option>Vrtne hiške in nadstreški</option>
+                                    <option>Drugo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Sporočilo</label>
+                            <textarea id="contactMessage" name="message" rows="5" placeholder="Opišite želen produkt, velikost, material in način montaže."></textarea>
+                        </div>
+
+                        <button type="button" class="btn btn-primary">Pošlji povpraševanje</button>
+                        <p class="form-note">Odgovorimo v enem delovnem dnevu.</p>
+                    </form>
+                </div>
+
+                <aside class="office-card">
+                    {% if contactInfo.contactInfo.nazivPodjetja %}<h3>{{ contactInfo.contactInfo.nazivPodjetja }}</h3>{% endif %}
+                    {% if item.opis %}<p class="office-description">{{ item.opis }}</p>{% endif %}
+                    <ul class="office-details">
+                        {% if contactInfo.contactInfo.naslov %}
+                            <li><i class="fal fa-map-marker-alt"></i> <span>{{ contactInfo.contactInfo.naslov }}</span></li>
+                        {% endif %}
+                        {% if contactInfo.contactInfo.infoEmail %}
+                            <li><i class="fal fa-envelope"></i> <a href="mailto:{{ contactInfo.contactInfo.infoEmail }}">{{ contactInfo.contactInfo.infoEmail }}</a></li>
+                        {% endif %}
+                        {% if contactInfo.contactInfo.telefon %}
+                            <li><i class="fal fa-phone"></i> <a href="tel:{{ contactInfo.contactInfo.telefon }}">{{ contactInfo.contactInfo.telefon }}</a></li>
+                        {% endif %}
+                        {% if contactInfo.contactInfo.telefon2 %}
+                            <li><i class="fal fa-phone"></i> <a href="tel:{{ contactInfo.contactInfo.telefon2 }}">{{ contactInfo.contactInfo.telefon2 }}</a></li>
+                        {% endif %}
+                    </ul>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    {# ───────────────────── ZEMLJEVID ───────────────────── #}
+    {% if contactInfo.contactInfo.googleMapsEmbed %}
+        <section class="contact-map">
+            <div class="container">
+                <div class="map-frame">
+                    {{ contactInfo.contactInfo.googleMapsEmbed | raw }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+</div>
 {% endfor %}
+
+{# ───────────────────── POGOSTA VPRAŠANJA ───────────────────── #}
+{% include "_matrix/faqAccordion" with {
+    data: {
+        eyebrow: 'Pogosta vprašanja',
+        heading: 'Vprašanja, ki nam jih',
+        headingHighlight: 'pogosto zastavite',
+        faqs: [
+            { question: 'Koliko časa traja izdelava lesene terase?', answer: '<p>Manjše terase (do 20 m²) običajno izdelamo v enem do dveh delovnih dnevih, večji in bolj zahtevni projekti pa lahko trajajo teden dni ali več, odvisno od velikosti in izbranega materiala.</p>' },
+            { question: 'Ali nudite brezplačen ogled in svetovanje?', answer: '<p>Da, pred pripravo ponudbe se dogovorimo za brezplačen ogled na terenu, kjer izmerimo prostor in svetujemo glede izbire lesa in podkonstrukcije.</p>' },
+            { question: 'Kakšna je razlika med eksotičnim lesom in sibirskim macesnom?', answer: '<p>Eksotični les (Cumaru, IPE Lapacho, Garapa) je gostejši in obstojnejši, zato zdrži tudi 25 let in več, medtem ko je sibirski macesen cenovno ugodnejša izbira z odlično obstojnostjo do 15 let.</p>' },
+            { question: 'Ali izvajate tudi vzdrževanje in obnovo obstoječih teras?', answer: '<p>Da, izvajamo brušenje, oljenje in zamenjavo poškodovanih desk na obstoječih lesenih terasah, ne glede na to, ali smo jih izdelali mi.</p>' },
+            { question: 'Kako hitro prejmem informativno ponudbo?', answer: '<p>Na povpraševanje preko obrazca ali e-pošte odgovorimo v enem delovnem dnevu, informativno ceno pa pripravimo takoj po ogledu terena.</p>' }
+        ]
+    }
+} %}

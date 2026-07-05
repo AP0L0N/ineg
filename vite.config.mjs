@@ -19,6 +19,7 @@ export default defineConfig(({ command }) => ({
             input: {
                 custom: 'src/js/custom.js',
                 swipers: 'src/js/swipers.js',
+                gallery: 'src/js/gallery.js',
                 style: 'src/scss/custom.scss',
             },
         },
