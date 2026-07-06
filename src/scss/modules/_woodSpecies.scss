@@ -52,33 +52,51 @@
         height: 100%;
         background: white;
         border: 1px solid #ececec;
-        border-radius: 8px;
+        border-radius: 14px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(248, 155, 83, 0.35);
+
+            .species-image img {
+                transform: scale(1.08);
+            }
+        }
 
         .species-image {
             @include misc.centered-image;
             aspect-ratio: 4/3;
             position: relative;
 
+            img {
+                transition: transform 0.5s ease;
+            }
+
             .origin {
                 position: absolute;
-                top: 12px;
-                left: 12px;
+                top: 14px;
+                left: 14px;
                 z-index: 2;
-                background: rgba(0, 0, 0, 0.6);
+                background: rgba(17, 17, 17, 0.55);
+                backdrop-filter: blur(4px);
                 color: white;
                 font-size: 11px;
+                font-weight: 600;
                 letter-spacing: 1px;
                 text-transform: uppercase;
-                padding: 4px 10px;
+                padding: 6px 12px;
                 border-radius: 20px;
             }
         }
 
         .species-body {
-            padding: 22px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -91,35 +109,36 @@
 
             p {
                 font-size: 14px;
-                line-height: 1.45;
+                line-height: 1.5;
                 color: variables.$default-color;
-                margin-bottom: 18px;
+                margin-bottom: 20px;
             }
 
             .species-specs {
                 list-style: none;
-                padding: 0;
+                padding: 14px 0 0;
                 margin: auto 0 0;
                 border-top: 1px solid #f2f2f2;
+                display: grid;
+                gap: 10px;
 
                 li {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 9px 0;
                     font-size: 13px;
-                    border-bottom: 1px solid #f7f7f7;
 
                     span {
-                        color: variables.$default-color;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        font-size: 11px;
+                        color: #9a9a9a;
+                        font-weight: 600;
                     }
 
                     strong {
                         color: black;
-                    }
-
-                    &:last-child {
-                        border-bottom: none;
+                        font-weight: 700;
                     }
                 }
             }

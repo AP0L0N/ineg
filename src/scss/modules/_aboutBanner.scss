@@ -1,29 +1,293 @@
 @use "../variables";
 @use "../misc";
 
-.about-banner {
-    margin: 60px 0 75px;
+.about-page {
 
-    @media(min-width: 991px) {
-        margin: 135px 0;
-    }
-    
-    .description {
-        
-        p {
-            font-weight: 400;
-            color: black;
-            font-family: variables.$font-family-albert;
+    // ───────────────────── HERO ─────────────────────
+    .about-hero {
+        position: relative;
+        background-color: variables.$dark-color;
+        overflow: hidden;
+
+        .background-image {
+            @include misc.centered-image;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.55) 50%, rgba(0, 0, 0, 0.35) 100%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-content {
+            max-width: 660px;
+            padding: 70px 0 90px;
+            color: white;
+
+            @media (min-width: 991px) {
+                padding: 110px 0 130px;
+            }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: variables.$primary-color;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            color: white;
+            @include misc.responsive-font(30, 50);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .lead {
+            @include misc.responsive-font(15, 19);
             line-height: 1.5;
-            @include misc.responsive-font(15, 16);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 28px;
+            max-width: 560px;
+        }
 
-            strong {
-                font-weight: 400 !important;
-                @include misc.responsive-font(21, 26);
+        .hero-trust {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+
+            .trust-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.9);
+
+                .stars {
+                    color: variables.$primary-color;
+                    letter-spacing: 1px;
+                }
+
+                strong {
+                    color: white;
+                    font-size: 18px;
+                }
             }
 
-            &:last-child {
-                margin-bottom: 0;
+            .divider {
+                width: 1px;
+                height: 26px;
+                background: rgba(255, 255, 255, 0.25);
+
+                @media (max-width: 575px) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // ───────────────────── SKUPNI NASLOVI SEKCIJ ─────────────────────
+    .section-head {
+        max-width: 720px;
+        margin: 0 auto 50px;
+        text-align: center;
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: variables.$primary-color;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            @include misc.responsive-font(26, 38);
+            font-weight: 700;
+            margin-bottom: 0;
+            line-height: 1.15;
+
+            span {
+                color: variables.$primary-color;
+            }
+        }
+    }
+
+    // ───────────────────── NAŠA ZGODBA ─────────────────────
+    .about-story {
+        padding: 80px 0;
+
+        @media (min-width: 991px) {
+            padding: 110px 0;
+        }
+
+        .section-head h2 {
+            margin-bottom: 15px;
+        }
+
+        .story-content {
+            max-width: 760px;
+            margin: 0 auto;
+
+            p {
+                font-weight: 400;
+                color: black;
+                font-family: variables.$font-family-albert;
+                line-height: 1.6;
+                @include misc.responsive-font(15, 16);
+                margin-bottom: 20px;
+
+                strong {
+                    display: inline-block;
+                    font-weight: 600 !important;
+                    color: black;
+                    @include misc.responsive-font(20, 24);
+                    line-height: 1.35;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    // ───────────────────── MEJNIKI ─────────────────────
+    .milestones {
+        padding: 80px 0;
+        background: variables.$dark-color;
+        color: white;
+
+        @media (min-width: 991px) {
+            padding: 110px 0;
+        }
+
+        .section-head h2 {
+            color: white;
+            margin-bottom: 0;
+        }
+
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+
+            @media (min-width: 576px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (min-width: 991px) {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+        }
+
+        .milestone-item {
+            position: relative;
+            text-align: center;
+            padding: 0 10px;
+
+            @media (min-width: 991px) {
+                &:not(:last-child):before {
+                    content: "";
+                    position: absolute;
+                    top: 34px;
+                    left: 60%;
+                    width: 80%;
+                    height: 2px;
+                    background: repeating-linear-gradient(90deg, rgba(248, 155, 83, 0.6) 0 8px, transparent 8px 16px);
+                }
+            }
+        }
+
+        .milestone-year {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: variables.$primary-color;
+            color: black;
+            font-family: variables.$font-family-albert;
+            font-weight: 700;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h3 {
+            color: white;
+            @include misc.responsive-font(16, 19);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+        }
+    }
+
+    // ───────────────────── PRIZNANJA IN CERTIFIKATI ─────────────────────
+    .about-badges {
+        padding: 60px 0;
+
+        @media (min-width: 991px) {
+            padding: 90px 0;
+        }
+
+        .badges-label {
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #9a9a9a;
+            margin-bottom: 35px;
+        }
+
+        .badges-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px 55px;
+
+            img {
+                max-height: 65px;
+                width: auto;
+                filter: grayscale(1);
+                opacity: 0.65;
+                transition: filter 0.25s ease, opacity 0.25s ease;
+
+                &:hover {
+                    filter: grayscale(0);
+                    opacity: 1;
+                }
             }
         }
     }

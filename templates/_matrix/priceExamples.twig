@@ -25,7 +25,7 @@
                         <h3>{{ example.title }}</h3>
                         <ul class="specs">
                             {% for spec in example.specs %}
-                                <li><strong>{{ spec.label }}:</strong> {{ spec.value }}</li>
+                                <li><span class="label">{{ spec.label }}</span> <span class="value">{{ spec.value }}</span></li>
                             {% endfor %}
                         </ul>
                         <div class="price-box">
@@ -36,7 +36,7 @@
                                 </div>
                             {% endif %}
                             <div class="price-row is-total">
-                                <span>Cena terase</span>
+                                <span>Cena</span>
                                 <span class="value">{{ example.total }}</span>
                             </div>
                         </div>

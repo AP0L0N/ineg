@@ -2,10 +2,10 @@
 @use "../misc";
 
 .price-examples {
-    padding: 80px 0;
+    margin: 80px 0;
 
     @media (min-width: 991px) {
-        padding: 110px 0;
+        margin: 110px 0;
     }
 
     .section-head {
@@ -53,18 +53,34 @@
     .price-card {
         background: white;
         border: 1px solid #ececec;
-        border-radius: 8px;
+        border-radius: 14px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(248, 155, 83, 0.35);
+
+            .card-image img {
+                transform: scale(1.08);
+            }
+        }
 
         .card-image {
             @include misc.centered-image;
             aspect-ratio: 4/3;
+
+            img {
+                transition: transform 0.5s ease;
+            }
         }
 
         .card-body {
-            padding: 22px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -72,47 +88,69 @@
             h3 {
                 @include misc.responsive-font(18, 21);
                 font-weight: 700;
-                margin-bottom: 15px;
-                padding-bottom: 12px;
-                border-bottom: 1px solid #f2f2f2;
+                margin-bottom: 16px;
             }
 
             .specs {
                 list-style: none;
                 padding: 0;
-                margin: 0 0 18px;
+                margin: 0 0 20px;
                 font-size: 14px;
+                display: grid;
+                gap: 9px;
 
                 li {
-                    margin-bottom: 8px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    gap: 12px;
                     line-height: 1.35;
-                    color: variables.$default-color;
 
-                    strong {
+                    .label {
+                        color: #6a6a6a;
+                        font-weight: 600;
+                        white-space: nowrap;
+                    }
+
+                    .value {
                         color: black;
+                        font-weight: 700;
+                        text-align: right;
                     }
                 }
             }
 
             .price-box {
                 margin-top: auto;
-                padding-top: 18px;
-                border-top: 1px solid #f2f2f2;
+                background: rgba(248, 155, 83, 0.08);
+                border-radius: 10px;
+                padding: 16px 18px;
 
                 .price-row {
                     display: flex;
                     justify-content: space-between;
                     align-items: baseline;
                     margin-bottom: 6px;
-                    font-size: 14px;
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: variables.$default-color;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
 
                     &.is-total {
-                        @include misc.responsive-font(15, 17);
+                        @include misc.responsive-font(14, 16);
                         font-weight: 700;
+                        color: black;
+
+                        .value {
+                            color: variables.$primary-color-dark;
+                        }
                     }
 
                     .value {
-                        color: variables.$primary-color;
+                        color: variables.$primary-color-dark;
                         font-weight: 700;
                     }
                 }

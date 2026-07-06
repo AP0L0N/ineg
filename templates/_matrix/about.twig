@@ -1,9 +1,151 @@
+{#
+    O inštitutu — stran "O nas" v celoti (2026 redesign)
+    Polja bloka (item): image, heading, description (Redactor)
+
+    Opomba: nekatere vsebine (zaupanja vredni razlogi, mejniki, zaključni CTA) še nimajo
+    ustreznih CMS polj, zato so v tej predlogi primeroma vpisane statično.
+#}
 {% for item in field.about.all() %}
-    <div class="about-banner">
+<div class="about-page">
+
+    {# ───────────────────── DROBTINICE ───────────────────── #}
+    <div class="breadcrumb-bar">
         <div class="container">
-            <div class="description">
-                {{ item.description | raw }}
-            </div>
+            <ul class="breadcrumb-list">
+                <li><a href="/">Domov</a></li>
+                <li class="sep">/</li>
+                <li class="current">O nas</li>
+            </ul>
         </div>
     </div>
+
+    {# ───────────────────── HERO ───────────────────── #}
+    <section class="about-hero">
+        {% if item.image is defined and item.image.one() %}
+            <div class="background-image">
+                {% include "helpers/picture" with { desktop: { image: item.image.one(), width: 2000 } } %}
+            </div>
+        {% endif %}
+        <div class="container">
+            <div class="hero-content">
+                <span class="eyebrow"><i class="fal fa-leaf"></i> Spoznajte nas</span>
+                {% if item.heading %}<h1>{{ item.heading | nl2br }}</h1>{% endif %}
+                <p class="lead">Že več kot desetletje izdelujemo lesene terase, fasade in ograje po meri — z vrhunskim materialom, poštenimi cenami in ekipo, ki drži besedo.</p>
+
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <span class="stars">★★★★★</span>
+                        <span><strong>5,0</strong> Google ocena</span>
+                    </div>
+                    <span class="divider" aria-hidden="true"></span>
+                    <div class="trust-item"><span><strong>10+</strong> let izkušenj</span></div>
+                    <span class="divider" aria-hidden="true"></span>
+                    <div class="trust-item"><span><strong>500+</strong> izdelanih teras</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# ───────────────────── STATISTIKE ───────────────────── #}
+    {% include "_matrix/statsBar" with {
+        data: {
+            stats: [
+                { value: 10, suffix: '+', label: 'let izkušenj' },
+                { value: 500, suffix: '+', label: 'izdelanih teras' },
+                { value: 0, suffix: '', label: 'reklamacij' },
+                { value: 5, suffix: ',0', label: 'ocena na Googlu' }
+            ]
+        }
+    } %}
+
+    {# ───────────────────── NAŠA ZGODBA ───────────────────── #}
+    {% if item.description %}
+        <section class="about-story">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Naša zgodba</span>
+                    <h2>Kdo smo in <span>od kod prihajamo</span></h2>
+                </div>
+                <div class="story-content">
+                    {{ item.description | raw }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    {# ───────────────────── ZAKAJ IZBRATI NAS ───────────────────── #}
+    {% include "_matrix/valueProps" with {
+        data: {
+            eyebrow: 'Zakaj izbrati nas',
+            heading: 'Razlogi, da izberete',
+            headingHighlight: 'prav nas',
+            description: 'Vsak projekt izvedemo z enako mero natančnosti in skrbnosti — ne glede na velikost terase.',
+            props: [
+                { icon: 'fal fa-sack-dollar', title: 'Najugodnejša cena na trgu', description: 'Poštene cene naših storitev, lesa in ostalih materialov, brez skritih stroškov.' },
+                { icon: 'fal fa-shield-check', title: 'Garancija do 10 let', description: 'Za vse naše storitve prejmete ustrezne certifikate in garancijsko izjavo.' },
+                { icon: 'fal fa-leaf', title: 'Originalni materiali', description: 'Uporabljamo le preverjene materiale z ustreznimi certifikati kakovosti.' },
+                { icon: 'fal fa-user-check', title: 'Oseben pristop', description: 'Od prvega posveta do zadnjega vijaka smo v stalnem stiku z vami.' }
+            ]
+        }
+    } %}
+
+    {# ───────────────────── MEJNIKI ───────────────────── #}
+    <section class="milestones">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Naša pot</span>
+                <h2>Deset let <span>rasti in zaupanja</span></h2>
+            </div>
+            <div class="milestones-grid">
+                <div class="milestone-item">
+                    <div class="milestone-year">2014</div>
+                    <h3>Ustanovitev inštituta</h3>
+                    <p>Začeli smo z izdelavo lesenih konstrukcij in nizkoenergijsko gradnjo.</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-year">2017</div>
+                    <h3>Prva terasa iz eksotičnega lesa</h3>
+                    <p>Razširili smo ponudbo z izbranimi vrstami Cumaru, IPE Lapacho in Garapa.</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-year">2020</div>
+                    <h3>100. izvedena terasa</h3>
+                    <p>Dosegli smo pomemben mejnik in okrepili ekipo izkušenih monterjev.</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-year">2026</div>
+                    <h3>500+ izvedenih teras</h3>
+                    <p>Brez reklamacij in s povprečno oceno 5,0 na Googlu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# ───────────────────── PRIZNANJA IN CERTIFIKATI ───────────────────── #}
+    <section class="about-badges">
+        <div class="container">
+            <span class="badges-label">Priznanja in certifikati</span>
+            <div class="badges-row">
+                <img src="/assets/images/badges/ineg-badge-01.png" alt="" role="presentation" loading="lazy">
+                <img src="/assets/images/badges/ineg-badge-02.jpg" alt="" role="presentation" loading="lazy">
+                <img src="/assets/images/badges/ineg-badge-03.png" alt="" role="presentation" loading="lazy">
+                <img src="/assets/images/badges/ineg-badge-04.png" alt="" role="presentation" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+</div>
 {% endfor %}
+
+{# ───────────────────── ZAKLJUČNI CTA ───────────────────── #}
+{% include "_matrix/ctaBanner" with {
+    data: {
+        background: '/assets/images/lesene-terase-desktop2.jpg',
+        eyebrow: 'Radi bi sodelovali',
+        heading: 'Spoznajmo se',
+        headingHighlight: 'osebno',
+        description: 'Kontaktirajte nas za brezplačen posvet in informativno ponudbo — z veseljem vam predstavimo, kako delamo.',
+        button: { url: '/kontakt', label: 'Kontaktirajte nas' },
+        phone: { number: '+386 (0)40 567 518', label: 'Pokličite', href: '+38640567518' }
+    }
+} %}

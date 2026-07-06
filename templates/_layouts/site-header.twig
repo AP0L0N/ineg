@@ -97,7 +97,7 @@
                             </li>
                         {% endif %}
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown {{ entry is defined and (entry.id | number) in (storitve.storitveInOpisi.all() | map(s => s.povezanaStoritev.one().id | number)) ? 'active' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown07"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ 'Storitve' | t }}</a>
 
@@ -130,7 +130,7 @@
                                         {% if otherServices|length %}
                                             <div class="mega-menu-list">
                                                 {% for item in otherServices %}
-                                                    {% set entry = item.povezanaStoritev.one() %}
+                                                    {% set itemPov = item.povezanaStoritev.one() %}
                                                     <div class="mega-menu-list-item">
                                                         {% set image = item.prikazneSlike.one() %}
                                                         {% if image %}
@@ -138,8 +138,8 @@
                                                                 {% include "helpers/picture" with {desktop: {image: image, width: 160} } %}
                                                             </div>
                                                         {% endif %}
-                                                        <p class="title">{{ entry.title }}</p>
-                                                        <a href="{{ entry.url }}"></a>
+                                                        <p class="title">{{ itemPov.title }}</p>
+                                                        <a href="{{ itemPov.url }}"></a>
                                                     </div>
                                                 {% endfor %}
                                             </div>
