@@ -116,21 +116,53 @@
                 phone: { number: '+386 (0)40 567 518', label: 'Pokličite', href: 'tel:+38640567518' }
             } } %}
 
-            {# Strukturirani podatki #}
+            {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+            {% import "helpers/structured-data" as sd %}
+            {% set projectImages = [] %}
+            {% for img in images %}
+                {% set projectImages = projectImages | merge([url(img.getUrl('full'))]) %}
+            {% endfor %}
+            {% if projectImages | length == 0 %}
+                {% set projectImages = ['https://ineg.si/assets/images/terase_1.jpg'] %}
+            {% endif %}
             <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "CreativeWork",
-                "name": {{ entry.title | json_encode | raw }},
-                "about": {{ entry.projectInfo.kratekOpis | json_encode | raw }},
-                "creator": {
-                    "@type": "LocalBusiness",
-                    "name": "INeG – Inštitut nizkoenergijske gradnje"
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": {{ entry.url | json_encode | raw }}
                 },
-                "locationCreated": { "@type": "Place", "name": {{ entry.projectInfo.naslov | json_encode | raw }} },
-                "image": {{ (heroImage ? heroImage.getUrl('full') : null) | json_encode | raw }}
+                "name": {{ entry.title | json_encode | raw }},
+                "description": {{ (entry.projectInfo.kratekOpis is not empty ? entry.projectInfo.kratekOpis : entry.title) | json_encode | raw }},
+                "about": {{ (entry.projectInfo.kratekOpis is not empty ? entry.projectInfo.kratekOpis : entry.title) | json_encode | raw }},
+                "datePublished": {{ entry.postDate | date("c") | json_encode | raw }},
+                "creator": {
+                    "@type": "HomeAndConstructionBusiness",
+                    "name": "INeG – Inštitut nizkoenergijske gradnje",
+                    "url": "https://ineg.si",
+                    "telephone": "+38641661686",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "Ropretova cesta 18",
+                        "addressLocality": "Mengeš",
+                        "postalCode": "1234",
+                        "addressCountry": "SI"
+                    }
+                },
+                "locationCreated": {
+                    "@type": "Place",
+                    "name": {{ (entry.projectInfo.naslov is not empty ? entry.projectInfo.naslov : 'Slovenija') | json_encode | raw }}
+                },
+                "image": {{ projectImages | json_encode | raw }}
             }
             </script>
+
+            {{ sd.breadcrumb([
+                { name: 'Domov', url: siteUrl },
+                { name: projectsListEntry ? projectsListEntry.title : 'Projekti', url: projectsListEntry ? projectsListEntry.url : '/nasi-projekti' },
+                { name: entry.title, url: entry.url }
+            ]) }}
         </div>
 
     {% endif %}

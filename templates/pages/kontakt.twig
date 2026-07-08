@@ -135,4 +135,25 @@
 
     {% endif %}
 
+    {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": {{ entry.url | json_encode | raw }}
+        },
+        "name": {{ entry.title | json_encode | raw }},
+        "description": "Kontaktirajte INeG za gradnjo hiš, lesene terase, fasade in ograje.",
+        "url": {{ entry.url | json_encode | raw }}
+    }
+    </script>
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl },
+        { name: entry.title, url: entry.url }
+    ]) }}
+
 {% endblock %}

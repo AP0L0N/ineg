@@ -1,0 +1,174 @@
+{#
+    Reusable Schema.org JSON-LD helpers.
+
+    Usage:
+        {% import "helpers/structured-data" as sd %}
+        {{ sd.organization() }}
+        {{ sd.website() }}
+        {{ sd.breadcrumb([{ name: 'Domov', url: siteUrl }, { name: entry.title, url: entry.url }]) }}
+        {{ sd.siteNavigation([
+            { name: 'Domov', url: siteUrl },
+            { name: 'Storitve', url: url('storitve') }
+        ]) }}
+#}
+
+{% macro organization() %}
+    {% set info = contactInfo.contactInfo is defined ? contactInfo.contactInfo : null %}
+    {% set name = info and info.nazivPodjetja ? info.nazivPodjetja : 'INeG – Inštitut nizkoenergijske gradnje' %}
+    {% set address = info and info.naslov ? info.naslov : 'Ropretova cesta 18, 1234 Mengeš' %}
+    {% set phone = info and info.telefon ? info.telefon : '+38641661686' %}
+    {% set email = info and info.infoEmail ? info.infoEmail : 'info@ineg.si' %}
+    {% set street = 'Ropretova cesta 18' %}
+    {% set locality = 'Mengeš' %}
+    {% set postalCode = '1234' %}
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": {{ name | json_encode | raw }},
+        "url": "https://ineg.si",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ineg.si/assets/images/logo.png",
+            "width": 512,
+            "height": 512
+        },
+        "image": "https://ineg.si/assets/images/terase_1.jpg",
+        "description": "Izdelava lesenih teras po meri iz eksotičnega lesa in sibirskega macesna. Lesene fasade, ograje in druge lesene gradnje.",
+        "telephone": {{ phone | json_encode | raw }},
+        "email": {{ email | json_encode | raw }},
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": {{ street | json_encode | raw }},
+            "addressLocality": {{ locality | json_encode | raw }},
+            "postalCode": {{ postalCode | json_encode | raw }},
+            "addressCountry": "SI"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": {{ phone | json_encode | raw }},
+            "email": {{ email | json_encode | raw }},
+            "contactType": "customer service",
+            "areaServed": "SI",
+            "availableLanguage": ["Slovenian", "English"]
+        },
+        "sameAs": [
+            "https://www.facebook.com/slamnatahisa/",
+            "https://www.instagram.com/ineg_slovenia/"
+        ]
+    }
+    </script>
+{% endmacro %}
+
+{% macro website() %}
+    {% set blogsEntry = craft.entries().section('seznamObjav').one() %}
+    {% set searchTarget = blogsEntry ? url(blogsEntry.url, { q: '{search_term_string}' }) : 'https://ineg.si/vse-objave?q={search_term_string}' %}
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "INeG – Inštitut nizkoenergijske gradnje",
+        "url": "https://ineg.si",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": {{ searchTarget | json_encode | raw }}
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+{% endmacro %}
+
+{% macro breadcrumb(items) %}
+    {% if items | length %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {% for item in items %}
+                {
+                    "@type": "ListItem",
+                    "position": {{ loop.index }},
+                    "name": {{ item.name | json_encode | raw }},
+                    "item": {{ (item.url starts with 'http' ? item.url : url(item.url)) | json_encode | raw }}
+                }{{ not loop.last ? ',' }}
+                {% endfor %}
+            ]
+        }
+        </script>
+    {% endif %}
+{% endmacro %}
+
+{% macro siteNavigation(items) %}
+    {% if items | length %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": "Glavna navigacija",
+            "hasPart": [
+                {% for item in items %}
+                {
+                    "@type": "SiteNavigationElement",
+                    "name": {{ item.name | json_encode | raw }},
+                    "url": {{ (item.url starts with 'http' ? item.url : url(item.url)) | json_encode | raw }}
+                }{{ not loop.last ? ',' }}
+                {% endfor %}
+            ]
+        }
+        </script>
+    {% endif %}
+{% endmacro %}
+
+{% macro localBusiness() %}
+    {% set info = contactInfo.contactInfo is defined ? contactInfo.contactInfo : null %}
+    {% set name = info and info.nazivPodjetja ? info.nazivPodjetja : 'INeG – Inštitut nizkoenergijske gradnje' %}
+    {% set phone = info and info.telefon ? info.telefon : '+38641661686' %}
+    {% set email = info and info.infoEmail ? info.infoEmail : 'info@ineg.si' %}
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": {{ name | json_encode | raw }},
+        "image": "https://ineg.si/assets/images/terase_1.jpg",
+        "description": "Izdelava lesenih teras po meri iz eksotičnega lesa in sibirskega macesna. Lesene fasade, ograje in druge lesene gradnje.",
+        "@id": "https://ineg.si",
+        "url": "https://ineg.si",
+        "telephone": {{ phone | json_encode | raw }},
+        "email": {{ email | json_encode | raw }},
+        "priceRange": "€€€",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Ropretova cesta 18",
+            "addressLocality": "Mengeš",
+            "postalCode": "1234",
+            "addressCountry": "SI"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "46.1655",
+            "longitude": "14.5750"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "16:00"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "30"
+        },
+        "areaServed": "Slovenija"
+    }
+    </script>
+{% endmacro %}

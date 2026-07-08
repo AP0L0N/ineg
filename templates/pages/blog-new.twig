@@ -124,23 +124,42 @@
                 </div>
             {% endif %}
 
-            {# Strukturirani podatki #}
+            {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+            {% import "helpers/structured-data" as sd %}
+            {% set blogSchemaImage = image ? url(image.getUrl('blogImage')) : 'https://ineg.si/assets/images/terase_1.jpg' %}
             <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "BlogPosting",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": {{ entry.url | json_encode | raw }}
+                },
                 "headline": {{ entry.blogInfo.naslov | json_encode | raw }},
                 "description": {{ entry.blogInfo.kratekPovzetek | json_encode | raw }},
-                "image": {{ (image ? image.getUrl('blogImage') : null) | json_encode | raw }},
+                "image": {{ blogSchemaImage | json_encode | raw }},
                 "datePublished": {{ entry.postDate | date("c") | json_encode | raw }},
-                "author": { "@type": "Organization", "name": {{ authorName | json_encode | raw }} },
+                "dateModified": {{ (entry.dateUpdated ? entry.dateUpdated : entry.postDate) | date("c") | json_encode | raw }},
+                "author": {
+                    "@type": "Organization",
+                    "name": {{ authorName | json_encode | raw }},
+                    "url": "https://ineg.si"
+                },
                 "publisher": {
                     "@type": "Organization",
                     "name": "INeG – Inštitut nizkoenergijske gradnje",
                     "logo": { "@type": "ImageObject", "url": "https://ineg.si/assets/images/logo.png" }
-                }
+                },
+                "articleSection": {{ (category ? category.title : 'Blog') | json_encode | raw }},
+                "keywords": {{ (category ? category.title : 'lesene terase, INeG') | json_encode | raw }}
             }
             </script>
+
+            {{ sd.breadcrumb([
+                { name: 'Domov', url: siteUrl },
+                { name: blogsListEntry ? blogsListEntry.title : 'Blog', url: blogsListEntry ? blogsListEntry.url : '/vse-objave' },
+                { name: entry.blogInfo.naslov, url: entry.url }
+            ]) }}
         </div>
 
     {% endif %}

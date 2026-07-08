@@ -139,4 +139,45 @@
 
     {% endif %}
 
+    {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    {% set blogPosts = [] %}
+    {% for item in items %}
+        {% set itemImage = item.blogInfo.slika.one() %}
+        {% set itemCategory = item.kategorija.one() %}
+        {% set blogPosts = blogPosts | merge([{
+            "@type": "BlogPosting",
+            "mainEntityOfPage": { "@type": "WebPage", "@id": item.url },
+            "headline": item.blogInfo.naslov,
+            "description": item.blogInfo.kratekPovzetek,
+            "url": item.url,
+            "image": itemImage ? url(itemImage.getUrl('croppedFullModule')) : 'https://ineg.si/assets/images/terase_1.jpg',
+            "datePublished": item.postDate | date("c"),
+            "author": { "@type": "Organization", "name": "INeG ekipa" },
+            "publisher": { "@type": "Organization", "name": "INeG – Inštitut nizkoenergijske gradnje" }
+        }]) %}
+    {% endfor %}
+
+    {% if blogPosts | length %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": {{ entry.url | json_encode | raw }}
+            },
+            "name": "INeG Blog",
+            "description": "Nasveti, novice in izvedeni projekti s področja lesenih teras, ograj in fasad.",
+            "url": {{ entry.url | json_encode | raw }},
+            "blogPost": {{ blogPosts | json_encode | raw }}
+        }
+        </script>
+    {% endif %}
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl },
+        { name: entry.title, url: entry.url }
+    ]) }}
+
 {% endblock %}

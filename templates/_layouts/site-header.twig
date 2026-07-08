@@ -184,6 +184,21 @@
         </nav>
     </div>
 
+    {# ───────────────────── STRUKTURIRANI PODATKI — NAVIGACIJA ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    {% set navHome = craft.entries().section('naslovnaStran').one() %}
+    {% set navServices = craft.entries().section('leseneTerase').one() %}
+    {% set navBlog = craft.entries().section('seznamObjav').one() %}
+    {% set navAbout = craft.entries().section('oInstitutu').one() %}
+    {% set navContact = craft.entries().section('kontakt').one() %}
+    {{ sd.siteNavigation([
+        { name: navHome ? navHome.title : 'Domov', url: navHome ? navHome.url : siteUrl },
+        { name: 'Storitve', url: navServices ? navServices.url : '/lesene-terase' },
+        { name: navBlog ? navBlog.title : 'Objave', url: navBlog ? navBlog.url : '/vse-objave' },
+        { name: navAbout ? navAbout.title : 'O nas', url: navAbout ? navAbout.url : '/o-institutu' },
+        { name: navContact ? navContact.title : 'Kontakt', url: navContact ? navContact.url : '/kontakt' }
+    ]) }}
+
     {# ───────────────────── Iskalna plast ───────────────────── #}
     {% set blogsEntry = craft.entries.section('seznamObjav').one() %}
     <div class="search-overlay" id="searchOverlay" aria-hidden="true">

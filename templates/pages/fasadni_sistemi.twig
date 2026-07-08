@@ -691,4 +691,35 @@
 
     {% endif %}
 
+    {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Leseni fasadni sistemi",
+        "name": "Lesene fasade in okrasni paneli",
+        "description": "Leseni fasadni sistemi in okrasni paneli za zidane ter lesene skeletne hiše. Toplotno izolativne, trajnostne in estetsko dovršene fasade po meri.",
+        "provider": {
+            "@type": "HomeAndConstructionBusiness",
+            "name": "INeG – Inštitut nizkoenergijske gradnje",
+            "url": "https://ineg.si",
+            "telephone": "+38641661686",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Ropretova cesta 18",
+                "addressLocality": "Mengeš",
+                "postalCode": "1234",
+                "addressCountry": "SI"
+            }
+        },
+        "areaServed": "Slovenija"
+    }
+    </script>
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl },
+        { name: 'Leseni fasadni sistemi', url: entry.url }
+    ]) }}
+
 {% endblock %}

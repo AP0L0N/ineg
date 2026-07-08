@@ -493,4 +493,35 @@
 
     {% endif %}
 
+    {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Lesene ograje",
+        "name": "Lesene ograje",
+        "description": "Estetska kombinacija funkcionalnosti uporabljenih materialov ter odličen občutek zasebnosti vašega doma. Lesene ograje po meri iz sibirskega macesna in eksotičnega lesa.",
+        "provider": {
+            "@type": "HomeAndConstructionBusiness",
+            "name": "INeG – Inštitut nizkoenergijske gradnje",
+            "url": "https://ineg.si",
+            "telephone": "+38641661686",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Ropretova cesta 18",
+                "addressLocality": "Mengeš",
+                "postalCode": "1234",
+                "addressCountry": "SI"
+            }
+        },
+        "areaServed": "Slovenija"
+    }
+    </script>
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl },
+        { name: 'Lesene ograje', url: entry.url }
+    ]) }}
+
 {% endblock %}

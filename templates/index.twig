@@ -28,4 +28,42 @@
 
             {% endfor %}
     {% endif %}
+
+    {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    {% set projectSchemas = [] %}
+    {% if entry is defined %}
+        {% set childEntries = entry.children().all() %}
+        {% for child in childEntries %}
+            {% set childImage = child.projectInfo.galerijaSlik.one() %}
+            {% set projectSchemas = projectSchemas | merge([{
+                "@type": "CreativeWork",
+                "name": child.title,
+                "url": child.url,
+                "image": childImage ? url(childImage.getUrl('full')) : 'https://ineg.si/assets/images/terase_1.jpg',
+                "description": child.projectInfo.kratekOpis is defined and child.projectInfo.kratekOpis ? child.projectInfo.kratekOpis : child.title
+            }]) %}
+        {% endfor %}
+    {% endif %}
+
+    {% if projectSchemas | length %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": {{ entry.url | json_encode | raw }}
+            },
+            "name": {{ entry.title | json_encode | raw }},
+            "url": {{ entry.url | json_encode | raw }},
+            "hasPart": {{ projectSchemas | json_encode | raw }}
+        }
+        </script>
+    {% endif %}
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl },
+        { name: entry is defined ? entry.title : 'Projekti', url: entry is defined ? entry.url : '/nasi-projekti' }
+    ]) }}
 {% endblock %}

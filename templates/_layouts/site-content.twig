@@ -44,7 +44,12 @@
 
     {# Google captcha #}
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    
+
+    {# ───────────────────── STRUKTURIRANI PODATKI — SITE-WIDE (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    {{ sd.organization() }}
+    {{ sd.website() }}
+
 </head>
 <body>
 

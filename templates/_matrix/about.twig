@@ -137,6 +137,43 @@
 </div>
 {% endfor %}
 
+    {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": {{ entry.url | json_encode | raw }}
+        },
+        "name": {{ (item.heading is defined ? item.heading | striptags : 'O nas') | json_encode | raw }},
+        "description": {{ (item.description is defined ? item.description | striptags : 'Že več kot desetletje izdelujemo lesene terase, fasade in ograje po meri.') | json_encode | raw }},
+        "url": {{ entry.url | json_encode | raw }},
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "INeG – Inštitut nizkoenergijske gradnje",
+            "url": "https://ineg.si",
+            "foundingDate": "2014",
+            "knowsAbout": ["Lesene terase", "Lesene fasade", "Lesene ograje", "Nizkoenergijska gradnja"],
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Ropretova cesta 18",
+                "addressLocality": "Mengeš",
+                "postalCode": "1234",
+                "addressCountry": "SI"
+            }
+        }
+    }
+    </script>
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl },
+        { name: 'O nas', url: entry.url }
+    ]) }}
+
+{% endfor %}
+
 {# ───────────────────── ZAKLJUČNI CTA ───────────────────── #}
 {% include "_matrix/ctaBanner" with {
     data: {

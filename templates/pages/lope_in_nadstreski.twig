@@ -257,4 +257,35 @@
 
     {% endif %}
 
+    {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Vrtne hiške in nadstreški",
+        "name": "Vrtne hiške, nadstreški in specialni projekti",
+        "description": "Vrtne hiške, lope, nadstreški in specialni projekti po meri. Kombinacija lesa, pločevine, stekla in aluminija za funkcionalen in moderen izgled.",
+        "provider": {
+            "@type": "HomeAndConstructionBusiness",
+            "name": "INeG – Inštitut nizkoenergijske gradnje",
+            "url": "https://ineg.si",
+            "telephone": "+38641661686",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Ropretova cesta 18",
+                "addressLocality": "Mengeš",
+                "postalCode": "1234",
+                "addressCountry": "SI"
+            }
+        },
+        "areaServed": "Slovenija"
+    }
+    </script>
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl },
+        { name: 'Vrtne hiške in nadstreški', url: entry.url }
+    ]) }}
+
 {% endblock %}

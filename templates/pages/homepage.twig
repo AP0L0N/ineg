@@ -178,16 +178,28 @@
     } } %}
 
     {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}
+    {% import "helpers/structured-data" as sd %}
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "WebPage",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ineg.si" },
+        "name": "Lesene terase po meri | INeG – izdelava lesenih teras iz eksotičnega lesa",
+        "description": "Specializirani za izdelavo lesenih teras iz eksotičnega lesa in sibirskega macesna. Več kot 500 izvedenih teras brez reklamacij, 5,0 ocena na Googlu. Pridobite informativno ceno.",
+        "url": "https://ineg.si"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
         "name": "INeG – Inštitut nizkoenergijske gradnje",
         "image": "https://ineg.si/assets/images/terase_1.jpg",
         "description": "Izdelava lesenih teras po meri iz eksotičnega lesa in sibirskega macesna. Lesene fasade, ograje in druge lesene gradnje.",
         "@id": "https://ineg.si",
         "url": "https://ineg.si",
         "telephone": "+38641661686",
+        "email": "info@ineg.si",
         "priceRange": "€€€",
         "address": {
             "@type": "PostalAddress",
@@ -196,20 +208,48 @@
             "postalCode": "1234",
             "addressCountry": "SI"
         },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "46.1655",
+            "longitude": "14.5750"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "16:00"
+            }
+        ],
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
             "reviewCount": "30"
         },
         "areaServed": "Slovenija",
-        "makesOffer": {
-            "@type": "Offer",
-            "itemOffered": {
-                "@type": "Service",
-                "name": "Izdelava lesenih teras"
+        "makesOffer": [
+            {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Izdelava lesenih teras" }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Lesene fasade" }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Lesene ograje" }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Vrtne hiške in nadstreški" }
             }
-        }
+        ]
     }
     </script>
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl }
+    ]) }}
 
 {% endblock %}
