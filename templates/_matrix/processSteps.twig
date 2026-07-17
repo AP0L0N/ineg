@@ -3,8 +3,8 @@
     data.eyebrow, data.heading, data.headingHighlight, data.description
     data.steps (array) -> { title, description }
 #}
-{% set data = data is defined ? data : {} %}
-{% set steps = data.steps is defined ? data.steps : [] %}
+{% set data = data is defined ? data : field %}
+{% set steps = data.steps is defined ? data.steps.all() : [] %}
 
 <section class="process-steps">
     <div class="container">
@@ -18,7 +18,7 @@
             {% for step in steps %}
                 <div class="step-item">
                     <div class="step-number">{{ loop.index }}</div>
-                    <h3>{{ step.title }}</h3>
+                    <h3>{{ step.stepTitle }}</h3>
                     <p>{{ step.description }}</p>
                 </div>
             {% endfor %}

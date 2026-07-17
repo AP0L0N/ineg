@@ -3,8 +3,8 @@
     data.eyebrow, data.heading, data.headingHighlight, data.description
     data.props (array) -> { icon(faclass), title, description }
 #}
-{% set data = data is defined ? data : {} %}
-{% set props = data.props is defined ? data.props : [] %}
+{% set data = data is defined ? data : field %}
+{% set props = data.props is defined ? data.props.all() : [] %}
 
 <section class="value-props">
     <div class="container">
@@ -17,8 +17,8 @@
         <div class="props-grid">
             {% for prop in props %}
                 <div class="prop-card">
-                    <div class="icon"><i class="{{ prop.icon }}"></i></div>
-                    <h3>{{ prop.title }}</h3>
+                    <div class="icon"><i class="{{ prop.propIcon }}"></i></div>
+                    <h3>{{ prop.propTitle }}</h3>
                     <p>{{ prop.description }}</p>
                 </div>
             {% endfor %}

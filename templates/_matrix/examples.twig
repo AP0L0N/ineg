@@ -1,0 +1,142 @@
+{#
+    Vrste lesa — predstavitev (carousel)
+    data.eyebrow, data.heading, data.headingHighlight, data.description
+    data.species (array) -> { name, origin, image, description, specs: [ { label, value } ] }
+#}
+{% set data = data is defined ? data : field %}
+{% set examples = data.examples is defined ? data.examples.all() : [] %}
+{% set pricesDisplayed = false %}
+
+<section class="examples">
+    <div class="container">
+        <div class="section-head">
+            {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
+            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
+        </div>
+
+        <div class="swiper {{ data.biggerCards is defined and data.biggerCards ? 'bigger-cards' : '' }}">
+            <div class="swiper-wrapper">
+                {% for example in examples %}
+                    <div class="swiper-slide">
+                        <article class="species-card" data-modal-target="species-modal-{{ field.uid }}-{{ loop.index }}" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="species-modal-{{ loop.index }}">
+                            <div class="species-image">
+                                {% if example.exampleBadge is defined and example.exampleBadge is not empty %}<span class="origin">{{ example.exampleBadge }}</span>{% endif %}
+                                <img src="{{ example.images.one().getUrl({ width: 400, format: 'jpg' }) }}" alt="Primer {{ example.exampleTitle }}" loading="lazy">
+                            </div>
+                            <div class="species-body">
+                                <h3>{{ example.exampleTitle }}</h3>
+                                {% if example.description is defined %}<p>{{ example.description }}</p>{% endif %}
+                                {% if example.specs is defined %}
+                                    <ul class="species-specs">
+                                        {% for spec in example.specs %}
+                                            <li><span>{{ spec.label }}</span> <strong>{{ spec.specValue }}</strong></li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+
+                                {% if example.priceM2 is not empty or example.priceIncludingVat is not empty %}
+                                    {% set pricesDisplayed = true %}
+
+                                    <div class="price-box">
+                                        {% if example.priceM2 is not empty %}
+                                            <div class="price-row">
+                                                <span>Cena (na m²)</span>
+                                                <span class="value">{{ example.priceM2 }} €</span>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if example.priceIncludingVat is not empty %}
+                                            <div class="price-row is-total">
+                                                <span>Cena</span>
+                                                <span class="value">{{ example.priceIncludingVat }} €</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+
+                                    <p class="price-small-print"><small>* Cene že vljučujejo DDV</small></p>
+                                {% endif %}
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        {# Species detail modals — rendered outside the swiper markup so that fixed
+           positioning isn't affected by Swiper's transformed .swiper-wrapper, and so
+           each modal only exists once (Swiper's loop mode clones slides). #}
+        {% for example in examples %}
+            {% set exampleImages = example.images.all() %}
+            <div class="species-modal" id="species-modal-{{ field.uid }}-{{ loop.index }}" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="species-modal-title-{{ loop.index }}">
+                <div class="species-modal-backdrop" data-modal-close></div>
+                <div class="species-modal-dialog">
+                    <button type="button" class="species-modal-close" data-modal-close aria-label="Zapri">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.00011 17L9.00031 9.00006M9.00031 9.00006L17 1.00063M9.00031 9.00006L16.9999 16.9994M9.00031 9.00006L1 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </button>
+
+                    <div class="species-modal-sidebar">
+                        {% if example.exampleBadge is defined and example.exampleBadge is not empty %}<span class="origin">{{ example.exampleBadge }}</span>{% endif %}
+                        <h3 id="species-modal-title-{{ loop.index }}">{{ example.exampleTitle }}</h3>
+                        {% if example.description is defined %}<p>{{ example.description }}</p>{% endif %}
+                        {% if example.specs is defined %}
+                            <ul class="species-specs">
+                                {% for spec in example.specs %}
+                                    <li><span>{{ spec.label }}</span> <strong>{{ spec.specValue }}</strong></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {% if example.priceM2 is not empty or example.priceIncludingVat is not empty %}
+                            <div class="price-box">
+                                {% if example.priceM2 is not empty %}
+                                    <div class="price-row">
+                                        <span>Cena (na m²)</span>
+                                        <span class="value">{{ example.priceM2 }} €</span>
+                                    </div>
+                                {% endif %}
+
+                                {% if example.priceIncludingVat is not empty %}
+                                    <div class="price-row is-total">
+                                        <span>Cena</span>
+                                        <span class="value">{{ example.priceIncludingVat }} €</span>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <p class="price-small-print"><small>* Cene že vljučujejo DDV</small></p>
+                        {% endif %}
+                    </div>
+
+                    {% if exampleImages | length %}
+                        <div class="species-modal-gallery pswp-gallery">
+                            {% for image in exampleImages %}
+                                <figure class="gallery-figure">
+                                    <a href="{{ image.getUrl('full') }}" data-pswp-width="{{ image.getWidth('full') }}" data-pswp-height="{{ image.getHeight('full') }}" target="_blank" rel="noreferrer">
+                                        <img src="{{ image.getUrl({ width: 300, format: 'jpg' }) }}" alt="{{ example.exampleTitle }} – slika {{ loop.index }}" loading="lazy">
+                                    </a>
+                                </figure>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        {% if pricesDisplayed or data.addLinkToContact is not empty %}
+            <div class="examples-footer">
+                {% if pricesDisplayed %}
+                    <p>Cene so zgolj informativne narave, saj se cene lesa tedensko spreminjajo.</p>
+                {% endif %}
+
+                {% if data.addLinkToContact is not empty %}
+                    {% set contactPage = craft.entries.section('kontakt').one() %}
+                    <a href="{{ contactPage.url }}" class="btn btn-primary">{{ data.addLinkToContact }}</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>

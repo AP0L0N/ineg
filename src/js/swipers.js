@@ -117,8 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2026 redesign — wood species cards
-    let woodSpeciesSwipers = document.querySelectorAll('.wood-species .swiper');
+    let woodSpeciesSwipers = document.querySelectorAll('.examples .swiper');
     Array.prototype.forEach.call(woodSpeciesSwipers, function (swiper) {
+        const biggerCards = swiper.classList.contains('bigger-cards');
         new Swiper(swiper, {
             modules: [Pagination, Autoplay],
             slidesPerView: 1,
@@ -131,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             breakpoints: {
                 576: { slidesPerView: 2 },
                 991: { slidesPerView: 3 },
-                1200: { slidesPerView: 4 }
+                1200: { slidesPerView: biggerCards ? 3 : 4 }
             },
             pagination: {
                 el: '.swiper-pagination',

@@ -107,6 +107,63 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
+	// 2026 redesign — species-card detail modal (vrste lesa)
+	let speciesModalTriggers = document.querySelectorAll('.species-card[data-modal-target]');
+	if (speciesModalTriggers.length) {
+		let lastFocusedTrigger = null;
+
+		let openSpeciesModal = function (trigger) {
+			let modal = document.getElementById(trigger.getAttribute('data-modal-target'));
+			if (!modal) return;
+
+			lastFocusedTrigger = trigger;
+			modal.classList.add('is-active');
+			modal.setAttribute('aria-hidden', 'false');
+			document.body.classList.add('species-modal-open');
+		};
+
+		let closeSpeciesModal = function (modal) {
+			modal.classList.remove('is-active');
+			modal.setAttribute('aria-hidden', 'true');
+
+			if (!document.querySelector('.species-modal.is-active')) {
+				document.body.classList.remove('species-modal-open');
+			}
+
+			if (lastFocusedTrigger) {
+				lastFocusedTrigger.focus();
+				lastFocusedTrigger = null;
+			}
+		};
+
+		Array.prototype.forEach.call(speciesModalTriggers, function (trigger) {
+			trigger.addEventListener('click', function () {
+				openSpeciesModal(trigger);
+			});
+
+			trigger.addEventListener('keydown', function (event) {
+				if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+					event.preventDefault();
+					openSpeciesModal(trigger);
+				}
+			});
+		});
+
+		Array.prototype.forEach.call(document.querySelectorAll('.species-modal'), function (modal) {
+			Array.prototype.forEach.call(modal.querySelectorAll('[data-modal-close]'), function (closeEl) {
+				closeEl.addEventListener('click', function () {
+					closeSpeciesModal(modal);
+				});
+			});
+		});
+
+		document.addEventListener('keydown', function (event) {
+			if (event.key !== 'Escape') return;
+			let activeModal = document.querySelector('.species-modal.is-active');
+			if (activeModal) closeSpeciesModal(activeModal);
+		});
+	}
+
 	// 2026 redesign — animated counters
 	let counters = document.querySelectorAll('.stats-bar .counter');
 	if (counters.length && 'IntersectionObserver' in window) {

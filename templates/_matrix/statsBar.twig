@@ -1,9 +1,9 @@
 {#
     Statistike / trust bar
-    data.stats (array) -> { value(number), suffix(string), label(string) }
+    data.stats (array) -> { statValue(number), suffix(string), label(string) }
 #}
-{% set data = data is defined ? data : {} %}
-{% set stats = data.stats is defined ? data.stats : [] %}
+{% set data = data is defined ? data : stats %}
+{% set stats = data.stats is defined ? data.stats.all() : [] %}
 
 <section class="stats-bar">
     <div class="container">
@@ -11,7 +11,7 @@
             {% for stat in stats %}
                 <div class="stat-item">
                     <div class="stat-value">
-                        <span class="counter" data-target="{{ stat.value }}">{{ stat.value }}</span>{% if stat.suffix is defined %}<span class="suffix">{{ stat.suffix }}</span>{% endif %}
+                        <span class="counter" data-target="{{ stat.statValue }}">{{ stat.statValue }}</span>{% if stat.suffix is defined %}<span class="suffix">{{ stat.suffix }}</span>{% endif %}
                     </div>
                     <div class="stat-label">{{ stat.label }}</div>
                 </div>

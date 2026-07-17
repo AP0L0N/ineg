@@ -1,0 +1,193 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  3ab079fd-ca55-4e78-b06f-c6334c16c0d6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b98023ad-12f1-46f3-abda-f67a7400d69a # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 81c32a6d-384a-4902-b676-6f82d656cc1b # Slides
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0fda5c30-a9ff-458c-9a2c-5cc76fbfc12e # Primary button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 559c01f0-fce7-4256-9294-d4429461170c # Secondary button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0fda5c30-a9ff-458c-9a2c-5cc76fbfc12e: # Primary button
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: primaryButton
+    instructions: ''
+    name: 'Primary button'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - d24c6dfb-61ca-42be-a710-fb84765bfc87 # Button URL
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 65ee1894-575b-4134-8896-0757e693b7fc # Label
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_29_primarybutton}}'
+      fieldLayout: matrix
+      maxRows: '1'
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  81c32a6d-384a-4902-b676-6f82d656cc1b: # Slides
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: slides
+    instructions: ''
+    name: Slides
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - a1c392ae-4e81-4e36-bf27-16c659d9a766 # Image
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 4e69d316-2d1b-4986-81ac-c00fd82bd7ed # Heading
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 3efebab6-66b2-47c1-b451-b5ee9fa74b36 # Heading highlight
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 77610db9-ee11-4a2a-adc4-5a98c1cab9bc # Lead
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_29_slides}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  559c01f0-fce7-4256-9294-d4429461170c: # Secondary button
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: secondaryButton
+    instructions: ''
+    name: 'Secondary button'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 0e9fb665-fe93-4048-a6d9-89984f6ede01 # Button URL
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - a8af8e86-4bf3-4777-b563-aa782bda9f11 # Label
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_29_secondarybutton}}'
+      fieldLayout: matrix
+      maxRows: '1'
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  b98023ad-12f1-46f3-abda-f67a7400d69a: # Eyebrow
+    columnSuffix: fwpasgit
+    contentColumnType: text
+    fieldGroup: null
+    handle: eyebrow
+    instructions: ''
+    name: Eyebrow
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: heroDecking
+name: 'Hero decking'
+sortOrder: 26

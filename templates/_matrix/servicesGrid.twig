@@ -3,8 +3,8 @@
     data.eyebrow, data.heading, data.headingHighlight, data.description
     data.services (array) -> { title, description, image, url, featured(bool), badge(string) }
 #}
-{% set data = data is defined ? data : {} %}
-{% set services = data.services is defined ? data.services : [] %}
+{% set data = data is defined ? data : field %}
+{% set services = storitve.storitveInOpisi.active(true).all() %}
 
 <section class="services-grid">
     <div class="container">
@@ -16,12 +16,13 @@
 
         <div class="services-layout">
             {% for service in services %}
-                <a href="{{ service.url }}" class="service-card{{ service.featured is defined and service.featured ? ' is-featured' : '' }}">
-                    <div class="card-bg" style="background-image: url({{ service.image }})"></div>
+                {% set storitev = service.povezanaStoritev.one() %}
+                <a href="{{ storitev.url }}" class="service-card {{ loop.index == 1 ? 'is-featured' : '' }}">
+                    <div class="card-bg" style="background-image: url({{ service.prikazneSlike.one().getUrl({ width: 800, format: 'jpg' }) }})"></div>
                     <div class="card-body">
-                        {% if service.badge is defined %}<span class="badge-primary">{{ service.badge }}</span>{% endif %}
-                        <h3>{{ service.title }}</h3>
-                        {% if service.description is defined %}<p>{{ service.description }}</p>{% endif %}
+                        {% if loop.index == 1 %}<span class="badge-primary">Naša specialnost</span>{% endif %}
+                        <h3>{{ storitev.title }}</h3>
+                        {% if service.kratekOpis is not empty %}<p>{{ service.kratekOpis }}</p>{% endif %}
                         <span class="arrow">Več o storitvi <i class="fal fa-angle-right"></i></span>
                     </div>
                 </a>

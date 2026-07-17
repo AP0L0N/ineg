@@ -1,0 +1,160 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  d69040e3-8385-4db6-869c-2e99ec9b3938:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 23578718-882b-473f-90d6-b0193fb77aac # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d30f3f72-5b78-4d54-8cee-4e28aeb002bd # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f0bcf355-d301-485e-9b2c-bdc29247b5e5 # Heading highlight
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c08fdcfd-81b3-4d87-ab3d-42df4a15bf97 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1037da67-15bd-4793-ac1a-6e54029e5f59 # Projects
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1037da67-15bd-4793-ac1a-6e54029e5f59: # Projects
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: projects
+    instructions: ''
+    name: Projects
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:5772ffb1-79d4-4e6f-ab79-593e6c532409' # Projekti
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  23578718-882b-473f-90d6-b0193fb77aac: # Eyebrow
+    columnSuffix: yqcoafow
+    contentColumnType: text
+    fieldGroup: null
+    handle: eyebrow
+    instructions: ''
+    name: Eyebrow
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c08fdcfd-81b3-4d87-ab3d-42df4a15bf97: # Description
+    columnSuffix: nekulcvm
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d30f3f72-5b78-4d54-8cee-4e28aeb002bd: # Heading
+    columnSuffix: vdrscjeg
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f0bcf355-d301-485e-9b2c-bdc29247b5e5: # Heading highlight
+    columnSuffix: muzavugb
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingHighlight
+    instructions: ''
+    name: 'Heading highlight'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: projectsGallery
+name: 'Projects gallery'
+sortOrder: 32

@@ -1,11 +1,11 @@
 @use "../variables";
 @use "../misc";
 
-.wood-species {
-    padding: 80px 0;
+.examples {
+    margin: 80px 0;
 
     @media (min-width: 991px) {
-        padding: 110px 0;
+        margin: 110px 0;
     }
 
     .section-head {
@@ -41,7 +41,11 @@
     }
 
     .swiper {
-        padding-bottom: 50px;
+        padding-bottom: 60px;
+
+        @media (min-width: 991px) {
+            padding-bottom: 35px;
+        }
     }
 
     .swiper-slide {
@@ -61,7 +65,6 @@
 
         &:hover {
             transform: translateY(-6px);
-            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.1);
             border-color: rgba(248, 155, 83, 0.35);
 
             .species-image img {
@@ -105,6 +108,7 @@
                 @include misc.responsive-font(18, 22);
                 font-weight: 700;
                 margin-bottom: 8px;
+                text-wrap: balance;
             }
 
             p {
@@ -117,10 +121,10 @@
             .species-specs {
                 list-style: none;
                 padding: 14px 0 0;
-                margin: auto 0 0;
-                border-top: 1px solid #f2f2f2;
+                margin: 0;
+                border-top: 1px solid #f1e4d6;
                 display: grid;
-                gap: 10px;
+                gap: 12px;
 
                 li {
                     display: flex;
@@ -129,23 +133,69 @@
                     font-size: 13px;
 
                     span {
-                        text-transform: uppercase;
                         letter-spacing: 0.5px;
-                        font-size: 11px;
-                        color: #9a9a9a;
-                        font-weight: 600;
+                        color: black;
                     }
 
                     strong {
                         color: black;
+                        font-weight: normal;
+                    }
+                }
+            }
+
+            .price-box {
+                margin-top: auto;
+                margin-top: 14px;
+                border-top: thin solid #f1e4d6;
+                padding-top: 14px;
+
+                .price-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    margin-bottom: 6px;
+                    font-size: 13px;
+                    color: black;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    &.is-total {
+
+                        .value {
+                            color: variables.$primary-color-dark;
+                        }
+                    }
+
+                    .value {
+                        color: variables.$primary-color-dark;
                         font-weight: 700;
                     }
                 }
+            }
+
+            .price-small-print {
+                margin-bottom: 0;
+                text-align: right;
+                margin-top: 6px;
             }
         }
     }
 
     .swiper-pagination {
         bottom: 10px;
+    }
+
+    
+    .examples-footer {
+        text-align: center;
+
+        p {
+            font-size: 14px;
+            color: variables.$default-color;
+            margin-bottom: 20px;
+        }
     }
 }

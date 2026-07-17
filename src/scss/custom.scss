@@ -1735,3 +1735,23 @@ form {
 button:focus:not(:focus-visible) {
 	outline: none !important;
 }
+
+.eyebrow {
+	text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #f89b53;
+    display: block;
+    margin-bottom: 12px;
+    font-family: "Albert Sans", sans-serif !important;
+
+	@media(max-width: 768px) {
+		font-size: 11px !important;
+    	letter-spacing: 1px !important;
+	}
+}
+
+.section-head {
+	text-wrap: balance;
+}

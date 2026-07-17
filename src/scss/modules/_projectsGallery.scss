@@ -90,6 +90,11 @@
             bottom: 0;
             padding: 18px;
             color: white;
+            line-height: normal;
+
+            @media(max-width: 767px) {
+                padding: 12px;
+            }
 
             .category {
                 font-size: 11px;
@@ -101,9 +106,9 @@
             }
 
             .title {
-                @include misc.responsive-font(15, 18);
-                font-weight: 700;
-                line-height: 1.2;
+                @include misc.responsive-font(12, 15);
+                line-height: normal;
+                text-wrap: balance;
             }
         }
 
@@ -115,6 +120,13 @@
 
         &.is-wide {
             grid-column: span 2;
+
+            .item-info {
+
+                .title {
+                    @include misc.responsive-font(18, 21);
+                }
+            }
         }
 
         &.is-tall {

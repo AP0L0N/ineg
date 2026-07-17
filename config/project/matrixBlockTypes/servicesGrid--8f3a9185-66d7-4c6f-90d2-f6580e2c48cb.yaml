@@ -1,0 +1,128 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  5ab0aab1-f135-48b0-bfc8-3d4b2a90e35b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d7931ff7-f0b5-41d6-b200-085a8fc5f76a # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d74e46f7-e898-4041-af23-e74fe79c2003 # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: eb1e59f7-1142-4ba3-a58b-686da188258f # Heading headlight
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0f2cc83e-40d5-461d-b0c2-68b9d515e6ab # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0f2cc83e-40d5-461d-b0c2-68b9d515e6ab: # Description
+    columnSuffix: umkymeyu
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d74e46f7-e898-4041-af23-e74fe79c2003: # Heading
+    columnSuffix: lqmekrgy
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d7931ff7-f0b5-41d6-b200-085a8fc5f76a: # Eyebrow
+    columnSuffix: ollvxetn
+    contentColumnType: text
+    fieldGroup: null
+    handle: eyebrow
+    instructions: ''
+    name: Eyebrow
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  eb1e59f7-1142-4ba3-a58b-686da188258f: # Heading headlight
+    columnSuffix: rkdqyonc
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingHeadlight
+    instructions: ''
+    name: 'Heading headlight'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: servicesGrid
+name: 'Services grid'
+sortOrder: 28

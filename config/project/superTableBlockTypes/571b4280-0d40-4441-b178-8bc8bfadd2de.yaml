@@ -1,0 +1,97 @@
+field: 75f327b9-bc06-41b5-8255-17c1db55ddb7 # Stats
+fieldLayouts:
+  50e44132-8ac1-40ed-b1f7-0a0821b8efe3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 7d314684-5016-4339-8ed9-6580bf64de72 # Stat value
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: af28c203-1d12-4b1d-911c-0ec5f01e6e12 # Suffix
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ca922cee-1dc7-4da7-a44b-6814720934ad # Label
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  7d314684-5016-4339-8ed9-6580bf64de72: # Stat value
+    columnSuffix: firsikez
+    contentColumnType: integer(10)
+    fieldGroup: null
+    handle: statValue
+    instructions: ''
+    name: 'Stat value'
+    searchable: false
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: null
+      min: 0
+      prefix: null
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  af28c203-1d12-4b1d-911c-0ec5f01e6e12: # Suffix
+    columnSuffix: guaszycc
+    contentColumnType: text
+    fieldGroup: null
+    handle: suffix
+    instructions: ''
+    name: Suffix
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ca922cee-1dc7-4da7-a44b-6814720934ad: # Label
+    columnSuffix: hkwkmorn
+    contentColumnType: text
+    fieldGroup: null
+    handle: label
+    instructions: ''
+    name: Label
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

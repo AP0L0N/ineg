@@ -1,0 +1,19 @@
+fieldLayouts:
+  2ab22be0-0def-4693-bbb9-ef45513fba99:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 75f327b9-bc06-41b5-8255-17c1db55ddb7 # Stats
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: stats
+name: Stats
+sortOrder: 6

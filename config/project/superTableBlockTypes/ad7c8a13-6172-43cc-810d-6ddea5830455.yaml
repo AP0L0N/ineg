@@ -1,0 +1,265 @@
+field: 4c381d7a-e1c6-4844-b308-8623783ac949 # Examples
+fieldLayouts:
+  58770fe7-12ab-4912-91f9-f372c055fbe3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6e1ccb91-23a0-4a74-9318-443d00cdd454 # Example title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5040d49d-d051-4e43-8bfc-e0f69c248abd # Example badge
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ac46cd1e-3bfd-4e36-8c6f-d3aeb63e1395 # Images
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d8743ab9-dfe2-43ff-818c-7b56f736a635 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 37950108-64c2-4344-b224-c9e0caa187d4 # Specs
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a8abe865-5afc-42a8-bb27-614c33f6f34c # Price (m²)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e2962689-a41f-4d10-96cb-01cd9d815758 # Price (including VAT)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6e1ccb91-23a0-4a74-9318-443d00cdd454: # Example title
+    columnSuffix: ujtkwgmk
+    contentColumnType: text
+    fieldGroup: null
+    handle: exampleTitle
+    instructions: ''
+    name: 'Example title'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  5040d49d-d051-4e43-8bfc-e0f69c248abd: # Example badge
+    columnSuffix: iuiqlpju
+    contentColumnType: text
+    fieldGroup: null
+    handle: exampleBadge
+    instructions: ''
+    name: 'Example badge'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  37950108-64c2-4344-b224-c9e0caa187d4: # Specs
+    columnSuffix: vcyhwowy
+    contentColumnType: text
+    fieldGroup: null
+    handle: specs
+    instructions: ''
+    name: Specs
+    searchable: false
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Label
+                -
+                  - handle
+                  - label
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Spec value'
+                -
+                  - handle
+                  - specValue
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  a8abe865-5afc-42a8-bb27-614c33f6f34c: # Price (m²)
+    columnSuffix: dpxwjkfa
+    contentColumnType: text
+    fieldGroup: null
+    handle: priceM2
+    instructions: ''
+    name: 'Price (m²)'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ac46cd1e-3bfd-4e36-8c6f-d3aeb63e1395: # Images
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: ''
+    name: Images
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: examples
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  d8743ab9-dfe2-43ff-818c-7b56f736a635: # Description
+    columnSuffix: kmawlkje
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e2962689-a41f-4d10-96cb-01cd9d815758: # Price (including VAT)
+    columnSuffix: ndtdtbwr
+    contentColumnType: text
+    fieldGroup: null
+    handle: priceIncludingVat
+    instructions: ''
+    name: 'Price (including VAT)'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

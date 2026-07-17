@@ -4,8 +4,8 @@
     data.button ({ url, label })
     data.projects (array) -> { image, category, title, size('wide'|'tall'|null) }
 #}
-{% set data = data is defined ? data : {} %}
-{% set projects = data.projects is defined ? data.projects : [] %}
+{% set data = data is defined ? data : field %}
+{% set projects = data.projects is defined and data.projects.all() | length > 0 ? data.projects.all() : craft.entries.section("projekti").orderBy("postDate desc").limit(6).all() %}
 
 <section class="projects-gallery">
     <div class="container">
@@ -15,18 +15,18 @@
                 <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
                 {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
             </div>
-            {% if data.button is defined %}
-                <a href="{{ data.button.url }}" class="btn btn-primary">{{ data.button.label }}</a>
-            {% endif %}
+            {% set allProjects = craft.entries.section("nasiProjekti").one() %}
+            <a href="{{ allProjects.url }}" class="btn btn-primary">Vsi projekti</a>
         </div>
 
         <div class="gallery-grid">
             {% for project in projects %}
-                <a href="{{ project.url is defined ? project.url : '#' }}" class="gallery-item{{ project.size is defined and project.size == 'wide' ? ' is-wide' : '' }}{{ project.size is defined and project.size == 'tall' ? ' is-tall' : '' }}">
-                    <img src="{{ project.image }}" alt="{{ project.title }} — lesena terasa INeG" loading="lazy">
+                {% set projectInfo = project.projectInfo.one() %}
+                <a href="{{ project.url }}" class="gallery-item{{ loop.index == 1 ? ' is-wide' : '' }}{{ loop.index == 2 ? ' is-tall' : '' }}">
+                    <img src="{{ projectInfo.galerijaSlik.one().getUrl({ width: 400, format: 'jpg' }) }}" alt="{{ projectInfo.nazivProjekta }}" loading="lazy">
                     <div class="item-info">
-                        {% if project.category is defined %}<span class="category">{{ project.category }}</span>{% endif %}
-                        <span class="title">{{ project.title }}</span>
+                        {% if project.kategorija.one() %}<span class="category">{{ project.kategorija.one().title }}</span>{% endif %}
+                        <span class="title">{{ projectInfo.nazivProjekta }}</span>
                     </div>
                 </a>
             {% endfor %}

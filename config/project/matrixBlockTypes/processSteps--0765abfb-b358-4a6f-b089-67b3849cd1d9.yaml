@@ -1,0 +1,174 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  57b10015-0716-4917-a756-d8930beacbe4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 267fc5e3-c68f-4413-bd80-f9b0b315c752 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c2092bcd-8d2c-4119-934a-690b3b151cf0 # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: eb74cf06-2a19-4dca-8599-4d5c7b3ad558 # Heading highlight
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 769e699c-08d2-49fd-b93c-402b9eff7e6c # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 93350a26-13db-4f7a-b6be-8f278819e22c # Steps
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  267fc5e3-c68f-4413-bd80-f9b0b315c752: # Eyebrow
+    columnSuffix: tolxjgau
+    contentColumnType: text
+    fieldGroup: null
+    handle: eyebrow
+    instructions: ''
+    name: Eyebrow
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  769e699c-08d2-49fd-b93c-402b9eff7e6c: # Description
+    columnSuffix: fvgnoqpb
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  93350a26-13db-4f7a-b6be-8f278819e22c: # Steps
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: steps
+    instructions: ''
+    name: Steps
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 60a422c8-9dc3-46a8-a809-d8ce46ecf676 # Step title
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 025963a5-433b-493f-8d22-378dfcdf717f # Description
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_34_steps}}'
+      fieldLayout: table
+      maxRows: '5'
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  c2092bcd-8d2c-4119-934a-690b3b151cf0: # Heading
+    columnSuffix: bzqfxpfn
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  eb74cf06-2a19-4dca-8599-4d5c7b3ad558: # Heading highlight
+    columnSuffix: wgmgsooi
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingHighlight
+    instructions: ''
+    name: 'Heading highlight'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: processSteps
+name: 'Process steps'
+sortOrder: 31

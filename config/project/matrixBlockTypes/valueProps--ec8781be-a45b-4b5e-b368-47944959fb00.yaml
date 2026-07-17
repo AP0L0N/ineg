@@ -1,0 +1,181 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  463c4406-e0d5-4fc9-b898-86e61441fd79:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e9ca8a8b-da55-4b9b-b0ea-0f4279fe5205 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2d815770-7571-42fa-acc9-a560c29785b0 # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e8a69c72-2ac9-4b0e-a845-a88883e1cdde # Heading highlight
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4027e006-74a1-40c3-a272-f73817ff1995 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3488cf67-6772-48b4-869c-322dd83eb302 # Props
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2d815770-7571-42fa-acc9-a560c29785b0: # Heading
+    columnSuffix: alcvtctp
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3488cf67-6772-48b4-869c-322dd83eb302: # Props
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: props
+    instructions: ''
+    name: Props
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - c068ce13-3628-41c6-b4b3-e0f891f14b91 # Prop icon
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - f2f5e821-7a7f-4ea8-82dd-389809d13333 # Prop title
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 4cb6267b-aa0d-4c35-861c-277db9f53b4e # Description
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_32_props}}'
+      fieldLayout: table
+      maxRows: '4'
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  4027e006-74a1-40c3-a272-f73817ff1995: # Description
+    columnSuffix: imwtfopq
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e8a69c72-2ac9-4b0e-a845-a88883e1cdde: # Heading highlight
+    columnSuffix: iuhnrmos
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingHighlight
+    instructions: ''
+    name: 'Heading highlight'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e9ca8a8b-da55-4b9b-b0ea-0f4279fe5205: # Eyebrow
+    columnSuffix: vohmznwf
+    contentColumnType: text
+    fieldGroup: null
+    handle: eyebrow
+    instructions: ''
+    name: Eyebrow
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: valueProps
+name: 'Value props'
+sortOrder: 29

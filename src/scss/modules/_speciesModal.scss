@@ -1,0 +1,242 @@
+@use "../variables";
+@use "../misc";
+
+// Whole species-card is clickable to open its modal
+.species-card[data-modal-target] {
+    cursor: pointer;
+
+    &:focus-visible {
+        outline: 3px solid variables.$primary-color;
+        outline-offset: -3px;
+        padding: 10px;
+    }
+}
+
+body.species-modal-open {
+    overflow: hidden;
+}
+
+.species-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
+
+    .species-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(17, 17, 17, 0.65);
+        backdrop-filter: blur(2px);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .species-modal-dialog {
+        position: relative;
+        z-index: 1;
+        margin: 30px auto;
+        max-width: 1100px;
+        max-height: calc(85vh - 60px);
+        overflow-y: auto;
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+        display: grid;
+        grid-template-columns: 1fr;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+
+        @media (min-width: 768px) {
+            margin: 60px auto;
+            max-height: calc(100vh - 120px);
+        }
+
+        @media (min-width: 991px) {
+            grid-template-columns: 340px 1fr;
+        }
+    }
+
+    &.is-active {
+        .species-modal-backdrop {
+            opacity: 1;
+        }
+
+        .species-modal-dialog {
+            opacity: 1;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .species-modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        z-index: 2;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(17, 17, 17, 0.55);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.15s ease;
+
+        &:hover {
+            background: variables.$primary-color;
+            color: black;
+        }
+
+        &:focus-visible {
+            outline: 3px solid variables.$primary-color;
+            outline-offset: 2px;
+        }
+    }
+
+    .species-modal-sidebar {
+        padding: 30px 28px 0;
+
+        @media (min-width: 991px) {
+            border-right: 1px solid #f1e4d6;
+            overflow-y: auto;
+        }
+
+        .origin {
+            display: inline-block;
+            background: #fff6ee;
+            color: variables.$primary-color-dark;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        h3 {
+            @include misc.responsive-font(20, 26);
+            font-weight: 700;
+            margin-bottom: 14px;
+            padding-right: 30px;
+            position: sticky;
+            top: 0;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: variables.$default-color;
+            margin-bottom: 20px;
+        }
+
+        .species-specs {
+            list-style: none;
+            padding: 14px 0 0;
+            margin: 0;
+            border-top: 1px solid #f1e4d6;
+            display: grid;
+            gap: 12px;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 13px;
+
+                span {
+                    letter-spacing: 0.5px;
+                    color: black;
+                }
+
+                strong {
+                    color: black;
+                    font-weight: normal;
+                }
+            }
+        }
+
+        .price-box {
+            margin-top: auto;
+            margin-top: 14px;
+            border-top: thin solid #f1e4d6;
+            padding-top: 14px;
+
+            .price-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin-bottom: 6px;
+                font-size: 13px;
+                color: black;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &.is-total {
+
+                    .value {
+                        color: variables.$primary-color-dark;
+                    }
+                }
+
+                .value {
+                    color: variables.$primary-color-dark;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .price-small-print {
+            margin-bottom: 0;
+            text-align: right;
+            margin-top: 6px;
+        }
+    }
+
+    .species-modal-gallery {
+        padding: 28px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        align-content: start;
+
+        @media (min-width: 576px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .gallery-figure {
+            margin: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                cursor: zoom-in;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            &:hover img {
+                transform: scale(1.06);
+            }
+        }
+    }
+}

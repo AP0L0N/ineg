@@ -1,0 +1,262 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  2a668a7d-9c62-469a-a2b3-722bbcebc8e5:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 605ab390-9cfc-47bb-8ae2-5a65d1ef8f97 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c243243e-5d8f-4da1-96de-109ea9353699 # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 848c4c97-32f0-444c-8f8b-6a66035cfad5 # Heading highlight
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4a5e0337-4fd0-4390-ba15-e7cccb04af47 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4c381d7a-e1c6-4844-b308-8623783ac949 # Examples
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 86795335-d557-4412-834b-14ac7ca02123 # Bigger cards
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a10128b5-0d05-40c9-84c7-ddaf939320f3 # Add link to contact
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  4a5e0337-4fd0-4390-ba15-e7cccb04af47: # Description
+    columnSuffix: tcmvjwgi
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  4c381d7a-e1c6-4844-b308-8623783ac949: # Examples
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: examples
+    instructions: ''
+    name: Examples
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 6e1ccb91-23a0-4a74-9318-443d00cdd454 # Example title
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 5040d49d-d051-4e43-8bfc-e0f69c248abd # Example badge
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - ac46cd1e-3bfd-4e36-8c6f-d3aeb63e1395 # Images
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - d8743ab9-dfe2-43ff-818c-7b56f736a635 # Description
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 37950108-64c2-4344-b224-c9e0caa187d4 # Specs
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - a8abe865-5afc-42a8-bb27-614c33f6f34c # Price (m²)
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - e2962689-a41f-4d10-96cb-01cd9d815758 # Price (including VAT)
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_33_examples}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  605ab390-9cfc-47bb-8ae2-5a65d1ef8f97: # Eyebrow
+    columnSuffix: czncpnjm
+    contentColumnType: text
+    fieldGroup: null
+    handle: eyebrow
+    instructions: ''
+    name: Eyebrow
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  848c4c97-32f0-444c-8f8b-6a66035cfad5: # Heading highlight
+    columnSuffix: klhwcgvx
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingHighlight
+    instructions: ''
+    name: 'Heading highlight'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  86795335-d557-4412-834b-14ac7ca02123: # Bigger cards
+    columnSuffix: qcsreuon
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: biggerCards
+    instructions: ''
+    name: 'Bigger cards'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  a10128b5-0d05-40c9-84c7-ddaf939320f3: # Add link to contact
+    columnSuffix: loonhrpv
+    contentColumnType: text
+    fieldGroup: null
+    handle: addLinkToContact
+    instructions: ''
+    name: 'Add link to contact'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c243243e-5d8f-4da1-96de-109ea9353699: # Heading
+    columnSuffix: lkwxrdzk
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: examples
+name: Examples
+sortOrder: 30

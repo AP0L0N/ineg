@@ -7,7 +7,7 @@
       data.secondaryButton    ({ url, label })
       data.trust              (array)  -> { value, label, stars(bool) }
 #}
-{% set data = data is defined ? data : {} %}
+{% set data = data is defined ? data : field %}
 {% set slides = data.slides is defined ? data.slides : [] %}
 
 <section class="hero-decking">
@@ -15,7 +15,7 @@
         <div class="swiper-wrapper">
             {% for slide in slides %}
                 <div class="swiper-slide">
-                    <div class="hero-slide" style="background-image: url({{ slide.image }})">
+                    <div class="hero-slide" style="background-image: url({{ slide.image.one().getUrl({ width: 2500, format: 'jpg' }) }});">
                         <div class="container">
                             <div class="hero-content">
                                 {% if data.eyebrow is defined %}
@@ -31,10 +31,10 @@
 
                                 <div class="hero-actions">
                                     {% if data.primaryButton is defined %}
-                                        <a href="{{ data.primaryButton.url }}" class="btn btn-primary">{{ data.primaryButton.label }}</a>
+                                        <a href="{{ data.primaryButton.buttonUrl }}" class="btn btn-primary">{{ data.primaryButton.label }}</a>
                                     {% endif %}
                                     {% if data.secondaryButton is defined %}
-                                        <a href="{{ data.secondaryButton.url }}" class="btn-ghost">{{ data.secondaryButton.label }}</a>
+                                        <a href="{{ data.secondaryButton.buttonUrl }}" class="btn-ghost">{{ data.secondaryButton.label }}</a>
                                     {% endif %}
                                 </div>
 
