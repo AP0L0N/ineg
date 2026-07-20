@@ -46,7 +46,7 @@ class UserController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['price-calculation'];
+    protected $allowAnonymous = ['price-calculation', 'contact'];
 
     public function actionPriceCalculation() {
         $user = Craft::$app->request->getBodyParam('user');
@@ -86,5 +86,37 @@ class UserController extends Controller
         } else {
             return $this->asJson(['success' => false]);
         }
+    }
+
+    public function actionContact() {
+        $request = Craft::$app->getRequest();
+
+        $name = $request->getBodyParam('name');
+        $phone = $request->getBodyParam('phone');
+        $email = $request->getBodyParam('email');
+        $type = $request->getBodyParam('type');
+        $message = $request->getBodyParam('message');
+
+        $section = Craft::$app->sections->getSectionByHandle('povprasevanja');
+
+        $entry = new Entry();
+        $entry->sectionId = $section->id;
+        $entry->typeId = $section->getEntryTypes()[0]->id;
+        $entry->authorId = 1;
+        $entry->enabled = true;
+        $entry->setFieldValues([
+            'uporabnikImeInPriimek' => $name,
+            'uporabnikEmail' => $email,
+            'uporabnikOpombe' => $message . "\n\nTelefon: " . $phone . "\nVrsta povpraševanja: " . $type,
+            'postavke' => '<p><strong>Vrsta povpraševanja:</strong> ' . $type . '</p><p><strong>Telefon:</strong> ' . $phone . '</p>',
+        ]);
+
+        $success = Craft::$app->elements->saveElement($entry);
+
+        if ($success) {
+            return $this->asJson(['success' => true]);
+        }
+
+        return $this->asJson(['success' => false]);
     }
 }

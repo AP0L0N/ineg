@@ -1755,3 +1755,20 @@ button:focus:not(:focus-visible) {
 .section-head {
 	text-wrap: balance;
 }
+
+.form-feedback {
+	margin-top: 1rem;
+	padding: 0.75rem 1rem;
+	border-radius: 0.375rem;
+	font-size: 0.95rem;
+
+	&--success {
+		background-color: #d1fae5;
+		color: #065f46;
+	}
+
+	&--error {
+		background-color: #fee2e2;
+		color: #991b1b;
+	}
+}

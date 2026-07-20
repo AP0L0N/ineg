@@ -100,25 +100,26 @@
                     <h2>Pripravimo vam <span>informativno ponudbo</span></h2>
                     <p>Izpolnite spodnji obrazec in odgovorili vam bomo v najkrajšem možnem času.</p>
 
-                    <form class="contact-form" onsubmit="return false;">
+                    <form id="contactForm" class="contact-form" onsubmit="return false;">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="contactName">Ime in priimek</label>
-                                <input type="text" id="contactName" name="name" placeholder="Janez Novak">
+                                <input type="text" id="contactName" name="name" placeholder="Janez Novak" required>
                             </div>
                             <div class="form-group">
                                 <label for="contactPhone">Telefon</label>
-                                <input type="tel" id="contactPhone" name="phone" placeholder="+386 40 000 000">
+                                <input type="tel" id="contactPhone" name="phone" placeholder="+386 40 000 000" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="contactEmail">E-naslov</label>
-                                <input type="email" id="contactEmail" name="email" placeholder="ime@primer.si">
+                                <input type="email" id="contactEmail" name="email" placeholder="ime@primer.si" required>
                             </div>
                             <div class="form-group">
                                 <label for="contactType">Vrsta povpraševanja</label>
-                                <select id="contactType" name="type">
+                                <select id="contactType" name="type" required>
+                                    <option value="" disabled selected>Izberite vrsto</option>
                                     <option>Lesena terasa</option>
                                     <option>Leseni fasadni sistemi</option>
                                     <option>Lesene ograje</option>
@@ -129,11 +130,12 @@
                         </div>
                         <div class="form-group">
                             <label for="contactMessage">Sporočilo</label>
-                            <textarea id="contactMessage" name="message" rows="5" placeholder="Opišite želen produkt, velikost, material in način montaže."></textarea>
+                            <textarea id="contactMessage" name="message" rows="5" placeholder="Opišite želen produkt, velikost, material in način montaže." required></textarea>
                         </div>
 
-                        <button type="button" class="btn btn-primary">Pošlji povpraševanje</button>
+                        <button type="submit" class="btn btn-primary">Pošlji povpraševanje</button>
                         <p class="form-note">Odgovorimo v enem delovnem dnevu.</p>
+                        <div class="form-feedback" role="status" aria-live="polite" style="display: none;"></div>
                     </form>
                 </div>
 
@@ -226,19 +228,76 @@
     { name: 'Kontakt', url: entry.url }
 ]) }}
 
+<script>
+(function () {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
 
-{# ───────────────────── POGOSTA VPRAŠANJA ───────────────────── #}
-{% include "_matrix/faqAccordion" with {
-    data: {
-        eyebrow: 'Pogosta vprašanja',
-        heading: 'Vprašanja, ki nam jih',
-        headingHighlight: 'pogosto zastavite',
-        faqs: [
-            { question: 'Koliko časa traja izdelava lesene terase?', answer: '<p>Manjše terase (do 20 m²) običajno izdelamo v enem do dveh delovnih dnevih, večji in bolj zahtevni projekti pa lahko trajajo teden dni ali več, odvisno od velikosti in izbranega materiala.</p>' },
-            { question: 'Ali nudite brezplačen ogled in svetovanje?', answer: '<p>Da, pred pripravo ponudbe se dogovorimo za brezplačen ogled na terenu, kjer izmerimo prostor in svetujemo glede izbire lesa in podkonstrukcije.</p>' },
-            { question: 'Kakšna je razlika med eksotičnim lesom in sibirskim macesnom?', answer: '<p>Eksotični les (Cumaru, IPE Lapacho, Garapa) je gostejši in obstojnejši, zato zdrži tudi 25 let in več, medtem ko je sibirski macesen cenovno ugodnejša izbira z odlično obstojnostjo do 15 let.</p>' },
-            { question: 'Ali izvajate tudi vzdrževanje in obnovo obstoječih teras?', answer: '<p>Da, izvajamo brušenje, oljenje in zamenjavo poškodovanih desk na obstoječih lesenih terasah, ne glede na to, ali smo jih izdelali mi.</p>' },
-            { question: 'Kako hitro prejmem informativno ponudbo?', answer: '<p>Na povpraševanje preko obrazca ali e-pošte odgovorimo v enem delovnem dnevu, informativno ceno pa pripravimo takoj po ogledu terena.</p>' }
-        ]
+    var feedback = form.querySelector('.form-feedback');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+    function showFeedback(message, type) {
+        if (!feedback) return;
+        feedback.textContent = message;
+        feedback.className = 'form-feedback form-feedback--' + type;
+        feedback.style.display = 'block';
     }
-} %}
+
+    function hideFeedback() {
+        if (!feedback) return;
+        feedback.style.display = 'none';
+        feedback.textContent = '';
+    }
+
+    function setLoading(isLoading) {
+        if (!submitBtn) return;
+        submitBtn.disabled = isLoading;
+        submitBtn.textContent = isLoading ? 'Pošiljanje ...' : originalBtnText;
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        hideFeedback();
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        setLoading(true);
+
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function (value, key) {
+            data[key] = value;
+        });
+
+        fetch('/actions/custom-module/user/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(function (response) { return response.json(); })
+        .then(function (result) {
+            if (result.success) {
+                showFeedback('Hvala za vaše povpraševanje! Odgovorili vam bomo v najkrajšem možnem času.', 'success');
+                form.reset();
+            } else {
+                showFeedback('Prišlo je do napake pri pošiljanju. Poskusite znova.', 'error');
+            }
+        })
+        .catch(function () {
+            showFeedback('Prišlo je do napake pri pošiljanju. Poskusite znova.', 'error');
+        })
+        .finally(function () {
+            setLoading(false);
+        });
+    });
+})();
+</script>
+
