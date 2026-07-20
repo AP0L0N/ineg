@@ -41,7 +41,25 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 4c87ea2b-aecf-40f0-95fa-aa0d33940725 # Telefon - ime
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: a676fb77-bdcb-4ab3-8567-f9ed7568b022 # Telefon
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fcfe3f7b-e193-47af-8c7a-e756a761ce79 # Telefon 2 - ime
             instructions: null
             label: null
             required: false
@@ -103,6 +121,26 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Email
+  4c87ea2b-aecf-40f0-95fa-aa0d33940725: # Telefon - ime
+    columnSuffix: qlnspbev
+    contentColumnType: text
+    fieldGroup: null
+    handle: telefonIme
+    instructions: ''
+    name: 'Telefon - ime'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   8ebb77e6-b002-4074-b817-3eece1ff41bf: # Naslov
     columnSuffix: null
     contentColumnType: text
@@ -190,6 +228,26 @@ fields:
     handle: telefon2
     instructions: ''
     name: 'Telefon 2'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  fcfe3f7b-e193-47af-8c7a-e756a761ce79: # Telefon 2 - ime
+    columnSuffix: kbmlbblb
+    contentColumnType: text
+    fieldGroup: null
+    handle: telefon2Ime
+    instructions: ''
+    name: 'Telefon 2 - ime'
     searchable: false
     settings:
       byteLimit: null

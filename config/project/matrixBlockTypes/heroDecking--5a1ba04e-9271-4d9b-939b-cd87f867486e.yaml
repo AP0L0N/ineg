@@ -22,64 +22,9 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-          -
-            fieldUid: 0fda5c30-a9ff-458c-9a2c-5cc76fbfc12e # Primary button
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 559c01f0-fce7-4256-9294-d4429461170c # Secondary button
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
         name: Content
         sortOrder: 1
 fields:
-  0fda5c30-a9ff-458c-9a2c-5cc76fbfc12e: # Primary button
-    columnSuffix: null
-    contentColumnType: string
-    fieldGroup: null
-    handle: primaryButton
-    instructions: ''
-    name: 'Primary button'
-    searchable: false
-    settings:
-      columns:
-        __assoc__:
-          -
-            - d24c6dfb-61ca-42be-a710-fb84765bfc87 # Button URL
-            -
-              __assoc__:
-                -
-                  - width
-                  - ''
-          -
-            - 65ee1894-575b-4134-8896-0757e693b7fc # Label
-            -
-              __assoc__:
-                -
-                  - width
-                  - ''
-      contentTable: '{{%stc_29_primarybutton}}'
-      fieldLayout: matrix
-      maxRows: '1'
-      minRows: ''
-      placeholderKey: null
-      propagationKeyFormat: null
-      propagationMethod: all
-      selectionLabel: ''
-      staticField: ''
-    translationKeyFormat: null
-    translationMethod: site
-    type: verbb\supertable\fields\SuperTableField
   81c32a6d-384a-4902-b676-6f82d656cc1b: # Slides
     columnSuffix: null
     contentColumnType: string
@@ -119,46 +64,30 @@ fields:
                 -
                   - width
                   - ''
+          -
+            - fe430a85-3bfb-4a6f-b6b3-3ead197087d7 # Include trust
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - c70a62ae-1e2d-4b7f-8571-b7c625780dc5 # Primary button
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 97d15ad2-33ed-4ab4-ac4f-0e5d782e1cf3 # Secondary button
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
       contentTable: '{{%stc_29_slides}}'
       fieldLayout: matrix
       maxRows: ''
-      minRows: ''
-      placeholderKey: null
-      propagationKeyFormat: null
-      propagationMethod: all
-      selectionLabel: ''
-      staticField: ''
-    translationKeyFormat: null
-    translationMethod: site
-    type: verbb\supertable\fields\SuperTableField
-  559c01f0-fce7-4256-9294-d4429461170c: # Secondary button
-    columnSuffix: null
-    contentColumnType: string
-    fieldGroup: null
-    handle: secondaryButton
-    instructions: ''
-    name: 'Secondary button'
-    searchable: false
-    settings:
-      columns:
-        __assoc__:
-          -
-            - 0e9fb665-fe93-4048-a6d9-89984f6ede01 # Button URL
-            -
-              __assoc__:
-                -
-                  - width
-                  - ''
-          -
-            - a8af8e86-4bf3-4777-b563-aa782bda9f11 # Label
-            -
-              __assoc__:
-                -
-                  - width
-                  - ''
-      contentTable: '{{%stc_29_secondarybutton}}'
-      fieldLayout: matrix
-      maxRows: '1'
       minRows: ''
       placeholderKey: null
       propagationKeyFormat: null

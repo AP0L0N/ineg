@@ -49,7 +49,7 @@
             <div class="container">
 
                 <div class="blogs-page-head">
-                    <h1>Blog</h1>
+                    <h1>Objave</h1>
                     <p>Nasveti, novice in izvedeni projekti s področja lesenih teras, ograj in fasad.</p>
                 </div>
 
@@ -92,7 +92,7 @@
                             {% set itemCategory = item.kategorija.one() %}
                             <a href="{{ item.url }}" class="blog-card">
                                 <div class="blog-card-image">
-                                    <img src="{{ item.blogInfo.slika.one().getUrl('croppedFullModule') }}" alt="{{ item.blogInfo.naslov }}" loading="lazy">
+                                    <img src="{{ item.blogInfo.slika.one().getUrl({ width: 600, format: 'jpg' }) }}" alt="{{ item.blogInfo.naslov }}" loading="lazy">
                                 </div>
 
                                 <div class="blog-card-body">

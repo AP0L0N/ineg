@@ -1,4 +1,4 @@
-dateModified: 1784249141
+dateModified: 1784512034
 email:
   fromEmail: poje.tilen@gmail.com
   fromName: INeG
@@ -6,6 +6,7 @@ email:
 meta:
   __names__:
     0aab90dd-1706-460e-ba41-ea99bd889984: 'Izbrana storitev' # Izbrana storitev
+    0ba0ccb6-618a-4b3a-9333-4170f0ef32a6: 'Comparison table' # Comparison table
     000d4cfc-840a-42d5-a582-21aa5856edf3: 'Video (embed)' # Video (embed)
     0e9fb665-fe93-4048-a6d9-89984f6ede01: 'Button URL' # Button URL
     0f2cc83e-40d5-461d-b0c2-68b9d515e6ab: Description # Description
@@ -44,14 +45,19 @@ meta:
     4b958ebf-6fb4-4e35-948f-87ad7c9d5b34: 'Lesene ograje' # Lesene ograje
     4b449361-11bb-4cdc-b751-49e876686d25: 'Image four' # Image four
     4b500858-3db6-4028-9023-be7119e57033: 'Info e-naslov' # Info e-naslov
+    4c87ea2b-aecf-40f0-95fa-aa0d33940725: 'Telefon - ime' # Telefon - ime
     4c381d7a-e1c6-4844-b308-8623783ac949: Examples # Examples
+    4c949e03-750f-420a-8c5d-e566796f54b6: 'Mnenja strank' # Mnenja strank
     4cb6267b-aa0d-4c35-861c-277db9f53b4e: Description # Description
     4d365d23-0ba6-4c86-a4a7-e33932697a8a: Opis # Opis
     4e2a27e0-d8dc-45dd-8bde-ca82588b2e5e: 'Telefonska številka' # Telefonska številka
     4e69d316-2d1b-4986-81ac-c00fd82bd7ed: Heading # Heading
     4e197ef4-5bbd-44fd-8f02-e4990e995776: 'List all' # List all
+    4ed8992f-6da8-4b32-8c69-6eedee3b89ef: Description # Description
     5a1ba04e-9271-4d9b-939b-cd87f867486e: 'Hero decking' # Hero decking
+    5a78a8b0-e06b-42b3-ba83-d44dcb689a55: FAQ # FAQ
     5aff0339-6a73-417e-bfbf-63656f413f30: Naslov # Naslov
+    5b0791f2-c452-435e-b985-1fde7fc85862: Eyebrow # Eyebrow
     5bd46058-58ff-46a5-9e63-14f89ff52e99: Kontakt # Kontakt
     5cb71353-9803-4fee-a8ac-bb4b541ce4b2: Opis # Opis
     5d3e2aef-faae-4ea8-bc75-e0a04924d779: 'Custom CSS Classes' # Custom CSS Classes
@@ -65,15 +71,19 @@ meta:
     6e1ccb91-23a0-4a74-9318-443d00cdd454: 'Example title' # Example title
     7a839f40-721f-4c05-a168-2b115857e29b: Naslov # Naslov
     7bb6a28b-84a8-46b3-8eb2-351a62720628: Vsebina # Vsebina
+    7bb8d183-e2b5-4013-8091-38f077592b18: FAQ # FAQ
     7c2efbe1-3da9-4175-b746-6dc20108aaae: 'Slike potrdil' # Slike potrdil
     7c545f62-8086-40e6-9d40-3793e2321fb8: Naziv # Naziv
+    7c6856c1-af18-4ef2-8577-37df6c065ded: 'Heading highlight' # Heading highlight
     7d314684-5016-4339-8ed9-6580bf64de72: 'Stat value' # Stat value
     7e7d9b29-8e4f-46a9-9ab0-3dd77631f809: 'Slika mape' # Slika mape
     7edd04e1-36d9-4b2a-96ec-056d74536fd5: Slika # Slika
+    7f917a85-a08b-4500-89c4-c4491c7eecbb: 'Mnenje stranke' # Mnenje stranke
     08a82146-1815-41db-bd98-bd6b15bb74d4: 'Description two' # Description two
     8b693f15-2c19-4ee8-aee2-63760a7a71cb: 'Project info' # Project info
     8b914e1d-0c44-4dd9-aa0e-64544c54bd75: Storitev # Storitev
     8bbc8687-1a81-4985-bb47-ec5ee740303b: 'Size 800' # Size 800
+    8be45aa4-1a1f-4cee-9ab9-8d361579c3a6: Description # Description
     8e7e1dec-357a-4d1d-b757-3f1ac7bda2a8: 'Naziv ponudbe' # Naziv ponudbe
     8ebb77e6-b002-4074-b817-3eece1ff41bf: Naslov # Naslov
     8f3a9185-66d7-4c6f-90d2-f6580e2c48cb: 'Services grid' # Services grid
@@ -81,6 +91,7 @@ meta:
     8f854904-9811-4d3b-91c2-425844259b52: 'Vrtne hiške in nadstreški' # Vrtne hiške in nadstreški
     8fd69b6d-5ca4-4568-be30-23b872c4d6c3: Naslov # Naslov
     9a1a5004-42d2-436b-9862-ba9ca67222e8: 'Custom CSS Classes' # Custom CSS Classes
+    9a70ef86-584b-4229-a447-6e65f68bd505: Background # Background
     9afbea8c-b763-44ad-99c1-2f3fb319ea49: Datoteke # Datoteke
     9bdd9fab-54b3-4320-ad2d-544d8e08d741: Postavke # Postavke
     9bf88209-bbbd-417c-8b44-02ed763c5dbf: 'Odpri povezavo v novem oknu?' # Odpri povezavo v novem oknu?
@@ -92,6 +103,7 @@ meta:
     9ffbcbe9-d033-4b1c-9dd7-ab14914505d4: 'Stats bar' # Stats bar
     11c7302d-c3e3-43d4-bd64-c1e6ee403496: Naslov # Naslov
     12f1bfe4-8eee-40f0-8c16-0d5813161b96: 'Custom CSS Classes' # Custom CSS Classes
+    15add603-12b9-4dc4-98df-a932bf9a07f6: 'Column values' # Column values
     18dd1580-3306-463c-90d8-15005458d83a: 'O inštitutu' # O inštitutu
     21b10a42-3045-4c69-86b0-3557fdfff06e: 'Kategorija zadolžitve' # Kategorija zadolžitve
     21e8671b-ef20-423d-98ac-5ec6ea8d07ca: Storitev # Storitev
@@ -116,6 +128,7 @@ meta:
     44c53cbe-727d-4d2f-b5a9-110aee727442: 'Prodaja e-naslov' # Prodaja e-naslov
     48d641af-cbb4-437f-932f-e4fd006e5900: 'Projects gallery' # Projects gallery
     49d4084b-217d-4681-b9d4-7d5d7298fd09: Poziv # Poziv
+    52dc14fe-a219-4bf8-b015-2350ebe1956e: Default # Default
     53f6ff89-e292-4110-aa87-b47d3a9db71a: '300' # 300
     55f0912d-0de1-4e5f-8fb2-fc828e2d05c0: 'Newsletter poup image' # Newsletter poup image
     56c22f54-d7b0-4445-8e12-4631c1286edf: Label # Label
@@ -134,9 +147,11 @@ meta:
     76e26ee1-050c-4b55-9e43-83da6e15386a: 'Naši projekti' # Naši projekti
     77e25f76-224a-4544-a2af-42c02cfc3889: Poziv # Poziv
     79d55292-b680-4307-9f2d-6a37e8439f22: 'Naziv povezave' # Naziv povezave
+    80cd949b-980a-417b-a579-64f3b22d3095: 'Example entries' # Example entries
     80e273cc-61c2-41ad-8667-179e39a593b6: 'Lesene ograje' # Lesene ograje
     81a7061f-7bd5-45a9-89f2-85db549091a1: 'Custom CSS Classes' # Custom CSS Classes
     81c32a6d-384a-4902-b676-6f82d656cc1b: Slides # Slides
+    82ff59a1-ecf9-4ad0-8b99-76483cb517ab: 'Heading highlight' # Heading highlight
     84d8e957-1e32-49b0-9f26-39a0aedace71: Naziv # Naziv
     87e5cfa6-ebc2-4ded-b8d3-073a5dcff315: 'Size 250' # Size 250
     92f1c4ce-2368-4c70-bae9-efc831869807: 'Quote author' # Quote author
@@ -145,6 +160,7 @@ meta:
     94c97c88-3a0b-4214-87aa-45fd91194d6d: 'Uporabnik - opombe' # Uporabnik - opombe
     95fc75fe-9ca8-43a8-8ea9-80cd9a7cec92: Projekti # Projekti
     96ffb975-c4c8-4643-9927-46057d40657f: Opis # Opis
+    97d15ad2-33ed-4ab4-ac4f-0e5d782e1cf3: 'Secondary button' # Secondary button
     97e5b560-e8c3-4c6a-85cb-8c58af3948c3: 'Opis 2' # Opis 2
     129a9d37-459c-4e35-87bb-6a534eef4dbe: 'Napis na gumbu' # Napis na gumbu
     139ac94a-be40-4d5f-9677-7d39a95bae78: 'Main title one' # Main title one
@@ -161,6 +177,7 @@ meta:
     276a1f53-7bc3-45ab-a7e8-774baf3f33ff: 'Naslov 2' # Naslov 2
     322a86f0-629b-4606-92b3-89d0c27e3b6e: 'Info modul' # Info modul
     323b5c8a-4880-4d8b-a460-eec55ff15f37: Subvencija # Subvencija
+    323f1c90-4e3a-4526-bcc2-77c336b53ca7: Description # Description
     333ca856-1e97-49c7-93bf-8668eff3a123: 'Cropped full module' # Cropped full module
     0337f395-b21b-4ce1-a7a2-b94a16d643ce: Povpraševanja # Povpraševanja
     365aeddb-babb-4045-a951-4e5fd07f7483: 'Video (URL)' # Video (URL)
@@ -187,23 +204,30 @@ meta:
     0765abfb-b358-4a6f-b089-67b3849cd1d9: 'Process steps' # Process steps
     769e699c-08d2-49fd-b93c-402b9eff7e6c: Description # Description
     784e228e-9710-46ee-a8e8-81b1e07b4a01: Naslov # Naslov
+    0804ed7d-d3bc-4bca-bb30-c5bcb5be6a51: Mnenje # Mnenje
     840e2501-1cc7-4112-ac2f-5ef95840022c: Images # Images
     848c4c97-32f0-444c-8f8b-6a66035cfad5: 'Heading highlight' # Heading highlight
     908b8d68-fc13-4fcc-af81-d6b39cccf72a: Povezava # Povezava
     913e1687-6ce2-4045-b9b4-cbf2f5c6ec65: Video # Video
     929a2ea6-e079-4dcb-b4bd-9b86dadead42: 'Gradnja hiš' # Gradnja hiš
+    948ce29b-f372-417a-b739-18d5ef96b732: Heading # Heading
     960f8fa7-a22c-4185-a158-76cf6dfa8f52: 'Custom CSS Classes' # Custom CSS Classes
+    975f0eca-1f3f-4326-b5c6-ddc980d11b85: Rows # Rows
+    976f6cf3-1cd5-413d-b4fd-c28f2e9458c3: 'Example - specs' # Example - specs
     1037da67-15bd-4793-ac1a-6e54029e5f59: Projects # Projects
     1582f504-8921-4193-b05e-98733bf29e34: '3. okvir - opis' # 3. okvir - opis
+    2237a77d-8f09-4d38-8caf-4521c5024206: Label # Label
     2364a3c8-011c-4d97-8657-893515b82bfc: Opis # Opis
     2622d1a4-6265-4137-9863-9dff8bf0f933: 'Size 540' # Size 540
     2657b2fb-46fa-4f3f-8fca-409df7df7a51: 'Button title' # Button title
     3488cf67-6772-48b4-869c-322dd83eb302: Props # Props
+    3551b665-01b2-4999-a729-d807a26f7797: Heading # Heading
     4027e006-74a1-40c3-a272-f73817ff1995: Description # Description
     5040d49d-d051-4e43-8bfc-e0f69c248abd: 'Example badge' # Example badge
     5772ffb1-79d4-4e6f-ab79-593e6c532409: Projekti # Projekti
     5799a8a8-628b-41ff-9557-905ab578685c: 'Google maps embed' # Google maps embed
     6386dd2f-49d8-42fa-bb81-dd6ad4cbc835: Opis # Opis
+    6407d505-73e9-4cc5-a78e-aaf561fe48fa: 'Example - price (including VAT)' # Example - price (including VAT)
     6645ade2-76af-4653-9eb0-177312f7e91f: 'Gradnja hiš' # Gradnja hiš
     6749be0e-0baf-4ec0-94c3-c162f3fc3407: Postavka # Postavka
     07272e42-3e7d-4087-98a4-6eeb9adaf23b: Projects # Projects
@@ -216,6 +240,8 @@ meta:
     9865aeb4-5dfc-4359-a8e3-e876e61edf16: Povpraševanja # Povpraševanja
     22891a7d-bc13-4121-8ee3-3dcbac228a10: 'Comparison size' # Comparison size
     025963a5-433b-493f-8d22-378dfcdf717f: Description # Description
+    32699a2b-0939-42eb-a7a2-5c6ea64fd0f4: Testimonials # Testimonials
+    37075f18-4847-47cb-8ba8-1553db8b211f: Heading # Heading
     39230fc3-1da0-48cc-9cbf-9ec124c75971: 'Size 255' # Size 255
     42928c50-bb92-4924-a37f-25a93a578fe3: Postavke # Postavke
     44789f95-effc-4aa8-b73b-c4aad967401c: 'Main title' # Main title
@@ -228,10 +254,12 @@ meta:
     77610db9-ee11-4a2a-adc4-5a98c1cab9bc: Lead # Lead
     92497a7c-87b9-40ab-ac14-a929ed1c6f05: 'Slika ozadja - mobile' # Slika ozadja - mobile
     93350a26-13db-4f7a-b6be-8f278819e22c: Steps # Steps
+    94494eaf-6b7a-4562-beb0-1796965a20f5: FAQ # FAQ
     269798a3-ba08-42e9-8ade-b199ced358f4: Objave # Objave
     498470cf-a1e2-4f41-94d0-e5ac65f3b3fa: Opis # Opis
     749496c6-f872-4765-a6d0-f05ed420e88b: Naslov # Naslov
     804332df-5903-4ae5-8224-298ce833cea1: 'Info modul' # Info modul
+    835248bd-f748-42b9-90dc-9b156e500160: Default # Default
     2711558c-204f-44fd-a3f6-74508845c00f: 'Naziv povezave' # Naziv povezave
     3063691a-eada-4f61-9598-e9168098c161: 'Temna barva ozadja?' # Temna barva ozadja?
     03275503-e4f2-4ecf-8213-a4c7721768ad: 'Meta podatki' # Meta podatki
@@ -243,7 +271,9 @@ meta:
     42225258-bbf0-400e-acdc-17ab1b80727e: Besedilo # Besedilo
     44169954-262f-4410-812e-e9a871c88d4c: 'Naziv povezave' # Naziv povezave
     53113089-a4fa-475b-a2df-016042205506: Slike # Slike
+    55479512-70b9-4795-8983-b8069f9647eb: 'Example - images' # Example - images
     57809825-4653-4239-be30-9e821a62f3ed: 'Slika za ozadje' # Slika za ozadje
+    61500791-3979-4002-b4eb-951ee5e4df78: Eyebrow # Eyebrow
     61984713-c8a6-4cf9-9aaa-a9c2e89ccd28: 'Naslovni modul' # Naslovni modul
     71687157-ed1a-4c5f-a335-71b246751d3e: Naslov # Naslov
     77511135-7bc4-43e2-aea6-cacefb566733: Subvencija # Subvencija
@@ -261,10 +291,14 @@ meta:
     a676fb77-bdcb-4ab3-8567-f9ed7568b022: Telefon # Telefon
     a5301c2b-1aa9-4ff3-a914-fa0e6367ecf0: Opis # Opis
     a10128b5-0d05-40c9-84c7-ddaf939320f3: 'Add link to contact' # Add link to contact
+    a558760a-0e15-4746-a1d3-d76126d46fd2: Avtor # Avtor
     a6442495-e342-490a-91b1-997c7d6f8aa0: Povezava # Povezava
     aa82d1df-3963-400c-bc11-0ab676172a33: 'Telefon 2' # Telefon 2
+    aa92ff73-1331-4a95-8c86-7ffaf606fb98: Eyebrow # Eyebrow
     aa85015e-4518-4419-a2bc-ed2331c5af3f: 'Zunanji leseni dodatki' # Zunanji leseni dodatki
+    aabd0ce8-46b3-4024-9c42-23f6f496af73: 'Example - description' # Example - description
     ac46cd1e-3bfd-4e36-8c6f-d3aeb63e1395: Images # Images
+    ac661d33-3dd7-4d7d-a3f6-b5329df8584f: Examples # Examples
     accc17b1-cdfb-46be-b25b-b646556dc73e: 'Main title' # Main title
     ad2755a5-2ae8-4a94-997e-565ff9440b78: Opis # Opis
     aecc5163-7f79-4985-b4c0-4897bfe78777: 'Info modul (objave)' # Info modul (objave)
@@ -292,10 +326,13 @@ meta:
     bd6a8058-9eee-4528-8283-6e52908d8ad3: Opis # Opis
     bdace254-16d2-4a28-b2fe-a0811b72a7f5: 'Temno ozadje?' # Temno ozadje?
     be10256f-b53d-4c67-9494-aca3685f6967: Objave # Objave
+    bf345460-d5e2-4b3d-a6d9-ee2c32f0c747: Examples # Examples
     c0d24365-27f1-4d35-9bc6-d981242a9a9f: 'Zunanji leseni dodatki' # Zunanji leseni dodatki
     c068ce13-3628-41c6-b4b3-e0f891f14b91: 'Prop icon' # Prop icon
     c08fdcfd-81b3-4d87-ab3d-42df4a15bf97: Description # Description
     c083a733-f2ea-44e8-a565-5de4ef110d19: 'Module 1' # Module 1
+    c2b025f1-884f-4be1-8303-3316154507f8: Columns # Columns
+    c2c3ea19-30e5-4acf-bfc0-0569357cbbaf: 'Contact button' # Contact button
     c3aaed1e-7af3-4f1b-b63b-ede520e8ec1e: 'Čas branja' # Čas branja
     c3f27eca-6f57-4125-a33b-2d89d4c4dd44: Slider # Slider
     c3f329f8-2276-4b19-a8fa-a75725788ea6: 'Vrtne hiške in nadstreški' # Vrtne hiške in nadstreški
@@ -306,9 +343,11 @@ meta:
     c17aa936-6a99-454b-937a-7b983dcf6b13: Kontakt # Kontakt
     c45a6bf5-2ad8-462a-b1cb-b95293cafb33: 'Cena na m2' # Cena na m2
     c69c3022-2352-4455-841b-a4b869ba9ce7: Slika # Slika
+    c70a62ae-1e2d-4b7f-8571-b7c625780dc5: 'Primary button' # Primary button
     c97c3d2e-90f0-4818-8eaa-97454e26d192: Opis # Opis
     c415ca1c-7caf-4452-9dbd-60398b267f23: Naslov # Naslov
     c622c938-5095-404e-876d-c09f629d3850: '3. okvir - naslov' # 3. okvir - naslov
+    c879e781-10d1-47b4-9860-841cb2bc6687: 'CTA Banner' # CTA Banner
     c884b297-b3fd-4656-a96e-973ab3eac0cd: Navigacija # Navigacija
     c2092bcd-8d2c-4119-934a-690b3b151cf0: Heading # Heading
     c7451bb2-dd9d-463a-84c1-1acb538acb3e: 'Instagram objave' # Instagram objave
@@ -319,11 +358,13 @@ meta:
     cac08aff-adeb-4622-8b76-f7d5760fae22: Postavke # Postavke
     cb14d4ed-a30b-462b-be5b-7de350cdc8a8: Slider # Slider
     cb95f6d8-9033-439e-b025-15a125218342: Galerija # Galerija
+    cb7955f0-171e-4149-b862-25a3357b6337: 'Heading highlight' # Heading highlight
     cbc10f69-0d33-495a-9a35-045f7148bf0e: 'Google reviews - mini' # Google reviews - mini
     cbf01235-dab3-41b5-863a-89d959bb99db: Poziv # Poziv
     cc89467c-90d5-49df-a918-492f0bc5c701: 'Predstavitveni modul (slike)' # Predstavitveni modul (slike)
     ce0cee10-c0c2-46b3-bb7b-c7f994bd40b9: Quote # Quote
     d0d8d851-1d62-4c05-8198-6bc16b2f25b7: 'Naslov 3' # Naslov 3
+    d0018b08-78f1-4774-b4c9-0d109dc99f9f: 'Example - badge' # Example - badge
     d07c7ef2-1c05-4b11-b553-c4302cd94800: Naslov # Naslov
     d1d7f658-1dde-4d5b-a2d7-b63ef7696221: Blocks # Blocks
     d3a904ef-3400-4a3a-9bc2-fac3c73d03e5: 'Naziv postavke' # Naziv postavke
@@ -340,6 +381,7 @@ meta:
     d74e46f7-e898-4041-af23-e74fe79c2003: Heading # Heading
     d79b08f9-342f-4885-a06c-80631b84bc94: Opis # Opis
     d82c6d21-3974-4223-bb24-027b65fca75e: 'Dodatna obvestila' # Dodatna obvestila
+    d7447d51-1de9-4d0a-846e-f7652a042b6e: 'FAQ entries' # FAQ entries
     d7931ff7-f0b5-41d6-b200-085a8fc5f76a: Eyebrow # Eyebrow
     d8743ab9-dfe2-43ff-818c-7b56f736a635: Description # Description
     d5838682-4e6d-4c02-bd6b-8ce70c9a3a0e: 'Naši projekti' # Naši projekti
@@ -347,12 +389,14 @@ meta:
     dae1ca25-717b-493e-9f2d-6b57b90df69c: Stats # Stats
     dd381054-a6c0-41f5-af5b-6fdffa6f365e: 'Cena - delo' # Cena - delo
     ddf0c061-99eb-455a-a33a-1adaf4325562: 'Custom CSS Classes' # Custom CSS Classes
+    de366bcb-5537-4935-94b2-81f703aafc37: 'Example - price (m²)' # Example - price (m²)
     defea729-dbce-4ff3-b996-106fb4245b3c: 'Size 100' # Size 100
     dfd48c74-a4a0-465c-bd06-94afc200bece: 'Postopek izdelave' # Postopek izdelave
     e082ca61-fb29-499a-9ca3-759d06ebfb9b: 'Kontaktne osebe' # Kontaktne osebe
     e1aa3d56-dc11-4290-b477-ac1e75bd5478: 'Naziv povezave' # Naziv povezave
     e1f1251d-e4de-4355-b4ed-f685ca4ef4c2: 'Dodatna obvestila' # Dodatna obvestila
     e3c8a9e8-8052-48a0-8859-7cbf4826a739: Slika # Slika
+    e6e3137d-afe1-4fab-82f4-9d96da3ab883: 'Heading highlight' # Heading highlight
     e7c8906d-e6af-4391-be64-462351a26c4b: 'Blog thumbnail' # Blog thumbnail
     e8a69c72-2ac9-4b0e-a845-a88883e1cdde: 'Heading highlight' # Heading highlight
     e8bcd847-b23d-480f-b790-274c3b6afe91: Global # Global
@@ -376,6 +420,7 @@ meta:
     ee7d8266-096b-4d37-bdfd-26eb8c84bee1: Garancije # Garancije
     f0bcf355-d301-485e-9b2c-bdc29247b5e5: 'Heading highlight' # Heading highlight
     f0d3cbdb-79ef-46a6-a6e7-880400c68687: 'Main title two' # Main title two
+    f0d275d4-d385-4390-92ae-1f8b572cd2a5: Heading # Heading
     f0d8060b-6d84-4fa0-a671-3eef3de3bb7d: 'Odpri povezavo v novem oknu?' # Odpri povezavo v novem oknu?
     f03324a5-f6d5-4283-a2aa-0d1d1a5ed6bd: '1. okvir - naslov' # 1. okvir - naslov
     f08fdb5b-8fe2-47af-883b-5ee2950d182d: 'Naziv povezave' # Naziv povezave
@@ -386,20 +431,24 @@ meta:
     f6e98df4-97a9-4313-a02f-96585e070333: Logo # Logo
     f7d69062-7e86-4028-82f2-94a02748a6bc: Naslov # Naslov
     f8ab824b-4398-4638-a70d-6166f51cbedf: Stats # Stats
+    f9e876c0-dde6-4567-865c-90ea15117494: 'FAQ - answer' # FAQ - answer
     f54f6440-d1dc-4e3a-be90-b9d6f2a06914: Common # Common
     f60fbad9-cc20-4370-a8be-c4e814b5c89a: 'Naziv povezave' # Naziv povezave
     f62f2fe5-7691-45c2-8106-b6d89bab3c08: Postopek # Postopek
     f2857b6e-111d-4c1f-9589-b3a8b6687bcb: '2. okvir - naslov' # 2. okvir - naslov
+    f85310e3-dc72-4a48-bd93-5c6d22d5678f: 'Include trust' # Include trust
     f8707184-bf01-410a-8c45-485097307a47: 'Seznam blogov' # Seznam blogov
     fa0e9fa4-35ef-4bb9-8c0e-1bfcaddfee94: Naziv # Naziv
     fae29ee3-847e-45f1-8210-7fc11d40ed31: Opis # Opis
     fb5ca27e-6f68-4b77-bbb0-8f89773e3bc2: 'Size 200' # Size 200
+    fcfe3f7b-e193-47af-8c7a-e756a761ce79: 'Telefon 2 - ime' # Telefon 2 - ime
     fdc1e27b-7481-48de-a7fa-ea8e7b4c897c: Examples # Examples
     fdc2d417-665d-47c8-9fc4-908cedd53f6d: 'O inštitutu' # O inštitutu
     fde45bec-84f6-4093-a82f-98265df2ada4: 'Uporabnik - ime in priimek' # Uporabnik - ime in priimek
     fdedc1dd-4e64-47b7-9e84-4ff7f1c9d71a: 'Seznam objav' # Seznam objav
     fe2d67e1-17f2-4738-96c4-991be53eb224: 'Naši partnerji' # Naši partnerji
     fe9b55bc-9c99-4fba-b3a0-80d19bcc3e93: Blogs # Blogs
+    fe430a85-3bfb-4a6f-b6b3-3ead197087d7: 'Include trust' # Include trust
     ff3b9947-7970-40c9-a13e-7892915fa65f: 'Kontaktni podatki' # Kontaktni podatki
 plugins:
   calendar:

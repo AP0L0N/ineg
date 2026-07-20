@@ -122,9 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const biggerCards = swiper.classList.contains('bigger-cards');
         new Swiper(swiper, {
             modules: [Pagination, Autoplay],
-            slidesPerView: 1,
-            spaceBetween: 20,
+            slidesPerView: 1.2,
+            spaceBetween: 15,
             loop: true,
+            autoHeight: true,
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false

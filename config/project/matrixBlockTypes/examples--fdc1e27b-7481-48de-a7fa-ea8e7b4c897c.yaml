@@ -50,6 +50,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 80cd949b-980a-417b-a579-64f3b22d3095 # Example entries
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 86795335-d557-4412-834b-14ac7ca02123 # Bigger cards
             instructions: null
             label: null
@@ -162,6 +171,29 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: verbb\supertable\fields\SuperTableField
+  80cd949b-980a-417b-a579-64f3b22d3095: # Example entries
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: exampleEntries
+    instructions: ''
+    name: 'Example entries'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:ac661d33-3dd7-4d7d-a3f6-b5329df8584f' # Examples
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
   605ab390-9cfc-47bb-8ae2-5a65d1ef8f97: # Eyebrow
     columnSuffix: czncpnjm
     contentColumnType: text

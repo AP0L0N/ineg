@@ -9,10 +9,18 @@
         max-width: 820px;
         margin: 0 auto;
 
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
         .post-category {
             display: inline-block;
             background: rgba(248, 155, 83, 0.14);
-            color: variables.$primary-color-dark;
+            color: #b8580e;
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
@@ -53,11 +61,16 @@
     .post-feature-image {
         max-width: 1000px;
         margin: 0 auto 50px;
+        height: 800px;
+        max-height: 50dvh;
+        min-height: 250px;
+        border-radius: 12px;
+        overflow: hidden;
 
         img {
+            object-fit: cover;
             width: 100%;
-            border-radius: 10px;
-            display: block;
+            height: 100%;
         }
     }
 
@@ -272,6 +285,7 @@
 
             .related-image {
                 aspect-ratio: 16/10;
+                height: 500px;
 
                 img {
                     width: 100%;

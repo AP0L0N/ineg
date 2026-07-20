@@ -1,0 +1,171 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  6487f2af-23af-485d-b264-970b6466ec96:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 9a70ef86-584b-4229-a447-6e65f68bd505 # Background
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 61500791-3979-4002-b4eb-951ee5e4df78 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3551b665-01b2-4999-a729-d807a26f7797 # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 82ff59a1-ecf9-4ad0-8b99-76483cb517ab # Heading highlight
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8be45aa4-1a1f-4cee-9ab9-8d361579c3a6 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  8be45aa4-1a1f-4cee-9ab9-8d361579c3a6: # Description
+    columnSuffix: uvowuhdz
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  9a70ef86-584b-4229-a447-6e65f68bd505: # Background
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: background
+    instructions: ''
+    name: Background
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: cta-banner
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  82ff59a1-ecf9-4ad0-8b99-76483cb517ab: # Heading highlight
+    columnSuffix: mkhhqvvm
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingHighlight
+    instructions: ''
+    name: 'Heading highlight'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3551b665-01b2-4999-a729-d807a26f7797: # Heading
+    columnSuffix: cvplspem
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  61500791-3979-4002-b4eb-951ee5e4df78: # Eyebrow
+    columnSuffix: pahxivtx
+    contentColumnType: text
+    fieldGroup: null
+    handle: eyebrow
+    instructions: ''
+    name: Eyebrow
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: ctaBanner
+name: 'CTA Banner'
+sortOrder: 36

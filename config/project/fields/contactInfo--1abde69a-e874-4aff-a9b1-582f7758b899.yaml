@@ -37,7 +37,28 @@ settings:
               - width
               - ''
       -
+        - 4c87ea2b-aecf-40f0-95fa-aa0d33940725 # Telefon - ime
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
         - a676fb77-bdcb-4ab3-8567-f9ed7568b022 # Telefon
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - fcfe3f7b-e193-47af-8c7a-e756a761ce79 # Telefon 2 - ime
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - aa82d1df-3963-400c-bc11-0ab676172a33 # Telefon 2
         -
           __assoc__:
             -

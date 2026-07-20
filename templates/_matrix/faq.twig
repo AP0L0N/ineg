@@ -4,8 +4,8 @@
     data.button ({ url, label })
     data.faqs (array) -> { question, answer (HTML) }
 #}
-{% set data = data is defined ? data : {} %}
-{% set faqs = data.faqs is defined ? data.faqs : [] %}
+{% set data = data is defined ? data : field %}
+{% set faqs = data.faqEntries.all() %}
 
 <section class="faq-accordion">
     <div class="container">
@@ -14,8 +14,8 @@
                 {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
                 <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
                 {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
-                {% if data.button is defined %}
-                    <a href="{{ data.button.url }}" class="btn btn-primary">{{ data.button.label }}</a>
+                {% if data.contactButton is not empty %}
+                    <a href="/kontakt" class="btn btn-primary">{{ data.contactButton }}</a>
                 {% endif %}
             </div>
 
@@ -23,11 +23,11 @@
                 {% for faq in faqs %}
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-{{ loop.index }}">
-                            <span>{{ faq.question }}</span>
+                            <span>{{ faq.title }}</span>
                             <span class="toggle" aria-hidden="true"><i class="fal fa-plus"></i></span>
                         </button>
                         <div class="faq-answer" id="faq-answer-{{ loop.index }}" role="region">
-                            <div class="answer-inner">{{ faq.answer | raw }}</div>
+                            <div class="answer-inner">{{ faq.faqAnswer | raw }}</div>
                         </div>
                     </div>
                 {% endfor %}
@@ -44,10 +44,10 @@
                 {% for faq in faqs %}
                 {
                     "@type": "Question",
-                    "name": {{ faq.question | json_encode | raw }},
+                    "name": {{ faq.title | json_encode | raw }},
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": {{ faq.answer | striptags | json_encode | raw }}
+                        "text": {{ faq.faqAnswer | striptags | json_encode | raw }}
                     }
                 }{{ not loop.last ? ',' }}
                 {% endfor %}

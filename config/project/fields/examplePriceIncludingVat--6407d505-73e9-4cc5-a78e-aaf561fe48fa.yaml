@@ -1,0 +1,19 @@
+columnSuffix: ixuaqvzq
+contentColumnType: text
+fieldGroup: bf345460-d5e2-4b3d-a6d9-ee2c32f0c747 # Examples
+handle: examplePriceIncludingVat
+instructions: ''
+name: 'Example - price (including VAT)'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

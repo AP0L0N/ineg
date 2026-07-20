@@ -24,7 +24,6 @@
     .cta-content {
         position: relative;
         z-index: 2;
-        max-width: 640px;
         color: white;
 
         .eyebrow {
@@ -63,7 +62,11 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 18px;
+        gap: 20px;
+
+        @media (min-width: 991px) {
+            gap: 30px;
+        }
 
         .phone-link {
             display: inline-flex;

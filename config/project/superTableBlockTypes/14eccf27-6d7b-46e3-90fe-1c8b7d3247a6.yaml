@@ -1,11 +1,11 @@
-field: 559c01f0-fce7-4256-9294-d4429461170c # Secondary button
+field: 7f917a85-a08b-4500-89c4-c4491c7eecbb # Mnenje stranke
 fieldLayouts:
-  b28d38aa-896f-43e9-9de1-5c33eef48717:
+  2478380d-e763-46ef-84c9-0391ce100c18:
     tabs:
       -
         elements:
           -
-            fieldUid: 0e9fb665-fe93-4048-a6d9-89984f6ede01 # Button URL
+            fieldUid: 0804ed7d-d3bc-4bca-bb30-c5bcb5be6a51 # Mnenje
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: a8af8e86-4bf3-4777-b563-aa782bda9f11 # Label
+            fieldUid: a558760a-0e15-4746-a1d3-d76126d46fd2 # Avtor
             instructions: null
             label: null
             required: false
@@ -25,13 +25,13 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  0e9fb665-fe93-4048-a6d9-89984f6ede01: # Button URL
-    columnSuffix: qejpqnir
+  0804ed7d-d3bc-4bca-bb30-c5bcb5be6a51: # Mnenje
+    columnSuffix: lpwlqfyf
     contentColumnType: text
     fieldGroup: null
-    handle: buttonUrl
+    handle: mnenje
     instructions: ''
-    name: 'Button URL'
+    name: Mnenje
     searchable: false
     settings:
       byteLimit: null
@@ -39,19 +39,19 @@ fields:
       code: ''
       columnType: null
       initialRows: '4'
-      multiline: ''
+      multiline: '1'
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  a8af8e86-4bf3-4777-b563-aa782bda9f11: # Label
-    columnSuffix: jpygggyg
+  a558760a-0e15-4746-a1d3-d76126d46fd2: # Avtor
+    columnSuffix: snnqngxj
     contentColumnType: text
     fieldGroup: null
-    handle: label
+    handle: avtor
     instructions: ''
-    name: Label
+    name: Avtor
     searchable: false
     settings:
       byteLimit: null

@@ -3,18 +3,18 @@
     data.rating, data.ratingSource, data.heading, data.headingHighlight
     data.reviews (array) -> { text, name, date }
 #}
-{% set data = data is defined ? data : {} %}
-{% set reviews = data.reviews is defined ? data.reviews : [] %}
+{% set data = data is defined ? data : field %}
+{% set reviews = mnenjaStrank.mnenjeStranke.all() %}
 
 <section class="testimonials-slider">
     <div class="container">
         <div class="section-head">
             <div class="rating-summary">
                 <span class="stars">★★★★★</span>
-                {% if data.rating is defined %}<span class="score">{{ data.rating }}</span>{% endif %}
-                {% if data.ratingSource is defined %}<span class="source">{{ data.ratingSource }}</span>{% endif %}
+                <span class="score">5,0</span>
+                <span class="source">na podlagi Google ocen</span>
             </div>
-            <h2>{{ data.heading }}{% if data.headingHighlight is defined %} <span>{{ data.headingHighlight }}</span>{% endif %}</h2>
+            <h2>{{ data.heading ?? 'Kaj pravijo' }} <span>{{ data.headingHighlight ?? 'naše stranke' }}</span></h2>
         </div>
 
         <div class="swiper">
@@ -23,12 +23,11 @@
                     <div class="swiper-slide">
                         <article class="review-card">
                             <div class="stars" aria-label="Ocena 5 od 5">★★★★★</div>
-                            <p class="review-text">{{ review.text }}</p>
+                            <p class="review-text">{{ review.mnenje }}</p>
                             <div class="review-author">
-                                <div class="avatar" aria-hidden="true">{{ review.name | slice(0, 1) }}</div>
+                                <div class="avatar" aria-hidden="true">{{ review.avtor | slice(0,1) }}</div>
                                 <div class="meta">
-                                    <div class="name">{{ review.name }}</div>
-                                    {% if review.date is defined %}<div class="date">{{ review.date }}</div>{% endif %}
+                                    <div class="name">{{ review.avtor }}</div>
                                 </div>
                             </div>
                         </article>

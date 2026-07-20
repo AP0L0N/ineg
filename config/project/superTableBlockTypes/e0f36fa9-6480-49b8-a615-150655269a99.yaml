@@ -1,0 +1,97 @@
+field: 975f0eca-1f3f-4326-b5c6-ddc980d11b85 # Rows
+fieldLayouts:
+  45f28520-31b5-4c17-b588-de8848145cee:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2237a77d-8f09-4d38-8caf-4521c5024206 # Label
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 15add603-12b9-4dc4-98df-a932bf9a07f6 # Column values
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  15add603-12b9-4dc4-98df-a932bf9a07f6: # Column values
+    columnSuffix: ynozlsbj
+    contentColumnType: text
+    fieldGroup: null
+    handle: columnValues
+    instructions: ''
+    name: 'Column values'
+    searchable: false
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Value check'
+                -
+                  - handle
+                  - valueCheck
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - lightswitch
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Value text'
+                -
+                  - handle
+                  - valueText
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  2237a77d-8f09-4d38-8caf-4521c5024206: # Label
+    columnSuffix: lozhkhvm
+    contentColumnType: text
+    fieldGroup: null
+    handle: label
+    instructions: ''
+    name: Label
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

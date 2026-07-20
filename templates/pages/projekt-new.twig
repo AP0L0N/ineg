@@ -12,7 +12,7 @@
         {% set categories = entry.kategorija.all() %}
         {% set images = entry.projectInfo.galerijaSlik.all() %}
         {% set heroImage = images | first %}
-        {% set galleryImages = images | slice(1) %}
+        {% set galleryImages = images %}
 
         <div class="project-detail">
 

@@ -44,9 +44,11 @@
 
                 {# Naslov in meta #}
                 <header class="post-hero">
-                    {% if category %}
-                        <a href="{{ categoryUrl }}" class="post-category">{{ category.title }}</a>
-                    {% endif %}
+                    <div class="tags">
+                        {% for category in entry.kategorija.all() %}
+                            <a href="{{ url(blogsListEntry.url, { kategorija: category.slug }) }}" class="post-category">{{ category.title }}</a>
+                        {% endfor %}
+                    </div>
                     <h1>{{ entry.blogInfo.naslov }}</h1>
                     <div class="post-meta">
                         <span class="meta-item"><i class="fal fa-calendar"></i> {{ entry.postDate | date("d. m. Y") }}</span>
@@ -101,18 +103,18 @@
                 </div>
             </div>
 
-            {# Sorodni članki #}
+            {# Preberite tudi #}
             {% if relatedItems | length %}
                 <div class="related-posts">
                     <div class="container">
                         <div class="section-head">
-                            <h2>Sorodni <span>članki</span></h2>
+                            <h2>Preberite <span>tudi</span></h2>
                         </div>
                         <div class="related-grid">
                             {% for item in relatedItems %}
                                 {% set itemCategory = item.kategorija.one() %}
                                 <a href="{{ item.url }}" class="related-card">
-                                    <div class="related-image"><img src="{{ item.blogInfo.slika.one().getUrl('croppedFullModule') }}" alt="{{ item.blogInfo.naslov }}" loading="lazy"></div>
+                                    <div class="related-image"><img src="{{ item.blogInfo.slika.one().getUrl({ width: 600, format: 'jpg' }) }}" alt="{{ item.blogInfo.naslov }}" loading="lazy"></div>
                                     <div class="related-body">
                                         {% if itemCategory %}<span class="related-category">{{ itemCategory.title }}</span>{% endif %}
                                         <div class="related-title">{{ item.blogInfo.naslov }}</div>

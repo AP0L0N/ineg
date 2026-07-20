@@ -1,0 +1,19 @@
+fieldLayouts:
+  51a3c100-260b-4c09-a064-4ef9d502440b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 7f917a85-a08b-4500-89c4-c4491c7eecbb # Mnenje stranke
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: mnenjaStrank
+name: 'Mnenja strank'
+sortOrder: 7

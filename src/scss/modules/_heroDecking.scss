@@ -63,6 +63,7 @@
 
             span {
                 color: variables.$primary-color;
+                display: block;
             }
         }
 
@@ -72,6 +73,11 @@
             color: rgba(255, 255, 255, 0.92);
             margin-bottom: 30px;
             max-width: 560px;
+            text-wrap: balance;
+
+            @media(max-width: 575px) {
+                margin-bottom: 15px;
+            }
         }
     }
 
@@ -80,6 +86,10 @@
         flex-wrap: wrap;
         gap: 15px;
         margin-bottom: 35px;
+
+        @media(max-width: 575px) {
+            margin-bottom: 20px;
+        }
 
         .btn {
             min-width: 180px;
@@ -111,6 +121,12 @@
         flex-wrap: wrap;
         align-items: center;
         gap: 25px;
+
+        @media(max-width: 575px) {
+            display: grid; 
+            grid-template-columns: repeat(1, 1fr);
+            gap: 0;
+        }
 
         .trust-item {
             display: flex;

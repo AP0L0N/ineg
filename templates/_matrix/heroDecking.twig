@@ -19,7 +19,7 @@
                         <div class="container">
                             <div class="hero-content">
                                 {% if data.eyebrow is defined %}
-                                    <span class="eyebrow"><i class="fas fa-leaf"></i> {{ data.eyebrow }}</span>
+                                    <span class="eyebrow">{{ data.eyebrow }}</span>
                                 {% endif %}
                                 <h1>
                                     {{ slide.heading }}
@@ -30,17 +30,27 @@
                                 {% endif %}
 
                                 <div class="hero-actions">
-                                    {% if data.primaryButton is defined %}
-                                        <a href="{{ data.primaryButton.buttonUrl }}" class="btn btn-primary">{{ data.primaryButton.label }}</a>
-                                    {% endif %}
-                                    {% if data.secondaryButton is defined %}
-                                        <a href="{{ data.secondaryButton.buttonUrl }}" class="btn-ghost">{{ data.secondaryButton.label }}</a>
-                                    {% endif %}
+                                    {% for button in slide.primaryButton %}
+                                        {% if button['buttonText'] is not empty %}
+                                            <a href="{{ button['buttonUrl'] }}" class="btn btn-primary">{{ button['buttonText'] }}</a>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% for button in slide.secondaryButton %}
+                                        {% if button['buttonText'] is not empty %}
+                                            <a href="{{ button['buttonUrl'] }}" class="btn-ghost">{{ button['buttonText'] }}</a>
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
 
-                                {% if data.trust is defined %}
+                                {% if slide.includeTrust is defined and slide.includeTrust %}
                                     <div class="hero-trust">
-                                        {% for item in data.trust %}
+                                        {% set trust = [
+                                            { value: '500+', label: 'uspešnih projektov', stars: false },
+                                            { value: '5,0', label: 'Google ocena', stars: true },
+                                            { value: '0', label: 'reklamacij', stars: false }
+                                        ] %}
+                                        {% for item in trust %}
                                             <div class="trust-item">
                                                 {% if item.stars is defined and item.stars %}
                                                     <span class="stars">★★★★★</span>

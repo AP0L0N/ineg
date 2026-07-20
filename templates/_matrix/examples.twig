@@ -4,7 +4,17 @@
     data.species (array) -> { name, origin, image, description, specs: [ { label, value } ] }
 #}
 {% set data = data is defined ? data : field %}
-{% set examples = data.examples is defined ? data.examples.all() : [] %}
+
+{% set exampleItems = data.examples is defined ? data.examples.all() : [] %}
+{% set examples = data.exampleEntries.all() | map(ee => {
+    exampleTitle: ee.title,
+    exampleBadge: ee.exampleBadge,
+    description: ee.exampleDescription,
+    specs: ee.exampleSpecs,
+    priceM2: ee.examplePriceM2,
+    priceIncludingVat: ee.examplePriceIncludingVat,
+    images: ee.exampleImages
+}) | merge(exampleItems) %}
 {% set pricesDisplayed = false %}
 
 <section class="examples">

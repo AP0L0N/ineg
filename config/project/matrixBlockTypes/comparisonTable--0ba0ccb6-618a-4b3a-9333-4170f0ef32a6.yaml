@@ -1,11 +1,11 @@
-field: 81c32a6d-384a-4902-b676-6f82d656cc1b # Slides
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
 fieldLayouts:
-  71cc3a80-e22b-4d17-814f-c37bd04680f7:
+  2c7c3c12-eb0f-4377-babd-2a9ff5816449:
     tabs:
       -
         elements:
           -
-            fieldUid: a1c392ae-4e81-4e36-bf27-16c659d9a766 # Image
+            fieldUid: aa92ff73-1331-4a95-8c86-7ffaf606fb98 # Eyebrow
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 4e69d316-2d1b-4986-81ac-c00fd82bd7ed # Heading
+            fieldUid: 948ce29b-f372-417a-b739-18d5ef96b732 # Heading
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 3efebab6-66b2-47c1-b451-b5ee9fa74b36 # Heading highlight
+            fieldUid: 7c6856c1-af18-4ef2-8577-37df6c065ded # Heading highlight
             instructions: null
             label: null
             required: false
@@ -32,7 +32,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 77610db9-ee11-4a2a-adc4-5a98c1cab9bc # Lead
+            fieldUid: 4ed8992f-6da8-4b32-8c69-6eedee3b89ef # Description
             instructions: null
             label: null
             required: false
@@ -41,7 +41,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: fe430a85-3bfb-4a6f-b6b3-3ead197087d7 # Include trust
+            fieldUid: c2b025f1-884f-4be1-8303-3316154507f8 # Columns
             instructions: null
             label: null
             required: false
@@ -50,16 +50,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: c70a62ae-1e2d-4b7f-8571-b7c625780dc5 # Primary button
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 97d15ad2-33ed-4ab4-ac4f-0e5d782e1cf3 # Secondary button
+            fieldUid: 975f0eca-1f3f-4326-b5c6-ddc980d11b85 # Rows
             instructions: null
             label: null
             required: false
@@ -70,8 +61,28 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  3efebab6-66b2-47c1-b451-b5ee9fa74b36: # Heading highlight
-    columnSuffix: hhqqjcyk
+  4ed8992f-6da8-4b32-8c69-6eedee3b89ef: # Description
+    columnSuffix: ptdcqzny
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  7c6856c1-af18-4ef2-8577-37df6c065ded: # Heading highlight
+    columnSuffix: ogpfmzir
     contentColumnType: text
     fieldGroup: null
     handle: headingHighlight
@@ -90,8 +101,8 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  4e69d316-2d1b-4986-81ac-c00fd82bd7ed: # Heading
-    columnSuffix: tqyyxsgb
+  948ce29b-f372-417a-b739-18d5ef96b732: # Heading
+    columnSuffix: sdnumcti
     contentColumnType: text
     fieldGroup: null
     handle: heading
@@ -110,72 +121,50 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  97d15ad2-33ed-4ab4-ac4f-0e5d782e1cf3: # Secondary button
-    columnSuffix: ypjgibeh
-    contentColumnType: text
+  975f0eca-1f3f-4326-b5c6-ddc980d11b85: # Rows
+    columnSuffix: null
+    contentColumnType: string
     fieldGroup: null
-    handle: secondaryButton
+    handle: rows
     instructions: ''
-    name: 'Secondary button'
+    name: Rows
     searchable: false
     settings:
-      addRowLabel: 'Add a row'
-      columnType: text
       columns:
         __assoc__:
           -
-            - col1
+            - 2237a77d-8f09-4d38-8caf-4521c5024206 # Label
             -
               __assoc__:
                 -
-                  - heading
-                  - 'Button text'
-                -
-                  - handle
-                  - buttonText
-                -
                   - width
                   - ''
-                -
-                  - type
-                  - singleline
           -
-            - col2
+            - 15add603-12b9-4dc4-98df-a932bf9a07f6 # Column values
             -
               __assoc__:
                 -
-                  - heading
-                  - 'Button URL'
-                -
-                  - handle
-                  - buttonUrl
-                -
                   - width
                   - ''
-                -
-                  - type
-                  - singleline
-      defaults:
-        -
-          __assoc__:
-            -
-              - col1
-              - ''
-            -
-              - col2
-              - ''
+      contentTable: '{{%stc_37_rows}}'
+      fieldLayout: table
       maxRows: ''
       minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
     translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Table
-  77610db9-ee11-4a2a-adc4-5a98c1cab9bc: # Lead
-    columnSuffix: wgmduaym
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  aa92ff73-1331-4a95-8c86-7ffaf606fb98: # Eyebrow
+    columnSuffix: vdqpfiwl
     contentColumnType: text
     fieldGroup: null
-    handle: lead
+    handle: eyebrow
     instructions: ''
-    name: Lead
+    name: Eyebrow
     searchable: false
     settings:
       byteLimit: null
@@ -183,53 +172,19 @@ fields:
       code: ''
       columnType: null
       initialRows: '4'
-      multiline: '1'
+      multiline: ''
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  a1c392ae-4e81-4e36-bf27-16c659d9a766: # Image
-    columnSuffix: null
-    contentColumnType: string
-    fieldGroup: null
-    handle: image
-    instructions: ''
-    name: Image
-    searchable: false
-    settings:
-      allowSelfRelations: false
-      allowUploads: true
-      allowedKinds:
-        - image
-      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
-      defaultUploadLocationSubpath: ''
-      limit: '1'
-      localizeRelations: false
-      previewMode: full
-      restrictFiles: '1'
-      selectionLabel: ''
-      showSiteMenu: true
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
-      singleUploadLocationSubpath: hero-decking
-      source: null
-      sources: '*'
-      targetSiteId: null
-      useSingleFolder: true
-      validateRelatedElements: false
-      viewMode: large
-    translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\Assets
-  c70a62ae-1e2d-4b7f-8571-b7c625780dc5: # Primary button
-    columnSuffix: voiyzuvg
+  c2b025f1-884f-4be1-8303-3316154507f8: # Columns
+    columnSuffix: qkhrwabi
     contentColumnType: text
     fieldGroup: null
-    handle: primaryButton
+    handle: columns
     instructions: ''
-    name: 'Primary button'
+    name: Columns
     searchable: false
     settings:
       addRowLabel: 'Add a row'
@@ -242,10 +197,10 @@ fields:
               __assoc__:
                 -
                   - heading
-                  - 'Button text'
+                  - Label
                 -
                   - handle
-                  - buttonText
+                  - label
                 -
                   - width
                   - ''
@@ -258,16 +213,16 @@ fields:
               __assoc__:
                 -
                   - heading
-                  - 'Button URL'
+                  - Highlight
                 -
                   - handle
-                  - buttonUrl
+                  - highlight
                 -
                   - width
                   - ''
                 -
                   - type
-                  - singleline
+                  - lightswitch
       defaults:
         -
           __assoc__:
@@ -282,18 +237,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Table
-  fe430a85-3bfb-4a6f-b6b3-3ead197087d7: # Include trust
-    columnSuffix: gfejqzek
-    contentColumnType: boolean
-    fieldGroup: null
-    handle: includeTrust
-    instructions: ''
-    name: 'Include trust'
-    searchable: false
-    settings:
-      default: false
-      offLabel: null
-      onLabel: null
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Lightswitch
+handle: comparisonTable
+name: 'Comparison table'
+sortOrder: 34

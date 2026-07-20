@@ -1,0 +1,189 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  f98fc049-9aff-483b-93f6-951b4845009c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 5b0791f2-c452-435e-b985-1fde7fc85862 # Eyebrow
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 37075f18-4847-47cb-8ba8-1553db8b211f # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e6e3137d-afe1-4fab-82f4-9d96da3ab883 # Heading highlight
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 323f1c90-4e3a-4526-bcc2-77c336b53ca7 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c2c3ea19-30e5-4acf-bfc0-0569357cbbaf # Contact button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d7447d51-1de9-4d0a-846e-f7652a042b6e # FAQ entries
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  5b0791f2-c452-435e-b985-1fde7fc85862: # Eyebrow
+    columnSuffix: lcvcjehh
+    contentColumnType: text
+    fieldGroup: null
+    handle: eyebrow
+    instructions: ''
+    name: Eyebrow
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  323f1c90-4e3a-4526-bcc2-77c336b53ca7: # Description
+    columnSuffix: yryzzwso
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  37075f18-4847-47cb-8ba8-1553db8b211f: # Heading
+    columnSuffix: vphqkrpw
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c2c3ea19-30e5-4acf-bfc0-0569357cbbaf: # Contact button
+    columnSuffix: loxiefbw
+    contentColumnType: text
+    fieldGroup: null
+    handle: contactButton
+    instructions: ''
+    name: 'Contact button'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d7447d51-1de9-4d0a-846e-f7652a042b6e: # FAQ entries
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: faqEntries
+    instructions: ''
+    name: 'FAQ entries'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:5a78a8b0-e06b-42b3-ba83-d44dcb689a55' # FAQ
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  e6e3137d-afe1-4fab-82f4-9d96da3ab883: # Heading highlight
+    columnSuffix: awqdmkyg
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingHighlight
+    instructions: ''
+    name: 'Heading highlight'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: faq
+name: FAQ
+sortOrder: 35

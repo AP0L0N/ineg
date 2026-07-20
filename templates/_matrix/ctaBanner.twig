@@ -4,9 +4,9 @@
     data.button ({ url, label })
     data.phone ({ number, label, href })
 #}
-{% set data = data is defined ? data : {} %}
+{% set data = data is defined ? data : field %}
 
-<section class="cta-banner"{% if data.background is defined %} style="background-image: url({{ data.background }})"{% endif %}>
+<section class="cta-banner"{% if data.background and data.background['volumeId'] is defined and data.background.one() %} style="background-image: url({{ data.background.one().getUrl({ width: 2500, format: 'jpg' }) }})"{% else %} style="background-image: url(/assets/images/lesene-terase-banner-2.jpg)" {% endif %}>
     <div class="container">
         <div class="cta-content">
             {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
@@ -14,15 +14,22 @@
             {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
 
             <div class="cta-actions">
-                {% if data.button is defined %}
-                    <a href="{{ data.button.url }}" class="btn btn-primary">{{ data.button.label }}</a>
-                {% endif %}
-                {% if data.phone is defined %}
-                    <a href="tel:{{ data.phone.href }}" class="phone-link">
+                <a href="/kontakt" class="btn btn-primary">Kontaktirajte nas</a>
+                {% if contactInfo.contactInfo.telefon %}
+                    <a href="tel:{{ contactInfo.contactInfo.telefon | replace({'(0)': '', ' ': ''}) }}" class="phone-link">
                         <span class="icon"><i class="fas fa-phone-alt"></i></span>
                         <span class="text">
-                            <span class="label">{{ data.phone.label }}</span>
-                            <span class="number">{{ data.phone.number }}</span>
+                            <span class="label">{{ contactInfo.contactInfo.telefonIme }}</span>
+                            <span class="number">{{ contactInfo.contactInfo.telefon }}</span>
+                        </span>
+                    </a>
+                {% endif %}
+                {% if contactInfo.contactInfo.telefon2 %}
+                    <a href="tel:{{ contactInfo.contactInfo.telefon2 | replace({'(0)': '', ' ': ''}) }}" class="phone-link">
+                        <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                        <span class="text">
+                            <span class="label">{{ contactInfo.contactInfo.telefon2Ime }}</span>
+                            <span class="number">{{ contactInfo.contactInfo.telefon2 }}</span>
                         </span>
                     </a>
                 {% endif %}

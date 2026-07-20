@@ -1,0 +1,36 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e8bcd847-b23d-480f-b790-274c3b6afe91 # Global
+handle: mnenjeStranke
+instructions: ''
+name: 'Mnenje stranke'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 0804ed7d-d3bc-4bca-bb30-c5bcb5be6a51 # Mnenje
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - a558760a-0e15-4746-a1d3-d76126d46fd2 # Avtor
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_mnenjestranke}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

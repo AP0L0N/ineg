@@ -16,7 +16,7 @@
                 {% if data.description is defined %}<p>{{ data.description }}</p>{% endif %}
             </div>
             {% set allProjects = craft.entries.section("nasiProjekti").one() %}
-            <a href="{{ allProjects.url }}" class="btn btn-primary">Vsi projekti</a>
+            <a href="{{ allProjects.url }}" class="btn btn-primary d-none">Vsi projekti</a>
         </div>
 
         <div class="gallery-grid">
