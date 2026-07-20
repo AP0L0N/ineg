@@ -2,7 +2,6 @@
 /.idea
 /vendor
 /node_modules
-/web/dist
 /logs
 /design
 /web/assets/uploads
