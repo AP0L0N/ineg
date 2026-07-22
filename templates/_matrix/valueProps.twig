@@ -4,7 +4,7 @@
     data.props (array) -> { icon(faclass), title, description }
 #}
 {% set data = data is defined ? data : field %}
-{% set props = data.props is defined ? data.props.all() : [] %}
+{% set props = data.props is defined ? data.props | map(dp => { 'propIcon': dp["icon"], 'propTitle': dp["title"], 'description': dp["description"] }) : [] %}
 
 <section class="value-props">
     <div class="container">
