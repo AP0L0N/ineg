@@ -3,8 +3,9 @@
     data.eyebrow, data.heading, data.headingHighlight, data.description
     data.props (array) -> { icon(faclass), title, description }
 #}
-{% set data = data is defined ? data : field %}
-{% set props = data.props is defined ? data.props | map(dp => { 'propIcon': dp["icon"], 'propTitle': dp["title"], 'description': dp["description"] }) : [] %}
+{% set dataIsDefined = data is defined %}
+{% set data = dataIsDefined ? data : field %}
+{% set props = dataIsDefined and data.props is defined ? data.props | map(dp => { 'propIcon': dp["icon"], 'propTitle': dp["title"], 'description': dp["description"] }) : [] %}
 
 <section class="value-props">
     <div class="container">
