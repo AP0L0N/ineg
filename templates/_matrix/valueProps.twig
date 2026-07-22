@@ -5,7 +5,7 @@
 #}
 {% set dataIsDefined = data is defined %}
 {% set data = dataIsDefined ? data : field %}
-{% set props = dataIsDefined and data.props is defined ? data.props | map(dp => { 'propIcon': dp["icon"], 'propTitle': dp["title"], 'description': dp["description"] }) : [] %}
+{% set props = dataIsDefined and data.props is defined ? data.props | map(dp => { 'propIcon': dp["icon"], 'propTitle': dp["title"], 'description': dp["description"] }) : field.props.all() %}
 
 <section class="value-props">
     <div class="container">
