@@ -9,12 +9,7 @@
             <div class="top-bar-inner">
 
                 <ul class="contact-list">
-                    <li>
-                        <a href="tel:+38641661686">
-                            <i class="fal fa-phone-alt"></i>
-                            <span>+386 (0)41 661 686</span>
-                        </a>
-                    </li>
+                    {% include '_includes/contact-people' with { variant: 'topbar' } %}
                     <li>
                         <a href="mailto:info@ineg.si">
                             <i class="fal fa-envelope"></i>
@@ -41,15 +36,15 @@
                         </li>
                     </ul>
 
-                    {# Izbirnik jezika / strani — samodejno prebere Craft strani; če obstaja le ena, prikaže demo SL/EN #}
-                    <div class="lang-selector">
-                        <button type="button" class="lang-toggle" aria-haspopup="true" aria-expanded="false">
-                            <i class="fal fa-globe"></i>
-                            <span class="current">{{ currentSite.language|split('-')|first|upper }}</span>
-                            <i class="fal fa-angle-down caret" aria-hidden="true"></i>
-                        </button>
-                        <ul class="lang-menu">
-                            {% if allSites|length > 1 %}
+                    {# Izbirnik jezika — samo, če je v Craftu več kot ena stran; EN demo je odstranjen #}
+                    {% if allSites|length > 1 %}
+                        <div class="lang-selector">
+                            <button type="button" class="lang-toggle" aria-haspopup="true" aria-expanded="false">
+                                <i class="fal fa-globe"></i>
+                                <span class="current">{{ currentSite.language|split('-')|first|upper }}</span>
+                                <i class="fal fa-angle-down caret" aria-hidden="true"></i>
+                            </button>
+                            <ul class="lang-menu">
                                 {% for site in allSites %}
                                     <li>
                                         <a href="{{ site.baseUrl }}" class="{{ site.handle == currentSite.handle ? 'is-active' }}">
@@ -57,12 +52,9 @@
                                         </a>
                                     </li>
                                 {% endfor %}
-                            {% else %}
-                                <li><a href="{{ currentSite.baseUrl }}" class="is-active">SL — Slovenščina</a></li>
-                                <li><a href="/en">EN — English</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -127,23 +119,28 @@
                                             </a>
                                         {% endif %}
 
-                                        {% if otherServices|length %}
-                                            <div class="mega-menu-list">
-                                                {% for item in otherServices %}
-                                                    {% set itemPov = item.povezanaStoritev.one() %}
-                                                    <div class="mega-menu-list-item">
-                                                        {% set image = item.prikazneSlike.one() %}
-                                                        {% if image %}
-                                                            <div class="thumb">
-                                                                {% include "helpers/picture" with {desktop: {image: image, width: 160} } %}
-                                                            </div>
-                                                        {% endif %}
-                                                        <p class="title">{{ itemPov.title }}</p>
-                                                        <a href="{{ itemPov.url }}"></a>
-                                                    </div>
-                                                {% endfor %}
+                                        <div class="mega-menu-list">
+                                            {% for item in otherServices %}
+                                                {% set itemPov = item.povezanaStoritev.one() %}
+                                                <div class="mega-menu-list-item">
+                                                    {% set image = item.prikazneSlike.one() %}
+                                                    {% if image %}
+                                                        <div class="thumb">
+                                                            {% include "helpers/picture" with {desktop: {image: image, width: 160} } %}
+                                                        </div>
+                                                    {% endif %}
+                                                    <p class="title">{{ itemPov.title }}</p>
+                                                    <a href="{{ itemPov.url }}"></a>
+                                                </div>
+                                            {% endfor %}
+                                            <div class="mega-menu-list-item">
+                                                <div class="thumb">
+                                                    <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Leseni ležalnik' | t }}" width="160">
+                                                </div>
+                                                <p class="title">{{ 'Leseni ležalnik' | t }}</p>
+                                                <a href="{{ url('leseni-lezalnik') }}"></a>
                                             </div>
-                                        {% endif %}
+                                        </div>
                                     </div>
                                 {% endif %}
                             </div>
@@ -162,6 +159,10 @@
                                 <a class="nav-link" href="{{ navItem.url }}">{{ "O nas" | t }}</a>
                             </li>
                         {% endif %}
+
+                        <li class="nav-item {{ craft.app.request.segments|first == 'leseni-lezalnik' ? 'active' }}">
+                            <a class="nav-link" href="{{ url('leseni-lezalnik') }}">{{ 'Leseni ležalnik' | t }}</a>
+                        </li>
 
                         <li class="nav-item d-flex align-items-center justify-content-center">
                             <button class="search-toggle d-none d-lg-inline-flex" type="button" aria-label="{{ 'Iskanje' | t }}" aria-controls="searchOverlay" aria-expanded="false">
@@ -196,6 +197,7 @@
         { name: 'Storitve', url: navServices ? navServices.url : '/lesene-terase' },
         { name: navBlog ? navBlog.title : 'Objave', url: navBlog ? navBlog.url : '/vse-objave' },
         { name: navAbout ? navAbout.title : 'O nas', url: navAbout ? navAbout.url : '/o-institutu' },
+        { name: 'Leseni ležalnik', url: url('leseni-lezalnik') },
         { name: navContact ? navContact.title : 'Kontakt', url: navContact ? navContact.url : '/kontakt' }
     ]) }}
 

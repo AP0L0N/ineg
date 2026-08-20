@@ -37,11 +37,20 @@ header {
         }
 
         .contact-list {
-            gap: 24px;
+            gap: 18px;
+            flex-wrap: wrap;
+
+            @media (min-width: 1200px) {
+                gap: 24px;
+            }
 
             li {
                 display: flex;
                 align-items: center;
+            }
+
+            .contact-people__name {
+                font-weight: 700;
             }
 
             a,

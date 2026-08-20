@@ -19,5 +19,5 @@
  */
 
 return [
-
+    'leseni-lezalnik' => ['template' => 'pages/leseni-lezalnik'],
 ];

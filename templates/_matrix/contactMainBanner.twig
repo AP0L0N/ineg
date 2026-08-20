@@ -121,6 +121,7 @@
                                 <select id="contactType" name="type" required>
                                     <option value="" disabled selected>Izberite vrsto</option>
                                     <option>Lesena terasa</option>
+                                    <option>Leseni ležalnik</option>
                                     <option>Leseni fasadni sistemi</option>
                                     <option>Lesene ograje</option>
                                     <option>Vrtne hiške in nadstreški</option>
@@ -156,6 +157,7 @@
                             <li><i class="fal fa-phone"></i> <a href="tel:{{ contactInfo.contactInfo.telefon2 }}">{{ contactInfo.contactInfo.telefon2 }}</a></li>
                         {% endif %}
                     </ul>
+                    {% include '_includes/contact-people' with { variant: 'dark' } %}
                 </aside>
 
             </div>

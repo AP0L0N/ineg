@@ -58,6 +58,9 @@
                                     <a href="{{ item.povezanaStoritev.one().url }}">{{ item.povezanaStoritev.one().title }}</a>
                                 </li>
                             {% endfor %}
+                            <li>
+                                <a href="{{ url('leseni-lezalnik') }}">{{ 'Leseni ležalnik' | t }}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
