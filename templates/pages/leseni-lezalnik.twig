@@ -2,77 +2,35 @@
 
 {% set seoTitle = "Leseni ležalnik po meri | Eksotični les | INeG" %}
 {% set seoDescription = "Leseni ležalnik iz več vrst eksotičnega lesa. Izdelava po meri, usklajena z vašo teraso. Pošljite naročilo na prodaja@ineg.si." %}
+{% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
+{% set lezalnikPage = entry is defined ? entry : (lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null) %}
+{% set lezalnikUrl = lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') %}
+{% set productBlocks = lezalnikPage and lezalnikPage.buildingBlocks is defined ? lezalnikPage.buildingBlocks.type('lezalnikProduct').all() : [] %}
+{% set otherBlocks = lezalnikPage and lezalnikPage.buildingBlocks is defined ? lezalnikPage.buildingBlocks.type('not lezalnikProduct').all() : [] %}
 
 {% block content %}
 
-    <section class="lezalnik-page">
-        <div class="lezalnik-page__hero" style="background-image: url('/assets/images/lesene_terase/3.jpg');">
-            <div class="container">
-                <div class="lezalnik-page__hero-content">
-                    <span class="eyebrow">{{ 'Zunanji leseni dodatki' | t }}</span>
-                    <h1>{{ 'Leseni ležalnik' | t }}</h1>
-                    <p class="lead">{{ 'Udobje na terasi iz več vrst eksotičnega lesa. Izdelava po meri, usklajena z vašim zunanjim prostorom.' | t }}</p>
-                </div>
-            </div>
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li><a href="/">{{ 'Domov' | t }}</a></li>
+                <li class="sep">/</li>
+                <li class="current">{{ 'Leseni ležalnik' | t }}</li>
+            </ul>
         </div>
+    </div>
 
-        <div class="container lezalnik-page__body">
-            <div class="lezalnik-page__intro">
-                <h2>{{ 'Ležalnik, ki se poda k vaši terasi' | t }}</h2>
-                <p>{{ 'Leseni ležalnik izdelamo iz enakih eksotičnih lesov, ki jih uporabljamo za terase — Cumaru, IPE, Garapa in druge. Tako dosežemo skladnost, dolgo obstojnost in prijeten občutek na otip.' | t }}</p>
-                <p>{{ 'Vsak kos je narejen po meri. Sporočite nam želene mere, vrsto lesa in morebitne dodatke — pripravimo vam ponudbo.' | t }}</p>
-                <p class="lezalnik-page__note">{{ 'Fotografije izdelka še pripravljamo. Spodaj so vzorci lesa in detajli z naših teras.' | t }}</p>
-            </div>
+    {% if productBlocks|length %}
+        {% for field in productBlocks %}
+            {% include '_matrix/lezalnikProduct' %}
+        {% endfor %}
+    {% else %}
+        {% include '_matrix/lezalnikProduct' %}
+    {% endif %}
 
-            <div class="lezalnik-page__gallery" aria-label="{{ 'Vzorci lesa (nadomestne fotografije)' | t }}">
-                <figure>
-                    <img src="/assets/images/lesene_terase/2.jpg" alt="{{ 'Vzorec eksotičnega lesa — terasa' | t }}" loading="lazy">
-                    <figcaption>{{ 'Vzorec lesa (nadomestna fotografija)' | t }}</figcaption>
-                </figure>
-                <figure>
-                    <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Vzorec eksotičnega lesa — Garapa' | t }}" loading="lazy">
-                    <figcaption>{{ 'Vzorec lesa (nadomestna fotografija)' | t }}</figcaption>
-                </figure>
-                <figure>
-                    <img src="/assets/images/lesene_terase/6.jpg" alt="{{ 'Vzorec eksotičnega lesa — detajl' | t }}" loading="lazy">
-                    <figcaption>{{ 'Vzorec lesa (nadomestna fotografija)' | t }}</figcaption>
-                </figure>
-                <figure>
-                    <img src="/assets/images/terase_3.jpg" alt="{{ 'Lesena terasa — referenca za ležalnik' | t }}" loading="lazy">
-                    <figcaption>{{ 'Vzorec lesa (nadomestna fotografija)' | t }}</figcaption>
-                </figure>
-            </div>
-
-            <div class="lezalnik-page__form-wrap">
-                <span class="eyebrow">{{ 'Naročilo' | t }}</span>
-                <h2>{{ 'Pošljite povpraševanje' | t }}</h2>
-                <p>{{ 'Obrazec odpre e-pošto na prodaja@ineg.si. Odgovorimo v enem delovnem dnevu.' | t }}</p>
-
-                <form id="lezalnikOrderForm" class="lezalnik-order-form" novalidate>
-                    <div class="form-group">
-                        <label for="lezalnikName">{{ "Ime in priimek" | t }}</label>
-                        <input type="text" id="lezalnikName" name="name" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="lezalnikEmail">{{ "E-naslov" | t }}</label>
-                            <input type="email" id="lezalnikEmail" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lezalnikPhone">{{ "Telefon" | t }}</label>
-                            <input type="tel" id="lezalnikPhone" name="phone">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lezalnikMessage">{{ "Sporočilo" | t }}</label>
-                        <textarea id="lezalnikMessage" name="message" rows="5" placeholder="{{ 'Mere, vrsta lesa, količina …' | t }}" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">{{ "Pošlji povpraševanje" | t }}</button>
-                    <p class="form-note">{{ 'Ali pišite neposredno na' | t }} <a href="mailto:prodaja@ineg.si">prodaja@ineg.si</a></p>
-                </form>
-            </div>
-        </div>
-    </section>
+    {% for field in otherBlocks %}
+        {% include '_matrix/' ~ field.type %}
+    {% endfor %}
 
     {% import "helpers/structured-data" as sd %}
     <script type="application/ld+json">
@@ -85,13 +43,13 @@
             "@type": "Brand",
             "name": "INeG"
         },
-        "url": {{ url('leseni-lezalnik') | json_encode | raw }}
+        "url": {{ lezalnikUrl | json_encode | raw }}
     }
     </script>
 
     {{ sd.breadcrumb([
         { name: 'Domov', url: siteUrl },
-        { name: 'Leseni ležalnik', url: url('leseni-lezalnik') }
+        { name: 'Leseni ležalnik', url: lezalnikUrl }
     ]) }}
 
     <script>

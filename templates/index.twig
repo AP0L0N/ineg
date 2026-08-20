@@ -29,7 +29,7 @@
 
             {% endfor %}
 
-            {% if isHome %}
+            {% if isHome and not entry.buildingBlocks.type('lezalnikPromo').exists() %}
                 {% include '_matrix/lezalnikPromo' %}
             {% endif %}
     {% endif %}

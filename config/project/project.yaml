@@ -1,4 +1,4 @@
-dateModified: 1784512034
+dateModified: 1787212800
 email:
   fromEmail: poje.tilen@gmail.com
   fromName: INeG
@@ -54,6 +54,7 @@ meta:
     4e69d316-2d1b-4986-81ac-c00fd82bd7ed: Heading # Heading
     4e197ef4-5bbd-44fd-8f02-e4990e995776: 'List all' # List all
     4ed8992f-6da8-4b32-8c69-6eedee3b89ef: Description # Description
+    51730284-bffb-4bea-8529-2d72568a3472: Slike # Slike
     5a1ba04e-9271-4d9b-939b-cd87f867486e: 'Hero decking' # Hero decking
     5a78a8b0-e06b-42b3-ba83-d44dcb689a55: FAQ # FAQ
     5aff0339-6a73-417e-bfbf-63656f413f30: Naslov # Naslov
@@ -90,6 +91,7 @@ meta:
     8f9af46c-e209-4b22-a9cb-ea117152ec10: 'Poziv k kontaktu' # Poziv k kontaktu
     8f854904-9811-4d3b-91c2-425844259b52: 'Vrtne hiške in nadstreški' # Vrtne hiške in nadstreški
     8fd69b6d-5ca4-4568-be30-23b872c4d6c3: Naslov # Naslov
+    99ba8f5e-2f43-4a3e-95bd-ac7edd8744b3: Opis # Opis
     9a1a5004-42d2-436b-9862-ba9ca67222e8: 'Custom CSS Classes' # Custom CSS Classes
     9a70ef86-584b-4229-a447-6e65f68bd505: Background # Background
     9afbea8c-b763-44ad-99c1-2f3fb319ea49: Datoteke # Datoteke
@@ -104,6 +106,7 @@ meta:
     11c7302d-c3e3-43d4-bd64-c1e6ee403496: Naslov # Naslov
     12f1bfe4-8eee-40f0-8c16-0d5813161b96: 'Custom CSS Classes' # Custom CSS Classes
     15add603-12b9-4dc4-98df-a932bf9a07f6: 'Column values' # Column values
+    16c4d8b9-bac1-4116-bbf1-b4ae6f82374b: Naslov # Naslov
     18dd1580-3306-463c-90d8-15005458d83a: 'O inštitutu' # O inštitutu
     21b10a42-3045-4c69-86b0-3557fdfff06e: 'Kategorija zadolžitve' # Kategorija zadolžitve
     21e8671b-ef20-423d-98ac-5ec6ea8d07ca: Storitev # Storitev
@@ -280,6 +283,7 @@ meta:
     86795335-d557-4412-834b-14ac7ca02123: 'Bigger cards' # Bigger cards
     a0e3711a-7804-403c-9a5e-f227e0218477: 'Primerjalni modul' # Primerjalni modul
     a0590213-7db8-43a6-90e2-9d4a1954062e: 'Opis 1' # Opis 1
+    afe7832e-9601-4e50-a34d-049774db5b32: Specifikacije # Specifikacije
     a0640ab6-84be-4825-aa1a-35d89b8a7b90: 'O inštitutu' # O inštitutu
     a1c392ae-4e81-4e36-bf27-16c659d9a766: Image # Image
     a4ba54c1-5627-44ad-8666-758e7d70ee69: Naslov # Naslov
@@ -311,7 +315,9 @@ meta:
     b3c33b01-8cd7-4fff-8583-32ee7e9436c1: Naslov # Naslov
     b3d3b0de-cc6d-405e-9eb2-916f1303d24d: 'Zupanja vredni' # Zupanja vredni
     b5d272b2-e774-400f-a921-0968558b07fd: Slike # Slike
+    b6b7d35c-956c-4b67-bf48-8fe69134a0e1: 'Leseni ležalnik — promo' # Leseni ležalnik — promo
     b6f01a38-71e5-4af3-ab2d-eca0eeb07896: 'KC - Storitev' # KC - Storitev
+    b8850d51-2c80-455a-bd80-2552060f6093: Cena # Cena
     b7c5de39-11e7-4a6a-8f20-1f61245c8799: Opis # Opis
     b7dd8164-1403-4989-aac1-429f5ed52cef: 'Blog image' # Blog image
     b7fbee12-f672-4f84-bb1d-32397f05e959: 'Ime in priimek' # Ime in priimek
@@ -332,6 +338,7 @@ meta:
     c08fdcfd-81b3-4d87-ab3d-42df4a15bf97: Description # Description
     c083a733-f2ea-44e8-a565-5de4ef110d19: 'Module 1' # Module 1
     c2b025f1-884f-4be1-8303-3316154507f8: Columns # Columns
+    c24b4a49-822d-4e32-a9a5-7f4ceb5cb227: 'Leseni ležalnik' # Leseni ležalnik
     c2c3ea19-30e5-4acf-bfc0-0569357cbbaf: 'Contact button' # Contact button
     c3aaed1e-7af3-4f1b-b63b-ede520e8ec1e: 'Čas branja' # Čas branja
     c3f27eca-6f57-4125-a33b-2d89d4c4dd44: Slider # Slider
@@ -349,6 +356,7 @@ meta:
     c622c938-5095-404e-876d-c09f629d3850: '3. okvir - naslov' # 3. okvir - naslov
     c879e781-10d1-47b4-9860-841cb2bc6687: 'CTA Banner' # CTA Banner
     c884b297-b3fd-4656-a96e-973ab3eac0cd: Navigacija # Navigacija
+    c900c4d2-dc50-40cb-b2d5-3079e38f3483: 'Leseni ležalnik — izdelek' # Leseni ležalnik — izdelek
     c2092bcd-8d2c-4119-934a-690b3b151cf0: Heading # Heading
     c7451bb2-dd9d-463a-84c1-1acb538acb3e: 'Instagram objave' # Instagram objave
     c10992c8-7801-498c-aff4-9c402f063c64: 'Poziv k kontaktu' # Poziv k kontaktu
@@ -418,6 +426,7 @@ meta:
     ec8781be-a45b-4b5e-b368-47944959fb00: 'Value props' # Value props
     ed9e412c-2bf7-46b8-8080-55df2f39d32d: 'Image three' # Image three
     ee7d8266-096b-4d37-bdfd-26eb8c84bee1: Garancije # Garancije
+    ef6a694f-6ade-4c87-b73d-3891237d885b: 'Leseni ležalnik' # Leseni ležalnik
     f0bcf355-d301-485e-9b2c-bdc29247b5e5: 'Heading highlight' # Heading highlight
     f0d3cbdb-79ef-46a6-a6e7-880400c68687: 'Main title two' # Main title two
     f0d275d4-d385-4390-92ae-1f8b572cd2a5: Heading # Heading

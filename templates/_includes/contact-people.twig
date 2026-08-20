@@ -1,6 +1,6 @@
 {#
     Robi + Žiga — vedno prikazana kontakta.
-    variant: topbar | banner | page | dark
+    variant: topbar | mobile | banner | page | dark
 #}
 {% set variant = variant|default('banner') %}
 {% set people = [
@@ -30,6 +30,32 @@
             </a>
         </li>
     {% endfor %}
+{% elseif variant == 'mobile' %}
+    <div class="nav-contact-strip">
+        <ul class="nav-contact-strip__list">
+            {% for person in people %}
+                <li>
+                    <a href="tel:{{ person.tel }}">
+                        <i class="fal fa-phone-alt"></i>
+                        <span class="contact-people__name">{{ person.shortName | t }}</span>
+                        <span>{{ person.phone }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+            <li>
+                <a href="mailto:info@ineg.si">
+                    <i class="fal fa-envelope"></i>
+                    <span>info@ineg.si</span>
+                </a>
+            </li>
+            <li>
+                <span class="nav-contact-strip__address">
+                    <i class="fal fa-map-marker-alt"></i>
+                    <span>Ropretova cesta 18, Mengeš</span>
+                </span>
+            </li>
+        </ul>
+    </div>
 {% else %}
     <ul class="contact-people contact-people--{{ variant }}">
         {% for person in people %}

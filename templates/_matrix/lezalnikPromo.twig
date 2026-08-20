@@ -1,7 +1,9 @@
 {#
-    Promocija lesenega ležalnika — naslovna stran.
-    Dela samostojno (brez CMS bloka).
+    Promocija lesenega ležalnika — naslovna stran ali buildingBlocks blok.
 #}
+{% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
+{% set lezalnikPage = lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null %}
+{% set lezalnikUrl = lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') %}
 <section class="lezalnik-promo">
     <div class="container">
         <div class="lezalnik-promo__grid">
@@ -13,7 +15,7 @@
                 <span class="eyebrow">{{ 'Novost v ponudbi' | t }}</span>
                 <h2>{{ 'Leseni' | t }} <span>{{ 'ležalnik' | t }}</span></h2>
                 <p>{{ 'Leseni ležalnik po meri iz več vrst eksotičnega lesa. Skladnost z vašo teraso, trpežna izdelava in udobje za poletne dni.' | t }}</p>
-                <a href="{{ url('leseni-lezalnik') }}" class="btn btn-primary">{{ 'Oglejte si ležalnik' | t }}</a>
+                <a href="{{ lezalnikUrl }}" class="btn btn-primary">{{ 'Oglejte si ležalnik' | t }}</a>
             </div>
         </div>
     </div>

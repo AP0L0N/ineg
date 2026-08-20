@@ -61,88 +61,36 @@
     }
 }
 
-.lezalnik-page {
-    &__hero {
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        padding: 80px 0 70px;
+.lezalnik-product {
+    padding: 28px 0 80px;
 
-        @media (min-width: 991px) {
-            padding: 120px 0 100px;
-        }
-
-        &:before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(17, 17, 17, 0.82) 0%, rgba(17, 17, 17, 0.45) 100%);
-        }
+    @media (min-width: 991px) {
+        padding: 36px 0 110px;
     }
 
-    &__hero-content {
-        position: relative;
-        z-index: 1;
-        max-width: 640px;
-        color: white;
+    &__layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        align-items: start;
 
-        h1 {
-            color: white;
-            @include misc.responsive-font(30, 48);
-            font-weight: 700;
-            margin-bottom: 16px;
+        @media (min-width: 768px) {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 48px;
         }
-
-        .lead {
-            color: rgba(255, 255, 255, 0.9);
-            @include misc.responsive-font(16, 19);
-            line-height: 1.5;
-            margin: 0;
-        }
-    }
-
-    &__body {
-        padding: 60px 0 90px;
-
-        @media (min-width: 991px) {
-            padding: 90px 0 120px;
-        }
-    }
-
-    &__intro {
-        max-width: 720px;
-        margin-bottom: 40px;
-
-        h2 {
-            @include misc.responsive-font(24, 34);
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        p {
-            @include misc.responsive-font(15, 18);
-            line-height: 1.55;
-            margin-bottom: 14px;
-        }
-    }
-
-    &__note {
-        font-size: 14px;
-        color: #7a7a7a;
     }
 
     &__gallery {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 60px;
-
-        @media (min-width: 768px) {
-            grid-template-columns: repeat(4, 1fr);
-        }
+        gap: 12px;
 
         figure {
             margin: 0;
+
+            &:first-child {
+                grid-column: 1 / -1;
+            }
         }
 
         img {
@@ -152,37 +100,88 @@
             border-radius: 8px;
             display: block;
 
-            @media (min-width: 991px) {
+            @media (min-width: 768px) {
                 height: 220px;
             }
         }
 
-        figcaption {
-            margin-top: 8px;
-            font-size: 12px;
-            color: #8a8a8a;
+        figure:first-child img {
+            height: 260px;
+
+            @media (min-width: 768px) {
+                height: 380px;
+            }
+        }
+    }
+
+    &__info {
+        h1 {
+            @include misc.responsive-font(28, 40);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        > p {
+            @include misc.responsive-font(15, 17);
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+    }
+
+    &__description {
+        p {
+            @include misc.responsive-font(15, 17);
+            line-height: 1.55;
+            margin-bottom: 14px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__price {
+        margin: 20px 0 8px;
+        font-weight: 700;
+        @include misc.responsive-font(22, 28);
+        color: variables.$primary-color-dark;
+    }
+
+    &__specs {
+        margin: 22px 0 28px;
+
+        h2 {
+            @include misc.responsive-font(16, 18);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
         }
     }
 
     &__form-wrap {
-        max-width: 640px;
         background: white;
         border: 1px solid #f1e4d6;
         border-radius: 8px;
-        padding: 32px 26px;
+        padding: 24px 20px;
+        margin-top: 28px;
 
         @media (min-width: 768px) {
-            padding: 42px 40px;
+            padding: 32px 28px;
         }
 
         h2 {
-            @include misc.responsive-font(22, 30);
+            @include misc.responsive-font(20, 26);
             font-weight: 700;
             margin-bottom: 10px;
         }
 
         > p {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.5;
         }
     }
@@ -287,11 +286,6 @@
         &:hover {
             color: white;
         }
-    }
-
-    &--topbar .contact-people__name {
-        font-weight: 700;
-        color: white;
     }
 }
 

@@ -1,5 +1,8 @@
 {% set allSites = craft.app.sites.allSites %}
 {% set currentSite = craft.app.sites.currentSite %}
+{% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
+{% set lezalnikPage = lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null %}
+{% set lezalnikUrl = lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') %}
 
 <header id="mainHeader" class="fixed-top">
 
@@ -138,7 +141,7 @@
                                                     <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Leseni ležalnik' | t }}" width="160">
                                                 </div>
                                                 <p class="title">{{ 'Leseni ležalnik' | t }}</p>
-                                                <a href="{{ url('leseni-lezalnik') }}"></a>
+                                                <a href="{{ lezalnikUrl }}"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -160,8 +163,8 @@
                             </li>
                         {% endif %}
 
-                        <li class="nav-item {{ craft.app.request.segments|first == 'leseni-lezalnik' ? 'active' }}">
-                            <a class="nav-link" href="{{ url('leseni-lezalnik') }}">{{ 'Leseni ležalnik' | t }}</a>
+                        <li class="nav-item {{ (entry is defined and entry.section.handle == 'leseniLezalnik') or craft.app.request.segments|first == 'leseni-lezalnik' ? 'active' }}">
+                            <a class="nav-link" href="{{ lezalnikUrl }}">{{ 'Leseni ležalnik' | t }}</a>
                         </li>
 
                         <li class="nav-item d-flex align-items-center justify-content-center">
@@ -180,6 +183,8 @@
                             </a>
                         </div>
                     </div>
+
+                    {% include '_includes/contact-people' with { variant: 'mobile' } %}
                 </div>
             </div>
         </nav>
@@ -197,7 +202,7 @@
         { name: 'Storitve', url: navServices ? navServices.url : '/lesene-terase' },
         { name: navBlog ? navBlog.title : 'Objave', url: navBlog ? navBlog.url : '/vse-objave' },
         { name: navAbout ? navAbout.title : 'O nas', url: navAbout ? navAbout.url : '/o-institutu' },
-        { name: 'Leseni ležalnik', url: url('leseni-lezalnik') },
+        { name: 'Leseni ležalnik', url: lezalnikUrl },
         { name: navContact ? navContact.title : 'Kontakt', url: navContact ? navContact.url : '/kontakt' }
     ]) }}
 
