@@ -6,6 +6,7 @@
 
 {% block content %}
     {% if entry is defined %}
+        {% set isHome = entry.section.handle == 'naslovnaStran' %}
         {# Main section #}
             {# loop through the fields in the entries fieldLayout Model #}
             {% for field in entry.getFieldLayout().getFields() %}
@@ -27,6 +28,10 @@
                 {% endfor %}
 
             {% endfor %}
+
+            {% if isHome and not entry.buildingBlocks.type('lezalnikPromo').exists() %}
+                {% include '_matrix/lezalnikPromo' %}
+            {% endif %}
     {% endif %}
 
     {# ───────────────────── STRUKTURIRANI PODATKI (SEO / AI) ───────────────────── #}

@@ -58,6 +58,11 @@
                                     <a href="{{ item.povezanaStoritev.one().url }}">{{ item.povezanaStoritev.one().title }}</a>
                                 </li>
                             {% endfor %}
+                            {% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
+                            {% set lezalnikPage = lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null %}
+                            <li>
+                                <a href="{{ lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') }}">{{ 'Leseni ležalnik' | t }}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

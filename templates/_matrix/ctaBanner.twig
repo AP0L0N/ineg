@@ -33,6 +33,22 @@
                         </span>
                     </a>
                 {% endif %}
+                {% if not contactInfo.contactInfo.telefon and not contactInfo.contactInfo.telefon2 %}
+                    <a href="tel:+38641661686" class="phone-link">
+                        <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                        <span class="text">
+                            <span class="label">{{ 'Robi' | t }}</span>
+                            <span class="number">+386 (0)41 661 686</span>
+                        </span>
+                    </a>
+                    <a href="tel:+38640567518" class="phone-link">
+                        <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                        <span class="text">
+                            <span class="label">{{ 'Žiga' | t }}</span>
+                            <span class="number">+386 (0)40 567 518</span>
+                        </span>
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>

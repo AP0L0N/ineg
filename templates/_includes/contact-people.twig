@@ -1,0 +1,75 @@
+{#
+    Robi + Žiga — vedno prikazana kontakta.
+    variant: topbar | mobile | banner | page | dark
+#}
+{% set variant = variant|default('banner') %}
+{% set people = [
+    {
+        shortName: 'Robi',
+        name: 'Robert Lambergar',
+        phone: '+386 (0)41 661 686',
+        tel: '+38641661686',
+        email: 'lesena-gradnja@ineg.si'
+    },
+    {
+        shortName: 'Žiga',
+        name: 'Žiga Zupan',
+        phone: '+386 (0)40 567 518',
+        tel: '+38640567518',
+        email: 'ziga.zupan@ineg.si'
+    }
+] %}
+
+{% if variant == 'topbar' %}
+    {% for person in people %}
+        <li>
+            <a href="tel:{{ person.tel }}">
+                <i class="fal fa-phone-alt"></i>
+                <span class="contact-people__name">{{ person.shortName | t }}</span>
+                <span>{{ person.phone }}</span>
+            </a>
+        </li>
+    {% endfor %}
+{% elseif variant == 'mobile' %}
+    <div class="nav-contact-strip">
+        <ul class="nav-contact-strip__list">
+            {% for person in people %}
+                <li>
+                    <a href="tel:{{ person.tel }}">
+                        <i class="fal fa-phone-alt"></i>
+                        <span class="contact-people__name">{{ person.shortName | t }}</span>
+                        <span>{{ person.phone }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+            <li>
+                <a href="mailto:info@ineg.si">
+                    <i class="fal fa-envelope"></i>
+                    <span>info@ineg.si</span>
+                </a>
+            </li>
+            <li>
+                <span class="nav-contact-strip__address">
+                    <i class="fal fa-map-marker-alt"></i>
+                    <span>Ropretova cesta 18, Mengeš</span>
+                </span>
+            </li>
+        </ul>
+    </div>
+{% else %}
+    <ul class="contact-people contact-people--{{ variant }}">
+        {% for person in people %}
+            <li>
+                <p class="contact-people__name">
+                    {% if variant == 'page' %}
+                        {{ person.name }}
+                    {% else %}
+                        {{ person.shortName | t }} — {{ person.name }}
+                    {% endif %}
+                </p>
+                <a href="tel:{{ person.tel }}">{{ person.phone }}</a>
+                <a href="mailto:{{ person.email }}">{{ person.email }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

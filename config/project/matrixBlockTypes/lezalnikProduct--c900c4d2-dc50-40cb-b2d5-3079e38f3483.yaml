@@ -1,0 +1,179 @@
+field: 56976fc8-b729-4b9b-bb45-d97776945165 # Building blocks
+fieldLayouts:
+  d48853bb-1766-4acd-a3d8-b0139e4009ad:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 16c4d8b9-bac1-4116-bbf1-b4ae6f82374b # Naslov
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 99ba8f5e-2f43-4a3e-95bd-ac7edd8744b3 # Opis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 51730284-bffb-4bea-8529-2d72568a3472 # Slike
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b8850d51-2c80-455a-bd80-2552060f6093 # Cena
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: afe7832e-9601-4e50-a34d-049774db5b32 # Specifikacije
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  16c4d8b9-bac1-4116-bbf1-b4ae6f82374b: # Naslov
+    columnSuffix: kqwmnepz
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Naslov
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '2'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  51730284-bffb-4bea-8529-2d72568a3472: # Slike
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: ''
+    name: Slike
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      defaultUploadLocationSubpath: lezalnik
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:840e2501-1cc7-4112-ac2f-5ef95840022c' # Images
+      singleUploadLocationSubpath: lezalnik
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  99ba8f5e-2f43-4a3e-95bd-ac7edd8744b3: # Opis
+    columnSuffix: rtyuioas
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Opis
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  afe7832e-9601-4e50-a34d-049774db5b32: # Specifikacije
+    columnSuffix: asdfghjk
+    contentColumnType: text
+    fieldGroup: null
+    handle: specs
+    instructions: 'Ena vrstica na specifikacijo (npr. Les: Cumaru).'
+    name: Specifikacije
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '6'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b8850d51-2c80-455a-bd80-2552060f6093: # Cena
+    columnSuffix: vbnmzxcv
+    contentColumnType: text
+    fieldGroup: null
+    handle: price
+    instructions: 'Izbirno (npr. od 890 €).'
+    name: Cena
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: lezalnikProduct
+name: 'Leseni ležalnik — izdelek'
+sortOrder: 37

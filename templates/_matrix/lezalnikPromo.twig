@@ -1,0 +1,22 @@
+{#
+    Promocija lesenega ležalnika — naslovna stran ali buildingBlocks blok.
+#}
+{% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
+{% set lezalnikPage = lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null %}
+{% set lezalnikUrl = lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') %}
+<section class="lezalnik-promo">
+    <div class="container">
+        <div class="lezalnik-promo__grid">
+            <div class="lezalnik-promo__media">
+                <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Vzorec eksotičnega lesa za leseni ležalnik' | t }}" loading="lazy">
+                <p class="lezalnik-promo__caption">{{ 'Fotografije izdelka sledijo — prikazani so vzorci lesa z naših teras.' | t }}</p>
+            </div>
+            <div class="lezalnik-promo__content">
+                <span class="eyebrow">{{ 'Novost v ponudbi' | t }}</span>
+                <h2>{{ 'Leseni' | t }} <span>{{ 'ležalnik' | t }}</span></h2>
+                <p>{{ 'Leseni ležalnik po meri iz več vrst eksotičnega lesa. Skladnost z vašo teraso, trpežna izdelava in udobje za poletne dni.' | t }}</p>
+                <a href="{{ lezalnikUrl }}" class="btn btn-primary">{{ 'Oglejte si ležalnik' | t }}</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,89 @@
+{% extends '_layouts/site-content' %}
+
+{% set seoTitle = "Leseni ležalnik po meri | Eksotični les | INeG" %}
+{% set seoDescription = "Leseni ležalnik iz več vrst eksotičnega lesa. Izdelava po meri, usklajena z vašo teraso. Pošljite naročilo na prodaja@ineg.si." %}
+{% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
+{% set lezalnikPage = entry is defined ? entry : (lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null) %}
+{% set lezalnikUrl = lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') %}
+{% set productBlocks = lezalnikPage and lezalnikPage.buildingBlocks is defined ? lezalnikPage.buildingBlocks.type('lezalnikProduct').all() : [] %}
+{% set otherBlocks = lezalnikPage and lezalnikPage.buildingBlocks is defined ? lezalnikPage.buildingBlocks.type('not lezalnikProduct').all() : [] %}
+
+{% block content %}
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li><a href="/">{{ 'Domov' | t }}</a></li>
+                <li class="sep">/</li>
+                <li class="current">{{ 'Leseni ležalnik' | t }}</li>
+            </ul>
+        </div>
+    </div>
+
+    {% if productBlocks|length %}
+        {% for field in productBlocks %}
+            {% include '_matrix/lezalnikProduct' %}
+        {% endfor %}
+    {% else %}
+        {% include '_matrix/lezalnikProduct' %}
+    {% endif %}
+
+    {% for field in otherBlocks %}
+        {% include '_matrix/' ~ field.type %}
+    {% endfor %}
+
+    {% import "helpers/structured-data" as sd %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Leseni ležalnik",
+        "description": "Leseni ležalnik po meri iz več vrst eksotičnega lesa.",
+        "brand": {
+            "@type": "Brand",
+            "name": "INeG"
+        },
+        "url": {{ lezalnikUrl | json_encode | raw }}
+    }
+    </script>
+
+    {{ sd.breadcrumb([
+        { name: 'Domov', url: siteUrl },
+        { name: 'Leseni ležalnik', url: lezalnikUrl }
+    ]) }}
+
+    <script>
+    (function () {
+        var form = document.getElementById('lezalnikOrderForm');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            var name = document.getElementById('lezalnikName').value.trim();
+            var email = document.getElementById('lezalnikEmail').value.trim();
+            var phone = document.getElementById('lezalnikPhone').value.trim();
+            var message = document.getElementById('lezalnikMessage').value.trim();
+
+            var body = [
+                'Naročilo: leseni ležalnik',
+                '',
+                'Ime in priimek: ' + name,
+                'E-naslov: ' + email,
+                'Telefon: ' + (phone || '—'),
+                '',
+                message
+            ].join('\n');
+
+            window.location.href = 'mailto:prodaja@ineg.si'
+                + '?subject=' + encodeURIComponent('Naročilo: leseni ležalnik')
+                + '&body=' + encodeURIComponent(body);
+        });
+    })();
+    </script>
+
+{% endblock %}
