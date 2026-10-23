@@ -27,13 +27,15 @@ function initMobileMenu(mm, openBtn) {
 	const T = {open:340, close:260, push:320, pop:280, bIn:280, bOut:220, rmFade:140, stagger:22, staggerMax:8, itemDur:300, itemDist:20};
 	const EASE = 'cubic-bezier(.32,.72,0,1)', EXIT = 'cubic-bezier(.4,0,.7,.2)', LINEAR_OUT = 'cubic-bezier(.2,0,0,1)';
 	const PAR = -28, PAR_OP = .55;
+	const ROWS = '.mm-feat, .mm-list > li, .mm-foot'; // vrstice, ki se zamaknjeno pojavijo
 
 	let stack = ['root'], busy = false, isOpen = false, scrollY0 = 0, locked = false;
 
 	function anim(el, kf, opt) { return el.animate(kf, Object.assign({fill:'both'}, opt)); }
-	// Ob koncu zapiše končne sloge in odstrani animacijo; preklicana animacija (reset) ne sproži nadaljevanja.
-	function settle(a) {
-		return new Promise(res => a.finished.then(() => { try { a.commitStyles(); } catch (e) {} a.cancel(); res(); }, () => {}));
+	// Ob koncu nastavi znano mirovno stanje (inline slog) in odstrani animacijo — brez commitStyles(), ki na iOS Safari
+	// lahko pusti element narisan v vmesnem stanju. Preklicana animacija (reset) ne sproži nadaljevanja.
+	function settle(a, rest = {transform:'', opacity:''}) {
+		return new Promise(res => a.finished.then(() => { Object.assign(a.effect.target.style, rest); a.cancel(); res(); }, () => {}));
 	}
 
 	function lockScroll() {
@@ -58,15 +60,23 @@ function initMobileMenu(mm, openBtn) {
 			p.getAnimations({subtree:true}).forEach(a => a.cancel());
 			p.hidden = id !== 'root'; p.classList.remove('is-entering', 'is-below');
 			p.style.transform = ''; p.style.opacity = '';
+			p.querySelectorAll(ROWS).forEach(r => { r.style.transform = ''; r.style.opacity = ''; });
 		});
 		Object.values(triggerOf).forEach(t => t.setAttribute('aria-expanded', 'false'));
 		clearLoading();
 	}
 
+	// Vrstice: fill 'backwards' (začetno stanje le med zamikom, po koncu ne ostane nič), brez commitStyles;
+	// varnostni timeout animacijo vseeno prekliče, če se na iOS ne bi pravilno zaključila.
 	function staggerIn(panel, delay) {
 		if (RM) return;
-		const rows = [...panel.querySelectorAll('.mm-feat, .mm-list > li, .mm-foot')].slice(0, T.staggerMax + 1);
-		rows.forEach((r, i) => settle(anim(r, [{transform:`translateX(${T.itemDist}px)`, opacity:0}, {transform:'none', opacity:1}], {duration:T.itemDur, delay:delay + i * T.stagger, easing:EASE})));
+		const rows = [...panel.querySelectorAll(ROWS)].slice(0, T.staggerMax + 1);
+		rows.forEach((r, i) => {
+			const d = delay + i * T.stagger;
+			r.style.transform = ''; r.style.opacity = '';
+			const a = r.animate([{transform:`translateX(${T.itemDist}px)`, opacity:0}, {transform:'none', opacity:1}], {duration:T.itemDur, delay:d, easing:EASE, fill:'backwards'});
+			setTimeout(() => a.cancel(), d + T.itemDur + 100);
+		});
 	}
 
 	function open() {
@@ -82,20 +92,20 @@ function initMobileMenu(mm, openBtn) {
 		mm.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; }); // sličice storitev pred prvim push
 		const d = RM ? anim(drawer, [{transform:'none', opacity:0}, {transform:'none', opacity:1}], {duration:T.rmFade, easing:'linear'})
 		             : anim(drawer, [{transform:'translateX(100%)'}, {transform:'translateX(0)'}], {duration:T.open, easing:EASE});
-		settle(anim(backdrop, [{opacity:0}, {opacity:1}], {duration:RM ? T.rmFade : T.bIn, easing:LINEAR_OUT}));
+		settle(anim(backdrop, [{opacity:0}, {opacity:1}], {duration:RM ? T.rmFade : T.bIn, easing:LINEAR_OUT}), {opacity:'1'});
 		staggerIn(panels.root, 70);
-		settle(d).then(() => { busy = false; xBtn.focus({preventScroll:true}); });
+		settle(d, {transform:'translateX(0)', opacity:''}).then(() => { busy = false; xBtn.focus({preventScroll:true}); });
 	}
 	function close(opts = {}) {
 		if (!isOpen) return; isOpen = false; busy = true;
 		xBtn.classList.remove('is-x');
 		const d = RM ? anim(drawer, [{opacity:1}, {opacity:0}], {duration:T.rmFade, easing:'linear'})
 		             : anim(drawer, [{transform:getComputedStyle(drawer).transform === 'none' ? 'translateX(0)' : getComputedStyle(drawer).transform}, {transform:'translateX(100%)'}], {duration:opts.fast ? 180 : T.close, easing:EXIT});
-		settle(anim(backdrop, [{opacity:getComputedStyle(backdrop).opacity}, {opacity:0}], {duration:RM ? T.rmFade : T.bOut, easing:'linear'}));
+		settle(anim(backdrop, [{opacity:getComputedStyle(backdrop).opacity}, {opacity:0}], {duration:RM ? T.rmFade : T.bOut, easing:'linear'}), {opacity:''});
 		settle(d).then(() => {
 			mm.hidden = true; document.body.classList.remove('mm-open');
 			openBtn.classList.remove('is-hidden'); openBtn.setAttribute('aria-expanded', 'false');
-			setInert(false); unlockScroll(); busy = false; drawer.style.opacity = '';
+			setInert(false); unlockScroll(); busy = false;
 			if (!opts.noFocus) openBtn.focus({preventScroll:true});
 			if (!opts.fromPop && history.state?.mm) selfBack(historyDepth());
 		});
@@ -114,27 +124,20 @@ function initMobileMenu(mm, openBtn) {
 			to.querySelector('.mm-h').focus({preventScroll:true}); });
 		history.pushState({mm:1, depth:stack.length - 1}, '');
 	}
-	/* nazaj: vrne animacije, da jih lahko poteg (swipe) previja */
-	function makePop() {
+	function pop(opts = {}) {
+		if (busy || stack.length < 2) return; busy = true;
 		const cur = panels[stack.at(-1)], prev = panels[stack.at(-2)];
 		prev.hidden = false; prev.classList.add('is-below'); cur.classList.add('is-entering');
 		let a, b;
 		if (RM) { a = anim(cur, [{opacity:1}, {opacity:0}], {duration:T.rmFade}); b = anim(prev, [{opacity:0, transform:'none'}, {opacity:1, transform:'none'}], {duration:T.rmFade}); }
 		else { a = anim(cur, [{transform:'translateX(0)'}, {transform:'translateX(100%)'}], {duration:T.pop, easing:EASE});
 		       b = anim(prev, [{transform:`translateX(${PAR}%)`, opacity:PAR_OP}, {transform:'translateX(0)', opacity:1}], {duration:T.pop, easing:EASE}); }
-		return {a, b, cur, prev};
-	}
-	function finishPop(p) {
-		const id = stack.pop(); const trig = triggerOf[id];
-		p.cur.hidden = true; p.cur.classList.remove('is-entering'); p.prev.classList.remove('is-below');
-		p.cur.style.transform = ''; p.cur.style.opacity = '';
-		trig && trig.setAttribute('aria-expanded', 'false'); busy = false;
-		trig && trig.focus({preventScroll:true});
-	}
-	function pop(opts = {}) {
-		if (busy || stack.length < 2) return; busy = true;
-		const p = makePop();
-		Promise.all([settle(p.a), settle(p.b)]).then(() => finishPop(p));
+		Promise.all([settle(a), settle(b)]).then(() => {
+			const id = stack.pop(); const trig = triggerOf[id];
+			cur.hidden = true; cur.classList.remove('is-entering'); prev.classList.remove('is-below');
+			trig && trig.setAttribute('aria-expanded', 'false'); busy = false;
+			trig && trig.focus({preventScroll:true});
+		});
 		if (!opts.fromPop && history.state?.depth) selfBack();
 	}
 
@@ -197,57 +200,4 @@ function initMobileMenu(mm, openBtn) {
 		measure(); placeX();
 		if (innerWidth >= 992) { const n = history.state?.mm ? historyDepth() : 0; hardReset(); if (n) selfBack(n); }
 	});
-
-	/* ── poteg desno: nazaj (oz. zapri na korenu) ── */
-	(function () {
-		let sx = 0, sy = 0, lx = 0, lt = 0, vx = 0, mode = null, ctl = null, W = 1;
-		drawer.addEventListener('pointerdown', e => { if (e.pointerType === 'mouse' || busy || RM) return; sx = lx = e.clientX; sy = e.clientY; lt = performance.now(); vx = 0; mode = null; ctl = null; W = drawer.clientWidth; });
-		drawer.addEventListener('pointermove', e => {
-			if (!sx || busy && !ctl) return;
-			const dx = e.clientX - sx, dy = e.clientY - sy;
-			if (!mode) {
-				if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
-				if (dx > 0 && Math.abs(dx) > Math.abs(dy) * 1.2 && !e.target.closest('[data-mm-noswipe]')) { mode = 'h'; try { drawer.setPointerCapture(e.pointerId); } catch (_) {} begin(); }
-				else { mode = 'v'; return; }
-			}
-			if (mode !== 'h') return;
-			const now = performance.now(); vx = (e.clientX - lx) / Math.max(1, now - lt); lx = e.clientX; lt = now;
-			const p = Math.min(1, Math.max(0, dx / W));
-			ctl.anims.forEach(a => a.currentTime = p * ctl.dur);
-		});
-		function begin() {
-			busy = true; if (RM) { ctl = null; mode = 'v'; busy = false; return; }
-			if (stack.length > 1) { const p = makePop(); ctl = {kind:'pop', p, anims:[p.a, p.b], dur:T.pop}; }
-			else { xBtn.classList.remove('is-x');
-				const a = anim(drawer, [{transform:'translateX(0)'}, {transform:'translateX(100%)'}], {duration:T.close, easing:'linear'});
-				const b = anim(backdrop, [{opacity:1}, {opacity:0}], {duration:T.close, easing:'linear'});
-				ctl = {kind:'close', anims:[a, b], dur:T.close}; }
-			ctl.anims.forEach(a => a.pause());
-		}
-		function end(e) {
-			if (mode !== 'h' || !ctl) { sx = 0; return; }
-			const dx = (e.clientX || lx) - sx, commit = dx > W * 0.33 || vx > 0.45;
-			const prog = Math.min(1, Math.max(0, dx / W));
-			const remain = commit ? (1 - prog) : prog;
-			const dur = Math.max(120, Math.min(ctl.dur, remain * ctl.dur * 1.1));
-			ctl.anims.forEach(a => { a.updatePlaybackRate((ctl.dur * remain) / dur || 1); if (!commit) a.reverse(); else a.play(); });
-			const c = ctl; ctl = null; sx = 0; mode = null;
-			Promise.all(c.anims.map(a => a.finished)).then(() => {
-				if (c.kind === 'pop') {
-					if (commit) { c.anims.forEach(a => { try { a.commitStyles(); } catch (_) {} a.cancel(); }); finishPop(c.p); if (history.state?.depth) selfBack(); }
-					else { c.anims.forEach(a => a.cancel()); c.p.prev.hidden = true; c.p.prev.classList.remove('is-below'); c.p.cur.classList.remove('is-entering'); busy = false; }
-				} else {
-					c.anims.forEach(a => a.cancel());
-					if (commit) {
-						const n = history.state?.mm ? historyDepth() : 0;
-						drawer.style.transform = 'translateX(100%)'; backdrop.style.opacity = 0; busy = false; isOpen = false;
-						mm.hidden = true; document.body.classList.remove('mm-open'); openBtn.classList.remove('is-hidden'); openBtn.setAttribute('aria-expanded', 'false');
-						setInert(false); unlockScroll(); openBtn.focus({preventScroll:true}); if (n) selfBack(n);
-					}
-					else { drawer.style.transform = 'translateX(0)'; backdrop.style.opacity = 1; xBtn.classList.add('is-x'); busy = false; }
-				}
-			}).catch(() => {});
-		}
-		drawer.addEventListener('pointerup', end); drawer.addEventListener('pointercancel', end);
-	})();
 }

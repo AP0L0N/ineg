@@ -136,9 +136,6 @@ body.mm-open #mainHeader .mobile-actions .search-toggle {
         pointer-events: auto;
         overflow: hidden;
         transform: translateX(100%);
-        will-change: transform;
-        touch-action: pan-y;
-        contain: layout paint;
     }
 
     .mm-stack {
@@ -155,7 +152,6 @@ body.mm-open #mainHeader .mobile-actions .search-toggle {
         -webkit-overflow-scrolling: touch;
         display: flex;
         flex-direction: column;
-        will-change: transform, opacity;
 
         &[hidden] { display: none; }
         &.is-entering { box-shadow: -10px 0 28px rgba(17, 17, 17, .10); }
@@ -323,6 +319,7 @@ body.mm-open #mainHeader .mobile-actions .search-toggle {
         border-radius: 14px;
         overflow: hidden;
         position: relative;
+        isolation: isolate; // z-index 1/2 v notranjosti ne sme prekriti lepljive .mm-bar (z-index 1)
         color: #fff;
         min-height: 188px;
         background: #333;
