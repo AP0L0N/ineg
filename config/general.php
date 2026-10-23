@@ -42,7 +42,9 @@ return [
 
     // Staging environment settings
     'staging' => [
-	'devMode' => true,
+        // devMode can be switched off via CRAFT_DEV_MODE=false in .env (ineg.si production
+        // shares this install and runs as 'staging'); defaults to true when unset.
+        'devMode' => getenv('CRAFT_DEV_MODE') === false ? true : filter_var(getenv('CRAFT_DEV_MODE'), FILTER_VALIDATE_BOOLEAN),
         'allowAdminChanges' => false,
     ],
 
