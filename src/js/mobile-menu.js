@@ -76,6 +76,7 @@ function initMobileMenu(mm, openBtn) {
 		openBtn.classList.add('is-hidden'); openBtn.setAttribute('aria-expanded', 'true');
 		void xBtn.offsetWidth; // izračun slogov pred dodajanjem .is-x, da se burger → X animira
 		requestAnimationFrame(() => xBtn.classList.add('is-x'));
+		if (history.state?.mm !== 1) history.pushState({mm:1}, '');
 		lockScroll(); setInert(true);
 		panels.root.scrollTop = 0;
 		mm.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; }); // sličice storitev pred prvim push
@@ -84,7 +85,6 @@ function initMobileMenu(mm, openBtn) {
 		settle(anim(backdrop, [{opacity:0}, {opacity:1}], {duration:RM ? T.rmFade : T.bIn, easing:LINEAR_OUT}));
 		staggerIn(panels.root, 70);
 		settle(d).then(() => { busy = false; xBtn.focus({preventScroll:true}); });
-		if (history.state?.mm !== 1) history.pushState({mm:1}, '');
 	}
 	function close(opts = {}) {
 		if (!isOpen) return; isOpen = false; busy = true;
@@ -186,7 +186,7 @@ function initMobileMenu(mm, openBtn) {
 	function historyDepth() { return (history.state?.depth || 0) + 1; }
 	function selfBack(n = 1) { ignorePop++; history.go(-n); }
 	if (history.state?.mm) history.replaceState(null, '');
-	addEventListener('popstate', () => { if (ignorePop) { ignorePop--; return; } if (!isOpen) return; if (stack.length > 1) pop({fromPop:true}); else close({fromPop:true}); });
+	addEventListener('popstate', () => { if (ignorePop) { ignorePop--; if (!locked) scrollTo({top:scrollY0, left:0, behavior:'instant'}); return; } if (!isOpen) return; if (stack.length > 1) pop({fromPop:true}); else close({fromPop:true}); });
 	addEventListener('pageshow', e => {
 		if (!e.persisted) return; /* obnova iz bfcache: takojšnja ponastavitev */
 		hardReset(); ignorePop = 0;
