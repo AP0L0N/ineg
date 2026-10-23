@@ -1,4 +1,4 @@
-{% set mmV2 = craft.app.request.getQueryParam('mm') == '2' or (craft.app.request.getQueryParam('mm') != '0' and craft.app.request.getRawCookies().getValue('mm2') == '1') %} {# MMV2-GATE #}
+{% set mmV2 = true %} {# MMV2-GATE #}
 {% set allSites = craft.app.sites.allSites %}
 {% set currentSite = craft.app.sites.currentSite %}
 {% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
