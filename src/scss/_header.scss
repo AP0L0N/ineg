@@ -479,15 +479,16 @@ header {
 
                         .dropdown-menu {
                             padding: 0;
-                            width: 1140px;
-                            max-width: 92vw;
+                            width: 100%;
+                            max-width: 100%;
                             box-shadow: none;
-                            overflow: scroll;
-                            height: 40vh;
+                            overflow: visible;
+                            height: auto;
                             top: 0;
                             position: relative;
 
                             @media(min-width: 991px) {
+                                width: 1140px;
                                 max-width: 80vw;
                                 border: 2px solid variables.$primary-color;
                                 overflow: hidden;
@@ -511,8 +512,8 @@ header {
                                 flex-direction: column;
                                 gap: 20px;
                                 padding: 20px;
-                                width: 550px;
-                                max-width: 90vw;
+                                width: 100%;
+                                max-width: 100%;
 
                                 @media(min-width: 991px) {
                                     flex-direction: row;

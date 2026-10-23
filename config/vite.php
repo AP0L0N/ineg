@@ -15,8 +15,10 @@ return [
     // Where the production manifest.json lives (vite.config.js forces this flat path)
     'manifestPath' => '@webroot/dist/manifest.json',
 
-    // Public URL to the assets when NOT using the dev server
-    'serverPublic' => App::env('PRIMARY_SITE_URL') . '/dist/',
+    // Public URL to the assets when NOT using the dev server.
+    // Root-relative so assets load from whatever host serves the page; an absolute
+    // PRIMARY_SITE_URL made module scripts/fonts cross-origin (CORS-blocked) on other domains.
+    'serverPublic' => '/dist/',
 
     // Public URL to the Vite dev server, as seen from the browser (DDEV: same host, port 3000)
     'devServerPublic' => preg_replace('/:\d+$/', '', App::env('PRIMARY_SITE_URL')) . ':3000',
