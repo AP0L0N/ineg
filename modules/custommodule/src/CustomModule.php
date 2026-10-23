@@ -15,6 +15,10 @@ use craft\events\RegisterTemplateRootsEvent;
 use craft\i18n\PhpMessageSource;
 use craft\console\Application as ConsoleApplication;
 use craft\web\View;
+use craft\web\UrlManager;
+use craft\events\RegisterUrlRulesEvent;
+use craft\services\Plugins;
+use yii\base\Application as YiiApplication;
 use modules\custommodule\twig\Extension;
 
 use Twig\Extra\String\StringExtension;
@@ -51,6 +55,21 @@ class CustomModule extends Module
      * @var CustomModule
      */
     public static $instance;
+
+    /**
+     * Hosts that are the public production site. ineg.tilenpoje.eu (preview) shares
+     * this install and must stay non-indexable.
+     */
+    const PRODUCTION_HOSTS = ['ineg.si', 'www.ineg.si'];
+
+    public static function isProductionHost(): bool
+    {
+        $request = Craft::$app->getRequest();
+        if ($request->getIsConsoleRequest()) {
+            return false;
+        }
+        return in_array(strtolower((string)$request->getHostName()), self::PRODUCTION_HOSTS, true);
+    }
 
     // Public Methods
     // =========================================================================
@@ -121,6 +140,41 @@ class CustomModule extends Module
 
         // Register Twig extensions
         Craft::$app->view->registerTwigExtension(new Extension());
+
+        // Per-host indexing (see RobotsController). Registered after plugins load so
+        // these handlers run after the SEO plugin's own (robots.txt rule, X-Robots-Tag).
+        if (!Craft::$app->getRequest()->getIsConsoleRequest()) {
+            $registerIndexing = function () {
+                Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES, function (RegisterUrlRulesEvent $e) {
+                    $e->rules['robots.txt'] = 'custom-module/robots/index';
+                });
+
+                // Class-level on yii\base\Application: runs after the SEO plugin's handler,
+                // which is attached to the concrete craft\web\Application class.
+                Event::on(YiiApplication::class, YiiApplication::EVENT_AFTER_REQUEST, function () {
+                    $request = Craft::$app->getRequest();
+                    if (!$request->getIsSiteRequest() || !self::isProductionHost()) {
+                        return;
+                    }
+                    // The SEO plugin forces "none, noimageindex" whenever ENVIRONMENT
+                    // is not 'production'; drop that forced value on the production host.
+                    $headers = Craft::$app->getResponse()->getHeaders();
+                    $values = array_filter(
+                        (array)$headers->get('x-robots-tag', [], false),
+                        function ($v) { return trim($v) !== 'none, noimageindex'; }
+                    );
+                    $headers->remove('x-robots-tag');
+                    foreach ($values as $v) {
+                        $headers->add('x-robots-tag', $v);
+                    }
+                });
+            };
+            if (Craft::$app->getPlugins()->arePluginsLoaded()) {
+                $registerIndexing();
+            } else {
+                Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, $registerIndexing);
+            }
+        }
 
         Event::on(
             View::class, 

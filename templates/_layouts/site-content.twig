@@ -5,7 +5,8 @@
     {# Document Settings #}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+    {# Only the production host is indexable; the preview (ineg.tilenpoje.eu) shares this install #}
+    <meta name="robots" content="{{ craft.app.request.hostName|lower in ['ineg.si', 'www.ineg.si'] ? 'index, follow' : 'noindex, nofollow' }}">
 
     {#  SEO #}
     {% if seoTitle is defined and seoTitle %}
