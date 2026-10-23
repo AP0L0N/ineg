@@ -1,0 +1,109 @@
+{#
+    Mobilni meni (< 992 px) — off-canvas dialog s skladom panelov.
+    Podatki so isti kot pri namiznem mega meniju (spremenljivke so nastavljene na vrhu _layouts/site-header.twig):
+    featuredService, otherServices, storitveActive, lezalnikPage, lezalnikUrl, lezalnikThumb, navHome, navBlog, navAbout, navContact.
+    Logika: src/js/mobile-menu.js · slogi: src/scss/_mobileMenu.scss
+#}
+{% macro thumb(image, fallback) %}
+    {% if image and image | file_exists %}
+        {% set th1 = craft.imager.transformImage(image, { width: 64, height: 46, mode: 'crop', format: 'webp' }) %}
+        {% set th2 = craft.imager.transformImage(image, { width: 128, height: 92, mode: 'crop', format: 'webp' }) %}
+        <span class="th"><img src="{{ th1.url }}" srcset="{{ th1.url }} 1x, {{ th2.url }} 2x" alt="" width="64" height="46" loading="lazy" decoding="async"></span>
+    {% elseif fallback %}
+        <span class="th"><img src="{{ fallback }}" alt="" width="64" height="46" loading="lazy" decoding="async"></span>
+    {% else %}
+        <span class="th"></span>
+    {% endif %}
+{% endmacro %}
+
+{% import _self as mmx %}
+{% set curEntry = entry is defined ? entry : null %}
+{% set svgChev %}<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>{% endset %}
+{% set spin %}<span class="spin" aria-hidden="true"></span>{% endset %}
+
+<div class="mm" id="mm" role="dialog" aria-modal="true" aria-label="{{ 'Meni' | t }}" hidden>
+    <div class="mm-backdrop" data-mm-close></div>
+    <button class="mm-x" type="button" aria-label="{{ 'Zapri meni' | t }}" data-mm-close><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <div class="mm-drawer" id="mmDrawer">
+        <div class="mm-stack" id="mmStack">
+
+            {# ── Koren ── #}
+            <section class="mm-panel" data-panel="root" id="mm-p-root" aria-labelledby="mm-h-root">
+                <h2 class="sr-only" id="mm-h-root" tabindex="-1">{{ 'Meni' | t }}</h2>
+                <ul class="mm-list" role="list">
+                    {% if navHome %}
+                        <li><a class="mm-row" data-mm-leaf href="{{ navHome.url }}"{% if curEntry and curEntry.section.handle == navHome.section.handle %} aria-current="page"{% endif %}><span>{{ navHome.title }}</span>{{ spin }}</a></li>
+                    {% endif %}
+                    {% if storitve is defined %}
+                        <li><button class="mm-row{{ storitveActive ? ' has-current' }}" type="button" data-mm-push="storitve" aria-expanded="false" aria-controls="mm-p-storitve"><span>{{ 'Storitve' | t }}</span>{% if storitveActive %}<span class="dot" aria-hidden="true"></span>{% endif %}{{ svgChev }}</button></li>
+                    {% endif %}
+                    {% if navBlog %}
+                        <li><a class="mm-row" data-mm-leaf href="{{ navBlog.url }}"{% if curEntry and curEntry.section.handle == navBlog.section.handle %} aria-current="page"{% endif %}><span>{{ 'Objave' | t }}</span>{{ spin }}</a></li>
+                    {% endif %}
+                    {% if navAbout %}
+                        <li><a class="mm-row" data-mm-leaf href="{{ navAbout.url }}"{% if curEntry and curEntry.section.handle == navAbout.section.handle %} aria-current="page"{% endif %}><span>{{ 'O nas' | t }}</span>{{ spin }}</a></li>
+                    {% endif %}
+                </ul>
+                <div class="mm-foot">
+                    <a class="mm-cta" data-mm-leaf href="{{ navContact ? navContact.url : '/kontakt' }}"{% if curEntry and navContact and curEntry.id == navContact.id %} aria-current="page"{% endif %}>{{ 'Kontaktirajte nas' | t }}</a>
+                    <ul class="mm-contacts" role="list">
+                        {% include '_includes/contact-people' with { variant: 'drawer' } %}
+                        <li>
+                            <a href="mailto:info@ineg.si">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+                                <span>info@ineg.si</span>
+                            </a>
+                        </li>
+                        <li>
+                            <span class="row">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11.3a6.5 6.5 0 0 1 13 0C18.5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.7" r="2.3"/></svg>
+                                <span>Ropretova cesta 18, Mengeš</span>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="mm-social">
+                        <a href="https://www.facebook.com/slamnatahisa/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z"/></svg></a>
+                        <a href="https://www.instagram.com/ineg_slovenia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/></svg></a>
+                    </div>
+                </div>
+            </section>
+
+            {# ── Storitve ── #}
+            {% if storitve is defined %}
+                <section class="mm-panel" data-panel="storitve" data-parent="root" id="mm-p-storitve" aria-labelledby="mm-h-storitve" hidden>
+                    <div class="mm-bar">
+                        <button class="mm-back" type="button" data-mm-back aria-label="{{ 'Nazaj' | t }}: {{ 'Meni' | t }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg><span>{{ 'Meni' | t }}</span></button>
+                    </div>
+                    <h2 class="mm-h" id="mm-h-storitve" tabindex="-1">{{ 'Storitve' | t }}</h2>
+
+                    {% if featuredService %}
+                        {% set featuredEntry = featuredService.povezanaStoritev.one() %}
+                        {% set featuredImage = featuredService.prikazneSlike.one() %}
+                        <a class="mm-feat" data-mm-leaf href="{{ featuredEntry.url }}"{% if curEntry and curEntry.id == featuredEntry.id %} aria-current="page"{% endif %}>
+                            {% if featuredImage and featuredImage | file_exists %}
+                                {% set fi1 = craft.imager.transformImage(featuredImage, { width: 420, format: 'webp' }) %}
+                                {% set fi2 = craft.imager.transformImage(featuredImage, { width: 840, format: 'webp' }) %}
+                                <img class="bg" src="{{ fi1.url }}" srcset="{{ fi1.url }} 1x, {{ fi2.url }} 2x" alt="" loading="lazy" decoding="async">
+                            {% endif %}
+                            <span class="in">
+                                <span class="badge">{{ 'Naša vodilna storitev' | t }}</span>
+                                <span class="t">{{ featuredEntry.title }}</span>
+                                <span class="d">{{ featuredService.kratekOpis }}</span>
+                                <span class="more">{{ 'Odkrijte več' | t }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span>
+                            </span>
+                        </a>
+                    {% endif %}
+
+                    <ul class="mm-list" role="list">
+                        {% for item in otherServices %}
+                            {% set itemPov = item.povezanaStoritev.one() %}
+                            <li><a class="mm-row mm-svc" data-mm-leaf href="{{ itemPov.url }}"{% if curEntry and curEntry.id == itemPov.id %} aria-current="page"{% endif %}>{{ mmx.thumb(item.prikazneSlike.one(), null) }}<span>{{ itemPov.title }}</span>{{ spin }}</a></li>
+                        {% endfor %}
+                        <li><a class="mm-row mm-svc" data-mm-leaf href="{{ lezalnikUrl }}"{% if curEntry and lezalnikPage and curEntry.id == lezalnikPage.id %} aria-current="page"{% endif %}>{{ mmx.thumb(lezalnikThumb, '/assets/images/lesene_terase/5.jpg') }}<span>{{ 'Leseni ležalnik' | t }}</span>{{ spin }}</a></li>
+                    </ul>
+                </section>
+            {% endif %}
+
+        </div>
+    </div>
+</div>

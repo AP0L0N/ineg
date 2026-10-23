@@ -1,3 +1,4 @@
+{% set mmV2 = craft.app.request.getQueryParam('mm') == '2' or (craft.app.request.getQueryParam('mm') != '0' and craft.app.request.getRawCookies().getValue('mm2') == '1') %} {# MMV2-GATE #}
 {% set allSites = craft.app.sites.allSites %}
 {% set currentSite = craft.app.sites.currentSite %}
 {% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
@@ -9,6 +10,17 @@
 {% set lezalnikThumb = lezalnikProductBlock and lezalnikProductBlock.images is defined
     ? lezalnikProductBlock.images.one()
     : null %}
+
+{# Skupni podatki za namizni mega meni in mobilni meni #}
+{% set services = storitve is defined ? storitve.storitveInOpisi.all() : [] %}
+{# "Lesene terase" je naša vodilna storitev, zato v mega meniju izstopa z veliko kartico #}
+{% set featuredService = services|filter(item => item.povezanaStoritev.one() is not null and item.povezanaStoritev.one().section.handle == 'leseneTerase')|first %}
+{% set otherServices = services|filter(item => item.povezanaStoritev.one() is not null and item.povezanaStoritev.one().section.handle != 'leseneTerase') %}
+{% set storitveActive = entry is defined and (entry.id | number) in (services | map(s => s.povezanaStoritev.one().id | number)) %}
+{% set navHome = craft.entries().section('naslovnaStran').one() %}
+{% set navBlog = craft.entries().section('seznamObjav').one() %}
+{% set navAbout = craft.entries().section('oInstitutu').one() %}
+{% set navContact = craft.entries().section('kontakt').one() %}
 
 <header id="mainHeader" class="fixed-top">
 
@@ -82,33 +94,35 @@
                     <button class="search-toggle" type="button" aria-label="{{ 'Iskanje' | t }}" aria-controls="searchOverlay" aria-expanded="false">
                         <i class="fal fa-search"></i>
                     </button>
+                    {% if mmV2 %}
+                        <button class="navbar-toggler" id="mmOpen" type="button"
+                            aria-controls="mm" aria-haspopup="dialog" aria-expanded="false" aria-label="{{ 'Meni' | t }}">
+                            <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+                        </button>
+                    {% else %}
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07"
                         aria-controls="navbarsExample07" aria-expanded="false" aria-label="{{ 'Meni' | t }}">
                         <span class="fal fa-bars"></span>
                     </button>
+                    {% endif %}
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarsExample07">
                     <ul class="navbar-nav mr-auto">
 
-                        {% set navItem = craft.entries.section('naslovnaStran').one() %}
+                        {% set navItem = navHome %}
                         {% if navItem %}
                             <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
                                 <a class="nav-link" href="{{ navItem.url }}">{{ navItem.title }}</a>
                             </li>
                         {% endif %}
 
-                        <li class="nav-item dropdown {{ entry is defined and (entry.id | number) in (storitve.storitveInOpisi.all() | map(s => s.povezanaStoritev.one().id | number)) ? 'active' }}">
+                        <li class="nav-item dropdown {{ storitveActive ? 'active' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown07"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ 'Storitve' | t }}</a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdown07">
                                 {% if storitve is defined %}
-                                    {% set services = storitve.storitveInOpisi.all() %}
-                                    {# "Lesene terase" je naša vodilna storitev, zato v mega meniju izstopa z veliko kartico #}
-                                    {% set featuredService = services|filter(item => item.povezanaStoritev.one() is not null and item.povezanaStoritev.one().section.handle == 'leseneTerase')|first %}
-                                    {% set otherServices = services|filter(item => item.povezanaStoritev.one() is not null and item.povezanaStoritev.one().section.handle != 'leseneTerase') %}
-
                                     <div class="mega-menu">
                                         {% if featuredService %}
                                             {% set featuredEntry = featuredService.povezanaStoritev.one() %}
@@ -159,14 +173,14 @@
                             </div>
                         </li>
 
-                        {% set navItem = craft.entries.section('seznamObjav').one() %}
+                        {% set navItem = navBlog %}
                         {% if navItem %}
                             <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
                                 <a class="nav-link" href="{{ navItem.url }}">{{ "Objave" | t }}</a>
                             </li>
                         {% endif %}
 
-                        {% set navItem = craft.entries.section('oInstitutu').one() %}
+                        {% set navItem = navAbout %}
                         {% if navItem %}
                             <li class="nav-item {{ entry is defined and entry.section.handle == navItem.section.handle ? 'active' }}">
                                 <a class="nav-link" href="{{ navItem.url }}">{{ "O nas" | t }}</a>
@@ -182,7 +196,7 @@
 
                     <div class="header-actions">
 
-                        {% set navItem = craft.entries.section('kontakt').one() %}
+                        {% set navItem = navContact %}
                         <div class="question-button">
                             <a href="{{ navItem ? navItem.url : '/kontakt' }}" class="btn btn-primary">
                                 <span>{{ "Kontaktirajte nas" | t }}</span>
@@ -190,7 +204,9 @@
                         </div>
                     </div>
 
-                    {% include '_includes/contact-people' with { variant: 'mobile' } %}
+                    {% if not mmV2 %}
+                        {% include '_includes/contact-people' with { variant: 'mobile' } %}
+                    {% endif %}
                 </div>
             </div>
         </nav>
@@ -198,11 +214,7 @@
 
     {# ───────────────────── STRUKTURIRANI PODATKI — NAVIGACIJA ───────────────────── #}
     {% import "helpers/structured-data" as sd %}
-    {% set navHome = craft.entries().section('naslovnaStran').one() %}
     {% set navServices = craft.entries().section('leseneTerase').one() %}
-    {% set navBlog = craft.entries().section('seznamObjav').one() %}
-    {% set navAbout = craft.entries().section('oInstitutu').one() %}
-    {% set navContact = craft.entries().section('kontakt').one() %}
     {{ sd.siteNavigation([
         { name: navHome ? navHome.title : 'Domov', url: navHome ? navHome.url : siteUrl },
         { name: 'Storitve', url: navServices ? navServices.url : '/lesene-terase' },
@@ -226,3 +238,6 @@
         </div>
     </div>
 </header>
+{% if mmV2 %}
+    {% include '_includes/mobile-menu' %}
+{% endif %}

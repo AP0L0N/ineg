@@ -23,6 +23,12 @@
       "assets/gallery-cPPnkASS.css"
     ]
   },
+  "src/js/mobile-menu.js": {
+    "file": "assets/mobileMenu-DErLVXKZ.js",
+    "name": "mobileMenu",
+    "src": "src/js/mobile-menu.js",
+    "isEntry": true
+  },
   "src/js/swipers.js": {
     "file": "assets/swipers-Dc0Wg9Xb.js",
     "name": "swipers",
@@ -33,7 +39,7 @@
     ]
   },
   "src/scss/custom.scss": {
-    "file": "assets/style-CHb_xHgO.css",
+    "file": "assets/style-QY9faG7P.css",
     "src": "src/scss/custom.scss",
     "isEntry": true
   }

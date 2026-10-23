@@ -20,6 +20,7 @@ export default defineConfig(({ command }) => ({
                 custom: 'src/js/custom.js',
                 swipers: 'src/js/swipers.js',
                 gallery: 'src/js/gallery.js',
+                mobileMenu: 'src/js/mobile-menu.js',
                 style: 'src/scss/custom.scss',
             },
         },

@@ -1,0 +1,508 @@
+@use "variables";
+
+// ───────────────────── Mobilni meni (< 992 px) ─────────────────────
+// Markup: templates/_includes/mobile-menu.twig · logika: src/js/mobile-menu.js
+// Vse je vezano na #mm / #mmOpen, ki obstajata le, ko je meni vklopljen (MMV2-GATE v site-header.twig).
+
+$mm-tint: #fff4ea;
+$mm-nav: #444446;
+$mm-line: #eeeeee;
+$mm-ease: cubic-bezier(.32, .72, 0, 1);
+
+// ── burger → X (glava in gumb za zapiranje v dialogu) ──
+#mmOpen,
+#mm .mm-x {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;
+    background: none;
+    display: grid;
+    place-items: center;
+    color: variables.$dark-color;
+    cursor: pointer;
+
+    .burger {
+        position: relative;
+        width: 26px;
+        height: 18px;
+        display: block;
+        transform: none; // izniči .navbar-toggler:not(.collapsed) span iz _header.scss
+        color: inherit;
+
+        i {
+            position: absolute;
+            left: 0;
+            width: 26px;
+            height: 2px;
+            border-radius: 2px;
+            background: currentColor;
+            transition: transform 300ms $mm-ease, opacity 150ms;
+
+            &:nth-child(1) { top: 0; }
+            &:nth-child(2) { top: 8px; }
+            &:nth-child(3) { top: 16px; }
+        }
+    }
+
+    &.is-x {
+        color: variables.$primary-color;
+
+        .burger i:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .burger i:nth-child(2) { transform: scaleX(.2); opacity: 0; }
+        .burger i:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    }
+
+    &:focus { outline: none; }
+
+    &:focus-visible {
+        outline: 2px solid variables.$primary-color-dark;
+        outline-offset: 2px;
+    }
+}
+
+#mmOpen.is-hidden {
+    visibility: hidden;
+}
+
+body.mm-open #mainHeader .mobile-actions .search-toggle {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 160ms, visibility 0s 160ms;
+}
+
+// ── dialog ──
+#mm {
+    --hd-h: 89px;
+    position: fixed;
+    inset: 0;
+    z-index: 200010; // nad glavo (header ima z-index 200000)
+    pointer-events: none;
+    font: 400 16px/1.5 variables.$font-family-jost;
+    color: variables.$default-color;
+    -webkit-tap-highlight-color: transparent;
+
+    &[hidden] { display: none; }
+
+    *,
+    *:before,
+    *:after { box-sizing: border-box; }
+
+    button {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    :focus { outline: none; }
+
+    :focus-visible {
+        outline: 2px solid variables.$primary-color-dark;
+        outline-offset: 2px;
+        border-radius: 6px;
+    }
+
+    .mm-backdrop {
+        position: absolute;
+        inset: var(--hd-h) 0 0 0;
+        background: rgba(17, 17, 17, .48);
+        pointer-events: auto;
+        opacity: 0;
+    }
+
+    .mm-x {
+        position: fixed;
+        pointer-events: auto;
+        z-index: 2;
+    }
+
+    .mm-drawer {
+        position: absolute;
+        top: var(--hd-h);
+        right: 0;
+        bottom: 0;
+        width: min(100%, 420px);
+        background: #fff;
+        pointer-events: auto;
+        overflow: hidden;
+        transform: translateX(100%);
+        will-change: transform;
+        touch-action: pan-y;
+        contain: layout paint;
+    }
+
+    .mm-stack {
+        position: absolute;
+        inset: 0;
+    }
+
+    .mm-panel {
+        position: absolute;
+        inset: 0;
+        background: #fff;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-direction: column;
+        will-change: transform, opacity;
+
+        &[hidden] { display: none; }
+        &.is-entering { box-shadow: -10px 0 28px rgba(17, 17, 17, .10); }
+        &.is-below { pointer-events: none; }
+    }
+
+    // vrstica panela: nazaj + naslov starša (samo podpaneli)
+    .mm-bar {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        flex: none;
+        height: 56px;
+        padding: 0 12px;
+        background: #fff;
+        border-bottom: 1px solid $mm-line;
+    }
+
+    .mm-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        height: 48px;
+        padding: 0 12px 0 6px;
+        border-radius: 10px;
+        font: 600 15px/1 variables.$font-family-albert;
+        letter-spacing: .5px;
+        color: $mm-nav;
+
+        svg {
+            width: 22px;
+            height: 22px;
+            color: variables.$primary-color;
+        }
+
+        &:active { background: $mm-tint; }
+    }
+
+    .mm-h {
+        font: 700 26px/1.15 variables.$font-family-albert;
+        color: variables.$dark-color;
+        margin: 22px 24px 14px;
+        padding: 0;
+        outline-offset: 4px;
+    }
+
+    // vrstice
+    .mm-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .mm-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 60px;
+        padding: 0 24px;
+        margin: 0;
+        border-bottom: 1px solid $mm-line;
+        width: 100%;
+        text-align: left;
+        font: 600 18px/1.2 variables.$font-family-albert;
+        letter-spacing: .5px;
+        color: $mm-nav;
+        position: relative;
+        transition: background-color 120ms;
+
+        &:hover { color: $mm-nav; }
+        &:active,
+        &.is-pressed { background: $mm-tint; }
+
+        &:focus-visible {
+            outline-offset: -3px;
+            border-radius: 0;
+        }
+
+        .chev {
+            margin-left: auto;
+            width: 22px;
+            height: 22px;
+            color: variables.$primary-color;
+            flex: none;
+            transition: transform 200ms $mm-ease;
+        }
+
+        &:active .chev { transform: translateX(3px); }
+
+        &[aria-current="page"],
+        &.has-current { color: variables.$primary-color; }
+
+        &[aria-current="page"] { border-bottom: 2px solid variables.$primary-color; }
+
+        &.has-current .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: variables.$primary-color;
+        }
+
+        // nalaganje (tapnjena povezava, navigacija še poteka)
+        .spin {
+            margin-left: auto;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid variables.$primary-color-light;
+            border-top-color: variables.$primary-color;
+            opacity: 0;
+            display: none;
+            flex: none;
+        }
+
+        &.is-loading .spin {
+            display: block;
+            animation: mmspin 700ms linear infinite, mmfade 1ms 150ms forwards;
+        }
+
+        &.is-loading .chev { display: none; }
+    }
+
+    // vrstice storitev
+    .mm-svc {
+        font: 500 16px/1.25 variables.$font-family-jost;
+        letter-spacing: 0;
+        color: #000;
+        min-height: 72px;
+        padding: 0 20px 0 24px;
+
+        &:hover { color: #000; }
+
+        .th {
+            width: 64px;
+            height: 46px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex: none;
+            background: #f1ece6;
+
+            img {
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        &[aria-current="page"] { color: variables.$primary-color; }
+    }
+
+    // izpostavljena storitev
+    .mm-feat {
+        display: block;
+        flex: none;
+        margin: 0 20px 10px;
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+        color: #fff;
+        min-height: 188px;
+        background: #333;
+        box-shadow: 0 6px 18px rgba(17, 17, 17, .10);
+
+        .bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+            display: block;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(0, 0, 0, .05) 0%, rgba(0, 0, 0, .62) 100%);
+        }
+
+        .in {
+            position: relative;
+            z-index: 2;
+            padding: 16px 18px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 188px;
+        }
+
+        .badge {
+            align-self: flex-start;
+            background: variables.$primary-color;
+            color: variables.$dark-color;
+            font: 700 11px/1 variables.$font-family-albert;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 7px 12px;
+            border-radius: 20px;
+            margin-bottom: auto;
+        }
+
+        .t {
+            font: 700 22px/1.2 variables.$font-family-albert;
+            margin: 14px 0 4px;
+        }
+
+        .d {
+            font: 400 14px/1.4 variables.$font-family-jost;
+            margin: 0 0 10px;
+            opacity: .92;
+        }
+
+        .more {
+            font: 600 13px/1 variables.$font-family-albert;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: variables.$primary-color;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &:hover { color: #fff; }
+
+        &:active {
+            transform: scale(.985);
+            transition: transform 120ms;
+        }
+
+        &[aria-current="page"] {
+            outline: 2px solid variables.$primary-color;
+            outline-offset: 2px;
+        }
+    }
+
+    // noga korena: CTA + kontakti
+    .mm-foot {
+        padding: 24px 24px calc(28px + env(safe-area-inset-bottom));
+    }
+
+    .mm-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 52px;
+        border-radius: 10px;
+        background: variables.$primary-color;
+        color: variables.$dark-color;
+        font: 600 14px/1 variables.$font-family-albert;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: background-color 120ms;
+
+        &:hover { color: variables.$dark-color; }
+        &:active { background: variables.$primary-color-dark; }
+    }
+
+    .mm-contacts {
+        list-style: none;
+        margin: 20px 0 0;
+        padding: 14px 0 0;
+        border-top: 1px solid $mm-line;
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        span.row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 48px;
+            margin: 0;
+            font: 400 15px/1.3 variables.$font-family-jost;
+            color: variables.$default-color;
+        }
+
+        a:hover { color: variables.$default-color; }
+
+        svg {
+            width: 18px;
+            height: 18px;
+            color: variables.$primary-color;
+            flex: none;
+        }
+
+        b {
+            font-weight: 600;
+            color: variables.$dark-color;
+            margin-right: 4px;
+        }
+    }
+
+    .mm-social {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+
+        a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            border: 1px solid $mm-line;
+            color: variables.$dark-color;
+
+            &:hover { color: variables.$dark-color; }
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+@keyframes mmspin { to { transform: rotate(360deg); } }
+@keyframes mmfade { to { opacity: 1; } }
+
+// namizje: meni se ne uporablja (≥ 992 px ostane obstoječi mega meni)
+@media (min-width: 992px) {
+    #mm,
+    #mmOpen { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #mmOpen .burger i,
+    #mm .burger i,
+    #mm .mm-row,
+    #mm .mm-row .chev { transition: none !important; }
+}
