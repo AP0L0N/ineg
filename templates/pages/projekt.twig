@@ -1,0 +1,69 @@
+{% extends '_layouts/site-content' %} 
+
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #} 
+{% set excludes = ['metadataAndSeo'] %} 
+
+{% block content %} 
+    {% if entry is defined and entry.projectInfo is defined and entry.projectInfo.publicDisplay %}
+
+    <section class="slice sct-color-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    {% for slika in entry.projectInfo.galerijaSlik.all() %}
+                    <div class="mb-5">
+                        <img src="{{ slika.getUrl("blogImage") }}" class="img-fluid rounded">
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <h3 class="heading heading-lg strong-700 text-capitalize">
+                        {{ entry.projectInfo.nazivProjekta }}
+                    </h3>
+
+                    <p>
+                        {{ entry.projectInfo.kratekOpis | nl2br }}
+                    </p>
+
+                    <hr>
+
+                    <div class="mb-2">
+                        <strong>
+                            Kategorija:
+                        </strong>
+                        <span>
+                            {{ entry.kategorija.all() | join(', ') }}
+                        </span>
+                    </div>
+
+                    {% if entry.projectInfo.naslov is not empty %}
+                    <div class="mb-2">
+                        <strong>
+                            Naslov:
+                        </strong>
+                        <span>
+                            {{ entry.projectInfo.naslov }}
+                        </span>
+                    </div>
+                    {% endif %} {% if entry.projectInfo.cena is not empty %}
+                    <div>
+                        <strong>
+                            Cena:
+                        </strong>
+                        <span class="text-primary">
+                            {{ entry.projectInfo.cena }}
+                        </span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endif %} 
+{% endblock %}

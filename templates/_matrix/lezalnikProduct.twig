@@ -12,22 +12,34 @@
 <section class="lezalnik-product">
     <div class="container">
         <div class="lezalnik-product__layout">
-            <div class="lezalnik-product__gallery">
+            <div class="lezalnik-product__gallery pswp-gallery">
                 {% if images|length %}
                     {% for image in images %}
+                        {% set largeImage = craft.imager.transformImage(image, { width: 1600 }) %}
+                        {% set lightboxUrl = largeImage ? largeImage.url : image.url %}
+                        {% set lightboxW = largeImage ? largeImage.width : image.width %}
+                        {% set lightboxH = largeImage ? largeImage.height : image.height %}
                         <figure>
-                            {% include "helpers/picture" with { desktop: { image: image, width: 900 } } %}
+                            <a href="{{ lightboxUrl }}" data-pswp-width="{{ lightboxW }}" data-pswp-height="{{ lightboxH }}" target="_blank" rel="noreferrer" style="display:block">
+                                {% include "helpers/picture" with { desktop: { image: image, width: 900 } } %}
+                            </a>
                         </figure>
                     {% endfor %}
                 {% else %}
                     <figure>
-                        <img src="/assets/images/lesene_terase/2.jpg" alt="{{ 'Vzorec eksotičnega lesa — terasa' | t }}" loading="lazy">
+                        <a href="/assets/images/lesene_terase/2.jpg" data-pswp-width="740" data-pswp-height="1048" target="_blank" rel="noreferrer" style="display:block">
+                            <img src="/assets/images/lesene_terase/2.jpg" alt="{{ 'Vzorec eksotičnega lesa — terasa' | t }}" loading="lazy">
+                        </a>
                     </figure>
                     <figure>
-                        <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Vzorec eksotičnega lesa — Garapa' | t }}" loading="lazy">
+                        <a href="/assets/images/lesene_terase/5.jpg" data-pswp-width="740" data-pswp-height="1048" target="_blank" rel="noreferrer" style="display:block">
+                            <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Vzorec eksotičnega lesa — Garapa' | t }}" loading="lazy">
+                        </a>
                     </figure>
                     <figure>
-                        <img src="/assets/images/lesene_terase/6.jpg" alt="{{ 'Vzorec eksotičnega lesa — detajl' | t }}" loading="lazy">
+                        <a href="/assets/images/lesene_terase/6.jpg" data-pswp-width="740" data-pswp-height="1048" target="_blank" rel="noreferrer" style="display:block">
+                            <img src="/assets/images/lesene_terase/6.jpg" alt="{{ 'Vzorec eksotičnega lesa — detajl' | t }}" loading="lazy">
+                        </a>
                     </figure>
                 {% endif %}
             </div>
@@ -59,7 +71,7 @@
                 <div class="lezalnik-product__form-wrap">
                     <span class="eyebrow">{{ 'Naročilo' | t }}</span>
                     <h2>{{ 'Pošljite povpraševanje' | t }}</h2>
-                    <p>{{ 'Obrazec odpre e-pošto na prodaja@ineg.si. Odgovorimo v enem delovnem dnevu.' | t }}</p>
+                    <p>{{ 'Izpolnite obrazec. Shranili bomo povpraševanje in vas kontaktirali na info@ineg.si.' | t }}</p>
 
                     <form id="lezalnikOrderForm" class="lezalnik-order-form" novalidate>
                         <div class="form-group">
@@ -81,7 +93,8 @@
                             <textarea id="lezalnikMessage" name="message" rows="5" placeholder="{{ 'Mere, vrsta lesa, količina …' | t }}" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">{{ "Pošlji povpraševanje" | t }}</button>
-                        <p class="form-note">{{ 'Ali pišite neposredno na' | t }} <a href="mailto:prodaja@ineg.si">prodaja@ineg.si</a></p>
+                        <p class="form-note">{{ 'Ali pišite neposredno na' | t }} <a href="mailto:info@ineg.si">info@ineg.si</a></p>
+                        <div class="form-feedback" role="status" aria-live="polite" style="display: none;"></div>
                     </form>
                 </div>
             </div>

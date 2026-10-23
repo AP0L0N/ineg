@@ -3,13 +3,21 @@
 #}
 {% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
 {% set lezalnikPage = lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null %}
+{% set productBlock = lezalnikPage and lezalnikPage.buildingBlocks is defined
+    ? lezalnikPage.buildingBlocks.type('lezalnikProduct').one()
+    : null %}
+{% set promoImages = productBlock and productBlock.images is defined ? productBlock.images.all() : [] %}
 {% set lezalnikUrl = lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') %}
 <section class="lezalnik-promo">
     <div class="container">
         <div class="lezalnik-promo__grid">
             <div class="lezalnik-promo__media">
-                <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Vzorec eksotičnega lesa za leseni ležalnik' | t }}" loading="lazy">
-                <p class="lezalnik-promo__caption">{{ 'Fotografije izdelka sledijo — prikazani so vzorci lesa z naših teras.' | t }}</p>
+                {% if promoImages|length %}
+                    {% include "helpers/picture" with { desktop: { image: promoImages[0], width: 900 } } %}
+                {% else %}
+                    <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Vzorec eksotičnega lesa za leseni ležalnik' | t }}" loading="lazy">
+                    <p class="lezalnik-promo__caption">{{ 'Fotografije izdelka sledijo — prikazani so vzorci lesa z naših teras.' | t }}</p>
+                {% endif %}
             </div>
             <div class="lezalnik-promo__content">
                 <span class="eyebrow">{{ 'Novost v ponudbi' | t }}</span>

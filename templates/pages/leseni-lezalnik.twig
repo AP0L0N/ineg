@@ -1,7 +1,7 @@
 {% extends '_layouts/site-content' %}
 
 {% set seoTitle = "Leseni ležalnik po meri | Eksotični les | INeG" %}
-{% set seoDescription = "Leseni ležalnik iz več vrst eksotičnega lesa. Izdelava po meri, usklajena z vašo teraso. Pošljite naročilo na prodaja@ineg.si." %}
+{% set seoDescription = "Leseni ležalnik iz več vrst eksotičnega lesa. Izdelava po meri, usklajena z vašo teraso. Pošljite naročilo na info@ineg.si." %}
 {% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
 {% set lezalnikPage = entry is defined ? entry : (lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null) %}
 {% set lezalnikUrl = lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') %}
@@ -57,31 +57,72 @@
         var form = document.getElementById('lezalnikOrderForm');
         if (!form) return;
 
+        var feedback = form.querySelector('.form-feedback');
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+        function showFeedback(message, type) {
+            if (!feedback) return;
+            feedback.textContent = message;
+            feedback.className = 'form-feedback form-feedback--' + type;
+            feedback.style.display = 'block';
+        }
+
+        function hideFeedback() {
+            if (!feedback) return;
+            feedback.style.display = 'none';
+            feedback.textContent = '';
+        }
+
+        function setLoading(isLoading) {
+            if (!submitBtn) return;
+            submitBtn.disabled = isLoading;
+            submitBtn.textContent = isLoading ? 'Pošiljanje ...' : originalBtnText;
+        }
+
         form.addEventListener('submit', function (e) {
             e.preventDefault();
+            hideFeedback();
+
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
 
-            var name = document.getElementById('lezalnikName').value.trim();
-            var email = document.getElementById('lezalnikEmail').value.trim();
-            var phone = document.getElementById('lezalnikPhone').value.trim();
-            var message = document.getElementById('lezalnikMessage').value.trim();
+            setLoading(true);
 
-            var body = [
-                'Naročilo: leseni ležalnik',
-                '',
-                'Ime in priimek: ' + name,
-                'E-naslov: ' + email,
-                'Telefon: ' + (phone || '—'),
-                '',
-                message
-            ].join('\n');
+            var data = {
+                name: document.getElementById('lezalnikName').value.trim(),
+                phone: document.getElementById('lezalnikPhone').value.trim(),
+                email: document.getElementById('lezalnikEmail').value.trim(),
+                type: 'Leseni ležalnik',
+                message: document.getElementById('lezalnikMessage').value.trim()
+            };
 
-            window.location.href = 'mailto:prodaja@ineg.si'
-                + '?subject=' + encodeURIComponent('Naročilo: leseni ležalnik')
-                + '&body=' + encodeURIComponent(body);
+            fetch('/actions/custom-module/user/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(function (response) { return response.json(); })
+            .then(function (result) {
+                if (result.success) {
+                    showFeedback('Hvala za vaše povpraševanje! Odgovorili vam bomo v najkrajšem možnem času.', 'success');
+                    form.reset();
+                } else {
+                    showFeedback('Prišlo je do napake pri pošiljanju. Poskusite znova.', 'error');
+                }
+            })
+            .catch(function () {
+                showFeedback('Prišlo je do napake pri pošiljanju. Poskusite znova.', 'error');
+            })
+            .finally(function () {
+                setLoading(false);
+            });
         });
     })();
     </script>

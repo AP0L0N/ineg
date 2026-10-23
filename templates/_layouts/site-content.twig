@@ -8,7 +8,11 @@
     <meta name="robots" content="index, follow">
 
     {#  SEO #}
-    {% hook "seo" %}
+    {% if seoTitle is defined and seoTitle %}
+        {% include "_fields/seo" %}
+    {% else %}
+        {% hook "seo" %}
+    {% endif %}
 
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">

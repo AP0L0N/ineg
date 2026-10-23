@@ -11,6 +11,7 @@
 namespace modules\custommodule\controllers;
 
 use Craft;
+use craft\helpers\Html;
 use craft\web\Controller;
 use Exception;
 use craft\elements\Entry;
@@ -114,6 +115,23 @@ class UserController extends Controller
         $success = Craft::$app->elements->saveElement($entry);
 
         if ($success) {
+            try {
+                $html = '<h2>Novo povpraševanje</h2>'
+                    . '<p><strong>Ime:</strong> ' . Html::encode((string)$name) . '</p>'
+                    . '<p><strong>E-naslov:</strong> ' . Html::encode((string)$email) . '</p>'
+                    . '<p><strong>Telefon:</strong> ' . Html::encode((string)$phone) . '</p>'
+                    . '<p><strong>Vrsta:</strong> ' . Html::encode((string)$type) . '</p>'
+                    . '<p><strong>Sporočilo:</strong><br>' . nl2br(Html::encode((string)$message), false) . '</p>';
+
+                Craft::$app->getMailer()->compose()
+                    ->setTo('info@ineg.si')
+                    ->setSubject('Novo povpraševanje: ' . $type)
+                    ->setHtmlBody($html)
+                    ->send();
+            } catch (\Throwable $e) {
+                Craft::error('Failed to send contact inquiry email: ' . $e->getMessage(), __METHOD__);
+            }
+
             return $this->asJson(['success' => true]);
         }
 

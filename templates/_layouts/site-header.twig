@@ -3,6 +3,12 @@
 {% set lezalnikSection = craft.app.sections.getSectionByHandle('leseniLezalnik') %}
 {% set lezalnikPage = lezalnikSection ? craft.entries.section('leseniLezalnik').one() : null %}
 {% set lezalnikUrl = lezalnikPage ? lezalnikPage.url : url('leseni-lezalnik') %}
+{% set lezalnikProductBlock = lezalnikPage and lezalnikPage.buildingBlocks is defined
+    ? lezalnikPage.buildingBlocks.type('lezalnikProduct').one()
+    : null %}
+{% set lezalnikThumb = lezalnikProductBlock and lezalnikProductBlock.images is defined
+    ? lezalnikProductBlock.images.one()
+    : null %}
 
 <header id="mainHeader" class="fixed-top">
 
@@ -138,7 +144,11 @@
                                             {% endfor %}
                                             <div class="mega-menu-list-item">
                                                 <div class="thumb">
-                                                    <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Leseni ležalnik' | t }}" width="160">
+                                                    {% if lezalnikThumb %}
+                                                        {% include "helpers/picture" with {desktop: {image: lezalnikThumb, width: 160} } %}
+                                                    {% else %}
+                                                        <img src="/assets/images/lesene_terase/5.jpg" alt="{{ 'Leseni ležalnik' | t }}" width="160">
+                                                    {% endif %}
                                                 </div>
                                                 <p class="title">{{ 'Leseni ležalnik' | t }}</p>
                                                 <a href="{{ lezalnikUrl }}"></a>
@@ -162,10 +172,6 @@
                                 <a class="nav-link" href="{{ navItem.url }}">{{ "O nas" | t }}</a>
                             </li>
                         {% endif %}
-
-                        <li class="nav-item {{ (entry is defined and entry.section.handle == 'leseniLezalnik') or craft.app.request.segments|first == 'leseni-lezalnik' ? 'active' }}">
-                            <a class="nav-link" href="{{ lezalnikUrl }}">{{ 'Leseni ležalnik' | t }}</a>
-                        </li>
 
                         <li class="nav-item d-flex align-items-center justify-content-center">
                             <button class="search-toggle d-none d-lg-inline-flex" type="button" aria-label="{{ 'Iskanje' | t }}" aria-controls="searchOverlay" aria-expanded="false">
@@ -202,7 +208,6 @@
         { name: 'Storitve', url: navServices ? navServices.url : '/lesene-terase' },
         { name: navBlog ? navBlog.title : 'Objave', url: navBlog ? navBlog.url : '/vse-objave' },
         { name: navAbout ? navAbout.title : 'O nas', url: navAbout ? navAbout.url : '/o-institutu' },
-        { name: 'Leseni ležalnik', url: lezalnikUrl },
         { name: navContact ? navContact.title : 'Kontakt', url: navContact ? navContact.url : '/kontakt' }
     ]) }}
 
@@ -221,4 +226,3 @@
         </div>
     </div>
 </header>
-

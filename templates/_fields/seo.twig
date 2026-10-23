@@ -1,14 +1,16 @@
 {# SEO Start #}
 	{# Tip: You can pass the handle of your SEO field - getSeoField('mySeoFieldHandle') #}
 	{% set seo = getSeoField() %}
-	{% if seo is null or seo.title == '' %}
+	{% if seoTitle is defined and seoTitle %}
+		{% set seo = craft.seo.custom(seoTitle, seoDescription is defined ? seoDescription : "", false) %}
+	{% elseif seo is null or seo.title == '' %}
 		{% set seo = craft.seo.custom(siteName, '', false) %}
 	{% endif -%}
 
 	{% set locale = craft.app.locale %}
 	{% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
 
-	<title>{{ seo.title }}</title>
+	<title>{{ seoTitle is defined and seoTitle ? seoTitle : seo.title }}</title>
 	<meta name="description" content="{{ seo.description }}" />
 
 	{% set fb = seo.social.facebook -%}
