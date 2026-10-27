@@ -1,6 +1,6 @@
 {#
     Robi + Žiga — vedno prikazana kontakta.
-    variant: topbar | mobile | drawer | banner | page | dark
+    variant: topbar | mobile | drawer | inline | banner | page | dark
 #}
 {% set variant = variant|default('banner') %}
 {% set people = [
@@ -66,6 +66,9 @@
             </a>
         </li>
     {% endfor %}
+{% elseif variant == 'inline' %}
+    {# Ena vrstica: Robi · Žiga · e-pošta (404 stran) #}
+    {% for person in people %}<a href="tel:{{ person.tel }}"><strong>{{ person.shortName | t }}</strong> {{ person.phone }}</a><span class="dot" aria-hidden="true">·</span>{% endfor %}<a href="mailto:info@ineg.si">info@ineg.si</a>
 {% else %}
     <ul class="contact-people contact-people--{{ variant }}">
         {% for person in people %}

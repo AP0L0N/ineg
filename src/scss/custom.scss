@@ -5,6 +5,7 @@
 @use "mobileMenu";
 @use "footer";
 @use "modules";
+@use "error404";
 
 // Swiper's CSS is imported directly (not via Sass) in src/js/swipers.js — see notes there.
 // This keeps Swiper's large stylesheet out of the Sass rebuild graph, so editing .scss

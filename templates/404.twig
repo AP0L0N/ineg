@@ -1,0 +1,88 @@
+{#
+    404 — stran ni najdena.
+    Craft samodejno izriše templates/404.twig ob 404 in ohrani status HTTP 404.
+    Design: Marc (/workspace/ineg-404/SPEC.md), besedilo: Marie (končno, ne spreminjaj).
+#}
+{% extends '_layouts/site-content' %}
+
+{# Layout prebere `robots`; 404 ne sme biti indeksirana #}
+{% set robots = 'noindex' %}
+
+{% set blogsEntry = craft.entries.section('seznamObjav').one() %}
+{% set teraseEntry = craft.entries.section('leseneTerase').one() %}
+{% set contactEntry = craft.entries.section('kontakt').one() %}
+
+{# Samo <title> — brez canonical/og:url na napačen URL #}
+{% block seo %}
+    <title>Stran ni najdena - INeG</title>
+{% endblock %}
+
+{% block content %}
+<div class="error-page">
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li><a href="{{ siteUrl }}">{{ 'Domov' | t }}</a></li>
+                <li class="sep">/</li>
+                <li class="current" aria-current="page">Napaka 404</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="error-404" aria-labelledby="error-404-title">
+        <div class="container">
+            <div class="error-404__grid">
+
+                <div class="error-404__art" aria-hidden="true">
+                    <svg class="error-404__svg" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                        <text x="180" y="118" text-anchor="middle" class="error-404__num">404</text>
+                        <!-- terrace boards, one missing -->
+                        <g class="error-404__boards">
+                            <rect x="20" y="150" width="320" height="16" rx="3"/>
+                            <rect x="20" y="172" width="320" height="16" rx="3"/>
+                            <rect x="20" y="194" width="130" height="16" rx="3"/>
+                            <rect x="210" y="194" width="130" height="16" rx="3"/>
+                            <rect x="20" y="216" width="320" height="16" rx="3"/>
+                        </g>
+                        <!-- the missing board, lying askew -->
+                        <rect class="error-404__loose" x="150" y="192" width="60" height="16" rx="3" transform="rotate(-14 180 200)"/>
+                        <g class="error-404__joists">
+                            <line x1="60" y1="146" x2="60" y2="236"/><line x1="180" y1="146" x2="180" y2="236"/><line x1="300" y1="146" x2="300" y2="236"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="error-404__content">
+                    <span class="error-404__eyebrow"><i class="fal fa-compass" aria-hidden="true"></i> Napaka 404</span>
+                    <h1 id="error-404-title" class="error-404__title">Te strani nismo našli.</h1>
+                    <p class="error-404__lead">Morda je bila prestavljena ali pa povezava ni več prava.<br class="d-none d-md-inline"> Spodaj najdete pot naprej, lahko pa nas tudi pokličete in z veseljem vam pomagamo.</p>
+
+                    <div class="error-404__actions">
+                        <a href="{{ siteUrl }}" class="btn btn-primary"><span>Na začetno stran</span></a>
+                    </div>
+
+                    <form action="{{ blogsEntry ? blogsEntry.url : url('vse-objave') }}" method="get" class="error-404__search" role="search">
+                        <label for="error-404-q" class="sr-only">{{ 'Iskanje po vsebini' | t }}</label>
+                        <i class="fal fa-search" aria-hidden="true"></i>
+                        <input type="search" id="error-404-q" name="q" placeholder="Kaj iščete?" autocomplete="off">
+                        <button type="submit">{{ 'Išči' | t }}</button>
+                    </form>
+
+                    <nav class="error-404__links" aria-label="Koristne povezave">
+                        <ul>
+                            <li><a href="{{ teraseEntry ? teraseEntry.url : url('lesene-terase') }}">Lesene terase <i class="fal fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ siteUrl }}#storitve">Vse storitve <i class="fal fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ contactEntry ? contactEntry.url : url('kontakt') }}">Kontaktirajte nas <i class="fal fa-angle-right" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </nav>
+
+                    <p class="error-404__contact">
+                        {% include '_includes/contact-people' with { variant: 'inline' } %}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

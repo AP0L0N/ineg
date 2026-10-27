@@ -1,0 +1,52 @@
+// 404 page (templates/404.twig). Design: Marc, 2026-10-27.
+/* ineg.si 404 page. Reuses site tokens: orange #f89b53 (hover #d67f3c), text #404040, headings #000,
+   cream #fff6ee, sand #f1e4d6, border #f0f0f0, muted #9a9a9a. Fonts: Albert Sans (headings, buttons), Jost (body). */
+.error-404{background:#fff6ee;padding:40px 0 56px}
+.error-404__grid{display:flex;flex-direction:column;gap:24px}
+.error-404__art{max-width:260px;width:100%;margin:0 auto}
+.error-404__svg{display:block;width:100%;height:auto}
+.error-404__num{font-family:"Albert Sans",sans-serif;font-weight:700;font-size:128px;letter-spacing:-4px;fill:#f89b53}
+.error-404__boards rect{fill:#f1e4d6;stroke:#d67f3c;stroke-width:1.5}
+.error-404__loose{fill:#f89b53}
+.error-404__joists line{stroke:#d67f3c;stroke-width:1;stroke-dasharray:3 4;opacity:.5}
+.error-404__content{text-align:left}
+.error-404__eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:2px;font-family:"Albert Sans",sans-serif;font-size:13px;font-weight:600;color:#f89b53;margin-bottom:14px}
+.error-404 .error-404__title{font-family:"Albert Sans",sans-serif;font-weight:700;color:#000;line-height:1.1;letter-spacing:0;margin:0 0 14px;font-size:clamp(30px,calc(30px + 18 * (100vw - 375px) / 765),48px)!important}
+.error-404__lead{font-family:Jost,sans-serif;font-size:17px;line-height:1.6;color:#404040;margin:0 0 24px;max-width:560px}
+.error-404__actions{margin-bottom:24px}
+.error-404__actions .btn{width:100%}
+.error-404__search{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #f1e4d6;border-radius:10px;padding:6px 6px 6px 14px;max-width:480px;margin-bottom:24px}
+.error-404__search:focus-within{border-color:#f89b53;box-shadow:0 0 0 3px rgba(248,155,83,.25)}
+.error-404__search i{color:#9a9a9a}
+.error-404__search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-family:Jost,sans-serif;font-size:16px;color:#404040;padding:8px 4px}
+.error-404__search button{border:0;border-radius:8px;background:#000;color:#fff;font-family:"Albert Sans",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:13px;padding:10px 16px;cursor:pointer}
+.error-404__search button:hover,.error-404__search button:focus-visible{background:#f89b53;color:#000}
+.error-404__links ul{list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;border-top:1px solid #f1e4d6}
+.error-404__links li{border-bottom:1px solid #f1e4d6}
+.error-404__links a{display:flex;justify-content:space-between;align-items:center;padding:14px 2px;font-family:"Albert Sans",sans-serif;font-weight:600;font-size:16px;color:#000;text-decoration:none}
+.error-404__links a i{color:#f89b53;transition:transform .2s ease}
+.error-404__links a:hover,.error-404__links a:focus-visible{color:#d67f3c}
+.error-404__links a:hover i{transform:translateX(3px)}
+.error-404__contact{font-family:Jost,sans-serif;font-size:14px;color:#9a9a9a;margin:0;display:flex;flex-wrap:wrap;gap:4px 10px}
+.error-404__contact a{color:#404040;text-decoration:none;white-space:nowrap}
+.error-404__contact a:hover{color:#f89b53}
+.error-404__contact .dot{color:#d67f3c}
+.error-404 a:focus-visible,.error-404 button:focus-visible{outline:2px solid #000;outline-offset:2px}
+@media (min-width:576px){
+  .error-404__actions .btn{width:auto}
+}
+@media (min-width:768px){
+  .error-404__links ul{flex-direction:row;flex-wrap:wrap;gap:10px;border:0}
+  .error-404__links li{border:0}
+  .error-404__links a{padding:9px 16px;border:1px solid #f1e4d6;border-radius:50px;background:#fff;font-size:15px;gap:8px}
+  .error-404__links a:hover{border-color:#f89b53}
+}
+@media (min-width:992px){
+  .error-404{padding:96px 0 120px}
+  .error-404__grid{flex-direction:row-reverse;align-items:center;gap:64px}
+  .error-404__art{flex:0 0 42%;max-width:440px;margin:0}
+  .error-404__content{flex:1}
+}
+
+// Homepage services anchor (/#storitve) clears the fixed header
+#storitve{scroll-margin-top:var(--header-height,135px)}

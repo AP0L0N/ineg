@@ -6,7 +6,7 @@
 {% set data = data is defined ? data : field %}
 {% set services = storitve.storitveInOpisi.active(true).all() %}
 
-<section class="services-grid">
+<section class="services-grid" id="storitve">
     <div class="container">
         <div class="section-head">
             {% if data.eyebrow is defined %}<span class="eyebrow">{{ data.eyebrow }}</span>{% endif %}
